@@ -3,11 +3,11 @@
 import Signin from "@/components/Auth/Signin";
 import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { AlertCircle } from "lucide-react";
 
-const SigninClient = () => {
+function SigninClientContent() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -50,6 +50,18 @@ const SigninClient = () => {
       )}
       <Signin />
     </>
+  );
+}
+
+const SigninClient = () => {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center py-8">
+        <div className="animate-pulse">Loading...</div>
+      </div>
+    }>
+      <SigninClientContent />
+    </Suspense>
   );
 };
 
