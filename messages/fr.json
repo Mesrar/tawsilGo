@@ -2,7 +2,7 @@
   "home": {
     "hero": {
       "title": "Envoyez des colis au Maroc 🇲🇦",
-      "subtitle": "Livraison par bus depuis l'Europe vers le Maroc. Jusqu'à 70% moins cher que les transporteurs traditionnels.",
+      "subtitle": "Livraison par bus ou fourgon spécialisé depuis l'Europe vers le Maroc. Jusqu'à 70% moins cher que les transporteurs traditionnels.",
       "trustBadge": "🏆 Approuvé par 10 000+ familles marocaines",
       "cta": "Afficher les itinéraires",
       "loading": "Chargement...",
@@ -29,8 +29,8 @@
       "sectionDescription": "Envoyez des colis chez vous avec des chauffeurs de bus de confiance. Plus rapide, moins cher et conçu pour les familles marocaines.",
       "cta": "Commencer à expédier au Maroc",
       "busDelivery": {
-        "title": "Livraison par bus",
-        "description": "Votre colis voyage avec des chauffeurs de bus de confiance sur des lignes comme Paris-Casablanca, Lyon-Marrakech."
+        "title": "Options de transport flexibles",
+        "description": "Choisissez le transport par bus économique ou le service par fourgon spécialisé—adapté aux besoins et délais de votre colis."
       },
       "moroccoSpecialists": {
         "title": "Spécialistes du Maroc",
@@ -55,7 +55,7 @@
       "guarantee": "Garantie de satisfaction à 100%"
     },
     "cta": {
-      "badge": "Livraison par bus vers le Maroc",
+      "badge": "Livraison par bus ou fourgon vers le Maroc",
       "heading": "Envoyez des colis",
       "headingHighlight": "au Maroc",
       "description": "Économisez jusqu'à 70% sur l'expédition de l'Europe vers le Maroc avec des chauffeurs de bus de confiance sur des lignes quotidiennes.",
@@ -925,6 +925,7 @@
     "tracking": "Suivi",
     "support": "Assistance",
     "account": "Compte",
+    "more": "Plus",
     "businessSolutions": "Solutions entreprise",
     "routeCoverage": "Couverture des itinéraires",
     "howItWorks": "Comment ça marche",
@@ -1310,7 +1311,7 @@
       "badge": "Simple et Transparent",
       "title": "Comment Fonctionne TawsilGo",
       "subtitle": "De Votre Porte à la Leur",
-      "description": "Livraison par bus plus rapide et moins chère que les transporteurs traditionnels. Voici exactement comment nous livrons vos colis au Maroc.",
+      "description": "Livraison par bus ou fourgon spécialisé, plus rapide et moins chère que les transporteurs traditionnels. Voici exactement comment nous livrons vos colis au Maroc.",
       "cta": "Essayez Maintenant"
     },
     "deliveryJourney": {
