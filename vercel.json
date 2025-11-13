@@ -1,21 +1,12 @@
 {
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
-  "installCommand": "npm install",
+  "installCommand": "npm install --legacy-peer-deps",
   "framework": "nextjs",
   "regions": ["cdg1"],
-  "env": {
-    "NEXTAUTH_SECRET": "@nextauth-secret",
-    "NEXTAUTH_URL": "@nextauth-url",
-    "VERIFY_API_URL": "@verify-api-url",
-    "PARCEL_API_URL": "@parcel-api-url",
-    "PAYMENT_API_URL": "@payment-api-url",
-    "DRIVER_API_URL": "@driver-api-url",
-    "JWT_SECRET_KEY": "@jwt-secret-key"
-  },
-  "build": {
-    "env": {
-      "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY": "@next-public-stripe-publishable-key"
+  "git": {
+    "deploymentEnabled": {
+      "main": true
     }
   },
   "headers": [
