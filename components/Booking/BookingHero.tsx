@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useTranslations } from 'next-intl';
 import { Button } from "@/components/ui/button";
 import {
@@ -23,21 +24,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-interface BookingHeroProps {
-  departureCountry: string;
-  destinationCountry: string;
-  setDepartureCountry: (country: string) => void;
-  setDestinationCountry: (country: string) => void;
-  onSearchClick: () => void;
-}
-
-export function BookingHero({
-  departureCountry,
-  destinationCountry,
-  setDepartureCountry,
-  setDestinationCountry,
-  onSearchClick,
-}: BookingHeroProps) {
+export function BookingHero() {
+  const router = useRouter();
+  const [departureCountry, setDepartureCountry] = useState("france");
+  const [destinationCountry, setDestinationCountry] = useState("morocco");
   const t = useTranslations('home.hero');
   const tBooking = useTranslations('booking.hero');
   const tCountries = useTranslations('countries');
@@ -46,9 +36,14 @@ export function BookingHero({
 
   const handleSearch = () => {
     setIsLoading(true);
+    // Create query parameters for the booking page
+    const params = new URLSearchParams();
+    params.append("from", departureCountry);
+    params.append("to", destinationCountry);
+
     // Simulate loading state for better feedback
     setTimeout(() => {
-      onSearchClick();
+      router.push(`/booking?${params.toString()}`);
       setIsLoading(false);
     }, 800);
   };
