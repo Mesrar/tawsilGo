@@ -1,19 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Separator } from "@/components/ui/separator";
-import { 
-  CheckCircle2, 
-  Loader2, 
-  AlertCircle, 
-  CreditCard, 
-  Calendar, 
-  FileText, 
+import {
+  CheckCircle2,
+  Loader2,
+  AlertCircle,
+  CreditCard,
+  Calendar,
+  FileText,
   ArrowRight,
   ExternalLink,
   Home
@@ -25,7 +25,7 @@ import { PaymentVerificationResult } from "@/types/payment";
 
 
 
-export default function PaymentSuccessPage() {
+function PaymentSuccessContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
@@ -389,5 +389,19 @@ export default function PaymentSuccessPage() {
         </CardFooter>
       </Card>
     </main>
+  );
+}
+
+export default function PaymentSuccessPage() {
+  return (
+    <Suspense fallback={
+      <main className="container max-w-md mx-auto px-4 py-8 md:py-12 lg:py-16 min-h-screen">
+        <div className="flex justify-center items-center min-h-[400px]">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      </main>
+    }>
+      <PaymentSuccessContent />
+    </Suspense>
   );
 }

@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,7 +18,7 @@ import { ResetPasswordFormData, resetPasswordFormSchema } from "@/types/userForm
 
 
 
-export default function ConfirmResetPasswordPage() {
+function ConfirmResetPasswordContent() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isValidToken, setIsValidToken] = useState<boolean | null>(null);
@@ -312,5 +312,20 @@ export default function ConfirmResetPasswordPage() {
         </Card>
       </motion.div>
     </div>
+  );
+}
+
+export default function ConfirmResetPasswordPage() {
+  return (
+    <Suspense fallback={
+      <div className="container mx-auto px-4 py-20">
+        <div className="mx-auto max-w-md text-center">
+          <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4 text-primary" />
+          <p>Loading...</p>
+        </div>
+      </div>
+    }>
+      <ConfirmResetPasswordContent />
+    </Suspense>
   );
 }

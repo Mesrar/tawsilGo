@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { paymentService } from "@/app/services/paymentService";
 import { PaymentDetails } from "@/types/payment";
@@ -109,7 +109,7 @@ const usePaymentIntent = (paymentId?: string | null, bookingId?: string | null) 
 };
 
 // Payment Page Component
-export default function PaymentPage() {
+function PaymentPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const paymentId = searchParams?.get("paymentId");
@@ -268,5 +268,19 @@ export default function PaymentPage() {
           </CardFooter>
         </Card>
     </main>
+  );
+}
+
+export default function PaymentPage() {
+  return (
+    <Suspense fallback={
+      <main className="container max-w-md mx-auto px-4 py-8 md:py-12 lg:py-16 min-h-screen">
+        <div className="flex justify-center items-center min-h-[400px]">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      </main>
+    }>
+      <PaymentPageContent />
+    </Suspense>
   );
 }

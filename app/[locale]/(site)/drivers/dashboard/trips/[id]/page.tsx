@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -97,7 +97,7 @@ async function getTripDetails(id: string): Promise<TripDetails> {
   return data;
 }
 
-export default function TripDetailsPage() {
+function TripDetailsPageContent() {
   const params = useParams();
   const searchParams = useSearchParams();
   const id = params?.id as string;
@@ -453,5 +453,22 @@ export default function TripDetailsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function TripDetailsPage() {
+  return (
+    <Suspense fallback={
+      <div className="container mx-auto p-4">
+        <div className="flex justify-center items-center min-h-[400px]">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+            <p className="text-muted-foreground">Loading trip details...</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <TripDetailsPageContent />
+    </Suspense>
   );
 }

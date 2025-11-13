@@ -5,12 +5,13 @@ import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { XCircle } from "lucide-react";
+import { Suspense } from "react";
 
-export default function PaymentCancelPage() {
+function PaymentCancelContent() {
   const searchParams = useSearchParams();
   const paymentId = searchParams?.get("payment_intent");
   const reason = searchParams?.get("reason") || "The payment was canceled";
-  
+
   return (
     <div className="container max-w-md mx-auto py-12">
       <Card className="w-full">
@@ -54,5 +55,13 @@ export default function PaymentCancelPage() {
         </CardFooter>
       </Card>
     </div>
+  );
+}
+
+export default function PaymentCancelPage() {
+  return (
+    <Suspense fallback={<div className="container max-w-md mx-auto py-12 text-center">Loading...</div>}>
+      <PaymentCancelContent />
+    </Suspense>
   );
 }
