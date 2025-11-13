@@ -2091,6 +2091,85 @@
         "contact": "Contacter l'Équipe Commerciale",
         "pricing": "Voir les Tarifs Professionnels"
       }
+    },
+    "contactUs": "Nous Contacter",
+    "location": "Emplacement",
+    "email": "Email",
+    "phone": "Téléphone",
+    "sendMessage": "Envoyer un Message",
+    "sendMessageButton": "Envoyer le Message",
+    "fullName": "Nom Complet",
+    "fullNamePlaceholder": "Entrez votre nom complet",
+    "emailPlaceholder": "Entrez votre adresse email",
+    "message": "Message",
+    "messagePlaceholder": "Entrez votre message",
+    "agreeToTerms": "J'accepte les",
+    "terms": "Conditions d'Utilisation",
+    "and": "et",
+    "privacyPolicy": "Politique de Confidentialité"
+  },
+  "pricing": {
+    "hero": {
+      "badge": "Tarification Transparente",
+      "title": "Tarification Simple et Honnête pour",
+      "titleHighlight": "l'Expédition de l'Europe vers le Maroc",
+      "subtitle": "Pas de frais cachés. Pas de surprises. Juste une tarification transparente en qui vous pouvez avoir confiance."
+    },
+    "calculator": {
+      "title": "Calculez Votre Coût d'Expédition",
+      "originCountry": "Pays d'Origine",
+      "destinationCountry": "Destination",
+      "parcelWeight": "Poids du Colis (kg)",
+      "addOnServices": "Services Supplémentaires"
+    },
+    "addOns": {
+      "express": {
+        "name": "Livraison Express",
+        "price": "+€15",
+        "description": "Livraison plus rapide en 2-3 jours"
+      },
+      "insurance": {
+        "name": "Couverture d'Assurance",
+        "price": "+€8",
+        "description": "Couverture complète jusqu'à 500€"
+      },
+      "customs": {
+        "name": "Dédouanement",
+        "price": "+€12",
+        "description": "Nous gérons toutes les formalités douanières"
+      },
+      "fragile": {
+        "name": "Manipulation Fragile",
+        "price": "+€10",
+        "description": "Soin spécial pour les articles délicats"
+      }
+    },
+    "quote": {
+      "title": "Votre Devis",
+      "baseShipping": "Expédition de Base"
     }
+  },
+  "tracking": {
+    "title": "Suivi de Colis",
+    "subtitle": "Suivez votre colis en temps réel",
+    "trackingNumber": "Numéro de Suivi",
+    "enterTracking": "Entrez votre numéro de suivi",
+    "track": "Suivre",
+    "status": "Statut",
+    "location": "Emplacement",
+    "estimatedDelivery": "Livraison Estimée",
+    "trackPackage": "Suivre le Colis",
+    "trackingNumberPlaceholder": "Entrez votre numéro de suivi",
+    "startTracking": "Commencer le Suivi",
+    "startTrackingDescription": "Entrez votre numéro de suivi pour voir l'état actuel de votre colis",
+    "whereToFind": "Où trouver votre numéro de suivi ?",
+    "bookingConfirmationEmail": "E-mail de confirmation de réservation",
+    "smsNotification": "Notification SMS",
+    "printedReceipt": "Reçu imprimé",
+    "scanQR": "Scanner le code QR",
+    "exampleFormat": "Format d'exemple : TG-XXXXXXXXXX"
+  },
+  "organization": {
+    "register": "Enregistrer l'Organisation"
   }
 }
