@@ -54,11 +54,11 @@ export function LanguageSwitcher() {
         onValueChange={handleLocaleChange}
         disabled={isPending}
       >
-        <SelectTrigger className="w-[140px] h-9 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+        <SelectTrigger className="w-[140px] h-9 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white">
           <SelectValue>
             <div className="flex items-center gap-2">
               <span>{currentLanguage?.flag}</span>
-              <span className="text-sm">{currentLanguage?.nativeName}</span>
+              <span className="text-sm text-slate-900 dark:text-white">{currentLanguage?.nativeName}</span>
             </div>
           </SelectValue>
         </SelectTrigger>
@@ -72,7 +72,7 @@ export function LanguageSwitcher() {
               <div className="flex items-center gap-3">
                 <span className="text-lg">{language.flag}</span>
                 <div className="flex flex-col items-start">
-                  <span className="text-sm font-medium">{language.nativeName}</span>
+                  <span className="text-sm font-medium text-slate-900 dark:text-white">{language.nativeName}</span>
                   <span className="text-xs text-slate-500 dark:text-slate-400">
                     {language.name}
                   </span>

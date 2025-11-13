@@ -12,6 +12,7 @@ const ThemeToggler = () => {
         variant="ghost"
         size="icon"
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        className="text-slate-900 dark:text-slate-100"
       >
         <Icons.sun className="h-[1.5rem] w-[1.3rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
         <Icons.moon className="absolute h-[1.5rem] w-[1.3rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />

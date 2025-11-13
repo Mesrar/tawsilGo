@@ -227,10 +227,10 @@ export function Header() {
               ) : (
                 <Button
                   onClick={() => signIn()}
-                  className="rounded-full bg-primary px-5 py-1.5 h-9 font-medium text-primary-foreground hover:bg-primary/90 flex items-center gap-1.5"
+                  className="rounded-full bg-primary px-5 py-1.5 h-9 font-medium text-slate-900 dark:text-slate-900 hover:bg-primary/90 flex items-center gap-1.5"
                 >
                   Get Started
-                  <ArrowRight className="h-3.5 w-3.5" />
+                  <ArrowRight className="h-3.5 w-3.5 text-slate-900 dark:text-slate-900" />
                 </Button>
               )}
             </div>
