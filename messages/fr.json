@@ -1,0 +1,2096 @@
+{
+  "home": {
+    "hero": {
+      "title": "Envoyez des colis au Maroc 🇲🇦",
+      "subtitle": "Livraison par bus depuis l'Europe vers le Maroc. Jusqu'à 70% moins cher que les transporteurs traditionnels.",
+      "trustBadge": "🏆 Approuvé par 10 000+ familles marocaines",
+      "cta": "Afficher les itinéraires",
+      "loading": "Chargement...",
+      "formTitle": "Obtenez un devis rapide",
+      "priceEstimate": "Obtenez un devis rapide",
+      "switchRoute": "Inverser le départ et la destination",
+      "from": "De",
+      "to": "Vers",
+      "selectDeparture": "Sélectionner le départ",
+      "selectDestination": "Sélectionner la destination",
+      "popularRoutes": "Itinéraires populaires",
+      "fastDelivery": "Livraison rapide",
+      "secure": "Sécurisé",
+      "affordable": "Abordable",
+      "reviews": "4,9/5 sur 2 000+ avis"
+    },
+    "features": {
+      "badge": "Conçu pour la diaspora marocaine",
+      "heading": "Expédition de l'Europe vers le Maroc",
+      "subheading": "Envoyez des colis chez vous avec des chauffeurs de bus de confiance. Plus rapide, moins cher et conçu pour les familles marocaines.",
+      "sectionBadge": "Conçu pour la diaspora marocaine",
+      "sectionTitle": "Expédition de l'Europe vers {highlight}",
+      "sectionTitleHighlight": "le Maroc",
+      "sectionDescription": "Envoyez des colis chez vous avec des chauffeurs de bus de confiance. Plus rapide, moins cher et conçu pour les familles marocaines.",
+      "cta": "Commencer à expédier au Maroc",
+      "busDelivery": {
+        "title": "Livraison par bus",
+        "description": "Votre colis voyage avec des chauffeurs de bus de confiance sur des lignes comme Paris-Casablanca, Lyon-Marrakech."
+      },
+      "moroccoSpecialists": {
+        "title": "Spécialistes du Maroc",
+        "description": "Nous comprenons les douanes marocaines, les délais d'expédition pour l'Aïd et les besoins des colis familiaux."
+      },
+      "transparentPricing": {
+        "title": "Tarification transparente",
+        "description": "Consultez les coûts en EUR et MAD dès le début. Pas de frais cachés, pas de surprises."
+      },
+      "secureToMorocco": {
+        "title": "Sécurisé jusqu'au Maroc",
+        "description": "Suivi de bout en bout depuis l'Europe jusqu'à la porte de votre famille à Casablanca, Rabat ou Tanger."
+      },
+      "trustedByFamilies": {
+        "title": "Approuvé par les familles",
+        "description": "10 000+ familles marocaines nous font confiance pour leurs cadeaux précieux, documents et produits essentiels."
+      },
+      "mobileFirst": {
+        "title": "Mobile d'abord",
+        "description": "Gérez vos expéditions en déplacement, parfait pour le mode de vie diaspora entre l'Europe et le Maroc."
+      },
+      "guarantee": "Garantie de satisfaction à 100%"
+    },
+    "cta": {
+      "badge": "Livraison par bus vers le Maroc",
+      "heading": "Envoyez des colis",
+      "headingHighlight": "au Maroc",
+      "description": "Économisez jusqu'à 70% sur l'expédition de l'Europe vers le Maroc avec des chauffeurs de bus de confiance sur des lignes quotidiennes.",
+      "trustCount": "<count>5 000+</count> membres de confiance",
+      "trustCountValue": "5 000+",
+      "button": "Réserver votre expédition",
+      "features": {
+        "crossBorder": "Transfrontalier",
+        "secureHandling": "Manipulation sécurisée",
+        "liveTracking": "Suivi en direct",
+        "lowestRates": "Tarifs les plus bas"
+      }
+    },
+    "faq": {
+      "badge": "Assistance expédition",
+      "title": "Vos {highlight} logistiques",
+      "titleHighlight": "questions",
+      "description": "Obtenez des réponses aux questions les plus courantes sur notre processus d'expédition",
+      "categories": {
+        "all": "Tout",
+        "shipping": "Expédition",
+        "payment": "Paiement",
+        "security": "Sécurité",
+        "support": "Assistance"
+      },
+      "noResults": "Aucune FAQ trouvée dans cette catégorie",
+      "viewAll": "Voir toutes les FAQ",
+      "support": {
+        "title": "Assistance 24/7",
+        "description": "Besoin d'aide urgente ? Notre équipe d'assistance multilingue est disponible 24h/24.",
+        "responseTime": "Temps de réponse moyen :",
+        "responseValue": "8 minutes",
+        "trustBadge": "Partenaires de bus vérifiés",
+        "trustDescription": "Chauffeurs licenciés, 10+ ans de routes au Maroc"
+      },
+      "questions": {
+        "busDelivery": {
+          "question": "Comment fonctionne la livraison par bus vers le Maroc ?",
+          "answer": "Votre colis voyage avec des chauffeurs de bus vérifiés sur des lignes régulières depuis les villes européennes vers le Maroc. Nous collaborons avec des compagnies de bus de confiance opérant des lignes quotidiennes comme Paris-Casablanca, Lyon-Marrakech et Madrid-Tanger. Vous déposez votre colis à notre point de collecte, nous le remettons au chauffeur, et il est livré de porte-à-porte au Maroc avec un suivi complet."
+        },
+        "deliveryTime": {
+          "question": "Combien de temps prend la livraison de l'Europe au Maroc ?",
+          "answer": "Le délai de livraison moyen est de 3 à 5 jours depuis les grandes villes européennes vers le Maroc. Paris à Casablanca prend généralement 3-4 jours, tandis que les routes depuis l'Allemagne ou les Pays-Bas prennent 4-5 jours. Nous fournissons des mises à jour de suivi en temps réel tout au long du voyage."
+        },
+        "customs": {
+          "question": "Que puis-je envoyer au Maroc ? Y a-t-il des restrictions douanières ?",
+          "answer": "Vous pouvez envoyer des cadeaux, documents, vêtements, électronique et la plupart des articles personnels. Les douanes marocaines interdisent les armes, drogues, alcool et produits à base de porc. Les articles d'une valeur supérieure à 40€ peuvent nécessiter une déclaration douanière. Nous recommandons de conserver les reçus pour l'électronique et les articles de valeur."
+        },
+        "eid": {
+          "question": "Puis-je expédier des cadeaux pour l'Aïd ou le Ramadan ?",
+          "answer": "Absolument ! Nous offrons une expédition prioritaire pour l'Aïd pour garantir que vos cadeaux arrivent avant la célébration. Pendant les périodes de Ramadan et de l'Aïd, nous recommandons de réserver 10-14 jours à l'avance en raison de la forte demande. Les pâtisseries marocaines traditionnelles, vêtements et articles cadeaux sont les bienvenus (pas de denrées périssables)."
+        },
+        "insurance": {
+          "question": "Mon colis est-il assuré pendant le transport ?",
+          "answer": "Tous les envois incluent une couverture d'assurance gratuite jusqu'à 500€. Pour les articles de valeur comme l'électronique, les bijoux ou les documents importants, nous proposons une assurance premium jusqu'à 5 000€ moyennant un petit supplément."
+        },
+        "verification": {
+          "question": "Comment les chauffeurs de bus sont-ils vérifiés ?",
+          "answer": "Nous ne collaborons qu'avec des compagnies de bus agréées ayant des lignes établies Europe-Maroc. Tous les chauffeurs subissent des vérifications d'antécédents, possèdent des permis de conduire commerciaux valides et sont formés à la manipulation des colis. Nos partenaires de bus opèrent des routes vers le Maroc depuis plus de 10 ans."
+        },
+        "payment": {
+          "question": "Quels modes de paiement acceptez-vous ?",
+          "answer": "Nous acceptons toutes les cartes de crédit/débit majeures (Visa, Mastercard, Amex), PayPal, Apple Pay et Google Pay. Vous pouvez voir les prix en EUR et MAD (Dirham marocain). Toutes les transactions sont traitées de manière sécurisée via Stripe avec authentification 3D Secure."
+        },
+        "support": {
+          "question": "Comment puis-je contacter le support client ?",
+          "answer": "Contactez notre équipe d'assistance multilingue (français, arabe, anglais) via WhatsApp au +33 XX XXX XXXX, par e-mail à support@tawsilgo.com, ou via le chat dans l'application. Nous sommes disponibles 7 jours sur 7, de 9h à 21h CET. Le temps de réponse moyen est inférieur à 2 heures."
+        },
+        "tracking": {
+          "question": "Où puis-je suivre mon colis ?",
+          "answer": "Une fois votre colis collecté, vous recevrez un numéro de suivi par SMS et e-mail. Suivez en temps réel via notre application mobile ou notre site web. Vous recevrez des mises à jour lorsque le bus quitte l'Europe, traverse vers le Maroc, passe les douanes et arrive dans la ville de destination."
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "Comment ça marche",
+      "heading": "Simple, Rapide, Transparent",
+      "description": "Quatre étapes faciles de votre porte en Europe à la maison de votre famille au Maroc",
+      "steps": {
+        "bookOnline": {
+          "title": "Réservez en ligne",
+          "description": "Entrez les détails et obtenez un prix instantané. Payez en toute sécurité avec Stripe."
+        },
+        "wePickUp": {
+          "title": "Nous récupérons",
+          "description": "Le chauffeur vient à votre porte en Europe. Pas besoin de visite de dépôt."
+        },
+        "busTransit": {
+          "title": "Transit en bus",
+          "description": "Votre colis voyage avec des chauffeurs agréés. Suivez en temps réel."
+        },
+        "delivered": {
+          "title": "Livré",
+          "description": "Directement à votre famille au Maroc. Livraison en 48-72 heures."
+        }
+      },
+      "cta": "En savoir plus sur notre processus"
+    },
+    "trustMarquee": {
+      "badge": "Au service des familles marocaines à travers les continents",
+      "heading": "Approuvé dans <highlight>16+ villes</highlight>",
+      "headingHighlight": "16+ villes",
+      "description": "De l'Europe au Maroc - livraison de souvenirs, pas seulement de colis",
+      "moroccoLabel": "🇲🇦 Destinations au Maroc",
+      "europeLabel": "🇪🇺 Points de collecte en Europe",
+      "deliveries": "livraisons",
+      "sent": "envoyés",
+      "footer": "Rejoignez <highlight>10 000+ familles</highlight> qui expédient en toute confiance",
+      "footerHighlight": "10 000+ familles"
+    },
+    "drivers": {
+      "badge": "Rencontrez nos chauffeurs",
+      "heading": "Les personnes derrière vos livraisons",
+      "description": "Chaque colis est manipulé par des chauffeurs de bus agréés, notés et de confiance qui sont fiers de connecter les familles à travers les frontières.",
+      "badges": {
+        "licensed": "Agréé",
+        "years": "{count} ans"
+      },
+      "deliveries": "livraisons",
+      "supplementary": "{amount}/mois supplémentaire",
+      "profiles": {
+        "hassan": {
+          "testimonial": "Je conduis cette ligne depuis des années. TawsilGo me permet de gagner un revenu supplémentaire tout en aidant les familles à rester connectées. L'application rend tout facile."
+        },
+        "aicha": {
+          "testimonial": "En tant que femme conductrice, j'apprécie les fonctionnalités de sécurité et le système de vérification. Les familles me font confiance avec leurs colis précieux."
+        },
+        "karim": {
+          "testimonial": "La flexibilité est parfaite. Je choisis quand accepter les colis. L'assurance rassure à la fois moi et les clients."
+        }
+      },
+      "customerTestimonials": {
+        "heading": "Ce que disent les clients",
+        "fatima": {
+          "text": "Hassan a livré mes colis 6 fois. Toujours à l'heure, toujours prudent. J'ai l'impression d'envoyer des colis avec la famille."
+        },
+        "mohammed": {
+          "text": "Aicha est incroyable ! Elle m'a même envoyé des photos lors de l'enlèvement et de la livraison. Tellement professionnelle."
+        }
+      },
+      "cta": {
+        "heading": "Êtes-vous chauffeur de bus ?",
+        "description": "Gagnez 500-800€/mois de revenus supplémentaires sur les lignes que vous conduisez déjà. Chauffeurs agréés recherchés sur les lignes Europe-Maroc.",
+        "becomeDriver": "Devenir chauffeur",
+        "learnHow": "Découvrez comment ça marche"
+      }
+    },
+    "customs": {
+      "badge": "Douanes simplifiées",
+      "heading": "Pas de surprises douanières",
+      "description": "L'expédition transfrontalière peut être déroutante. Nous gérons les formalités administratives et vous tenons informé à chaque étape.",
+      "calculator": {
+        "heading": "Calculateur de droits",
+        "description": "Estimez les droits de douane pour votre colis. Le Maroc a un seuil de minimis de 150€.",
+        "label": "Valeur du colis (€)",
+        "placeholder": "Entrez la valeur totale",
+        "button": "Calculer",
+        "estimatedDuty": "Droits estimés :",
+        "noDuty": "Pas de droits ! La valeur est inférieure au seuil de 150€.",
+        "disclaimer": "*Estimation uniquement. Les droits finaux sont déterminés par les douanes marocaines.",
+        "commonItems": {
+          "heading": "Droits sur les articles courants",
+          "electronics": {
+            "category": "Électronique",
+            "example": "Téléphones, ordinateurs portables, tablettes",
+            "duty": "2,5%"
+          },
+          "clothing": {
+            "category": "Vêtements",
+            "example": "Chemises, pantalons, vestes",
+            "duty": "8%"
+          },
+          "cosmetics": {
+            "category": "Cosmétiques",
+            "example": "Parfum, soins de la peau, maquillage",
+            "duty": "5%"
+          },
+          "books": {
+            "category": "Livres",
+            "example": "Matériel pédagogique",
+            "duty": "0%"
+          }
+        }
+      },
+      "brokerage": {
+        "heading": "Service de courtage douanier",
+        "price": "+20€",
+        "description": "Évitez les tracas. Nos courtiers en douane agréés gèrent toute la documentation et le dédouanement pour vous.",
+        "features": {
+          "hsCode": "Classification du code SH",
+          "invoice": "Préparation de la facture commerciale",
+          "dutyCalc": "Calcul des droits",
+          "preClearance": "Dépôt de pré-dédouanement",
+          "certificate": "Certificat d'origine",
+          "agent": "Agent douanier dédié"
+        },
+        "whyUse": {
+          "heading": "Pourquoi utiliser ce service ?",
+          "avoidDelays": "• Éviter les retards douaniers (économise 2-4 jours)",
+          "noPaperwork": "• Pas de stress administratif",
+          "preCalculated": "• Estimations de droits pré-calculées",
+          "peaceMind": "• Garantie de tranquillité d'esprit"
+        },
+        "cta": "En savoir plus sur le service douanier"
+      },
+      "prohibited": {
+        "heading": "Articles interdits :",
+        "items": {
+          "weapons": "Armes et munitions",
+          "drugs": "Drogues illégales",
+          "counterfeit": "Produits contrefaits",
+          "hazardous": "Matières dangereuses"
+        },
+        "viewFull": "Voir la liste complète"
+      }
+    },
+    "business": {
+      "badge": "Pour les entreprises",
+      "heading": "Conçu pour la croissance des entreprises",
+      "description": "Que vous soyez une boutique en ligne, un grossiste ou une entreprise, nous avons des solutions logistiques évolutives conçues pour votre entreprise.",
+      "features": {
+        "volumeDiscounts": {
+          "title": "Remises sur volume",
+          "description": "Économisez jusqu'à 40% sur les envois en vrac"
+        },
+        "apiIntegration": {
+          "title": "Intégration API",
+          "description": "Intégration transparente de la plateforme e-commerce"
+        },
+        "analytics": {
+          "title": "Tableau de bord analytique",
+          "description": "Suivi en temps réel et analyse des coûts"
+        }
+      },
+      "useCases": {
+        "heading": "Qui nous servons",
+        "ecommerce": {
+          "title": "Boutiques en ligne",
+          "description": "Marques marocaines vendant aux clients européens",
+          "example": "200+ commandes/mois avec exécution automatisée"
+        },
+        "importExport": {
+          "title": "Import/Export",
+          "description": "Expéditions de gros régulières entre l'Europe et le Maroc",
+          "example": "Livraisons en vrac hebdomadaires avec support dédié"
+        },
+        "corporate": {
+          "title": "Bureaux d'entreprise",
+          "description": "Courrier de documents pour les entreprises multi-sites",
+          "example": "Livraison sécurisée et traçable de contrats et échantillons"
+        }
+      },
+      "caseStudy": {
+        "badge": "Étude de cas",
+        "heading": "Moroccan Spice Co.",
+        "quote": "TawsilGo a transformé notre logistique. Nous passions 3 heures à traiter les envois quotidiens. Maintenant, cela prend 20 minutes avec leur chargement en masse.",
+        "savedAmount": "2 400€",
+        "savedLabel": "Économisés par mois vs DHL",
+        "parcelsAmount": "250",
+        "parcelsLabel": "Colis/mois",
+        "whatTheyGot": {
+          "heading": "Ce qu'ils ont obtenu :",
+          "volumeDiscount": "40% de remise sur volume",
+          "apiIntegration": "Intégration API avec Shopify",
+          "accountManager": "Gestionnaire de compte dédié",
+          "routingOptimization": "Optimisation de routage personnalisée"
+        }
+      },
+      "cta": {
+        "heading": "Prêt à développer votre logistique ?",
+        "description": "Rejoignez 500+ entreprises utilisant TawsilGo pour leurs besoins d'expédition Europe-Maroc. Les remises sur volume commencent à seulement 10 colis/mois.",
+        "exploreSolutions": "Explorer les solutions entreprise",
+        "contactSales": "Contacter l'équipe commerciale"
+      }
+    }
+  },
+  "booking": {
+    "hero": {
+      "trustBadge": "Approuvé par plus de 50 000 entreprises",
+      "title": "Réserver une livraison de colis",
+      "subtitle": "Expédition rapide, sécurisée et abordable"
+    },
+    "progress": {
+      "bookingProgress": "Progression de la réservation",
+      "complete": "Terminé",
+      "step": "Étape {current} sur {total}",
+      "steps": {
+        "search": "Rechercher des trajets",
+        "select": "Sélectionner un trajet",
+        "details": "Détails du colis",
+        "review": "Révision et paiement"
+      }
+    },
+    "searchForm": {
+      "departure": "Départ",
+      "destination": "Destination",
+      "departureDate": "Date de départ",
+      "searchMode": "Choisissez votre niveau de recherche :",
+      "countryToCountry": "Pays à pays",
+      "cityToCity": "Ville à ville",
+      "faster": "Plus rapide",
+      "precise": "Précis",
+      "fromCountry": "Pays de départ",
+      "toCountry": "Pays de destination",
+      "selectDepartureCountry": "Sélectionner le pays de départ",
+      "selectDestinationCountry": "Sélectionner le pays de destination",
+      "refineByCities": "Optionnel : Affiner par villes spécifiques",
+      "departureCity": "Ville de départ (Optionnel)",
+      "destinationCity": "Ville de destination (Optionnel)",
+      "optionalDepartureCity": "Optionnel : Ville de départ spécifique",
+      "optionalDestinationCity": "Optionnel : Ville de destination spécifique",
+      "modeSwitchConfirm": "Changer de mode de recherche ? Les sélections actuelles seront effacées.",
+      "placeholders": {
+        "cityOrPostcode": "Ville ou code postal",
+        "selectDate": "Sélectionner la date"
+      },
+      "quickDates": {
+        "today": "Aujourd'hui",
+        "tomorrow": "Demain"
+      },
+      "buttons": {
+        "findTrips": "Trouver des trajets",
+        "clearFilters": "Effacer les filtres"
+      },
+      "required": "*"
+    },
+    "tripSelection": {
+      "availableRoutes": "Routes Disponibles",
+      "noTrips": {
+        "title": "Aucun trajet trouvé",
+        "description": "Essayez des critères de recherche ou des dates différentes"
+      },
+      "loading": "Recherche de trajets disponibles...",
+      "editSearch": "Modifier la recherche",
+      "stops": {
+        "title": "Arrêts le long de l'itinéraire",
+        "match": "Correspondance",
+        "moreStops": "{count} arrêt de plus",
+        "moreStopsPlural": "{count} arrêts de plus",
+        "fromPrevious": "depuis le précédent",
+        "stopTypes": {
+          "pickup": "Enlèvement",
+          "dropoff": "Livraison",
+          "both": "Enlèvement & Livraison"
+        },
+        "stopStatus": {
+          "confirmed": "Confirmé",
+          "conditional": "Conditionnel",
+          "optional": "Optionnel"
+        },
+        "facilityTypes": {
+          "busStation": "Gare routière",
+          "meetingPoint": "Point de rencontre",
+          "warehouse": "Entrepôt"
+        },
+        "conditionalWarning": "Ceci est un arrêt {status}. Le chauffeur peut sauter cet emplacement en fonction de la capacité et de l'horaire.",
+        "details": {
+          "route": "Itinéraire avec arrêts",
+          "totalDistance": "km au total",
+          "hours": "Horaires",
+          "capacityAfter": "Capacité après l'arrêt"
+        }
+      }
+    },
+    "parcelDetails": {
+      "title": "Détails de l'expédition de colis",
+      "description": "Veuillez fournir des informations complètes et exactes",
+      "tripOverview": {
+        "title": "Aperçu du trajet",
+        "from": "De",
+        "to": "À",
+        "available": "{capacity} kg disponibles"
+      },
+      "sections": {
+        "progressTitle": "Progression de la réservation",
+        "progressStatus": "Étape {completed} sur {total}",
+        "locationsLabel": "Emplacements",
+        "parcelLabel": "Détails du colis",
+        "contactsLabel": "Coordonnées",
+        "locations": {
+          "title": "Points de collecte et de livraison",
+          "description": "Sélectionnez les lieux d'enlèvement et de livraison",
+          "pickupLocation": "Lieu d'enlèvement",
+          "deliveryLocation": "Lieu de livraison",
+          "pickupLabel": "Lieu d'enlèvement",
+          "pickupPlaceholder": "Entrez l'adresse d'enlèvement",
+          "deliveryLabel": "Lieu de livraison",
+          "deliveryPlaceholder": "Entrez l'adresse de livraison",
+          "placeholders": {
+            "selectPickup": "Sélectionnez le lieu d'enlèvement",
+            "selectDelivery": "Sélectionnez le lieu de livraison"
+          }
+        },
+        "specifications": {
+          "title": "Spécifications du colis",
+          "description": "Poids, emballage et exigences particulières",
+          "weight": {
+            "label": "Poids du colis",
+            "unit": "kg",
+            "available": "Poids disponible : {capacity}kg",
+            "tooltip": "Entrez le poids total de votre colis en kilogrammes",
+            "indicators": {
+              "light": "Léger (1-5kg)",
+              "medium": "Moyen (5-20kg)",
+              "heavy": "Lourd (20kg+)"
+            },
+            "categories": {
+              "light": "Léger",
+              "medium": "Moyen",
+              "heavy": "Lourd"
+            }
+          },
+          "packaging": {
+            "label": "Type d'emballage",
+            "guidelinesTitle": "Consignes d'emballage",
+            "guidelines": {
+              "box": {
+                "fillSpaces": "Remplir les espaces vides avec du matériel de rembourrage",
+                "sealSeams": "Sceller toutes les coutures avec du ruban adhésif robuste",
+                "labelClearly": "Étiqueter clairement avec l'adresse du destinataire"
+              },
+              "document": {
+                "stiffCardboard": "Utiliser une enveloppe en carton rigide",
+                "waterproof": "Utiliser un emballage imperméable",
+                "doNotBend": "Marquer 'Ne pas plier'"
+              },
+              "electronics": {
+                "antiStatic": "Utiliser un emballage antistatique",
+                "originalPackaging": "Utiliser l'emballage d'origine si possible",
+                "temperature": "Protéger des changements de température"
+              },
+              "fragile": {
+                "bubbleWrap": "Envelopper dans du papier bulle",
+                "markFragile": "Marquer le colis 'Fragile'",
+                "doubleBox": "Utiliser un double emballage pour une protection supplémentaire"
+              }
+            },
+            "types": {
+              "boxSmall": {
+                "name": "Petite boîte",
+                "size": "Jusqu'à 5kg"
+              },
+              "boxMedium": {
+                "name": "Boîte moyenne",
+                "size": "5-15kg"
+              },
+              "boxLarge": {
+                "name": "Grande boîte",
+                "size": "15-30kg"
+              },
+              "document": {
+                "name": "Documents",
+                "size": "Enveloppe/Papiers"
+              },
+              "electronics": {
+                "name": "Électronique",
+                "size": "Appareils tech"
+              },
+              "fragile": {
+                "name": "Fragile",
+                "size": "Verre/Céramique"
+              }
+            }
+          },
+          "specialRequirements": {
+            "label": "Exigences particulières (optionnel)",
+            "placeholder": "par ex. Articles fragiles, sensibles à la température, instructions de manutention spécifiques..."
+          }
+        },
+        "contacts": {
+          "title": "Coordonnées",
+          "description": "Détails de l'expéditeur et du destinataire",
+          "sender": {
+            "title": "Informations sur l'expéditeur",
+            "fullName": "Nom complet",
+            "phone": "Numéro de téléphone",
+            "phoneTooltip": "Incluez l'indicatif du pays (par ex., +33 pour la France)",
+            "nameLabel": "Nom complet",
+            "namePlaceholder": "Entrez le nom de l'expéditeur",
+            "phoneLabel": "Numéro de téléphone",
+            "phonePlaceholder": "par ex. +33 123 456789",
+            "placeholders": {
+              "name": "Entrez le nom de l'expéditeur",
+              "phone": "par ex. +33 123 456789"
+            }
+          },
+          "receiver": {
+            "title": "Informations sur le destinataire",
+            "fullName": "Nom complet",
+            "phone": "Numéro de téléphone",
+            "phoneTooltip": "Incluez l'indicatif du pays (par ex., +212 pour le Maroc)",
+            "nameLabel": "Nom complet",
+            "namePlaceholder": "Entrez le nom du destinataire",
+            "phoneLabel": "Numéro de téléphone",
+            "phonePlaceholder": "par ex. +212 123 456789",
+            "placeholders": {
+              "name": "Entrez le nom du destinataire",
+              "phone": "par ex. +212 123 456789"
+            }
+          },
+          "securityBadge": "Vos informations sont sécurisées et ne seront utilisées qu'à des fins de livraison",
+          "securityNote": "Vos informations sont sécurisées et ne seront utilisées qu'à des fins de livraison"
+        }
+      },
+      "buttons": {
+        "back": "Retour",
+        "previous": "Précédent",
+        "nextStep": "Étape suivante",
+        "continueToReview": "Continuer vers la révision",
+        "processing": "Traitement en cours..."
+      },
+      "priceCalculator": {
+        "title": "Récapitulatif des prix",
+        "baseFee": "Frais de base",
+        "weightFee": "Frais de poids",
+        "insurance": "Assurance",
+        "vat": "TVA (19%)",
+        "subtotal": "Sous-total",
+        "total": "Total :",
+        "details": "Détails",
+        "hide": "Masquer"
+      }
+    },
+    "review": {
+      "title": "Révision et paiement",
+      "stepLabel": "Étape 4 sur 4",
+      "bookingId": "Réservation n°{id}",
+      "description": "Veuillez vérifier les détails de votre réservation avant de procéder au paiement",
+      "sections": {
+        "tripDetails": "Détails du trajet",
+        "parcelDetails": "Détails du colis",
+        "contactDetails": "Coordonnées",
+        "paymentDetails": "Détails du paiement"
+      },
+      "parcel": {
+        "weight": "Poids",
+        "specialRequirements": "Exigences particulières",
+        "none": "Aucune"
+      },
+      "contacts": {
+        "sender": "Expéditeur",
+        "recipient": "Destinataire",
+        "name": "Nom",
+        "phone": "Téléphone"
+      },
+      "cost": {
+        "baseFee": "Frais de base",
+        "weightFee": "Frais de poids ({weight} kg × {price}€/kg)",
+        "insurance": "Assurance",
+        "subtotal": "Sous-total",
+        "tax": "Taxe (19%)",
+        "totalAmount": "Montant total",
+        "paymentMethods": "Modes de paiement"
+      },
+      "alert": {
+        "title": "Information importante",
+        "message": "En procédant au paiement, vous acceptez nos conditions d'utilisation et notre politique de confidentialité. Veuillez vous assurer que tous les détails sont corrects, car les modifications après la réservation peuvent entraîner des frais supplémentaires."
+      },
+      "buttons": {
+        "backToDetails": "Retour aux détails",
+        "proceedToPayment": "Procéder au paiement",
+        "processing": "Traitement en cours..."
+      }
+    },
+    "validation": {
+      "required": "Ce champ est obligatoire",
+      "selectLocations": "Veuillez sélectionner les emplacements",
+      "bothLocationsRequired": "Les lieux de départ et de destination sont tous deux requis",
+      "invalidWeight": "Veuillez spécifier un poids de colis valide",
+      "selectPackaging": "Veuillez sélectionner le type d'emballage",
+      "enterPickupContact": "Veuillez entrer le nom du contact pour l'enlèvement",
+      "enterPickupPhone": "Veuillez entrer le téléphone du contact pour l'enlèvement",
+      "enterDeliveryContact": "Veuillez entrer le nom du contact pour la livraison",
+      "enterDeliveryPhone": "Veuillez entrer le téléphone du contact pour la livraison",
+      "fillAllContacts": "Veuillez remplir toutes les coordonnées",
+      "fillContactInfo": "Veuillez remplir toutes les coordonnées"
+    },
+    "errors": {
+      "searchFailed": "Échec de la recherche",
+      "searchFailedDescription": "Impossible de rechercher des trajets. Veuillez réessayer.",
+      "noTripsFound": "Aucun trajet trouvé",
+      "noTripsFoundDescription": "Essayez des critères de recherche ou des dates différentes",
+      "failedToSearch": "Échec de la recherche des trajets",
+      "noTripSelected": "Aucun trajet sélectionné",
+      "selectTripFirst": "Veuillez sélectionner un trajet avant de continuer",
+      "specifyValidWeight": "Veuillez spécifier un poids de colis valide",
+      "bookingFailed": "Échec de la réservation",
+      "failedToCreateBooking": "Échec de la création de réservation",
+      "failedToExtractBookingId": "Échec de l'extraction de l'ID de réservation",
+      "tryAgainLater": "Veuillez réessayer plus tard",
+      "bookingIdMissing": "ID de réservation manquant",
+      "bookingIssue": "Un problème est survenu avec votre réservation. Veuillez réessayer.",
+      "paymentInitFailed": "Échec de l'initialisation du paiement",
+      "failedToCreatePayment": "Échec de la création du paiement",
+      "authRequired": "Authentification requise",
+      "serviceUnavailable": "Service indisponible",
+      "bookingServiceUnavailable": "Le service de réservation est temporairement indisponible. Veuillez réessayer plus tard."
+    },
+    "success": {
+      "bookingSuccessful": "Réservation réussie !",
+      "bookingConfirmed": "Votre réservation a été confirmée."
+    },
+    "smartBooking": {
+      "title": "Compléter votre réservation",
+      "subtitle": "Formulaire à expansion automatique - remplissez ce qui est prêt",
+      "sections": {
+        "locations": {
+          "title": "Lieux",
+          "description": "Où récupérer et livrer",
+          "pickupLabel": "Lieu de récupération",
+          "deliveryLabel": "Lieu de livraison",
+          "autoFilled": "Rempli automatiquement depuis l'itinéraire du trajet",
+          "pickupPlaceholder": "Entrez l'adresse de récupération",
+          "deliveryPlaceholder": "Entrez l'adresse de livraison"
+        },
+        "parcel": {
+          "title": "Détails du colis",
+          "description": "Poids, emballage et exigences spéciales",
+          "weightLabel": "Poids",
+          "packagingLabel": "Emballage",
+          "requirementsLabel": "Exigences spéciales",
+          "quickSelect": {
+            "title": "Sélectionner le poids",
+            "popular": "Plus populaire",
+            "light": "2kg - Petits articles",
+            "medium": "5kg - Plus populaire",
+            "heavy": "10kg - Colis moyen",
+            "extra": "20kg - Grand colis",
+            "custom": "Poids personnalisé",
+            "kg": "kg"
+          },
+          "packaging": {
+            "title": "Sélectionner l'emballage",
+            "small": {
+              "name": "Petite boîte",
+              "description": "Parfait pour les documents, petits appareils électroniques"
+            },
+            "medium": {
+              "name": "Boîte moyenne",
+              "description": "Idéal pour les vêtements, livres, articles moyens"
+            },
+            "large": {
+              "name": "Grande boîte",
+              "description": "Excellent pour les articles en vrac, grands appareils électroniques"
+            },
+            "recommendation": "Recommandé pour un colis de {weight}kg"
+          },
+          "requirementsPlaceholder": "Instructions de manipulation spéciales ?",
+          "capacityWarning": "Dépasse la capacité disponible",
+          "capacityInfo": "{used}% de {total}kg disponible"
+        },
+        "contacts": {
+          "title": "Coordonnées",
+          "description": "Détails de l'expéditeur et du destinataire",
+          "sender": {
+            "title": "Détails de l'expéditeur",
+            "nameLabel": "Votre nom",
+            "namePlaceholder": "Entrez votre nom complet",
+            "phoneLabel": "Votre téléphone",
+            "phonePlaceholder": "Entrez votre numéro de téléphone",
+            "autoFilled": "Rempli automatiquement depuis votre profil",
+            "autoFillMessage": "Pré-rempli depuis votre profil. Vous pouvez modifier si nécessaire."
+          },
+          "recipient": {
+            "title": "Détails du destinataire",
+            "nameLabel": "Nom du destinataire",
+            "namePlaceholder": "Entrez le nom complet du destinataire",
+            "phoneLabel": "Téléphone du destinataire",
+            "phonePlaceholder": "Entrez le numéro de téléphone du destinataire"
+          }
+        }
+      },
+      "autoExpand": {
+        "expanding": "Extension de la section suivante...",
+        "completeSection": "Complétez cette section pour continuer"
+      },
+      "validation": {
+        "required": "Ce champ est requis",
+        "phoneInvalid": "Veuillez entrer un numéro de téléphone valide",
+        "weightInvalid": "Le poids doit être supérieur à 0",
+        "weightExceedsCapacity": "Le poids dépasse la capacité disponible",
+        "completeAllSections": "Veuillez compléter tous les champs requis"
+      }
+    },
+    "priceEstimate": {
+      "title": "Estimation de prix",
+      "from": "À partir de",
+      "forWeight": "pour {weight}kg",
+      "basePrice": "Prix de base",
+      "weightFee": "Frais de poids",
+      "insurance": "Assurance",
+      "tax": "Taxe",
+      "total": "Total",
+      "madEquivalent": "≈{amount} MAD",
+      "range": "Gamme de prix pour 2-20kg",
+      "bestPrice": "Meilleur prix",
+      "guaranteed": "Prix garanti pour 15 minutes",
+      "loading": "Calcul du prix...",
+      "error": "Prix indisponible"
+    },
+    "priceAnchoring": {
+      "title": "Meilleur prix garanti",
+      "subtitle": "Économisez {savings}% par rapport aux transporteurs traditionnels",
+      "yourPrice": "Votre prix ({weight}kg)",
+      "yourChoice": "Votre choix",
+      "traditionalCarrier": "Transporteur traditionnel",
+      "more": "+{amount} ({percent}% plus cher)",
+      "comparison": {
+        "title": "Comparaison des prix",
+        "fastDelivery": "Livraison 2-3 jours",
+        "insuranceIncluded": "Assurance incluse",
+        "verifiedDrivers": "Chauffeurs vérifiés",
+        "joinCustomers": "Rejoignez {count}+ clients qui économisent avec TawsilGo chaque mois"
+      },
+      "savings": {
+        "save": "Économisez {percent}%",
+        "vs": "vs {competitor}",
+        "guaranteed": "Meilleur prix garanti"
+      }
+    },
+    "inlineReview": {
+      "title": "Résumé de réservation",
+      "edit": "Modifier",
+      "tripDetails": "Détails du trajet",
+      "parcelDetails": "Détails du colis",
+      "contactDetails": "Coordonnées",
+      "priceBreakdown": "Décomposition du prix",
+      "totalPrice": "Prix total",
+      "securePayment": "Paiement sécurisé",
+      "processing": "Traitement...",
+      "payNow": "Payer {amount}",
+      "completeBooking": "Compléter la réservation",
+      "editDetails": "Modifier les détails",
+      "backToForm": "Retour au formulaire"
+    },
+    "autoExpand": {
+      "expanding": "Extension de la section suivante...",
+      "scrollingTo": "Défilement vers {section}...",
+      "sectionComplete": "{section} terminé ✓",
+      "nextSectionReady": "Section suivante prête",
+      "allSectionsComplete": "Toutes les sections terminées"
+    },
+    "realTimeValidation": {
+      "validating": "Validation...",
+      "valid": "Valide",
+      "invalid": "Invalide",
+      "checking": "Vérification...",
+      "available": "Disponible",
+      "unavailable": "Indisponible",
+      "phoneValid": "Numéro de téléphone valide",
+      "phoneInvalid": "Veuillez entrer un numéro de téléphone valide",
+      "weightValid": "Poids valide",
+      "weightInvalid": "Veuillez entrer un poids valide",
+      "locationValid": "Lieu valide",
+      "locationInvalid": "Veuillez entrer un lieu valide"
+    },
+    "mobileOptimizations": {
+      "swipeToEdit": "Glisser pour modifier",
+      "tapToExpand": "Appuyer pour étendre",
+      "pinchToZoom": "Pincer pour zoomer la carte",
+      "pullToRefresh": "Tirer pour rafraîchir",
+      "tapForDetails": "Appuyer pour les détails",
+      "scrollForMore": "Défiler pour plus d'options"
+    },
+    "locationCombobox": {
+      "noLocationFound": "Aucun emplacement trouvé.",
+      "typeCustom": "Tapez pour entrer un emplacement personnalisé",
+      "popularLocations": "Emplacements populaires",
+      "searchPlaceholder": "Rechercher {label}..."
+    },
+    "packaging": {
+      "selectType": "Sélectionner le type d'emballage",
+      "selectDescription": "Choisissez la taille de boîte qui convient le mieux à votre colis",
+      "popular": "Populaire",
+      "recommended": "Recommandé",
+      "perfectFit": "Ajustement parfait",
+      "tooLight": "Trop léger ({min}kg minimum)",
+      "tooHeavy": "Trop lourd ({max}kg maximum)",
+      "weightRange": "Plage de poids : {min}-{max}kg",
+      "yourParcel": "Votre colis : {weight}kg",
+      "recommendationLabel": "Recommandation",
+      "recommendationText": "Basé sur le poids de votre colis ({weight}kg), nous recommandons {recommendedBox}",
+      "options": {
+        "small": {
+          "name": "Petite Boîte",
+          "description": "Parfait pour les documents, petits appareils électroniques"
+        },
+        "medium": {
+          "name": "Boîte Moyenne",
+          "description": "Idéal pour les vêtements, livres, articles moyens"
+        },
+        "large": {
+          "name": "Grande Boîte",
+          "description": "Excellent pour les articles en vrac, grands appareils électroniques"
+        }
+      },
+      "guidelines": {
+        "title": "Directives d'emballage",
+        "sturdyBox": "Utilisez des boîtes robustes en bon état",
+        "wrapFragile": "Emballez les articles fragiles individuellement",
+        "fillEmpty": "Remplissez les espaces vides pour éviter les mouvements",
+        "sealSecurely": "Scellez solidement avec du ruban d'emballage"
+      }
+    },
+    "weight": {
+      "selectLabel": "Sélectionner le poids",
+      "popular": "Populaire",
+      "customWeight": "Poids personnalisé",
+      "enterWeight": "Entrez le poids",
+      "capacityUsage": "Utilisation de la capacité",
+      "overCapacity": "Dépasse la capacité",
+      "usedPercent": "{percent}% utilisé",
+      "availablePercent": "{percent}% disponible",
+      "overCapacityTitle": "Le poids dépasse la capacité disponible",
+      "overCapacityMessage": "Ce voyage n'a que {maxCapacity}kg restants. Veuillez réduire le poids ou sélectionner un autre voyage.",
+      "limitedCapacityTitle": "Capacité limitée restante",
+      "limitedCapacityMessage": "Seulement {available}kg disponibles sur ce voyage.",
+      "options": {
+        "small": "Petits articles",
+        "mostPopular": "Le plus populaire",
+        "medium": "Colis moyen",
+        "large": "Grand colis"
+      },
+      "tripInfo": {
+        "route": "Voyage de {from} à {to}",
+        "driver": "Chauffeur",
+        "loading": "Chargement...",
+        "departs": "Départ"
+      },
+      "countrySelector": {
+        "placeholder": "Sélectionner un pays",
+        "popular": "Populaire",
+        "popularRoutes": "Routes populaires vers le Maroc",
+        "selectedCountry": "Sélectionné: {country}",
+        "routes": {
+          "franceToMorocco": "France → Maroc",
+          "spainToMorocco": "Espagne → Maroc",
+          "italyToMorocco": "Italie → Maroc",
+          "netherlandsToMorocco": "Pays-Bas → Maroc",
+          "belgiumToMorocco": "Belgique → Maroc",
+          "germanyToMorocco": "Allemagne → Maroc"
+        }
+      },
+      "enhancedLocationSelector": {
+        "placeholder": "Sélectionner une ville",
+        "selectCountryFirst": "Veuillez sélectionner un pays d'abord",
+        "popularCities": "Villes Populaires",
+        "allCities": "Toutes les Villes",
+        "searchResults": "Résultats de recherche",
+        "searchPlaceholder": "Rechercher des villes...",
+        "noCityFound": "Aucune ville trouvée",
+        "tryDifferentSearch": "Essayez un terme de recherche différent",
+        "selectedCity": "{city}, {country}"
+      }
+    }
+  },
+  "navigation": {
+    "home": "Accueil",
+    "morocco": "Maroc",
+    "track": "Suivre",
+    "profile": "Profil",
+    "settings": "Paramètres",
+    "booking": "Réserver",
+    "logOut": "Se déconnecter",
+    "services": "Services",
+    "pricing": "Tarifs",
+    "tracking": "Suivi",
+    "support": "Assistance",
+    "account": "Compte",
+    "businessSolutions": "Solutions entreprise",
+    "routeCoverage": "Couverture des itinéraires",
+    "howItWorks": "Comment ça marche",
+    "specializedServices": "Services spécialisés",
+    "individualShipping": "Envoi Individuel"
+  },
+  "countries": {
+    "france": "France",
+    "spain": "Espagne",
+    "italy": "Italie",
+    "netherlands": "Pays-Bas",
+    "morocco": "Maroc",
+    "belgium": "Belgique",
+    "germany": "Allemagne"
+  },
+  "cities": {
+    "casablanca": "Casablanca",
+    "rabat": "Rabat",
+    "marrakech": "Marrakech",
+    "tangier": "Tanger",
+    "fez": "Fès",
+    "agadir": "Agadir",
+    "meknes": "Meknès",
+    "oujda": "Oujda",
+    "paris": "Paris",
+    "lyon": "Lyon",
+    "marseille": "Marseille",
+    "madrid": "Madrid",
+    "barcelona": "Barcelone",
+    "brussels": "Bruxelles",
+    "amsterdam": "Amsterdam",
+    "frankfurt": "Francfort"
+  },
+  "common": {
+    "currency": "EUR",
+    "currencySymbol": "€",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "apply": "Appliquer",
+    "reset": "Réinitialiser"
+  },
+  "footer": {
+    "description": "Connecter les continents grâce à une logistique transfrontalière fiable. Solutions d'expédition rapides, sécurisées et communautaires.",
+    "companyInfo": {
+      "address": "123 Shipping Lane, Logistics City",
+      "hours": "Opérations 24/7",
+      "certification": "Certifié et assuré"
+    },
+    "sections": {
+      "shippingServices": "Services d'expédition",
+      "support": "Assistance",
+      "shippingUpdates": "Actualités expédition"
+    },
+    "shippingLinks": {
+      "trackShipment": "Suivre l'envoi",
+      "shippingRates": "Tarifs d'expédition",
+      "serviceCoverage": "Couverture des services",
+      "schedulePickup": "Planifier un ramassage"
+    },
+    "supportLinks": {
+      "helpCenter": "Centre d'aide",
+      "documentation": "Documentation",
+      "contactSupport": "Contacter l'assistance",
+      "apiIntegration": "Intégration API"
+    },
+    "newsletter": {
+      "description": "Recevez les optimisations d'itinéraires et les informations de livraison",
+      "placeholder": "Entrez votre email",
+      "subscribe": "S'abonner"
+    },
+    "copyright": "© {year} TawsilGo. Tous droits réservés.",
+    "legal": {
+      "termsOfService": "Conditions d'utilisation",
+      "privacyPolicy": "Politique de confidentialité"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "personalInfo": "Informations personnelles",
+    "personalInfoDescription": "Mettez à jour vos coordonnées et informations personnelles",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "saveChanges": "Enregistrer les modifications",
+    "updating": "Mise à jour...",
+    "profileUpdated": "Profil mis à jour",
+    "profileUpdatedDescription": "Votre profil a été mis à jour avec succès.",
+    "errorLoading": "Erreur de chargement du profil",
+    "accountActions": "Actions du compte",
+    "logOut": "Se déconnecter",
+    "loggedOut": "Déconnecté",
+    "loggedOutDescription": "Vous avez été déconnecté avec succès.",
+    "tabs": {
+      "personal": "Profil",
+      "orders": "Commandes",
+      "settings": "Paramètres"
+    },
+    "orders": {
+      "title": "Mes commandes",
+      "noOrders": "Aucune commande trouvée",
+      "noOrdersDescription": "Vous n'avez pas encore passé de commande. Commencez par réserver une livraison.",
+      "noFilteredOrders": "Vous n'avez aucune commande {status}. Essayez un autre filtre.",
+      "bookDelivery": "Réserver une livraison",
+      "viewDetails": "Voir les détails",
+      "filter": "Filtrer",
+      "sort": "Trier",
+      "sortNewest": "Plus récent",
+      "sortOldest": "Plus ancien",
+      "allOrders": "Toutes les commandes",
+      "pending": "En attente",
+      "paid": "Payé",
+      "confirmed": "Confirmé",
+      "cancelled": "Annulé",
+      "completed": "Terminé",
+      "order": "Commande",
+      "parcel": "Colis",
+      "paymentCompleted": "Paiement effectué",
+      "paymentPending": "Paiement en attente",
+      "bookedOn": "Réservé le",
+      "pickupLocation": "Lieu de ramassage non spécifié",
+      "deliveryLocation": "Lieu de livraison non spécifié",
+      "errorLoading": "Erreur de chargement de vos commandes",
+      "errorDescription": "Nous n'avons pas pu charger vos commandes pour le moment. Veuillez réessayer plus tard.",
+      "tryAgain": "Réessayer",
+      "page": "Page",
+      "of": "sur"
+    },
+    "settings": {
+      "accountSettings": "Paramètres du compte",
+      "privacySettings": "Paramètres de confidentialité",
+      "accountActions": "Actions du compte",
+      "emailNotifications": "Notifications par email",
+      "emailNotificationsDescription": "Recevez des mises à jour sur vos commandes et votre compte",
+      "marketingEmails": "Emails marketing",
+      "marketingEmailsDescription": "Recevez des offres promotionnelles et des mises à jour de produits",
+      "smsNotifications": "Notifications SMS",
+      "smsNotificationsDescription": "Recevez des SMS pour les mises à jour de livraison",
+      "dataSharing": "Partage de données",
+      "dataSharingDescription": "Autorisez-nous à utiliser vos données pour améliorer nos services",
+      "locationTracking": "Suivi de localisation",
+      "locationTrackingDescription": "Autorisez-nous à suivre votre position pour un meilleur service de livraison",
+      "passwordManagement": "Gestion du mot de passe",
+      "passwordManagementDescription": "Contactez le support pour changer votre mot de passe ou réinitialiser vos identifiants.",
+      "dataExport": "Export de données",
+      "dataExportDescription": "Demandez une copie de vos données personnelles en contactant notre équipe d'assistance."
+    },
+    "validation": {
+      "firstNameMin": "Le prénom doit contenir au moins 2 caractères",
+      "lastNameMin": "Le nom doit contenir au moins 2 caractères",
+      "invalidEmail": "Adresse email invalide",
+      "phoneMin": "Le numéro de téléphone doit contenir au moins 10 chiffres",
+      "addressMin": "Veuillez entrer votre adresse complète"
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Bon retour",
+      "subtitle": "Connectez-vous pour accéder à votre plateforme logistique TawsilGo",
+      "username": "Nom d'utilisateur",
+      "usernamePlaceholder": "Entrez votre nom d'utilisateur",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "showPassword": "Afficher le mot de passe",
+      "hidePassword": "Masquer le mot de passe",
+      "rememberMe": "Se souvenir de moi",
+      "forgotPassword": "Mot de passe oublié ?",
+      "signInButton": "Se connecter",
+      "signingIn": "Connexion en cours...",
+      "success": "Succès !",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "createAccount": "Créer un compte",
+      "agreeTerms": "En continuant, vous acceptez nos",
+      "termsOfService": "Conditions d'utilisation",
+      "and": "et",
+      "privacyPolicy": "Politique de confidentialité",
+      "features": {
+        "fastShipping": "Expédition rapide",
+        "fastShippingDesc": "Livraison en 48-72h",
+        "globalCoverage": "Couverture mondiale",
+        "globalCoverageDesc": "Europe vers le Maroc",
+        "securePlatform": "Plateforme sécurisée",
+        "securePlatformDesc": "Paiements cryptés"
+      },
+      "errors": {
+        "noToken": "Aucun jeton d'authentification reçu",
+        "authFailed": "Échec de la session d'authentification",
+        "signInFailed": "Échec de la connexion",
+        "unexpectedError": "Une erreur inattendue s'est produite"
+      }
+    },
+    "signup": {
+      "title": "Créez votre compte",
+      "subtitle": "Rejoignez TawsilGo pour commencer à expédier",
+      "cardTitle": "Commencer",
+      "cardDescription": "Inscription rapide - moins d'1 minute",
+      "steps": {
+        "personalInfo": "Informations personnelles",
+        "verification": "Vérification"
+      },
+      "firstName": "Prénom",
+      "firstNamePlaceholder": "Entrez votre prénom",
+      "lastName": "Nom",
+      "lastNamePlaceholder": "Entrez votre nom",
+      "username": "Nom d'utilisateur",
+      "usernamePlaceholder": "Choisissez un nom d'utilisateur",
+      "email": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "phone": "Numéro de téléphone",
+      "phonePlaceholder": "Entrez votre numéro de téléphone",
+      "address": "Adresse",
+      "addressPlaceholder": "Entrez votre adresse",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Créez un mot de passe",
+      "showPassword": "Afficher le mot de passe",
+      "hidePassword": "Masquer le mot de passe",
+      "accountType": "Type de compte",
+      "accountTypeDescription": "Sélectionnez le type de compte qui vous convient",
+      "customer": "Compte Personnel",
+      "customerDescription": "Pour les expéditeurs individuels",
+      "driver": "Compte Entreprise",
+      "driverDescription": "Pour les entreprises nécessitant des factures et des réductions sur volume",
+      "nextStep": "Étape suivante",
+      "previousStep": "Étape précédente",
+      "createAccount": "Créer un compte",
+      "creating": "Création en cours...",
+      "alreadyHaveAccount": "Vous avez déjà un compte ?",
+      "signIn": "Se connecter",
+      "draftRecovered": "Brouillon récupéré",
+      "draftRecoveredDescription": "Vos données de formulaire précédentes ont été restaurées",
+      "phoneDescription": "Nous utiliserons ceci pour vous contacter au sujet de vos envois",
+      "addressDescription": "Votre adresse d'enlèvement ou de livraison",
+      "agreeToTerms": "J'accepte les",
+      "agreeTerms": "En créant un compte, vous acceptez nos",
+      "termsOfService": "Conditions d'utilisation",
+      "and": "et",
+      "privacyPolicy": "Politique de confidentialité",
+      "passwordRequirements": {
+        "title": "Le mot de passe doit contenir :",
+        "minLength": "Au moins 8 caractères",
+        "uppercase": "Une lettre majuscule",
+        "lowercase": "Une lettre minuscule",
+        "number": "Un chiffre",
+        "special": "Un caractère spécial"
+      },
+      "verification": {
+        "title": "Vérifiez votre email",
+        "description": "Nous avons envoyé un code de vérification à votre email",
+        "codePlaceholder": "Entrez le code de vérification",
+        "verify": "Vérifier",
+        "verifying": "Vérification en cours...",
+        "resendCode": "Renvoyer le code",
+        "resending": "Renvoi en cours...",
+        "codeResent": "Code renvoyé",
+        "checkEmail": "Vérifiez votre email pour le nouveau code"
+      },
+      "errors": {
+        "invalidEmail": "Adresse email invalide",
+        "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères",
+        "passwordNoUppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
+        "passwordNoLowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
+        "passwordNoNumber": "Le mot de passe doit contenir au moins un chiffre",
+        "passwordNoSpecial": "Le mot de passe doit contenir au moins un caractère spécial",
+        "usernameTaken": "Ce nom d'utilisateur est déjà pris",
+        "emailTaken": "Cet email est déjà utilisé",
+        "signupFailed": "Échec de la création du compte",
+        "verificationFailed": "Échec de la vérification",
+        "invalidCode": "Code de vérification invalide",
+        "unexpectedError": "Une erreur inattendue s'est produite"
+      }
+    }
+  },
+  "drivers": {
+    "join": {
+      "hero": {
+        "badge": "Opportunités pour Chauffeurs",
+        "title": "Gagnez un Revenu Supplémentaire en tant que Chauffeur TawsilGo",
+        "subtitle": "Livrez des colis sur vos trajets réguliers entre l'Europe et le Maroc. Horaires flexibles, assurance complète, revenus compétitifs.",
+        "stats": {
+          "monthly": "par mois",
+          "drivers": "chauffeurs actifs",
+          "rating": "note moyenne"
+        },
+        "cta": "Commencer dès aujourd'hui"
+      },
+      "earningsCalculator": {
+        "title": "Calculateur de Revenus",
+        "description": "Estimez vos revenus potentiels en tant que chauffeur TawsilGo",
+        "deliveriesPerWeek": "Livraisons par semaine",
+        "deliveries": "livraisons",
+        "avgEarning": "Moyenne {amount}€ par livraison",
+        "weekly": "Hebdomadaire",
+        "monthly": "Mensuel",
+        "yearly": "Annuel",
+        "disclaimer": "*Les revenus réels peuvent varier en fonction des itinéraires, du poids des colis et de la demande saisonnière"
+      },
+      "benefits": {
+        "title": "Pourquoi devenir chauffeur TawsilGo",
+        "subtitle": "Rejoignez des milliers de chauffeurs qui gagnent des revenus supplémentaires sur leurs trajets existants",
+        "flexibleEarnings": {
+          "title": "Revenus Flexibles",
+          "description": "Gagnez 500-800€/mois supplémentaires sur les trajets que vous effectuez déjà"
+        },
+        "ownSchedule": {
+          "title": "Votre Propre Horaire",
+          "description": "Choisissez quand accepter les livraisons. Vous avez le contrôle total."
+        },
+        "chooseRoutes": {
+          "title": "Choisissez Vos Trajets",
+          "description": "Sélectionnez les colis sur vos itinéraires établis entre l'Europe et le Maroc"
+        },
+        "insurance": {
+          "title": "Couverture d'Assurance",
+          "description": "Assurance complète de responsabilité et des colis fournie pour toutes les livraisons"
+        },
+        "bonuses": {
+          "title": "Primes de Performance",
+          "description": "Gagnez des bonus pour des notes élevées, des livraisons à temps et du volume"
+        },
+        "support": {
+          "title": "Support Dédié",
+          "description": "Équipe de support 24/7 pour vous aider à chaque étape du chemin"
+        }
+      },
+      "requirements": {
+        "title": "Exigences pour Devenir Chauffeur",
+        "subtitle": "Assurez-vous de répondre à ces exigences de base",
+        "validLicense": "Permis de conduire commercial valide",
+        "insurance": "Assurance véhicule valide",
+        "smartphone": "Smartphone avec GPS",
+        "ageRequirement": "Âge minimum de 21 ans",
+        "euLocation": "Opère sur les trajets Europe-Maroc"
+      },
+      "steps": {
+        "title": "Comment Ça Marche",
+        "subtitle": "Quatre étapes simples pour commencer à gagner",
+        "apply": {
+          "title": "Postuler en Ligne",
+          "description": "Remplissez le formulaire de candidature avec vos détails de chauffeur",
+          "time": "5 minutes"
+        },
+        "verification": {
+          "title": "Vérification",
+          "description": "Nous vérifions votre permis, votre assurance et vos antécédents",
+          "time": "24-48 heures"
+        },
+        "training": {
+          "title": "Formation Rapide",
+          "description": "Apprenez à utiliser l'application et les meilleures pratiques de manipulation",
+          "time": "1 heure"
+        },
+        "start": {
+          "title": "Commencer à Livrer",
+          "description": "Acceptez les livraisons sur vos trajets et commencez à gagner",
+          "time": "Immédiatement"
+        }
+      },
+      "cta": {
+        "title": "Prêt à Commencer à Gagner ?",
+        "subtitle": "Rejoignez notre réseau de chauffeurs et transformez vos trajets en revenus. L'inscription ne prend que 5 minutes.",
+        "button": "Devenir Chauffeur",
+        "time": "⚡ Inscrivez-vous en moins de 5 minutes"
+      }
+    }
+  },
+  "howItWorksPage": {
+    "hero": {
+      "badge": "Simple et Transparent",
+      "title": "Comment Fonctionne TawsilGo",
+      "subtitle": "De Votre Porte à la Leur",
+      "description": "Livraison par bus plus rapide et moins chère que les transporteurs traditionnels. Voici exactement comment nous livrons vos colis au Maroc.",
+      "cta": "Essayez Maintenant"
+    },
+    "deliveryJourney": {
+      "title": "Le Parcours de Livraison",
+      "subtitle": "Quatre étapes simples de l'Europe au Maroc"
+    },
+    "steps": {
+      "step1": {
+        "title": "Réservez Votre Envoi",
+        "description": "Saisissez les détails du colis, les adresses de ramassage/livraison et sélectionnez votre itinéraire préféré. Obtenez un prix instantané sans frais cachés.",
+        "details": {
+          "detail1": "Processus de réservation en ligne de 3 minutes",
+          "detail2": "Calcul de prix instantané",
+          "detail3": "Paiement sécurisé via Stripe",
+          "detail4": "Recevez la confirmation de réservation et le code QR"
+        }
+      },
+      "step2": {
+        "title": "Nous Récupérons Votre Colis",
+        "description": "Notre chauffeur vient à votre porte à l'heure prévue. Pas besoin d'aller à un dépôt ou bureau de poste.",
+        "details": {
+          "detail1": "Ramassage porte-à-porte en Europe",
+          "detail2": "Créneaux horaires flexibles (matin/après-midi)",
+          "detail3": "Le chauffeur vérifie le poids et les dimensions du colis",
+          "detail4": "Vous recevez une confirmation de ramassage"
+        }
+      },
+      "step3": {
+        "title": "Transit en Bus vers le Maroc",
+        "description": "Votre colis voyage avec nos chauffeurs de bus licenciés sur des itinéraires établis. Suivez en temps réel à chaque étape.",
+        "details": {
+          "detail1": "Départs de bus quotidiens sur les principales routes",
+          "detail2": "Suivi GPS via application mobile",
+          "detail3": "Notifications SMS/email aux points de contrôle",
+          "detail4": "Manipulation sécurisée par des chauffeurs vérifiés"
+        }
+      },
+      "step4": {
+        "title": "Livraison au Maroc",
+        "description": "Livraison directe à l'adresse de votre famille au Maroc. Confirmation de signature à la réception.",
+        "details": {
+          "detail1": "Livraison porte-à-porte dans tout le Maroc",
+          "detail2": "Notification SMS avant la livraison",
+          "detail3": "Confirmation par signature et photo",
+          "detail4": "Temps de livraison total de 48-72 heures"
+        }
+      }
+    },
+    "safety": {
+      "title": "Votre Colis est en Sécurité avec Nous",
+      "subtitle": "Nous avons mis en place plusieurs couches de sécurité et de vérification pour garantir l'arrivée sécurisée de chaque colis",
+      "features": {
+        "licensedDrivers": {
+          "title": "Chauffeurs de Bus Licenciés",
+          "description": "Tous les chauffeurs sont licenciés, vérifiés et notés par les clients"
+        },
+        "insurance": {
+          "title": "Assurance Incluse",
+          "description": "Couverture de 500€ sur chaque colis. Couverture optionnelle jusqu'à 5 000€"
+        },
+        "qrVerification": {
+          "title": "Vérification QR",
+          "description": "Code QR unique pour chaque colis pour éviter les mélanges et la fraude"
+        },
+        "driverRatings": {
+          "title": "Évaluations des Chauffeurs",
+          "description": "Évaluez votre chauffeur après la livraison. Note moyenne : 4.8/5 étoiles"
+        }
+      }
+    },
+    "tracking": {
+      "badge": "Mises à Jour en Temps Réel",
+      "title": "Suivez Chaque Étape du Trajet",
+      "description": "Ne vous demandez plus jamais où se trouve votre colis. Notre système de suivi avancé vous tient informé du ramassage à la livraison.",
+      "features": {
+        "feature1": "Localisation GPS en temps réel de votre colis",
+        "feature2": "Notifications automatiques à chaque point de contrôle",
+        "feature3": "Mises à jour du délai de livraison estimé",
+        "feature4": "Confirmation photo lors du ramassage et de la livraison",
+        "feature5": "Messagerie directe avec le chauffeur (si nécessaire)",
+        "feature6": "Historique de livraison et archive des reçus"
+      },
+      "cta": "Essayer la Démo de Suivi en Direct",
+      "demo": {
+        "trackingId": "ID de Suivi :",
+        "complete": "Terminé",
+        "pickedUp": "Récupéré",
+        "inTransit": "En transit",
+        "outForDelivery": "En cours de livraison",
+        "paris": "Paris, France",
+        "madrid": "Madrid, Espagne",
+        "casablanca": "Casablanca, Maroc",
+        "ago": "il y a {time}",
+        "estimated": "Est. {time}"
+      }
+    },
+    "cta": {
+      "title": "Prêt à Vivre la Différence ?",
+      "subtitle": "Rejoignez plus de 10 000 familles qui font confiance à TawsilGo pour leurs livraisons au Maroc",
+      "primaryButton": "Envoyer Votre Premier Colis",
+      "secondaryButton": "Voir les Tarifs"
+    }
+  },
+  "services": {
+    "individualShipping": {
+      "hero": {
+        "badge": "Pour Particuliers & Familles",
+        "title": "Envoyer des Colis au",
+        "titleHighlight": "Maroc",
+        "subtitle": "Moins cher et plus rapide que DHL. Approuvé par 10 000+ familles marocaines en Europe.",
+        "bookNow": "Réserver votre envoi",
+        "viewPricing": "Voir les tarifs"
+      },
+      "stats": {
+        "cheaper": "Moins cher que DHL",
+        "delivery": "Livraison moyenne",
+        "onTime": "Taux de ponctualité"
+      },
+      "whyChoose": {
+        "title": "Pourquoi choisir TawsilGo?",
+        "subtitle": "Nous comprenons ce que signifie envoyer de l'amour au pays. Chaque colis compte."
+      },
+      "whatToSend": {
+        "title": "Que pouvez-vous envoyer?",
+        "subtitle": "Des essentiels quotidiens aux occasions spéciales"
+      },
+      "features": {
+        "doorToDoor": {
+          "title": "Service porte-à-porte",
+          "description": "Nous récupérons à votre porte en Europe et livrons directement à votre famille au Maroc"
+        },
+        "fastDelivery": {
+          "title": "Livraison 48-72 heures",
+          "description": "Plus rapide que les transporteurs traditionnels. Vos colis arrivent quand votre famille en a besoin"
+        },
+        "insurance": {
+          "title": "Assurance 500€ incluse",
+          "description": "Chaque colis est assuré sans frais supplémentaires. Couverture optionnelle jusqu'à 5 000€"
+        },
+        "tracking": {
+          "title": "Suivi en temps réel",
+          "description": "Suivez le trajet de votre colis de Paris à Casablanca avec les mises à jour GPS en direct"
+        },
+        "cities": {
+          "title": "16+ villes couvertes",
+          "description": "Des grandes villes européennes aux principales destinations du Maroc"
+        },
+        "verified": {
+          "title": "Chauffeurs de bus vérifiés",
+          "description": "Licenciés, notés et approuvés par 10 000+ familles"
+        }
+      },
+      "useCases": {
+        "carePackages": {
+          "title": "Colis de soins",
+          "example": "Médicaments, vitamines, aliments spéciaux introuvables localement"
+        },
+        "gifts": {
+          "title": "Cadeaux & Célébrations",
+          "example": "Cadeaux d'anniversaire, vêtements, électronique pour occasions spéciales"
+        },
+        "belongings": {
+          "title": "Effets personnels",
+          "example": "Livres, documents, articles ménagers oubliés ou à renvoyer"
+        }
+      },
+      "pricing": {
+        "title": "Tarification simple et transparente",
+        "subtitle": "Pas de frais cachés. Pas de surprises. Juste des prix honnêtes.",
+        "popular": "Populaire",
+        "route": "par envoi",
+        "seeCalculator": "Voir le calculateur complet"
+      },
+      "testimonials": {
+        "title": "Ce que disent nos clients",
+        "subtitle": "Vraies histoires de vraies familles",
+        "fatima": {
+          "name": "Fatima L.",
+          "location": "Paris → Casablanca",
+          "text": "J'envoie des colis à ma mère chaque mois. TawsilGo est moitié prix des autres services et deux fois plus fiable!"
+        },
+        "ahmed": {
+          "name": "Ahmed K.",
+          "location": "Barcelone → Marrakech",
+          "text": "Le chauffeur a récupéré à mon appartement et ma famille l'a reçu 2 jours plus tard. Service incroyable!"
+        },
+        "sophia": {
+          "name": "Sophia M.",
+          "location": "Bruxelles → Rabat",
+          "text": "Enfin, un service qui comprend nos besoins. Le suivi me donne la tranquillité d'esprit."
+        }
+      },
+      "cta": {
+        "title": "Prêt à envoyer votre premier colis?",
+        "subtitle": "Réservez maintenant et recevez votre colis au Maroc en 48-72 heures",
+        "button": "Réserver maintenant"
+      }
+    },
+    "routeCoverage": {
+      "hero": {
+        "badge": "Couverture des Routes",
+        "title": "Nous Servons",
+        "titleHighlight": "16+ Villes",
+        "subtitle": "Des grandes villes européennes aux principales destinations du Maroc. Départs quotidiens sur les routes populaires.",
+        "findRoute": "Trouvez Votre Route"
+      },
+      "routeFinder": {
+        "title": "Trouvez Votre Route",
+        "subtitle": "Vérifiez la couverture entre votre ville et votre destination marocaine",
+        "from": "De (Europe)",
+        "to": "À (Maroc)",
+        "selectOrigin": "Sélectionnez la ville d'origine",
+        "selectDestination": "Sélectionnez la destination",
+        "checkRoute": "Vérifier la Route",
+        "getPrice": "Obtenir le Prix"
+      },
+      "popularRoutes": {
+        "title": "Routes Populaires",
+        "subtitle": "Routes d'expédition les plus fréquemment utilisées",
+        "duration": "Durée",
+        "frequency": "Fréquence",
+        "price": "Prix"
+      },
+      "europeanCities": {
+        "title": "Villes de Collecte Européennes",
+        "subtitle": "Nous collectons les colis dans ces zones",
+        "routes": "routes",
+        "frequency": "Fréquence",
+        "pickupAreas": "Zones de Collecte",
+        "viewDetails": "Voir les Détails",
+        "daily": "Quotidien",
+        "perWeek": "par semaine"
+      },
+      "moroccanCities": {
+        "title": "Destinations au Maroc",
+        "subtitle": "Nous livrons dans ces villes et leurs environs",
+        "region": "Région",
+        "connections": "Connexions",
+        "avgDelivery": "Livraison Moy.",
+        "coverage": "Couverture"
+      },
+      "howItWorks": {
+        "title": "Comment Fonctionne Notre Réseau",
+        "subtitle": "Exploiter les lignes de bus quotidiennes pour une livraison plus rapide et moins chère",
+        "step1": {
+          "title": "Lignes de Bus Régulières",
+          "description": "Nous nous associons avec des compagnies de bus agréées voyageant quotidiennement entre l'Europe et le Maroc"
+        },
+        "step2": {
+          "title": "Collecte Locale",
+          "description": "Le chauffeur récupère votre colis dans votre ville européenne"
+        },
+        "step3": {
+          "title": "Transit Direct",
+          "description": "Votre colis voyage sur un itinéraire établi avec suivi en temps réel"
+        },
+        "step4": {
+          "title": "Livraison Locale",
+          "description": "Livraison directe à l'adresse au Maroc"
+        }
+      },
+      "cta": {
+        "title": "Vous ne Voyez pas Votre Route?",
+        "subtitle": "Nous sommes en constante expansion. Contactez-nous pour de nouvelles demandes de routes.",
+        "requestRoute": "Demander une Nouvelle Route",
+        "bookRoute": "Réserver une Route Existante"
+      }
+    },
+    "specialized": {
+      "hero": {
+        "badge": "Services Premium",
+        "title": "Solutions d'Expédition",
+        "titleHighlight": "Spécialisées",
+        "subtitle": "De la livraison express au transport à température contrôlée. Nous gérons les colis nécessitant un soin particulier.",
+        "cta": "Discutez de vos Besoins"
+      },
+      "servicesGrid": {
+        "title": "Nos Services Spécialisés",
+        "subtitle": "Solutions sur mesure pour des besoins d'expédition uniques",
+        "useCases": "Usages Courants:"
+      },
+      "services": {
+        "express": {
+          "title": "Livraison Express",
+          "duration": "24-36h",
+          "price": "+15€",
+          "description": "Livraison garantie par le prochain bus pour les colis urgents. Traitement prioritaire à chaque étape.",
+          "features": {
+            "nextBus": "Prochain départ de bus disponible",
+            "priority": "Chargement et déchargement prioritaires",
+            "sms": "Mises à jour SMS à chaque point de contrôle",
+            "guarantee": "Garantie de remboursement en cas de retard"
+          },
+          "useCases": {
+            "medical": "Fournitures médicales",
+            "gifts": "Cadeaux de dernière minute",
+            "contracts": "Documents importants"
+          }
+        },
+        "temperature": {
+          "title": "Température Contrôlée",
+          "duration": "48-72h",
+          "price": "+25€",
+          "description": "Transport climatisé pour articles sensibles à la température. Maintien des conditions appropriées pendant le transit.",
+          "badge": "2-8°C",
+          "features": {
+            "climate": "Compartiments de stockage climatisés",
+            "logging": "Enregistrement de température toutes les 30 minutes",
+            "handling": "Protocoles de manutention spécialisés",
+            "customs": "Dédouanement accéléré"
+          },
+          "useCases": {
+            "medications": "Médicaments & vaccins",
+            "food": "Aliments spécialisés",
+            "cosmetics": "Cosmétiques premium"
+          }
+        },
+        "documents": {
+          "title": "Documents Importants",
+          "duration": "36-48h",
+          "price": "+8€",
+          "description": "Livraison sécurisée de documents légaux et officiels avec suivi de la chaîne de traçabilité.",
+          "features": {
+            "tamper": "Emballage inviolable",
+            "custody": "Documentation de la chaîne de traçabilité",
+            "signature": "Signature requise au ramassage et à la livraison",
+            "scan": "Numérisation et confirmation de téléchargement"
+          },
+          "useCases": {
+            "legal": "Contrats légaux",
+            "passport": "Passeport & visas",
+            "deeds": "Actes de propriété"
+          }
+        },
+        "insurance": {
+          "title": "Assurance Haute Valeur",
+          "duration": "Standard",
+          "price": "2% de la valeur",
+          "description": "Couverture d'assurance étendue jusqu'à 5 000€ pour les articles de valeur. Garantie de remplacement complet.",
+          "features": {
+            "coverage": "Couverture jusqu'à 5 000€",
+            "claims": "Traitement des réclamations 24h",
+            "photo": "Documentation photo à chaque étape",
+            "fragile": "Protocoles de manipulation des articles fragiles"
+          },
+          "useCases": {
+            "electronics": "Électronique",
+            "jewelry": "Bijoux & montres",
+            "collectibles": "Objets de collection & art"
+          }
+        },
+        "oversized": {
+          "title": "Colis Surdimensionnés",
+          "duration": "3-5 jours",
+          "price": "Devis personnalisé",
+          "description": "Expédition d'articles volumineux ou lourds jusqu'à 50kg. Équipement et manutention spécialisés.",
+          "badge": "Jusqu'à 50kg",
+          "features": {
+            "weight": "Limite de poids jusqu'à 50kg",
+            "dimensions": "Dimensions jusqu'à 150cm au total",
+            "space": "Réservation d'espace cargo dédié",
+            "securing": "Sécurisation et rembourrage professionnels"
+          },
+          "useCases": {
+            "furniture": "Petits meubles",
+            "appliances": "Appareils électroménagers",
+            "sports": "Équipement sportif"
+          }
+        },
+        "whiteGlove": {
+          "title": "Service White Glove",
+          "duration": "Planifié",
+          "price": "+45€",
+          "description": "Livraison concierge premium avec créneaux horaires planifiés, déballage et services d'assemblage.",
+          "badge": "Premium",
+          "features": {
+            "scheduled": "Créneau de livraison de 2 heures planifié",
+            "unpacking": "Service de déballage et de placement",
+            "assembly": "Assemblage de base inclus",
+            "removal": "Enlèvement des matériaux d'emballage"
+          },
+          "useCases": {
+            "gifts": "Cadeaux pour occasions spéciales",
+            "antiques": "Antiquités & héritages",
+            "corporate": "Cadeaux d'entreprise"
+          }
+        }
+      },
+      "customs": {
+        "badge": "Support Douanier",
+        "title": "Services de Courtage en Douane",
+        "subtitle": "Naviguez dans les douanes marocaines avec un soutien expert. Nous gérons la paperasse et la conformité pour les articles restreints.",
+        "features": {
+          "hsCode": "Assistance à la classification du code SH",
+          "invoice": "Préparation de facture commerciale",
+          "duty": "Calcul des droits et taxes",
+          "certificate": "Gestion du certificat d'origine",
+          "preClearance": "Consultation de pré-dédouanement",
+          "agent": "Agent douanier dédié"
+        },
+        "pricing": "💡 Courtage en douane: Frais fixes de 20€ pour la plupart des envois. Cas complexes devisés individuellement.",
+        "cta": "Contacter l'Équipe Douanière",
+        "howItWorks": {
+          "title": "Comment Ça Marche",
+          "step1": {
+            "title": "Déclaration des Articles",
+            "desc": "Vous déclarez vos articles lors de la réservation"
+          },
+          "step2": {
+            "title": "Examen des Documents",
+            "desc": "Notre équipe examine et prépare la documentation requise"
+          },
+          "step3": {
+            "title": "Pré-dédouanement",
+            "desc": "Nous soumettons les documents avant l'arrivée du colis"
+          },
+          "step4": {
+            "title": "Livraison Fluide",
+            "desc": "Votre colis passe la douane sans délai"
+          }
+        }
+      },
+      "guidelines": {
+        "title": "Directives d'Expédition",
+        "subtitle": "Ce que vous pouvez et ne pouvez pas expédier au Maroc",
+        "prohibited": {
+          "title": "Articles Interdits",
+          "subtitle": "Ces articles ne peuvent être expédiés en aucune circonstance:"
+        },
+        "restricted": {
+          "title": "Articles Restreints",
+          "subtitle": "Ces articles nécessitent une documentation spéciale ou ont des limitations:"
+        },
+        "help": "Vous ne savez pas si votre article peut être expédié?",
+        "helpLink": "Contactez notre équipe d'assistance"
+      },
+      "prohibited": {
+        "weapons": "Armes, munitions ou explosifs",
+        "drugs": "Drogues illégales ou stupéfiants",
+        "hazardous": "Matières dangereuses ou produits chimiques",
+        "counterfeit": "Produits contrefaits ou médias piratés",
+        "animals": "Animaux vivants ou produits d'origine animale",
+        "perishable": "Aliments hautement périssables"
+      },
+      "restricted": {
+        "alcohol": {
+          "item": "Alcool & Spiritueux",
+          "note": "Limité à 1L par personne, vérification d'identité requise"
+        },
+        "tobacco": {
+          "item": "Produits du Tabac",
+          "note": "Limité à 200 cigarettes ou équivalent"
+        },
+        "cosmetics": {
+          "item": "Cosmétiques & Parfums",
+          "note": "Les quantités commerciales nécessitent des permis spéciaux"
+        },
+        "medications": {
+          "item": "Médicaments sur Ordonnance",
+          "note": "Nécessitent une copie d'ordonnance et limités à 3 mois d'approvisionnement"
+        }
+      },
+      "cta": {
+        "title": "Besoin d'une Solution Personnalisée?",
+        "subtitle": "Notre équipe peut créer des plans d'expédition spécialisés pour des besoins uniques",
+        "contact": "Contacter un Spécialiste",
+        "bookStandard": "Réserver un Service Standard"
+      }
+    }
+  },
+  "support": {
+    "quickActions": {
+      "title": "Comment Pouvons-Nous Vous Aider Aujourd'hui?",
+      "subtitle": "Accès rapide à nos outils et services de support les plus populaires",
+      "track": {
+        "title": "Suivre le Colis",
+        "description": "Vérifiez le statut de votre envoi en temps réel"
+      },
+      "quote": {
+        "title": "Obtenir un Devis",
+        "description": "Calculez les frais d'expédition instantanément"
+      },
+      "report": {
+        "title": "Signaler un Problème",
+        "description": "Faites-nous savoir s'il y a des problèmes"
+      },
+      "chat": {
+        "title": "Chat en Direct",
+        "description": "Connectez-vous via WhatsApp instantanément"
+      }
+    },
+    "faq": {
+      "title": "Questions Fréquemment Posées",
+      "subtitle": "Trouvez des réponses rapides aux questions courantes sur l'expédition entre l'Europe et le Maroc",
+      "searchPlaceholder": "Rechercher des questions...",
+      "allCategories": "Tout",
+      "noResults": "Aucune question ne correspond à votre recherche. Essayez d'autres mots-clés ou contactez-nous directement.",
+      "clearFilters": "Effacer les Filtres",
+      "categories": {
+        "shipping": "Expédition",
+        "pricing": "Tarification",
+        "customs": "Douane",
+        "tracking": "Suivi",
+        "general": "Général"
+      },
+      "shipping": {
+        "q1": {
+          "question": "Combien de temps prend l'expédition de l'Europe au Maroc?",
+          "answer": "L'expédition standard prend 5-7 jours ouvrables. Un service express est disponible en 3-4 jours pour les grandes villes comme Casablanca, Rabat et Marrakech."
+        },
+        "q2": {
+          "question": "Quels articles puis-je expédier au Maroc?",
+          "answer": "Vous pouvez expédier la plupart des articles personnels, cadeaux, documents, électronique et vêtements. Les articles interdits incluent les denrées périssables, l'alcool, les armes et les médicaments. Consultez notre liste complète de restrictions dans les directives d'expédition."
+        },
+        "q3": {
+          "question": "Offrez-vous la livraison porte-à-porte au Maroc?",
+          "answer": "Oui, nous fournissons une livraison porte-à-porte dans toutes les grandes villes marocaines. Pour les zones éloignées, la livraison peut être à la station de bus la plus proche avec enlèvement local disponible."
+        },
+        "q4": {
+          "question": "Quel est le poids maximum du colis?",
+          "answer": "Les colis standard peuvent peser jusqu'à 30 kg. Pour les envois plus lourds (jusqu'à 100 kg), veuillez contacter notre équipe de support commercial pour des devis personnalisés."
+        },
+        "q5": {
+          "question": "Comment les colis sont-ils protégés pendant le transit?",
+          "answer": "Tous les colis sont emballés de manière sécurisée, suivis tout au long du voyage et manipulés par des chauffeurs formés. Une couverture d'assurance est disponible pour les articles de valeur jusqu'à 1 000 €."
+        }
+      },
+      "pricing": {
+        "q1": {
+          "question": "Comment le coût d'expédition est-il calculé?",
+          "answer": "Le prix est basé sur le poids du colis, les dimensions, la ville de départ et la destination au Maroc. Utilisez notre calculateur de devis instantané sur la page des tarifs pour les coûts exacts."
+        },
+        "q2": {
+          "question": "Y a-t-il des frais cachés?",
+          "answer": "Non. Le prix que vous voyez inclut l'enlèvement, le transit et la livraison. Le seul coût supplémentaire pourrait être les droits de douane marocains si la valeur de votre colis dépasse 150 €."
+        },
+        "q3": {
+          "question": "Offrez-vous des réductions pour les entreprises?",
+          "answer": "Oui! Les entreprises qui expédient régulièrement peuvent économiser 15 à 30% avec nos plans de tarification en volume. Contactez notre équipe commerciale pour un devis personnalisé."
+        },
+        "q4": {
+          "question": "Quels modes de paiement acceptez-vous?",
+          "answer": "Nous acceptons toutes les principales cartes de crédit/débit (Visa, Mastercard, Amex), PayPal et virements bancaires. Les comptes professionnels peuvent également payer par facture avec des conditions NET-30."
+        }
+      },
+      "customs": {
+        "q1": {
+          "question": "Dois-je remplir des formulaires douaniers?",
+          "answer": "Oui, pour les envois au Maroc, vous devrez fournir une liste détaillée du contenu et des valeurs. Notre système de réservation vous guide automatiquement dans ce processus."
+        },
+        "q2": {
+          "question": "Mon colis sera-t-il soumis à des droits de douane?",
+          "answer": "La douane marocaine applique des droits sur les colis d'une valeur supérieure à 150 €. Les droits varient de 2,5 % à 40 % selon la catégorie d'article. Nous fournissons des calculs estimés des droits lors de la réservation."
+        },
+        "q3": {
+          "question": "Combien de temps prend le dédouanement?",
+          "answer": "Généralement 1 à 2 jours ouvrables. Notre équipe surveille l'état du dédouanement et gère de manière proactive toutes les demandes de documentation pour minimiser les délais."
+        },
+        "q4": {
+          "question": "Que se passe-t-il si la douane rejette mon colis?",
+          "answer": "Nous vous informerons immédiatement. Vous pouvez soit fournir une documentation supplémentaire, payer les droits applicables, ou faire retourner le colis à l'expéditeur (des frais de retour s'appliquent)."
+        }
+      },
+      "tracking": {
+        "q1": {
+          "question": "Comment puis-je suivre mon colis?",
+          "answer": "Utilisez votre numéro de suivi sur notre page de suivi. Vous recevrez des mises à jour en temps réel par email et SMS à chaque étape: ramassé, en transit, dédouanement et livré."
+        },
+        "q2": {
+          "question": "Pourquoi mon suivi n'a-t-il pas été mis à jour?",
+          "answer": "Le suivi se met à jour lorsque les colis atteignent les points de contrôle. Pendant le transit entre les villes, les mises à jour peuvent s'arrêter pendant 24 à 48 heures. S'il n'y a pas de mise à jour après 72 heures, contactez le support."
+        },
+        "q3": {
+          "question": "Puis-je modifier l'adresse de livraison après l'expédition?",
+          "answer": "Les modifications d'adresse sont possibles avant que le colis n'atteigne le Maroc. Contactez immédiatement le support avec votre numéro de suivi. Des frais de modification d'adresse de 10 € s'appliquent."
+        },
+        "q4": {
+          "question": "Que faire si mon colis est marqué comme livré mais que je ne l'ai pas reçu?",
+          "answer": "Contactez immédiatement le support avec votre numéro de suivi. Nous enquêterons avec notre chauffeur et fournirons une preuve de livraison. Si le problème persiste, des réclamations d'assurance peuvent être déposées dans les 7 jours."
+        }
+      },
+      "general": {
+        "q1": {
+          "question": "Expédiez-vous vers toutes les villes du Maroc?",
+          "answer": "Nous livrons dans toutes les grandes villes marocaines, notamment Casablanca, Rabat, Marrakech, Tanger, Fès, Agadir, et plus. Les zones rurales peuvent nécessiter un enlèvement au centre le plus proche."
+        },
+        "q2": {
+          "question": "Puis-je planifier un enlèvement à domicile?",
+          "answer": "Oui! Lors de la réservation, sélectionnez 'Enlèvement à domicile' et choisissez votre date et créneau horaire préférés. L'enlèvement est disponible dans la plupart des villes européennes moyennant un supplément de 5 à 10 €."
+        },
+        "q3": {
+          "question": "Quelle est votre politique de remboursement?",
+          "answer": "Des remboursements complets sont disponibles si vous annulez avant l'enlèvement. Après l'enlèvement, les remboursements sont fournis uniquement si nous ne parvenons pas à livrer dans les délais promis (hors retards douaniers)."
+        }
+      },
+      "stillNeedHelp": {
+        "title": "Besoin d'Aide Supplémentaire?",
+        "subtitle": "Vous ne trouvez pas la réponse que vous cherchez? Notre équipe de support est là pour vous aider.",
+        "button": "Contacter le Support"
+      }
+    },
+    "contactForm": {
+      "title": "Contacter le Support",
+      "subtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons dès que possible",
+      "form": {
+        "inquiryType": "Comment pouvons-nous vous aider?",
+        "selectInquiryType": "Sélectionnez le type de demande",
+        "inquiryTypes": {
+          "question": "Question Générale",
+          "issue": "Signaler un Problème",
+          "business": "Demande Commerciale",
+          "partnership": "Opportunité de Partenariat"
+        },
+        "fullName": "Nom Complet",
+        "fullNamePlaceholder": "Jean Dupont",
+        "email": "Adresse Email",
+        "emailPlaceholder": "jean@exemple.com",
+        "phone": "Numéro de Téléphone (Facultatif)",
+        "phonePlaceholder": "+33 6 12 34 56 78",
+        "trackingNumber": "Numéro de Suivi (Si applicable)",
+        "trackingNumberPlaceholder": "TG123456789",
+        "companyName": "Nom de l'Entreprise",
+        "companyNamePlaceholder": "Votre Entreprise SARL",
+        "subject": "Sujet",
+        "subjectPlaceholder": "Brève description de votre demande",
+        "message": "Message",
+        "messagePlaceholder": "Veuillez fournir des détails sur votre demande...",
+        "attachment": "Joindre un Fichier (Facultatif)",
+        "chooseFile": "Choisir un Fichier",
+        "fileInfo": "PDF, JPG, PNG ou DOC jusqu'à 5 Mo",
+        "markAsUrgent": "Marquer comme urgent (nécessite une attention immédiate)",
+        "urgentPriority": "🚨 Priorité Urgente",
+        "termsText": "J'accepte les",
+        "termsLink": "Conditions Générales",
+        "submit": "Envoyer le Message",
+        "submitting": "Envoi en cours...",
+        "normalResponseTime": "💬 Nous répondons généralement dans les 24 heures",
+        "urgentResponseTime": "⚡ Les demandes urgentes sont prioritaires et répondues dans les 4 heures",
+        "errors": {
+          "inquiryTypeRequired": "Veuillez sélectionner un type de demande",
+          "nameMin": "Le nom doit contenir au moins 2 caractères",
+          "emailInvalid": "Veuillez saisir une adresse email valide",
+          "subjectMin": "Le sujet doit contenir au moins 3 caractères",
+          "messageMin": "Le message doit contenir au moins 10 caractères",
+          "termsRequired": "Vous devez accepter les conditions générales",
+          "fileTooLarge": "La taille du fichier doit être inférieure à 5 Mo",
+          "fileTypeInvalid": "Seuls les fichiers PDF, JPG, PNG et DOC sont autorisés",
+          "submitFailed": "Échec de l'envoi du message",
+          "submitFailedDescription": "Veuillez réessayer ou contactez-nous par téléphone ou WhatsApp"
+        }
+      },
+      "success": {
+        "title": "Message Envoyé avec Succès!",
+        "description": "Merci de nous avoir contactés",
+        "message": "Nous avons reçu votre message et vous répondrons dès que possible. Vérifiez votre email pour une confirmation.",
+        "sendAnother": "Envoyer un Autre Message"
+      }
+    },
+    "channels": {
+      "title": "Nous Contacter",
+      "subtitle": "Choisissez le canal de support qui vous convient le mieux. Notre équipe est là pour vous aider.",
+      "available": "Disponible",
+      "phone": {
+        "title": "Support Téléphonique",
+        "description": "Parlez directement avec notre équipe de support",
+        "number": "+33 7 63 21 54 87",
+        "availability": "Lun-Ven, 9h-18h CET",
+        "action": "Appeler Maintenant"
+      },
+      "email": {
+        "title": "Support par Email",
+        "description": "Envoyez-nous un message détaillé",
+        "address": "support@tawsilgo.com",
+        "availability": "24/7 - Réponse dans les 24h",
+        "action": "Envoyer un Email"
+      },
+      "whatsapp": {
+        "title": "Support WhatsApp",
+        "description": "Discutez avec nous instantanément",
+        "number": "+33 7 63 21 54 87",
+        "availability": "Lun-Sam, 8h-22h CET",
+        "action": "Ouvrir WhatsApp"
+      },
+      "office": {
+        "title": "Visiter Notre Bureau",
+        "description": "Rencontrez-nous en personne",
+        "address": "123 Rue de Commerce, 75001 Paris, France",
+        "availability": "Lun-Ven, 9h-17h",
+        "action": "Obtenir l'Itinéraire"
+      },
+      "responseTimes": {
+        "title": "Temps de Réponse Attendus",
+        "urgent": "Problèmes Urgents",
+        "urgentTime": "2-4 heures",
+        "normal": "Demandes Générales",
+        "normalTime": "12-24 heures",
+        "business": "Demandes Commerciales",
+        "businessTime": "1-2 jours ouvrables",
+        "note": "Les temps de réponse peuvent varier pendant les hautes saisons (Ramadan, Aïd, vacances d'été)"
+      }
+    },
+    "business": {
+      "title": "Solutions Professionnelles",
+      "subtitle": "Solutions d'expédition évolutives pour les entreprises de commerce électronique, les détaillants et les partenaires logistiques expédiant vers le Maroc",
+      "features": {
+        "volume": {
+          "title": "Remises sur Volume",
+          "description": "Économisez jusqu'à 30% avec les plans d'expédition en gros volume"
+        },
+        "analytics": {
+          "title": "Analyses Commerciales",
+          "description": "Suivez les coûts, les délais de livraison et les indicateurs de performance"
+        },
+        "insurance": {
+          "title": "Assurance Premium",
+          "description": "Couverture étendue jusqu'à 5 000 € par envoi"
+        },
+        "account": {
+          "title": "Gestionnaire de Compte Dédié",
+          "description": "Support personnel et stratégies d'expédition optimisées"
+        }
+      },
+      "packages": {
+        "title": "Choisissez Votre Plan Professionnel",
+        "bestFor": "Idéal pour:",
+        "contact": "Contacter les Ventes",
+        "starter": {
+          "name": "Business Starter",
+          "description": "Parfait pour les petites entreprises et les boutiques en ligne commençant à expédier vers le Maroc",
+          "feature1": "10-50 envois/mois",
+          "feature2": "10% de remise sur volume",
+          "feature3": "Support standard",
+          "feature4": "Tableau de bord analytique de base",
+          "bestFor": "Petites boutiques e-commerce, vendeurs artisans"
+        },
+        "business": {
+          "name": "Business Pro",
+          "badge": "Le Plus Populaire",
+          "description": "Pour les entreprises en croissance avec des envois réguliers vers le Maroc",
+          "feature1": "50-200 envois/mois",
+          "feature2": "20% de remise sur volume",
+          "feature3": "Support prioritaire",
+          "feature4": "Analyses et rapports avancés",
+          "feature5": "Gestionnaire de compte dédié",
+          "bestFor": "E-commerce établi, chaînes de détail"
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "description": "Solutions personnalisées pour les expéditeurs à gros volume et les partenaires logistiques",
+          "feature1": "200+ envois/mois",
+          "feature2": "Jusqu'à 30% de remise sur volume",
+          "feature3": "Support prioritaire 24/7",
+          "feature4": "Intégration API personnalisée",
+          "feature5": "Solutions en marque blanche",
+          "feature6": "Conditions de paiement flexibles (NET-30/60)",
+          "bestFor": "Grands détaillants, fournisseurs 3PL, places de marché"
+        }
+      },
+      "resources": {
+        "title": "Ressources Professionnelles",
+        "learn": "En Savoir Plus",
+        "guide": {
+          "title": "Guide d'Intégration",
+          "description": "Guide étape par étape pour intégrer TawsilGo dans votre plateforme e-commerce"
+        },
+        "api": {
+          "title": "Documentation API",
+          "description": "Référence API complète pour les développeurs créant des intégrations d'expédition"
+        },
+        "training": {
+          "title": "Formation d'Équipe",
+          "description": "Sessions d'intégration et de formation gratuites pour votre équipe logistique"
+        }
+      },
+      "cta": {
+        "title": "Prêt à Développer Vos Expéditions vers le Maroc?",
+        "description": "Rejoignez plus de 500 entreprises qui font confiance à TawsilGo pour des expéditions fiables et rentables vers le Maroc. Discutons de vos besoins.",
+        "contact": "Contacter l'Équipe Commerciale",
+        "pricing": "Voir les Tarifs Professionnels"
+      }
+    }
+  }
+}

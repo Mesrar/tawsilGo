@@ -1,0 +1,2440 @@
+{
+  "home": {
+    "hero": {
+      "title": "Send Packages to Morocco 🇲🇦",
+      "subtitle": "Bus-based delivery from Europe to Morocco. Up to 70% cheaper than traditional carriers.",
+      "trustBadge": "🏆 Trusted by 10,000+ Moroccan families",
+      "cta": "Show Available Routes",
+      "loading": "Loading...",
+      "formTitle": "Get a quick price estimate",
+      "priceEstimate": "Get a quick price estimate",
+      "switchRoute": "Switch departure and destination",
+      "from": "From",
+      "to": "To",
+      "selectDeparture": "Select departure",
+      "selectDestination": "Select destination",
+      "popularRoutes": "Popular routes",
+      "fastDelivery": "Fast Delivery",
+      "secure": "Secure",
+      "affordable": "Affordable",
+      "reviews": "4.9/5 from 2,000+ reviews"
+    },
+    "features": {
+      "badge": "Built for the Moroccan Diaspora",
+      "heading": "Europe to Morocco Shipping",
+      "subheading": "Send packages home with trusted bus drivers. Faster, cheaper, and built for Moroccan families.",
+      "sectionBadge": "Built for the Moroccan Diaspora",
+      "sectionTitle": "Europe to {highlight} Shipping",
+      "sectionTitleHighlight": "Morocco",
+      "sectionDescription": "Send packages home with trusted bus drivers. Faster, cheaper, and built for Moroccan families.",
+      "cta": "Start Shipping to Morocco",
+      "busDelivery": {
+        "title": "Bus-Based Delivery",
+        "description": "Your package travels with trusted bus drivers on routes like Paris-Casablanca, Lyon-Marrakech."
+      },
+      "moroccoSpecialists": {
+        "title": "Morocco Specialists",
+        "description": "We understand Moroccan customs, Eid shipping deadlines, and family package needs."
+      },
+      "transparentPricing": {
+        "title": "Transparent Pricing",
+        "description": "See costs in both EUR and MAD upfront. No hidden fees, no surprises."
+      },
+      "secureToMorocco": {
+        "title": "Secure to Morocco",
+        "description": "End-to-end tracking from Europe to your family's door in Casablanca, Rabat, or Tangier."
+      },
+      "trustedByFamilies": {
+        "title": "Trusted by Families",
+        "description": "10,000+ Moroccan families trust us with precious gifts, documents, and essentials."
+      },
+      "mobileFirst": {
+        "title": "Mobile First",
+        "description": "Manage shipments on-the-go, perfect for the diaspora lifestyle between Europe and Morocco."
+      },
+      "guarantee": "100% Satisfaction Guaranteed"
+    },
+    "cta": {
+      "badge": "Bus-Based Delivery to Morocco",
+      "heading": "Send Packages Home",
+      "headingHighlight": "to Morocco",
+      "description": "Save up to 70% on shipping from Europe to Morocco with trusted bus drivers on daily routes.",
+      "trustCount": "<count>5,000+</count> trusted members",
+      "trustCountValue": "5,000+",
+      "button": "Book Your Shipment",
+      "features": {
+        "crossBorder": "Cross-Border",
+        "secureHandling": "Secure Handling",
+        "liveTracking": "Live Tracking",
+        "lowestRates": "Lowest Rates"
+      }
+    },
+    "faq": {
+      "badge": "Shipping Support",
+      "title": "Your Logistics {highlight} Answered",
+      "titleHighlight": "Questions",
+      "description": "Get answers to the most common questions about our shipping process",
+      "categories": {
+        "all": "All",
+        "shipping": "Shipping",
+        "payment": "Payment",
+        "security": "Security",
+        "support": "Support"
+      },
+      "noResults": "No FAQs found in this category",
+      "viewAll": "View all FAQs",
+      "support": {
+        "title": "24/7 Support",
+        "description": "Need urgent help? Our multilingual support team is available round-the-clock.",
+        "responseTime": "Average response time:",
+        "responseValue": "8 minutes",
+        "trustBadge": "Verified Bus Partners",
+        "trustDescription": "Licensed drivers, 10+ years Morocco routes"
+      },
+      "questions": {
+        "busDelivery": {
+          "question": "How does bus-based delivery to Morocco work?",
+          "answer": "Your package travels with verified bus drivers on regular routes from European cities to Morocco. We partner with trusted bus companies operating daily routes like Paris-Casablanca, Lyon-Marrakech, and Madrid-Tangier. You drop off your package at our pickup point, we hand it to the driver, and it's delivered door-to-door in Morocco with full tracking."
+        },
+        "deliveryTime": {
+          "question": "How long does delivery from Europe to Morocco take?",
+          "answer": "Average delivery time is 3-5 days from major European cities to Morocco. Paris to Casablanca typically takes 3-4 days, while routes from Germany or Netherlands take 4-5 days. We provide real-time tracking updates throughout the journey."
+        },
+        "customs": {
+          "question": "What can I send to Morocco? Any customs restrictions?",
+          "answer": "You can send gifts, documents, clothing, electronics, and most personal items. Moroccan customs prohibits weapons, drugs, alcohol, and pork products. Items valued over €40 may require customs declaration. We recommend keeping receipts for electronics and valuable items."
+        },
+        "eid": {
+          "question": "Can I ship gifts for Eid or Ramadan?",
+          "answer": "Absolutely! We offer priority Eid shipping to ensure your gifts arrive before the celebration. During Ramadan and Eid periods, we recommend booking 10-14 days in advance due to high demand. Traditional Moroccan pastries, clothing, and gift items are welcome (no perishables)."
+        },
+        "insurance": {
+          "question": "Is my package insured during transit?",
+          "answer": "All shipments include complimentary insurance coverage up to €500. For valuable items like electronics, jewelry, or important documents, we offer premium insurance up to €5,000 for a small additional fee."
+        },
+        "verification": {
+          "question": "How are bus drivers verified?",
+          "answer": "We only partner with licensed bus companies with established European-Morocco routes. All drivers undergo background checks, have valid commercial driver licenses, and are trained in package handling. Our bus partners have been operating Morocco routes for 10+ years."
+        },
+        "payment": {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept all major credit/debit cards (Visa, Mastercard, Amex), PayPal, Apple Pay, and Google Pay. You can see prices in both EUR and MAD (Moroccan Dirham). All transactions are processed securely through Stripe with 3D Secure authentication."
+        },
+        "support": {
+          "question": "How can I contact customer support?",
+          "answer": "Reach our multilingual support team (French, Arabic, English) via WhatsApp at +33 XX XXX XXXX, email at support@tawsilgo.com, or in-app chat. We're available 7 days a week, 9 AM - 9 PM CET. Average response time is under 2 hours."
+        },
+        "tracking": {
+          "question": "Where can I track my package?",
+          "answer": "Once your package is collected, you'll receive a tracking number via SMS and email. Track in real-time through our mobile app or website. You'll get updates when the bus departs Europe, crosses into Morocco, clears customs, and arrives at the destination city."
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "How It Works",
+      "heading": "Simple, Fast, Transparent",
+      "description": "Four easy steps from your doorstep in Europe to your family's home in Morocco",
+      "steps": {
+        "bookOnline": {
+          "title": "Book Online",
+          "description": "Enter details and get instant pricing. Pay securely with Stripe."
+        },
+        "wePickUp": {
+          "title": "We Pick Up",
+          "description": "Driver comes to your door in Europe. No depot visits needed."
+        },
+        "busTransit": {
+          "title": "Bus Transit",
+          "description": "Your parcel travels with licensed drivers. Track in real-time."
+        },
+        "delivered": {
+          "title": "Delivered",
+          "description": "Direct to your family in Morocco. 48-72 hour delivery."
+        }
+      },
+      "cta": "Learn More About Our Process"
+    },
+    "trustMarquee": {
+      "badge": "Serving Moroccan Families Across Continents",
+      "heading": "Trusted in <highlight>16+ Cities</highlight>",
+      "headingHighlight": "16+ Cities",
+      "description": "From Europe to Morocco - delivering memories, not just packages",
+      "moroccoLabel": "🇲🇦 Morocco Destinations",
+      "europeLabel": "🇪🇺 Europe Pickup Points",
+      "deliveries": "deliveries",
+      "sent": "sent",
+      "footer": "Join <highlight>10,000+ families</highlight> shipping with confidence",
+      "footerHighlight": "10,000+ families"
+    },
+    "drivers": {
+      "badge": "Meet Our Drivers",
+      "heading": "The People Behind Your Deliveries",
+      "description": "Every parcel is handled by licensed, rated, and trusted bus drivers who take pride in connecting families across borders.",
+      "badges": {
+        "licensed": "Licensed",
+        "years": "{count} years"
+      },
+      "deliveries": "deliveries",
+      "supplementary": "{amount}/month supplementary",
+      "profiles": {
+        "hassan": {
+          "testimonial": "I've been driving this route for years. TawsilGo lets me earn extra income while helping families stay connected. The app makes everything easy."
+        },
+        "aicha": {
+          "testimonial": "As a female driver, I appreciate the safety features and verification system. Families trust me with their precious packages."
+        },
+        "karim": {
+          "testimonial": "The flexibility is perfect. I choose when to accept parcels. The insurance gives both me and customers peace of mind."
+        }
+      },
+      "customerTestimonials": {
+        "heading": "What Customers Say",
+        "fatima": {
+          "text": "Hassan has delivered my packages 6 times. Always on time, always careful. I feel like I'm sending parcels with family."
+        },
+        "mohammed": {
+          "text": "Aicha is amazing! She even sent me photos when she picked up and delivered. So professional."
+        }
+      },
+      "cta": {
+        "heading": "Are You a Bus Driver?",
+        "description": "Earn €500-800/month supplementary income on routes you already drive. Licensed drivers wanted on Europe-Morocco routes.",
+        "becomeDriver": "Become a Driver",
+        "learnHow": "Learn How It Works"
+      }
+    },
+    "customs": {
+      "badge": "Customs Made Simple",
+      "heading": "No Customs Surprises",
+      "description": "Cross-border shipping can be confusing. We handle the paperwork and keep you informed every step of the way.",
+      "calculator": {
+        "heading": "Duty Calculator",
+        "description": "Estimate customs duties for your parcel. Morocco has a de minimis threshold of €150.",
+        "label": "Parcel Value (€)",
+        "placeholder": "Enter total value",
+        "button": "Calculate",
+        "estimatedDuty": "Estimated Duty:",
+        "noDuty": "No duty! Value is below €150 threshold.",
+        "disclaimer": "*Estimate only. Final duty determined by Morocco customs.",
+        "commonItems": {
+          "heading": "Common Item Duties",
+          "electronics": {
+            "category": "Electronics",
+            "example": "Phones, laptops, tablets",
+            "duty": "2.5%"
+          },
+          "clothing": {
+            "category": "Clothing",
+            "example": "Shirts, pants, jackets",
+            "duty": "8%"
+          },
+          "cosmetics": {
+            "category": "Cosmetics",
+            "example": "Perfume, skincare, makeup",
+            "duty": "5%"
+          },
+          "books": {
+            "category": "Books",
+            "example": "Educational materials",
+            "duty": "0%"
+          }
+        }
+      },
+      "brokerage": {
+        "heading": "Customs Brokerage Service",
+        "price": "+€20",
+        "description": "Skip the hassle. Our licensed customs brokers handle all documentation and clearance for you.",
+        "features": {
+          "hsCode": "HS code classification",
+          "invoice": "Commercial invoice prep",
+          "dutyCalc": "Duty calculation",
+          "preClearance": "Pre-clearance filing",
+          "certificate": "Certificate of origin",
+          "agent": "Dedicated customs agent"
+        },
+        "whyUse": {
+          "heading": "Why Use This Service?",
+          "avoidDelays": "• Avoid customs delays (saves 2-4 days)",
+          "noPaperwork": "• No paperwork stress",
+          "preCalculated": "• Pre-calculated duty estimates",
+          "peaceMind": "• Peace of mind guarantee"
+        },
+        "cta": "Learn More About Customs Service"
+      },
+      "prohibited": {
+        "heading": "Prohibited Items:",
+        "items": {
+          "weapons": "Weapons & ammunition",
+          "drugs": "Illegal drugs",
+          "counterfeit": "Counterfeit goods",
+          "hazardous": "Hazardous materials"
+        },
+        "viewFull": "View Full List"
+      }
+    },
+    "business": {
+      "badge": "For Businesses",
+      "heading": "Built for Business Growth",
+      "description": "Whether you're an e-commerce store, wholesaler, or enterprise, we have scalable logistics solutions designed for your business.",
+      "features": {
+        "volumeDiscounts": {
+          "title": "Volume Discounts",
+          "description": "Save up to 40% on bulk shipments"
+        },
+        "apiIntegration": {
+          "title": "API Integration",
+          "description": "Seamless e-commerce platform integration"
+        },
+        "analytics": {
+          "title": "Analytics Dashboard",
+          "description": "Real-time tracking and cost analysis"
+        }
+      },
+      "useCases": {
+        "heading": "Who We Serve",
+        "ecommerce": {
+          "title": "E-Commerce Stores",
+          "description": "Moroccan brands selling to European customers",
+          "example": "200+ orders/month with automated fulfillment"
+        },
+        "importExport": {
+          "title": "Import/Export",
+          "description": "Regular wholesale shipments between Europe & Morocco",
+          "example": "Weekly bulk deliveries with dedicated support"
+        },
+        "corporate": {
+          "title": "Corporate Offices",
+          "description": "Document courier for multi-location companies",
+          "example": "Secure, trackable delivery of contracts & samples"
+        }
+      },
+      "caseStudy": {
+        "badge": "Case Study",
+        "heading": "Moroccan Spice Co.",
+        "quote": "TawsilGo transformed our logistics. We used to spend 3 hours processing daily shipments. Now it takes 20 minutes with their bulk upload.",
+        "savedAmount": "€2,400",
+        "savedLabel": "Saved monthly vs DHL",
+        "parcelsAmount": "250",
+        "parcelsLabel": "Parcels/month",
+        "whatTheyGot": {
+          "heading": "What They Got:",
+          "volumeDiscount": "40% volume discount",
+          "apiIntegration": "API integration with Shopify",
+          "accountManager": "Dedicated account manager",
+          "routingOptimization": "Custom routing optimization"
+        }
+      },
+      "cta": {
+        "heading": "Ready to Scale Your Logistics?",
+        "description": "Join 500+ businesses using TawsilGo for their Europe-Morocco shipping needs. Volume discounts start at just 10 parcels/month.",
+        "exploreSolutions": "Explore Business Solutions",
+        "contactSales": "Contact Sales Team"
+      }
+    }
+  },
+  "booking": {
+    "hero": {
+      "trustBadge": "Trusted by 50,000+ businesses",
+      "title": "Book Parcel Delivery",
+      "subtitle": "Fast, secure, and affordable shipping"
+    },
+    "progress": {
+      "bookingProgress": "Booking Progress",
+      "complete": "Complete",
+      "step": "Step {current} of {total}",
+      "steps": {
+        "search": "Search Trips",
+        "select": "Select Trip",
+        "details": "Parcel Details",
+        "review": "Review & Pay"
+      }
+    },
+    "searchForm": {
+      "departure": "Departure",
+      "destination": "Destination",
+      "departureDate": "Departure Date",
+      "searchMode": "Choose your search level:",
+      "countryToCountry": "Country-to-Country",
+      "cityToCity": "City-to-City",
+      "faster": "Faster",
+      "precise": "Precise",
+      "fromCountry": "From Country",
+      "toCountry": "To Country",
+      "selectDepartureCountry": "Select departure country",
+      "selectDestinationCountry": "Select destination country",
+      "refineByCities": "Optional: Refine by specific cities",
+      "departureCity": "Departure City (Optional)",
+      "destinationCity": "Destination City (Optional)",
+      "optionalDepartureCity": "Optional: Specific departure city",
+      "optionalDestinationCity": "Optional: Specific destination city",
+      "modeSwitchConfirm": "Switch search mode? Current selections will be cleared.",
+      "placeholders": {
+        "cityOrPostcode": "City or postcode",
+        "selectDate": "Select date"
+      },
+      "quickDates": {
+        "today": "Today",
+        "tomorrow": "Tomorrow"
+      },
+      "buttons": {
+        "findTrips": "Find Trips",
+        "clearFilters": "Clear Filters"
+      },
+      "required": "*"
+    },
+    "tripSelection": {
+      "availableRoutes": "Available Routes",
+      "noTrips": {
+        "title": "No trips found",
+        "description": "Try different search criteria or dates"
+      },
+      "loading": "Searching for available trips...",
+      "editSearch": "Edit Search"
+    },
+    "parcelDetails": {
+      "title": "Parcel Shipping Details",
+      "description": "Please provide complete and accurate information",
+      "tripOverview": {
+        "title": "Trip Overview",
+        "from": "From",
+        "to": "To",
+        "available": "{capacity} kg available"
+      },
+      "sections": {
+        "progressTitle": "Booking Progress",
+        "progressStatus": "Step {completed} of {total}",
+        "locationsLabel": "Locations",
+        "parcelLabel": "Parcel Details",
+        "contactsLabel": "Contact Information",
+        "locations": {
+          "title": "Collection & Delivery Points",
+          "description": "Select pickup and delivery locations",
+          "pickupLocation": "Pickup Location",
+          "deliveryLocation": "Delivery Location",
+          "pickupLabel": "Pickup Location",
+          "pickupPlaceholder": "Enter pickup address",
+          "deliveryLabel": "Delivery Location",
+          "deliveryPlaceholder": "Enter delivery address",
+          "placeholders": {
+            "selectPickup": "Select pickup location",
+            "selectDelivery": "Select delivery location"
+          }
+        },
+        "specifications": {
+          "title": "Parcel Specifications",
+          "description": "Weight, packaging, and special requirements",
+          "weight": {
+            "label": "Parcel Weight",
+            "unit": "kg",
+            "available": "Available weight: {capacity}kg",
+            "tooltip": "Enter the total weight of your parcel in kilograms",
+            "indicators": {
+              "light": "Light (1-5kg)",
+              "medium": "Medium (5-20kg)",
+              "heavy": "Heavy (20kg+)"
+            },
+            "categories": {
+              "light": "Light",
+              "medium": "Medium",
+              "heavy": "Heavy"
+            }
+          },
+          "packaging": {
+            "label": "Packaging Type",
+            "guidelinesTitle": "Packaging Guidelines",
+            "guidelines": {
+              "box": {
+                "fillSpaces": "Fill empty spaces with padding material",
+                "sealSeams": "Seal all seams with strong tape",
+                "labelClearly": "Label clearly with recipient address"
+              },
+              "document": {
+                "stiffCardboard": "Use stiff cardboard envelope",
+                "waterproof": "Use waterproof packaging",
+                "doNotBend": "Mark as 'Do Not Bend'"
+              },
+              "electronics": {
+                "antiStatic": "Use anti-static packaging",
+                "originalPackaging": "Use original packaging when possible",
+                "temperature": "Protect from temperature changes"
+              },
+              "fragile": {
+                "bubbleWrap": "Wrap in bubble wrap",
+                "markFragile": "Mark package as 'Fragile'",
+                "doubleBox": "Use double-boxing for extra protection"
+              }
+            },
+            "types": {
+              "boxSmall": {
+                "name": "Small Box",
+                "size": "Up to 5kg"
+              },
+              "boxMedium": {
+                "name": "Medium Box",
+                "size": "5-15kg"
+              },
+              "boxLarge": {
+                "name": "Large Box",
+                "size": "15-30kg"
+              },
+              "document": {
+                "name": "Documents",
+                "size": "Envelope/Papers"
+              },
+              "electronics": {
+                "name": "Electronics",
+                "size": "Tech devices"
+              },
+              "fragile": {
+                "name": "Fragile",
+                "size": "Glass/Ceramics"
+              }
+            }
+          },
+          "specialRequirements": {
+            "label": "Special Requirements (optional)",
+            "placeholder": "e.g. Fragile items, temperature sensitive, specific handling instructions..."
+          }
+        },
+        "contacts": {
+          "title": "Contact Information",
+          "description": "Sender and recipient details",
+          "sender": {
+            "title": "Sender Information",
+            "fullName": "Full Name",
+            "phone": "Phone Number",
+            "phoneTooltip": "Include country code (e.g., +33 for France)",
+            "nameLabel": "Full Name",
+            "namePlaceholder": "Enter sender's name",
+            "phoneLabel": "Phone Number",
+            "phonePlaceholder": "e.g. +33 123 456789",
+            "placeholders": {
+              "name": "Enter sender's name",
+              "phone": "e.g. +33 123 456789"
+            }
+          },
+          "receiver": {
+            "title": "Recipient Information",
+            "fullName": "Full Name",
+            "phone": "Phone Number",
+            "phoneTooltip": "Include country code (e.g., +212 for Morocco)",
+            "nameLabel": "Full Name",
+            "namePlaceholder": "Enter recipient's name",
+            "phoneLabel": "Phone Number",
+            "phonePlaceholder": "e.g. +212 123 456789",
+            "placeholders": {
+              "name": "Enter recipient's name",
+              "phone": "e.g. +212 123 456789"
+            }
+          },
+          "securityBadge": "Your information is secure and will only be used for delivery purposes",
+          "securityNote": "Your information is secure and will only be used for delivery purposes"
+        }
+      },
+      "buttons": {
+        "back": "Back",
+        "previous": "Previous",
+        "nextStep": "Next Step",
+        "continueToReview": "Continue to Review",
+        "processing": "Processing..."
+      },
+      "priceCalculator": {
+        "title": "Price Summary",
+        "baseFee": "Base Fee",
+        "weightFee": "Weight Fee",
+        "insurance": "Insurance",
+        "vat": "VAT (19%)",
+        "subtotal": "Subtotal",
+        "total": "Total:",
+        "details": "Details",
+        "hide": "Hide"
+      }
+    },
+    "review": {
+      "title": "Review & Payment",
+      "stepLabel": "Step 4 of 4",
+      "bookingId": "Booking #{id}",
+      "description": "Please review your booking details before proceeding to payment",
+      "sections": {
+        "tripDetails": "Trip Details",
+        "parcelDetails": "Parcel Details",
+        "contactDetails": "Contact Details",
+        "paymentDetails": "Payment Details"
+      },
+      "parcel": {
+        "weight": "Weight",
+        "specialRequirements": "Special Requirements",
+        "none": "None"
+      },
+      "contacts": {
+        "sender": "Sender",
+        "recipient": "Recipient",
+        "name": "Name",
+        "phone": "Phone"
+      },
+      "cost": {
+        "baseFee": "Base Fee",
+        "weightFee": "Weight Fee ({weight} kg × €{price}/kg)",
+        "insurance": "Insurance",
+        "subtotal": "Subtotal",
+        "tax": "Tax (19%)",
+        "totalAmount": "Total Amount",
+        "paymentMethods": "Payment Methods"
+      },
+      "alert": {
+        "title": "Important Information",
+        "message": "By proceeding with payment, you agree to our Terms of Service and Privacy Policy. Please ensure all details are correct as changes after booking may incur additional fees."
+      },
+      "buttons": {
+        "backToDetails": "Back to Details",
+        "proceedToPayment": "Proceed to Payment",
+        "processing": "Processing..."
+      }
+    },
+    "validation": {
+      "required": "This field is required",
+      "selectLocations": "Please select locations",
+      "bothLocationsRequired": "Both departure and destination locations are required",
+      "invalidWeight": "Please specify a valid parcel weight",
+      "selectPackaging": "Please select packaging type",
+      "enterPickupContact": "Please enter pickup contact name",
+      "enterPickupPhone": "Please enter pickup contact phone",
+      "enterDeliveryContact": "Please enter delivery contact name",
+      "enterDeliveryPhone": "Please enter delivery contact phone",
+      "fillAllContacts": "Please fill in all contact information",
+      "fillContactInfo": "Please fill in all contact information"
+    },
+    "errors": {
+      "searchFailed": "Search Failed",
+      "searchFailedDescription": "Unable to search for trips. Please try again.",
+      "noTripSelected": "No trip selected",
+      "selectTripFirst": "Please select a trip before proceeding",
+      "bookingFailed": "Booking Failed",
+      "tryAgainLater": "Please try again later",
+      "bookingIdMissing": "Booking ID missing",
+      "bookingIssue": "There was an issue with your booking. Please try again.",
+      "paymentInitFailed": "Payment Initialization Failed",
+      "failedToCreatePayment": "Failed to create payment",
+      "authRequired": "Authentication required",
+      "serviceUnavailable": "Service unavailable",
+      "bookingServiceUnavailable": "The booking service is temporarily unavailable. Please try again later."
+    },
+    "success": {
+      "bookingSuccessful": "Booking Successful!",
+      "bookingConfirmed": "Your booking has been confirmed."
+    },
+    "smartBooking": {
+      "title": "Complete Your Booking",
+      "subtitle": "Auto-expanding form - fill what's ready",
+      "sections": {
+        "locations": {
+          "title": "Locations",
+          "description": "Where to pick up and deliver",
+          "pickupLabel": "Pickup Location",
+          "deliveryLabel": "Delivery Location",
+          "autoFilled": "Auto-filled from trip route",
+          "pickupPlaceholder": "Enter pickup address",
+          "deliveryPlaceholder": "Enter delivery address"
+        },
+        "parcel": {
+          "title": "Parcel Details",
+          "description": "Weight, packaging, and special requirements",
+          "weightLabel": "Weight",
+          "packagingLabel": "Packaging",
+          "requirementsLabel": "Special Requirements",
+          "quickSelect": {
+            "title": "Select Weight",
+            "popular": "Most Popular",
+            "light": "2kg - Small items",
+            "medium": "5kg - Most popular",
+            "heavy": "10kg - Medium parcel",
+            "extra": "20kg - Large parcel",
+            "custom": "Custom weight",
+            "kg": "kg"
+          },
+          "packaging": {
+            "title": "Select Packaging",
+            "small": {
+              "name": "Small Box",
+              "description": "Perfect for documents, small electronics"
+            },
+            "medium": {
+              "name": "Medium Box",
+              "description": "Ideal for clothing, books, medium items"
+            },
+            "large": {
+              "name": "Large Box",
+              "description": "Great for bulk items, large electronics"
+            },
+            "recommendation": "Recommended for {weight}kg parcel"
+          },
+          "requirementsPlaceholder": "Any special handling instructions?",
+          "capacityWarning": "Exceeds available capacity",
+          "capacityInfo": "{used}% of {total}kg available"
+        },
+        "contacts": {
+          "title": "Contact Information",
+          "description": "Sender and recipient details",
+          "sender": {
+            "title": "Sender Details",
+            "nameLabel": "Your Name",
+            "namePlaceholder": "Enter your full name",
+            "phoneLabel": "Your Phone",
+            "phonePlaceholder": "Enter your phone number",
+            "autoFilled": "Auto-filled from your profile",
+            "autoFillMessage": "Pre-filled from your profile. You can edit if needed."
+          },
+          "recipient": {
+            "title": "Recipient Details",
+            "nameLabel": "Recipient Name",
+            "namePlaceholder": "Enter recipient's full name",
+            "phoneLabel": "Recipient Phone",
+            "phonePlaceholder": "Enter recipient's phone number"
+          }
+        }
+      },
+      "autoExpand": {
+        "expanding": "Expanding next section...",
+        "completeSection": "Complete this section to continue"
+      },
+      "validation": {
+        "required": "This field is required",
+        "phoneInvalid": "Please enter a valid phone number",
+        "weightInvalid": "Weight must be greater than 0",
+        "weightExceedsCapacity": "Weight exceeds available capacity",
+        "completeAllSections": "Please complete all required fields"
+      }
+    },
+    "priceEstimate": {
+      "title": "Price Estimate",
+      "from": "From",
+      "forWeight": "for {weight}kg",
+      "basePrice": "Base price",
+      "weightFee": "Weight fee",
+      "insurance": "Insurance",
+      "tax": "Tax",
+      "total": "Total",
+      "madEquivalent": "≈{amount} MAD",
+      "range": "Price range for 2-20kg",
+      "bestPrice": "Best Price",
+      "guaranteed": "Price guaranteed for 15 minutes",
+      "loading": "Calculating price...",
+      "error": "Price unavailable"
+    },
+    "priceAnchoring": {
+      "title": "Best Price Guaranteed",
+      "subtitle": "Save {savings}% compared to traditional carriers",
+      "yourPrice": "Your price ({weight}kg)",
+      "yourChoice": "Your choice",
+      "traditionalCarrier": "Traditional carrier",
+      "more": "+{amount} ({percent}% more)",
+      "comparison": {
+        "title": "Price Comparison",
+        "fastDelivery": "2-3 day delivery",
+        "insuranceIncluded": "Insurance included",
+        "verifiedDrivers": "Verified drivers",
+        "joinCustomers": "Join {count}+ customers who save money with TawsilGo every month"
+      },
+      "savings": {
+        "save": "Save {percent}%",
+        "vs": "vs {competitor}",
+        "guaranteed": "Best price guaranteed"
+      }
+    },
+    "inlineReview": {
+      "title": "Booking Summary",
+      "edit": "Edit",
+      "tripDetails": "Trip Details",
+      "parcelDetails": "Parcel Details",
+      "contactDetails": "Contact Details",
+      "priceBreakdown": "Price Breakdown",
+      "totalPrice": "Total Price",
+      "securePayment": "Secure Payment",
+      "processing": "Processing...",
+      "payNow": "Pay {amount}",
+      "completeBooking": "Complete Booking",
+      "editDetails": "Edit Details",
+      "backToForm": "Back to Form"
+    },
+    "autoExpand": {
+      "expanding": "Expanding next section...",
+      "scrollingTo": "Scrolling to {section}...",
+      "sectionComplete": "{section} completed ✓",
+      "nextSectionReady": "Next section ready",
+      "allSectionsComplete": "All sections completed"
+    },
+    "realTimeValidation": {
+      "validating": "Validating...",
+      "valid": "Valid",
+      "invalid": "Invalid",
+      "checking": "Checking...",
+      "available": "Available",
+      "unavailable": "Unavailable",
+      "phoneValid": "Phone number valid",
+      "phoneInvalid": "Please enter a valid phone number",
+      "weightValid": "Weight valid",
+      "weightInvalid": "Please enter a valid weight",
+      "locationValid": "Location valid",
+      "locationInvalid": "Please enter a valid location"
+    },
+    "mobileOptimizations": {
+      "swipeToEdit": "Swipe to edit",
+      "tapToExpand": "Tap to expand",
+      "pinchToZoom": "Pinch to zoom map",
+      "pullToRefresh": "Pull to refresh",
+      "tapForDetails": "Tap for details",
+      "scrollForMore": "Scroll for more options"
+    },
+    "locationCombobox": {
+      "noLocationFound": "No location found.",
+      "typeCustom": "Type to enter a custom location",
+      "popularLocations": "Popular Locations",
+      "searchPlaceholder": "Search {label}..."
+    },
+    "demo": {
+      "title": "Booking Flow Demo",
+      "subtitle": "Compare the original 4-step flow with the new 2-step smart booking experience",
+      "phase2Active": "Phase 2 Active",
+      "phase1Only": "Phase 1 Only",
+      "reset": "Reset Demo",
+      "demoWarning": "This is a demonstration environment showing the differences between booking flows. No actual bookings will be created.",
+      "tabs": {
+        "comparison": "A/B Test Results",
+        "smartFlow": "Smart Flow (New)",
+        "originalFlow": "Original Flow (4-Step)",
+        "controls": "Feature Controls"
+      },
+      "performance": {
+        "title": "Performance Metrics",
+        "conversionRate": "Conversion Rate",
+        "completionTime": "Avg. Completion Time",
+        "dropOffRate": "Drop-off Rate",
+        "revenueImpact": "Revenue Impact",
+        "additionalRevenue": "Additional Annual Revenue",
+        "perYear": "Based on {improvement}% conversion improvement",
+        "roiPerPercent": "Revenue per 1% Improvement",
+        "perConversionPoint": "per conversion point",
+        "projections": {
+          "title": "Annual Projections",
+          "current": "Current Annual Revenue",
+          "projected": "Projected Annual Revenue",
+          "growth": "Expected Growth"
+        },
+        "vsOriginal": "vs Original Flow",
+        "improvement": "improvement",
+        "conversionImprovement": "Conversion Improvement"
+      },
+      "comparison": {
+        "title": "Flow Comparison",
+        "overallImprovement": "Overall Conversion Improvement",
+        "conversionLift": "conversion lift",
+        "metrics": {
+          "conversion": "Conversion Rate",
+          "completionTime": "Completion Time",
+          "dropOff": "Drop-off Rate",
+          "satisfaction": "User Satisfaction",
+          "revenue": "Annual Revenue"
+        },
+        "original": "Original",
+        "smart": "Smart",
+        "insights": {
+          "title": "Key Insights",
+          "conversion": "2-step flow reduces cognitive load and decision fatigue",
+          "time": "50% faster completion time improves user experience",
+          "experience": "Auto-expanding sections guide users naturally",
+          "revenue": "Projected annual revenue of {revenue} with optimized flow"
+        }
+      },
+      "abTest": {
+        "title": "A/B Testing Control",
+        "start": "Start Test",
+        "running": "Test Running...",
+        "improvement": "Conversion Rate Improvement",
+        "conversionLift": "From {original}% to {smart}% conversion rate"
+      },
+      "smartFlow": {
+        "title": "Smart Booking Flow",
+        "description": "Experience the new 2-step booking process with intelligent features",
+        "new": "NEW"
+      },
+      "originalFlow": {
+        "title": "Original 4-Step Flow",
+        "description": "The traditional multi-step booking process",
+        "legacy": "LEGACY"
+      },
+      "controls": {
+        "title": "Feature Flag Controls",
+        "globalControls": "Global Controls",
+        "globalControlsDesc": "Enable or disable all Phase 2 features at once",
+        "enableAll": "Enable All",
+        "disableAll": "Disable All",
+        "summary": {
+          "title": "Feature Summary",
+          "active": "{count} features active",
+          "adoption": "adoption rate"
+        }
+      },
+      "liveStats": {
+        "title": "Live Statistics",
+        "conversion": "Conversion Rate",
+        "completionTime": "Avg. Completion",
+        "dropOff": "Drop-off Rate",
+        "satisfaction": "User Satisfaction",
+        "revenue": "Annual Revenue",
+        "enableFeatures": "Enable Phase 2 features to see live statistics"
+      },
+      "original": {
+        "title": "Original 4-Step Booking Flow",
+        "subtitle": "Traditional step-by-step booking process",
+        "steps": {
+          "search": "1. Search Trips",
+          "searchDesc": "Find available routes",
+          "details": "2. Parcel Details",
+          "detailsDesc": "Enter package information",
+          "review": "3. Review",
+          "reviewDesc": "Check booking details",
+          "payment": "4. Payment",
+          "paymentDesc": "Complete payment"
+        },
+        "search": {
+          "title": "Search Available Trips",
+          "description": "Browse and select from available trips"
+        },
+        "details": {
+          "title": "Enter Parcel Details",
+          "description": "Provide package and contact information"
+        },
+        "review": {
+          "title": "Review Booking Details",
+          "description": "Confirm all information before payment"
+        },
+        "payment": {
+          "title": "Complete Payment",
+          "description": "Secure payment processing",
+          "comingSoon": "Coming Soon",
+          "demoNote": "This is a demo environment - no actual payments will be processed"
+        },
+        "backToSearch": "← Back to Search",
+        "backToDetails": "← Back to Details",
+        "footer": {
+          "step": "Step {current} of {total}",
+          "estimatedTime": "Estimated time: 3-5 minutes"
+        }
+      },
+      "review": {
+        "tripDetails": "Trip Details",
+        "parcelDetails": "Parcel Details",
+        "contactInfo": "Contact Information",
+        "priceSummary": "Price Summary",
+        "edit": "Edit",
+        "editDetails": "Edit Details",
+        "from": "From",
+        "to": "To",
+        "date": "Date",
+        "time": "Time",
+        "driver": "Driver",
+        "weight": "Weight",
+        "packaging": "Packaging",
+        "specialRequirements": "Special Requirements",
+        "pickupPoint": "Pickup Point",
+        "deliveryPoint": "Delivery Point",
+        "sender": "Sender",
+        "recipient": "Recipient",
+        "name": "Name",
+        "phone": "Phone",
+        "noParcelDetails": "No parcel details available",
+        "noSenderInfo": "No sender information available",
+        "noRecipientInfo": "No recipient information available",
+        "estimatedCost": "Estimated Cost",
+        "insurance": "Insurance",
+        "total": "Total",
+        "proceedToPayment": "Proceed to Payment"
+      },
+      "errors": {
+        "selectTripFirst": "Please select a trip first",
+        "noTripSelected": "No trip selected",
+        "paymentFailed": "Failed to initialize payment",
+        "bookingFailed": "Failed to create booking",
+        "generalError": "An error occurred. Please try again."
+      },
+      "progress": {
+        "searchAndSelect": "Search & Select",
+        "completeBooking": "Complete Booking"
+      },
+      "edit": {
+        "title": "Edit {section}",
+        "description": "Making changes to your booking details",
+        "cancel": "Cancel",
+        "continue": "Continue"
+      },
+      "smartSearch": {
+        "title": "Find Your Route",
+        "subtitle": "Search trips and get instant pricing",
+        "instantResults": "Available routes appear as you type",
+        "from": "From",
+        "to": "To",
+        "when": "When",
+        "weight": "Weight",
+        "sortBy": "Sort by",
+        "selected": "Selected",
+        "select": "Select",
+        "filters": {
+          "title": "Filters",
+          "reset": "Reset Filters"
+        },
+        "weights": {
+          "documents": "Documents",
+          "mostPopular": "Most Popular",
+          "mediumParcel": "Medium Parcel",
+          "largeParcel": "Large Parcel"
+        },
+        "dates": {
+          "today": "Today",
+          "tomorrow": "Tomorrow",
+          "thisWeekend": "This Weekend",
+          "nextWeek": "Next Week"
+        },
+        "sort": {
+          "priceLowToHigh": "Price: Low to High",
+          "departureTime": "Departure Time",
+          "driverRating": "Driver Rating"
+        },
+        "noTrips": {
+          "title": "No trips found",
+          "description": "Try adjusting your search criteria or dates"
+        }
+      },
+      "smartBooking": {
+        "sections": {
+          "locations": {
+            "title": "Collection & Delivery Points",
+            "description": "Select pickup and delivery locations"
+          },
+          "parcel": {
+            "title": "Parcel Specifications",
+            "description": "Weight, packaging, and special requirements"
+          },
+          "contacts": {
+            "title": "Contact Information",
+            "description": "Sender and recipient details"
+          }
+        },
+        "validation": {
+          "pickupLocationRequired": "Pickup location is required",
+          "deliveryLocationRequired": "Delivery location is required",
+          "weightMin": "Weight must be at least 0.1kg",
+          "senderNameRequired": "Sender name is required",
+          "validPhoneRequired": "Valid phone number is required",
+          "recipientNameRequired": "Recipient name is required"
+        }
+      },
+      "inlineReview": {
+        "title": "Booking Review",
+        "showLess": "Show Less",
+        "showMore": "Show More",
+        "bestPrice": "Best Price",
+        "includesInsurance": "Includes insurance and taxes",
+        "tripDetails": "Trip Details",
+        "parcelDetails": "Parcel Details",
+        "contactDetails": "Contact Details",
+        "priceBreakdown": "Price Breakdown",
+        "totalPrice": "Total Price",
+        "securePayment": "Secure Payment",
+        "processing": "Processing...",
+        "completeBooking": "Complete Booking",
+        "edit": "Edit",
+        "packaging": {
+          "small": "Small Box",
+          "medium": "Medium Box",
+          "large": "Large Box"
+        }
+      },
+      "packaging": {
+        "selectType": "Select Packaging Type",
+        "selectDescription": "Choose the box size that best fits your parcel",
+        "popular": "Popular",
+        "recommended": "Recommended",
+        "perfectFit": "Perfect fit",
+        "tooLight": "Too light ({min}kg minimum)",
+        "tooHeavy": "Too heavy ({max}kg maximum)",
+        "weightRange": "Weight range: {min}-{max}kg",
+        "yourParcel": "Your parcel: {weight}kg",
+        "recommendationLabel": "Recommendation",
+        "recommendationText": "Based on your parcel weight ({weight}kg), we recommend the {recommendedBox}",
+        "options": {
+          "small": {
+            "name": "Small Box",
+            "description": "Perfect for documents, small electronics"
+          },
+          "medium": {
+            "name": "Medium Box",
+            "description": "Ideal for clothing, books, medium items"
+          },
+          "large": {
+            "name": "Large Box",
+            "description": "Great for bulk items, large electronics"
+          }
+        },
+        "guidelines": {
+          "title": "Packaging Guidelines",
+          "sturdyBox": "Use sturdy boxes in good condition",
+          "wrapFragile": "Wrap fragile items individually",
+          "fillEmpty": "Fill empty spaces to prevent movement",
+          "sealSecurely": "Seal securely with packing tape"
+        }
+      },
+      "weight": {
+        "selectLabel": "Select Weight",
+        "popular": "Popular",
+        "customWeight": "Custom Weight",
+        "enterWeight": "Enter weight",
+        "capacityUsage": "Capacity Usage",
+        "overCapacity": "Over capacity",
+        "usedPercent": "{percent}% used",
+        "availablePercent": "{percent}% available",
+        "overCapacityTitle": "Weight exceeds available capacity",
+        "overCapacityMessage": "This trip only has {maxCapacity}kg remaining. Please reduce the weight or select a different trip.",
+        "limitedCapacityTitle": "Limited capacity remaining",
+        "limitedCapacityMessage": "Only {available}kg available on this trip.",
+        "options": {
+          "small": "Small items",
+          "mostPopular": "Most popular",
+          "medium": "Medium parcel",
+          "large": "Large parcel"
+        },
+        "tripInfo": {
+          "route": "Trip from {from} to {to}",
+          "driver": "Driver",
+          "loading": "Loading...",
+          "departs": "Departs"
+        }
+      },
+      "countrySelector": {
+        "placeholder": "Select a country",
+        "popular": "Popular",
+        "popularRoutes": "Popular Routes to Morocco",
+        "selectedCountry": "Selected: {country}",
+        "routes": {
+          "franceToMorocco": "France → Morocco",
+          "spainToMorocco": "Spain → Morocco",
+          "italyToMorocco": "Italy → Morocco",
+          "netherlandsToMorocco": "Netherlands → Morocco",
+          "belgiumToMorocco": "Belgium → Morocco",
+          "germanyToMorocco": "Germany → Morocco"
+        }
+      },
+      "enhancedLocationSelector": {
+        "placeholder": "Select a city",
+        "selectCountryFirst": "Please select a country first",
+        "popularCities": "Popular Cities",
+        "allCities": "All Cities",
+        "searchResults": "Search Results",
+        "searchPlaceholder": "Search cities...",
+        "noCityFound": "No cities found",
+        "tryDifferentSearch": "Try a different search term",
+        "selectedCity": "{city}, {country}"
+      }
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "morocco": "Morocco",
+    "track": "Track",
+    "profile": "Profile",
+    "settings": "Settings",
+    "booking": "Book",
+    "logOut": "Log out",
+    "services": "Services",
+    "pricing": "Pricing",
+    "tracking": "Tracking",
+    "support": "Support",
+    "account": "Account",
+    "businessSolutions": "Business Solutions",
+    "routeCoverage": "Route Coverage",
+    "howItWorks": "How It Works",
+    "specializedServices": "Specialized Services",
+    "individualShipping": "Individual Shipping"
+  },
+  "countries": {
+    "france": "France",
+    "spain": "Spain",
+    "italy": "Italy",
+    "netherlands": "Netherlands",
+    "morocco": "Morocco",
+    "belgium": "Belgium",
+    "germany": "Germany"
+  },
+  "cities": {
+    "casablanca": "Casablanca",
+    "rabat": "Rabat",
+    "marrakech": "Marrakech",
+    "tangier": "Tangier",
+    "fez": "Fez",
+    "agadir": "Agadir",
+    "meknes": "Meknes",
+    "oujda": "Oujda",
+    "paris": "Paris",
+    "lyon": "Lyon",
+    "marseille": "Marseille",
+    "madrid": "Madrid",
+    "barcelona": "Barcelona",
+    "brussels": "Brussels",
+    "amsterdam": "Amsterdam",
+    "frankfurt": "Frankfurt"
+  },
+  "common": {
+    "currency": "EUR",
+    "currencySymbol": "€",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "apply": "Apply",
+    "reset": "Reset"
+  },
+  "organization": {
+    "register": {
+      "title": "Register Your Organization",
+      "subtitle": "Join TawsilGo Business and manage your fleet",
+      "businessInformation": "Business Information",
+      "adminAccount": "Admin Account",
+      "verification": "Verification Documents",
+      "terms": "Terms and Conditions",
+      "businessName": "Business Name",
+      "businessNamePlaceholder": "Enter your business name",
+      "businessType": "Business Type",
+      "selectBusinessType": "Select business type",
+      "businessEmail": "Business Email",
+      "businessEmailPlaceholder": "business@company.com",
+      "businessPhone": "Business Phone",
+      "businessPhonePlaceholder": "+212 600 123 456",
+      "businessAddress": "Business Address",
+      "businessAddressPlaceholder": "Enter your business address",
+      "businessCity": "City",
+      "businessCityPlaceholder": "Casablanca",
+      "businessCountry": "Country",
+      "businessCountryPlaceholder": "Morocco",
+      "registrationNumber": "Registration Number",
+      "registrationNumberPlaceholder": "REG-2024-001",
+      "taxId": "Tax ID",
+      "taxIdPlaceholder": "TAX-2024-001",
+      "website": "Website",
+      "websitePlaceholder": "https://yourcompany.com",
+      "description": "Description",
+      "descriptionPlaceholder": "Tell us about your business",
+      "adminFirstName": "Admin First Name",
+      "adminFirstNamePlaceholder": "Enter admin first name",
+      "adminLastName": "Admin Last Name",
+      "adminLastNamePlaceholder": "Enter admin last name",
+      "adminEmail": "Admin Email",
+      "adminEmailPlaceholder": "admin@company.com",
+      "adminPhone": "Admin Phone",
+      "adminPhonePlaceholder": "+212 600 123 456",
+      "adminPassword": "Password",
+      "adminPasswordPlaceholder": "Create a strong password",
+      "adminConfirmPassword": "Confirm Password",
+      "adminConfirmPasswordPlaceholder": "Confirm password",
+      "acceptTerms": "I accept the Terms of Service",
+      "acceptPrivacy": "I accept the Privacy Policy",
+      "createAccount": "Create Organization Account",
+      "creating": "Creating account...",
+      "alreadyHaveAccount": "Already have an account?",
+      "signIn": "Sign In",
+      "passwordRequirements": {
+        "title": "Password must contain:",
+        "minLength": "At least 8 characters",
+        "uppercase": "One uppercase letter",
+        "lowercase": "One lowercase letter",
+        "number": "One number",
+        "special": "One special character"
+      },
+      "validation": {
+        "businessNameRequired": "Business name is required",
+        "businessNameMin": "Business name must be at least 2 characters",
+        "businessEmailRequired": "Business email is required",
+        "businessEmailInvalid": "Please enter a valid business email",
+        "businessPhoneRequired": "Business phone is required",
+        "businessPhoneInvalid": "Please enter a valid phone number",
+        "businessAddressRequired": "Business address is required",
+        "businessAddressMin": "Business address must be at least 10 characters",
+        "businessCityRequired": "City is required",
+        "businessCountryRequired": "Country is required",
+        "adminFirstNameRequired": "Admin first name is required",
+        "adminFirstNameMin": "First name must be at least 2 characters",
+        "adminLastNameRequired": "Admin last name is required",
+        "adminLastNameMin": "Last name must be at least 2 characters",
+        "adminEmailRequired": "Admin email is required",
+        "adminEmailInvalid": "Please enter a valid email",
+        "adminPhoneRequired": "Admin phone is required",
+        "adminPhoneInvalid": "Please enter a valid phone number",
+        "adminPasswordRequired": "Password is required",
+        "adminPasswordMin": "Password must be at least 8 characters",
+        "adminPasswordWeak": "Password does not meet requirements",
+        "adminConfirmPasswordRequired": "Please confirm password",
+        "adminConfirmPasswordMismatch": "Passwords do not match",
+        "acceptTermsRequired": "You must accept the Terms of Service",
+        "acceptPrivacyRequired": "You must accept the Privacy Policy"
+      },
+      "businessTypes": {
+        "freight_forward": "Freight Forward",
+        "moving_company": "Moving Company",
+        "ecommerce": "E-commerce",
+        "corporate": "Corporate",
+        "logistics_provider": "Logistics Provider",
+        "other": "Other"
+      },
+      "success": {
+        "title": "Organization Registered Successfully!",
+        "description": "Your organization has been registered and admin account created.",
+        "checkEmail": "Please check your email for verification instructions.",
+        "continueToDashboard": "Continue to Dashboard"
+      },
+      "errors": {
+        "registrationFailed": "Registration Failed",
+        "emailExists": "An organization with this email already exists",
+        "tryAgain": "Please try again later or contact support"
+      }
+    }
+  },
+  "footer": {
+    "description": "Connecting continents through reliable cross-border logistics. Fast, secure, and community-powered shipping solutions.",
+    "companyInfo": {
+      "address": "123 Shipping Lane, Logistics City",
+      "hours": "24/7 Operations",
+      "certification": "Certified & Insured"
+    },
+    "sections": {
+      "shippingServices": "Shipping Services",
+      "support": "Support",
+      "shippingUpdates": "Shipping Updates"
+    },
+    "shippingLinks": {
+      "trackShipment": "Track Shipment",
+      "shippingRates": "Shipping Rates",
+      "serviceCoverage": "Service Coverage",
+      "schedulePickup": "Schedule Pickup"
+    },
+    "supportLinks": {
+      "helpCenter": "Help Center",
+      "documentation": "Documentation",
+      "contactSupport": "Contact Support",
+      "apiIntegration": "API Integration"
+    },
+    "newsletter": {
+      "description": "Get route optimizations and delivery insights",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe"
+    },
+    "copyright": "© {year} TawsilGo. All rights reserved.",
+    "legal": {
+      "termsOfService": "Terms of Service",
+      "privacyPolicy": "Privacy Policy"
+    }
+  },
+  "auth": {
+    "signin": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to access your TawsilGo logistics platform",
+      "username": "Username",
+      "usernamePlaceholder": "Enter your username",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "signInButton": "Sign In",
+      "signingIn": "Signing In...",
+      "success": "Success!",
+      "noAccount": "Don't have an account?",
+      "createAccount": "Create an account",
+      "agreeTerms": "By continuing, you agree to our",
+      "termsOfService": "Terms of Service",
+      "privacyPolicy": "Privacy Policy",
+      "and": "and",
+      "features": {
+        "fastShipping": "Fast Shipping",
+        "globalCoverage": "Global Coverage",
+        "securePlatform": "Secure Platform"
+      },
+      "errors": {
+        "noToken": "No authentication token received",
+        "authFailed": "Authentication session failed",
+        "signInFailed": "Failed to sign in",
+        "unexpectedError": "An unexpected error occurred"
+      }
+    },
+    "signup": {
+      "title": "Create Your Account",
+      "subtitle": "Join TawsilGo to start shipping",
+      "cardTitle": "Get Started",
+      "cardDescription": "Quick signup - takes less than 1 minute",
+      "steps": {
+        "personalInfo": "Personal Info",
+        "verification": "Verification"
+      },
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter your last name",
+      "username": "Username",
+      "usernamePlaceholder": "Choose a username",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone number",
+      "address": "Address",
+      "addressPlaceholder": "Enter your address",
+      "password": "Password",
+      "passwordPlaceholder": "Create a password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "nextStep": "Next Step",
+      "previousStep": "Previous",
+      "createAccount": "Create Account",
+      "creating": "Creating Account...",
+      "success": "Success!",
+      "alreadyHaveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "draftRecovered": "Draft recovered",
+      "draftRecoveredDescription": "Your previous form data has been restored",
+      "phoneDescription": "We'll use this to contact you about your shipments",
+      "addressDescription": "Your pickup or delivery address",
+      "agreeToTerms": "I agree to the",
+      "termsOfService": "Terms of Service",
+      "and": "and",
+      "privacyPolicy": "Privacy Policy",
+      "accountType": "Account Type",
+      "accountTypeDescription": "Select the account type that suits you",
+      "customer": "Personal Account",
+      "customerDescription": "For individual senders",
+      "driver": "Business Account",
+      "driverDescription": "For companies needing invoices and volume discounts",
+      "passwordRequirements": {
+        "title": "Password must contain:",
+        "minLength": "At least 8 characters",
+        "uppercase": "One uppercase letter",
+        "lowercase": "One lowercase letter",
+        "number": "One number",
+        "special": "One special character"
+      },
+      "progress": "Form Progress",
+      "verification": {
+        "title": "Verify Your Email",
+        "description": "We've sent a verification code to your email",
+        "codePlaceholder": "Enter verification code",
+        "verify": "Verify",
+        "verifying": "Verifying...",
+        "resendCode": "Resend Code"
+      }
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "personalInfo": "Personal Information",
+    "personalInfoDescription": "Update your personal details and contact information",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "saveChanges": "Save Changes",
+    "updating": "Updating...",
+    "profileUpdated": "Profile updated",
+    "profileUpdatedDescription": "Your profile has been successfully updated.",
+    "errorLoading": "Error loading profile",
+    "accountActions": "Account Actions",
+    "logOut": "Log Out",
+    "loggedOut": "Logged out",
+    "loggedOutDescription": "You have been successfully logged out.",
+    "tabs": {
+      "personal": "Profile",
+      "orders": "Orders",
+      "settings": "Settings"
+    },
+    "orders": {
+      "title": "My Orders",
+      "noOrders": "No orders found",
+      "noOrdersDescription": "You haven't placed any orders yet. Start by booking a delivery.",
+      "noFilteredOrders": "You don't have any {status} orders. Try a different filter.",
+      "bookDelivery": "Book a Delivery",
+      "viewDetails": "View Details",
+      "filter": "Filter",
+      "sort": "Sort",
+      "sortNewest": "Newest",
+      "sortOldest": "Oldest",
+      "allOrders": "All Orders",
+      "pending": "Pending",
+      "paid": "Paid",
+      "confirmed": "Confirmed",
+      "cancelled": "Cancelled",
+      "completed": "Completed",
+      "order": "Order",
+      "parcel": "Parcel",
+      "paymentCompleted": "Payment completed",
+      "paymentPending": "Payment pending",
+      "bookedOn": "Booked on",
+      "pickupLocation": "Pickup location not specified",
+      "deliveryLocation": "Delivery location not specified",
+      "errorLoading": "Error loading your orders",
+      "errorDescription": "We couldn't load your orders at this time. Please try again later.",
+      "tryAgain": "Try Again",
+      "page": "Page",
+      "of": "of"
+    },
+    "settings": {
+      "accountSettings": "Account Settings",
+      "privacySettings": "Privacy Settings",
+      "accountActions": "Account Actions",
+      "emailNotifications": "Email Notifications",
+      "emailNotificationsDescription": "Receive updates about your orders and account activity",
+      "marketingEmails": "Marketing Emails",
+      "marketingEmailsDescription": "Receive promotional offers and product updates",
+      "smsNotifications": "SMS Notifications",
+      "smsNotificationsDescription": "Receive text messages for delivery updates",
+      "dataSharing": "Data Sharing",
+      "dataSharingDescription": "Allow us to use your data to improve our services",
+      "locationTracking": "Location Tracking",
+      "locationTrackingDescription": "Allow us to track your location for better delivery service",
+      "passwordManagement": "Password Management",
+      "passwordManagementDescription": "Contact support to change your password or reset your account credentials.",
+      "dataExport": "Data Export",
+      "dataExportDescription": "Request a copy of your personal data by contacting our support team."
+    },
+    "validation": {
+      "firstNameMin": "First name must be at least 2 characters",
+      "lastNameMin": "Last name must be at least 2 characters",
+      "invalidEmail": "Invalid email address",
+      "phoneMin": "Phone number must be at least 10 digits",
+      "addressMin": "Please enter your full address"
+    }
+  },
+  "drivers": {
+    "join": {
+      "hero": {
+        "badge": "Driver Opportunities",
+        "title": "Earn Extra Income as a TawsilGo Driver",
+        "subtitle": "Deliver parcels on your regular routes and earn €500-800/month. Flexible schedule, full insurance coverage, and competitive rates.",
+        "stats": {
+          "monthly": "per month extra",
+          "drivers": "active drivers",
+          "rating": "driver rating"
+        },
+        "cta": "Start Your Application"
+      },
+      "earningsCalculator": {
+        "title": "Earnings Calculator",
+        "description": "See how much you could earn",
+        "deliveriesPerWeek": "Deliveries per week",
+        "deliveries": "deliveries",
+        "avgEarning": "Average €{amount} per delivery",
+        "weekly": "Weekly",
+        "monthly": "Monthly",
+        "yearly": "Yearly",
+        "disclaimer": "Estimates based on average delivery earnings. Actual earnings may vary."
+      },
+      "benefits": {
+        "title": "Why Drive with TawsilGo?",
+        "subtitle": "Join thousands of drivers earning extra income on their regular routes",
+        "flexibleEarnings": {
+          "title": "Flexible Earnings",
+          "description": "Earn €10-15 per delivery on top of your regular income"
+        },
+        "ownSchedule": {
+          "title": "Your Own Schedule",
+          "description": "Accept deliveries only when it fits your route and timing"
+        },
+        "chooseRoutes": {
+          "title": "Choose Your Routes",
+          "description": "Work on routes you already drive - Europe to Morocco"
+        },
+        "insurance": {
+          "title": "Full Insurance Coverage",
+          "description": "All deliveries are fully insured at no cost to you"
+        },
+        "bonuses": {
+          "title": "Performance Bonuses",
+          "description": "Earn extra for high ratings and consistent deliveries"
+        },
+        "support": {
+          "title": "24/7 Support",
+          "description": "Dedicated driver support team available anytime you need"
+        }
+      },
+      "requirements": {
+        "title": "Driver Requirements",
+        "subtitle": "Simple requirements to get started",
+        "validLicense": "Valid commercial driver's license",
+        "insurance": "Vehicle insurance and registration",
+        "smartphone": "Smartphone with internet access",
+        "ageRequirement": "21 years or older",
+        "euLocation": "Operating routes between EU and Morocco"
+      },
+      "steps": {
+        "title": "How to Get Started",
+        "subtitle": "Four simple steps to start earning",
+        "apply": {
+          "title": "Apply Online",
+          "description": "Complete our 5-step application form",
+          "time": "5-10 minutes"
+        },
+        "verification": {
+          "title": "Verification",
+          "description": "We verify your documents and license",
+          "time": "1-2 business days"
+        },
+        "training": {
+          "title": "Quick Training",
+          "description": "Learn the app and delivery process",
+          "time": "30 minutes"
+        },
+        "start": {
+          "title": "Start Earning",
+          "description": "Accept your first delivery and get paid",
+          "time": "Same day"
+        }
+      },
+      "cta": {
+        "title": "Ready to Start Earning?",
+        "subtitle": "Join our driver network today and turn your regular routes into extra income",
+        "button": "Apply to Become a Driver",
+        "time": "Application takes less than 10 minutes"
+      }
+    }
+  },
+  "support": {
+    "quickActions": {
+      "title": "How Can We Help You Today?",
+      "subtitle": "Quick access to our most popular support tools and services",
+      "track": {
+        "title": "Track Package",
+        "description": "Check your shipment status in real-time"
+      },
+      "quote": {
+        "title": "Get Quote",
+        "description": "Calculate shipping costs instantly"
+      },
+      "report": {
+        "title": "Report Issue",
+        "description": "Let us know about any problems"
+      },
+      "chat": {
+        "title": "Live Chat",
+        "description": "Connect via WhatsApp instantly"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find quick answers to common questions about shipping between Europe and Morocco",
+      "searchPlaceholder": "Search questions...",
+      "allCategories": "All",
+      "noResults": "No questions match your search. Try different keywords or contact us directly.",
+      "clearFilters": "Clear Filters",
+      "categories": {
+        "shipping": "Shipping",
+        "pricing": "Pricing",
+        "customs": "Customs",
+        "tracking": "Tracking",
+        "general": "General"
+      },
+      "shipping": {
+        "q1": {
+          "question": "How long does shipping from Europe to Morocco take?",
+          "answer": "Standard shipping takes 5-7 business days. Express service is available in 3-4 days for major cities like Casablanca, Rabat, and Marrakech."
+        },
+        "q2": {
+          "question": "What items can I ship to Morocco?",
+          "answer": "You can ship most personal items, gifts, documents, electronics, and clothing. Prohibited items include perishables, alcohol, weapons, and medications. Check our full restrictions list in the shipping guidelines."
+        },
+        "q3": {
+          "question": "Do you offer door-to-door delivery in Morocco?",
+          "answer": "Yes, we provide door-to-door delivery to all major Moroccan cities. For remote areas, delivery may be to the nearest bus station with local pickup available."
+        },
+        "q4": {
+          "question": "What is the maximum package weight?",
+          "answer": "Standard parcels can weigh up to 30kg. For heavier shipments (up to 100kg), please contact our business support team for custom quotes."
+        },
+        "q5": {
+          "question": "How are packages protected during transit?",
+          "answer": "All packages are securely wrapped, tracked throughout the journey, and handled by trained drivers. Insurance coverage is available for valuable items up to €1,000."
+        }
+      },
+      "pricing": {
+        "q1": {
+          "question": "How is shipping cost calculated?",
+          "answer": "Pricing is based on package weight, dimensions, departure city, and destination in Morocco. Use our instant quote calculator on the pricing page for exact costs."
+        },
+        "q2": {
+          "question": "Are there any hidden fees?",
+          "answer": "No. The price you see includes pickup, transit, and delivery. The only additional cost might be Moroccan customs duties if your package value exceeds €150."
+        },
+        "q3": {
+          "question": "Do you offer business discounts?",
+          "answer": "Yes! Businesses shipping regularly can save 15-30% with our volume pricing plans. Contact our business team for a custom quote."
+        },
+        "q4": {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept all major credit/debit cards (Visa, Mastercard, Amex), PayPal, and bank transfers. Business accounts can also pay on invoice with NET-30 terms."
+        }
+      },
+      "customs": {
+        "q1": {
+          "question": "Do I need to fill out customs forms?",
+          "answer": "Yes, for shipments to Morocco you'll need to provide a detailed contents list and values. Our booking system guides you through this process automatically."
+        },
+        "q2": {
+          "question": "Will my package be charged customs duties?",
+          "answer": "Moroccan customs applies duties on packages valued over €150. Duties range from 2.5% to 40% depending on the item category. We provide estimated duty calculations during booking."
+        },
+        "q3": {
+          "question": "How long does customs clearance take?",
+          "answer": "Typically 1-2 business days. Our team monitors clearance status and proactively handles any documentation requests to minimize delays."
+        },
+        "q4": {
+          "question": "What happens if customs rejects my package?",
+          "answer": "We'll notify you immediately. You can either provide additional documentation, pay applicable duties, or have the package returned to the sender (return shipping fees apply)."
+        }
+      },
+      "tracking": {
+        "q1": {
+          "question": "How do I track my package?",
+          "answer": "Use your tracking number on our tracking page. You'll receive real-time updates via email and SMS at each milestone: picked up, in transit, customs clearance, and delivered."
+        },
+        "q2": {
+          "question": "Why hasn't my tracking updated?",
+          "answer": "Tracking updates when packages reach checkpoints. During transit between cities, updates may pause for 24-48 hours. If there's no update after 72 hours, contact support."
+        },
+        "q3": {
+          "question": "Can I change delivery address after shipping?",
+          "answer": "Address changes are possible before the package reaches Morocco. Contact support immediately with your tracking number. A €10 address modification fee applies."
+        },
+        "q4": {
+          "question": "What if my package shows delivered but I didn't receive it?",
+          "answer": "Contact support immediately with your tracking number. We'll investigate with our driver and provide proof of delivery. If unresolved, insurance claims can be filed within 7 days."
+        }
+      },
+      "general": {
+        "q1": {
+          "question": "Do you ship to all cities in Morocco?",
+          "answer": "We deliver to all major Moroccan cities including Casablanca, Rabat, Marrakech, Tangier, Fez, Agadir, and more. Rural areas may require pickup from the nearest hub."
+        },
+        "q2": {
+          "question": "Can I schedule a pickup from my home?",
+          "answer": "Yes! During booking, select 'Home Pickup' and choose your preferred date and time window. Pickup is available in most European cities for an additional €5-10."
+        },
+        "q3": {
+          "question": "What is your refund policy?",
+          "answer": "Full refunds are available if you cancel before pickup. After pickup, refunds are provided only if we fail to deliver within the promised timeframe (excluding customs delays)."
+        }
+      },
+      "stillNeedHelp": {
+        "title": "Still Need Help?",
+        "subtitle": "Can't find the answer you're looking for? Our support team is here to help.",
+        "button": "Contact Support"
+      }
+    },
+    "contactForm": {
+      "title": "Contact Support",
+      "subtitle": "Fill out the form below and we'll get back to you as soon as possible",
+      "form": {
+        "inquiryType": "What can we help you with?",
+        "selectInquiryType": "Select inquiry type",
+        "inquiryTypes": {
+          "question": "General Question",
+          "issue": "Report an Issue",
+          "business": "Business Inquiry",
+          "partnership": "Partnership Opportunity"
+        },
+        "fullName": "Full Name",
+        "fullNamePlaceholder": "John Doe",
+        "email": "Email Address",
+        "emailPlaceholder": "john@example.com",
+        "phone": "Phone Number (Optional)",
+        "phonePlaceholder": "+33 6 12 34 56 78",
+        "trackingNumber": "Tracking Number (If applicable)",
+        "trackingNumberPlaceholder": "TG123456789",
+        "companyName": "Company Name",
+        "companyNamePlaceholder": "Your Company Ltd",
+        "subject": "Subject",
+        "subjectPlaceholder": "Brief description of your inquiry",
+        "message": "Message",
+        "messagePlaceholder": "Please provide details about your inquiry...",
+        "attachment": "Attach File (Optional)",
+        "chooseFile": "Choose File",
+        "fileInfo": "PDF, JPG, PNG, or DOC up to 5MB",
+        "markAsUrgent": "Mark as urgent (requires immediate attention)",
+        "urgentPriority": "🚨 Urgent Priority",
+        "termsText": "I agree to the",
+        "termsLink": "Terms & Conditions",
+        "submit": "Send Message",
+        "submitting": "Sending...",
+        "normalResponseTime": "💬 We typically respond within 24 hours",
+        "urgentResponseTime": "⚡ Urgent requests are prioritized and answered within 4 hours",
+        "errors": {
+          "inquiryTypeRequired": "Please select an inquiry type",
+          "nameMin": "Name must be at least 2 characters",
+          "emailInvalid": "Please enter a valid email address",
+          "subjectMin": "Subject must be at least 3 characters",
+          "messageMin": "Message must be at least 10 characters",
+          "termsRequired": "You must accept the terms and conditions",
+          "fileTooLarge": "File size must be less than 5MB",
+          "fileTypeInvalid": "Only PDF, JPG, PNG, and DOC files are allowed",
+          "submitFailed": "Failed to send message",
+          "submitFailedDescription": "Please try again or contact us via phone or WhatsApp"
+        }
+      },
+      "success": {
+        "title": "Message Sent Successfully!",
+        "description": "Thank you for contacting us",
+        "message": "We've received your message and will respond as soon as possible. Check your email for a confirmation.",
+        "sendAnother": "Send Another Message"
+      }
+    },
+    "channels": {
+      "title": "Get in Touch",
+      "subtitle": "Choose the support channel that works best for you. Our team is here to help.",
+      "available": "Available",
+      "phone": {
+        "title": "Phone Support",
+        "description": "Speak directly with our support team",
+        "number": "+33 7 63 21 54 87",
+        "availability": "Mon-Fri, 9AM-6PM CET",
+        "action": "Call Now"
+      },
+      "email": {
+        "title": "Email Support",
+        "description": "Send us a detailed message",
+        "address": "support@tawsilgo.com",
+        "availability": "24/7 - Response within 24h",
+        "action": "Send Email"
+      },
+      "whatsapp": {
+        "title": "WhatsApp Support",
+        "description": "Chat with us instantly",
+        "number": "+33 7 63 21 54 87",
+        "availability": "Mon-Sat, 8AM-10PM CET",
+        "action": "Open WhatsApp"
+      },
+      "office": {
+        "title": "Visit Our Office",
+        "description": "Meet us in person",
+        "address": "123 Rue de Commerce, 75001 Paris, France",
+        "availability": "Mon-Fri, 9AM-5PM",
+        "action": "Get Directions"
+      },
+      "responseTimes": {
+        "title": "Expected Response Times",
+        "urgent": "Urgent Issues",
+        "urgentTime": "2-4 hours",
+        "normal": "General Inquiries",
+        "normalTime": "12-24 hours",
+        "business": "Business Requests",
+        "businessTime": "1-2 business days",
+        "note": "Response times may vary during peak seasons (Ramadan, Eid, summer holidays)"
+      }
+    },
+    "business": {
+      "title": "Business Solutions",
+      "subtitle": "Scalable shipping solutions for e-commerce businesses, retailers, and logistics partners shipping to Morocco",
+      "features": {
+        "volume": {
+          "title": "Volume Discounts",
+          "description": "Save up to 30% with high-volume shipping plans"
+        },
+        "analytics": {
+          "title": "Business Analytics",
+          "description": "Track costs, delivery times, and performance metrics"
+        },
+        "insurance": {
+          "title": "Premium Insurance",
+          "description": "Extended coverage up to €5,000 per shipment"
+        },
+        "account": {
+          "title": "Dedicated Account Manager",
+          "description": "Personal support and optimized shipping strategies"
+        }
+      },
+      "packages": {
+        "title": "Choose Your Business Plan",
+        "bestFor": "Best for:",
+        "contact": "Contact Sales",
+        "starter": {
+          "name": "Business Starter",
+          "description": "Perfect for small businesses and online shops starting to ship to Morocco",
+          "feature1": "10-50 shipments/month",
+          "feature2": "10% volume discount",
+          "feature3": "Standard support",
+          "feature4": "Basic analytics dashboard",
+          "bestFor": "Small e-commerce shops, artisan sellers"
+        },
+        "business": {
+          "name": "Business Pro",
+          "badge": "Most Popular",
+          "description": "For growing businesses with regular shipments to Morocco",
+          "feature1": "50-200 shipments/month",
+          "feature2": "20% volume discount",
+          "feature3": "Priority support",
+          "feature4": "Advanced analytics & reporting",
+          "feature5": "Dedicated account manager",
+          "bestFor": "Established e-commerce, retail chains"
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "description": "Custom solutions for high-volume shippers and logistics partners",
+          "feature1": "200+ shipments/month",
+          "feature2": "Up to 30% volume discount",
+          "feature3": "24/7 priority support",
+          "feature4": "Custom API integration",
+          "feature5": "White-label solutions",
+          "feature6": "Flexible payment terms (NET-30/60)",
+          "bestFor": "Large retailers, 3PL providers, marketplaces"
+        }
+      },
+      "resources": {
+        "title": "Business Resources",
+        "learn": "Learn More",
+        "guide": {
+          "title": "Integration Guide",
+          "description": "Step-by-step guide to integrate TawsilGo into your e-commerce platform"
+        },
+        "api": {
+          "title": "API Documentation",
+          "description": "Complete API reference for developers building shipping integrations"
+        },
+        "training": {
+          "title": "Team Training",
+          "description": "Free onboarding and training sessions for your logistics team"
+        }
+      },
+      "cta": {
+        "title": "Ready to Scale Your Morocco Shipping?",
+        "description": "Join 500+ businesses that trust TawsilGo for reliable, cost-effective shipping to Morocco. Let's discuss your needs.",
+        "contact": "Contact Sales Team",
+        "pricing": "View Business Pricing"
+      }
+    }
+  },
+  "tracking": {
+    "title": "Track Your Parcel",
+    "subtitle": "Enter your tracking number or scan QR code to see real-time updates",
+    "trackingNumber": "Tracking Number",
+    "trackingNumberPlaceholder": "TR-12345678",
+    "exampleFormat": "Example format: TR-12345678",
+    "trackPackage": "Track Package",
+    "tracking": "Tracking...",
+    "scanQR": "Scan QR Code",
+    "whereToFind": "Where to find your tracking number?",
+    "bookingConfirmationEmail": "Booking confirmation email",
+    "smsNotification": "SMS notification from TawsilGo",
+    "printedReceipt": "Printed receipt from driver",
+    "startTracking": "Start Tracking",
+    "startTrackingDescription": "Enter your tracking number above to see real-time updates on your parcel's journey from Europe to Morocco.",
+    "packageInformation": "Package Information",
+    "trackingId": "Tracking ID",
+    "bookingId": "Booking ID",
+    "weight": "Weight",
+    "packaging": "Packaging",
+    "carrier": "Carrier",
+    "insuranceCoverage": "Insurance Coverage",
+    "upTo": "Up to",
+    "origin": "Origin",
+    "destination": "Destination",
+    "estimatedDelivery": "Estimated Delivery",
+    "faq": "FAQ",
+    "dutyCalculator": "Duty Calculator",
+    "packageDetails": "Package Details",
+    "errors": {
+      "invalidFormat": "Invalid format",
+      "notFound": "Not found",
+      "network": "Network error"
+    }
+  },
+  "howItWorksPage": {
+    "hero": {
+      "badge": "Simple & Transparent",
+      "title": "How TawsilGo Works",
+      "subtitle": "From Your Door to Theirs",
+      "description": "Bus-based delivery that's faster and cheaper than traditional carriers. Here's exactly how we deliver your parcels to Morocco.",
+      "cta": "Try It Now"
+    },
+    "deliveryJourney": {
+      "title": "The Delivery Journey",
+      "subtitle": "Four simple steps from Europe to Morocco"
+    },
+    "steps": {
+      "step1": {
+        "title": "Book Your Shipment",
+        "description": "Enter parcel details, pickup/delivery addresses, and select your preferred route. Get instant pricing with no hidden fees.",
+        "details": {
+          "detail1": "3-minute online booking process",
+          "detail2": "Instant price calculation",
+          "detail3": "Secure payment via Stripe",
+          "detail4": "Receive booking confirmation & QR code"
+        }
+      },
+      "step2": {
+        "title": "We Pick Up Your Parcel",
+        "description": "Our driver comes to your doorstep at the scheduled time. No need to go to a depot or post office.",
+        "details": {
+          "detail1": "Door-to-door pickup in Europe",
+          "detail2": "Flexible time slots (morning/afternoon)",
+          "detail3": "Driver verifies parcel weight & dimensions",
+          "detail4": "You receive pickup confirmation"
+        }
+      },
+      "step3": {
+        "title": "Bus Transit to Morocco",
+        "description": "Your parcel travels with our licensed bus drivers on established routes. Track in real-time every step of the way.",
+        "details": {
+          "detail1": "Daily bus departures on major routes",
+          "detail2": "GPS tracking via mobile app",
+          "detail3": "SMS/email notifications at checkpoints",
+          "detail4": "Secure handling by verified drivers"
+        }
+      },
+      "step4": {
+        "title": "Delivery in Morocco",
+        "description": "Direct delivery to your family's address in Morocco. Signature confirmation upon receipt.",
+        "details": {
+          "detail1": "Door-to-door delivery across Morocco",
+          "detail2": "SMS notification before delivery",
+          "detail3": "Signature & photo confirmation",
+          "detail4": "48-72 hour total delivery time"
+        }
+      }
+    },
+    "safety": {
+      "title": "Your Parcel is Safe with Us",
+      "subtitle": "We've built multiple layers of safety and verification to ensure every package arrives securely",
+      "features": {
+        "licensedDrivers": {
+          "title": "Licensed Bus Drivers",
+          "description": "All drivers are licensed, background-checked, and rated by customers"
+        },
+        "insurance": {
+          "title": "Insurance Included",
+          "description": "€500 coverage on every parcel. Optional coverage up to €5,000"
+        },
+        "qrVerification": {
+          "title": "QR Verification",
+          "description": "Unique QR code for each parcel prevents mix-ups and fraud"
+        },
+        "driverRatings": {
+          "title": "Driver Ratings",
+          "description": "Rate your driver after delivery. Avg rating: 4.8/5 stars"
+        }
+      }
+    },
+    "tracking": {
+      "badge": "Real-Time Updates",
+      "title": "Track Every Step of the Journey",
+      "description": "Never wonder where your parcel is. Our advanced tracking system keeps you informed from pickup to delivery.",
+      "features": {
+        "feature1": "Real-time GPS location of your parcel",
+        "feature2": "Automatic notifications at each checkpoint",
+        "feature3": "Estimated delivery time updates",
+        "feature4": "Photo confirmation upon pickup & delivery",
+        "feature5": "Direct messaging with driver (if needed)",
+        "feature6": "Delivery history & receipt archive"
+      },
+      "cta": "Try Live Tracking Demo",
+      "demo": {
+        "trackingId": "Tracking ID:",
+        "complete": "Complete",
+        "pickedUp": "Picked up",
+        "inTransit": "In transit",
+        "outForDelivery": "Out for delivery",
+        "paris": "Paris, France",
+        "madrid": "Madrid, Spain",
+        "casablanca": "Casablanca, Morocco",
+        "ago": "{time} ago",
+        "estimated": "Est. {time}"
+      }
+    },
+    "cta": {
+      "title": "Ready to Experience the Difference?",
+      "subtitle": "Join 10,000+ families who trust TawsilGo with their deliveries to Morocco",
+      "primaryButton": "Send Your First Parcel",
+      "secondaryButton": "View Pricing"
+    }
+  },
+  "services": {
+    "individualShipping": {
+      "hero": {
+        "badge": "For Individuals & Families",
+        "title": "Send Parcels to",
+        "titleHighlight": "Morocco",
+        "subtitle": "Cheaper and faster than DHL. Trusted by 10,000+ Moroccan families in Europe.",
+        "bookNow": "Book Your Shipment",
+        "viewPricing": "View Pricing"
+      },
+      "stats": {
+        "cheaper": "Cheaper than DHL",
+        "delivery": "Average Delivery",
+        "onTime": "On-Time Rate"
+      },
+      "whyChoose": {
+        "title": "Why Choose TawsilGo?",
+        "subtitle": "We understand what it means to send love home. Every parcel matters."
+      },
+      "whatToSend": {
+        "title": "What Can You Send?",
+        "subtitle": "From everyday essentials to special occasions"
+      },
+      "features": {
+        "doorToDoor": {
+          "title": "Door-to-Door Service",
+          "description": "We pick up from your doorstep in Europe and deliver directly to your family in Morocco"
+        },
+        "fastDelivery": {
+          "title": "48-72 Hour Delivery",
+          "description": "Faster than traditional carriers. Your parcels arrive when your family needs them"
+        },
+        "insurance": {
+          "title": "€500 Insurance Included",
+          "description": "Every parcel is insured at no extra cost. Optional coverage up to €5,000"
+        },
+        "tracking": {
+          "title": "Real-Time Tracking",
+          "description": "Follow your parcel's journey from Paris to Casablanca with live GPS updates"
+        },
+        "cities": {
+          "title": "16+ Cities Covered",
+          "description": "From major European cities to Morocco's top destinations"
+        },
+        "verified": {
+          "title": "Verified Bus Drivers",
+          "description": "Licensed, rated, and trusted by 10,000+ families"
+        }
+      },
+      "useCases": {
+        "carePackages": {
+          "title": "Care Packages",
+          "example": "Medications, vitamins, specialty foods your family can't find locally"
+        },
+        "gifts": {
+          "title": "Gifts & Celebrations",
+          "example": "Birthday presents, clothing, electronics for special occasions"
+        },
+        "belongings": {
+          "title": "Personal Items",
+          "example": "Books, documents, household items you forgot or need to send back"
+        }
+      },
+      "pricing": {
+        "title": "Simple, Transparent Pricing",
+        "subtitle": "No hidden fees. No surprises. Just honest pricing.",
+        "popular": "Popular",
+        "route": "per shipment",
+        "seeCalculator": "See Full Price Calculator"
+      },
+      "testimonials": {
+        "title": "What Our Customers Say",
+        "subtitle": "Real stories from real families",
+        "fatima": {
+          "name": "Fatima L.",
+          "location": "Paris → Casablanca",
+          "text": "I send packages to my mother every month. TawsilGo is half the price of other services and twice as reliable!"
+        },
+        "ahmed": {
+          "name": "Ahmed K.",
+          "location": "Barcelona → Marrakech",
+          "text": "The driver picked up from my apartment and my family received it 2 days later. Incredible service!"
+        },
+        "sophia": {
+          "name": "Sophia M.",
+          "location": "Brussels → Rabat",
+          "text": "Finally, a service that understands our needs. The tracking feature gives me peace of mind."
+        }
+      },
+      "cta": {
+        "title": "Ready to Send Your First Parcel?",
+        "subtitle": "Book now and get your parcel to Morocco in 48-72 hours",
+        "button": "Book Now"
+      }
+    },
+    "routeCoverage": {
+      "hero": {
+        "badge": "Route Coverage",
+        "title": "We Serve",
+        "titleHighlight": "16+ Cities",
+        "subtitle": "From major European cities to Morocco's top destinations. Daily departures on popular routes.",
+        "findRoute": "Find Your Route"
+      },
+      "routeFinder": {
+        "title": "Find Your Route",
+        "subtitle": "Check coverage between your city and your Moroccan destination",
+        "from": "From (Europe)",
+        "to": "To (Morocco)",
+        "selectOrigin": "Select origin city",
+        "selectDestination": "Select destination",
+        "checkRoute": "Check Route",
+        "getPrice": "Get Price"
+      },
+      "popularRoutes": {
+        "title": "Popular Routes",
+        "subtitle": "Most frequently used shipping routes",
+        "duration": "Duration",
+        "frequency": "Frequency",
+        "price": "Price"
+      },
+      "europeanCities": {
+        "title": "European Pickup Cities",
+        "subtitle": "We collect parcels from these areas",
+        "routes": "routes",
+        "frequency": "Frequency",
+        "pickupAreas": "Pickup Areas",
+        "viewDetails": "View Details",
+        "daily": "Daily",
+        "perWeek": "per week"
+      },
+      "moroccanCities": {
+        "title": "Morocco Destinations",
+        "subtitle": "We deliver to these cities and surrounding areas",
+        "region": "Region",
+        "connections": "Connections",
+        "avgDelivery": "Avg. Delivery",
+        "coverage": "Coverage"
+      },
+      "howItWorks": {
+        "title": "How Our Network Works",
+        "subtitle": "Leveraging daily bus routes for faster, cheaper delivery",
+        "step1": {
+          "title": "Regular Bus Routes",
+          "description": "We partner with licensed bus companies traveling daily between Europe and Morocco"
+        },
+        "step2": {
+          "title": "Local Pickup",
+          "description": "Driver collects your parcel in your European city"
+        },
+        "step3": {
+          "title": "Direct Transit",
+          "description": "Your parcel travels on an established route with real-time tracking"
+        },
+        "step4": {
+          "title": "Local Delivery",
+          "description": "Direct delivery to the address in Morocco"
+        }
+      },
+      "cta": {
+        "title": "Don't See Your Route?",
+        "subtitle": "We're constantly expanding. Contact us about new route requests.",
+        "requestRoute": "Request New Route",
+        "bookRoute": "Book Existing Route"
+      }
+    },
+    "specialized": {
+      "hero": {
+        "badge": "Premium Services",
+        "title": "Specialized Shipping",
+        "titleHighlight": "Solutions",
+        "subtitle": "From express delivery to temperature-controlled transport. We handle parcels that need extra care.",
+        "cta": "Discuss Your Needs"
+      },
+      "servicesGrid": {
+        "title": "Our Specialized Services",
+        "subtitle": "Tailored solutions for unique shipping requirements",
+        "useCases": "Common Uses:"
+      },
+      "services": {
+        "express": {
+          "title": "Express Delivery",
+          "duration": "24-36h",
+          "price": "+€15",
+          "description": "Guaranteed next-bus delivery for urgent parcels. Priority handling every step of the way.",
+          "features": {
+            "nextBus": "Next available bus departure",
+            "priority": "Priority loading and unloading",
+            "sms": "SMS updates at every checkpoint",
+            "guarantee": "Money-back time guarantee"
+          },
+          "useCases": {
+            "medical": "Medical supplies",
+            "gifts": "Last-minute gifts",
+            "contracts": "Important documents"
+          }
+        },
+        "temperature": {
+          "title": "Temperature-Controlled",
+          "duration": "48-72h",
+          "price": "+€25",
+          "description": "Climate-controlled transport for temperature-sensitive items. Maintain proper conditions throughout transit.",
+          "badge": "2-8°C",
+          "features": {
+            "climate": "Climate-controlled storage compartments",
+            "logging": "Temperature logging every 30 minutes",
+            "handling": "Specialized handling protocols",
+            "customs": "Expedited customs clearance"
+          },
+          "useCases": {
+            "medications": "Medications & vaccines",
+            "food": "Specialty foods",
+            "cosmetics": "Premium cosmetics"
+          }
+        },
+        "documents": {
+          "title": "Important Documents",
+          "duration": "36-48h",
+          "price": "+€8",
+          "description": "Secure delivery of legal and official documents with chain of custody tracking.",
+          "features": {
+            "tamper": "Tamper-evident packaging",
+            "custody": "Chain of custody documentation",
+            "signature": "Signature required at pickup & delivery",
+            "scan": "Digital scan & upload confirmation"
+          },
+          "useCases": {
+            "legal": "Legal contracts",
+            "passport": "Passport & visas",
+            "deeds": "Property deeds"
+          }
+        },
+        "insurance": {
+          "title": "High-Value Insurance",
+          "duration": "Standard",
+          "price": "2% of value",
+          "description": "Extended insurance coverage up to €5,000 for valuable items. Full replacement guarantee.",
+          "features": {
+            "coverage": "Coverage up to €5,000",
+            "claims": "24-hour claims processing",
+            "photo": "Photo documentation at each step",
+            "fragile": "Fragile item handling protocols"
+          },
+          "useCases": {
+            "electronics": "Electronics",
+            "jewelry": "Jewelry & watches",
+            "collectibles": "Collectibles & art"
+          }
+        },
+        "oversized": {
+          "title": "Oversized Parcels",
+          "duration": "3-5 days",
+          "price": "Custom quote",
+          "description": "Shipment of large or heavy items up to 50kg. Specialized equipment and handling.",
+          "badge": "Up to 50kg",
+          "features": {
+            "weight": "Up to 50kg weight limit",
+            "dimensions": "Dimensions up to 150cm total",
+            "space": "Dedicated cargo space reservation",
+            "securing": "Professional securing & padding"
+          },
+          "useCases": {
+            "furniture": "Small furniture",
+            "appliances": "Appliances",
+            "sports": "Sports equipment"
+          }
+        },
+        "whiteGlove": {
+          "title": "White Glove Service",
+          "duration": "Scheduled",
+          "price": "+€45",
+          "description": "Premium concierge delivery with scheduled time windows, unpacking, and assembly services.",
+          "badge": "Premium",
+          "features": {
+            "scheduled": "Scheduled 2-hour delivery window",
+            "unpacking": "Unpacking & placement service",
+            "assembly": "Basic assembly included",
+            "removal": "Packaging material removal"
+          },
+          "useCases": {
+            "gifts": "Special occasion gifts",
+            "antiques": "Antiques & heirlooms",
+            "corporate": "Corporate gifts"
+          }
+        }
+      },
+      "customs": {
+        "badge": "Customs Support",
+        "title": "Customs Brokerage Services",
+        "subtitle": "Navigate Moroccan customs with expert support. We handle the paperwork and compliance for restricted items.",
+        "features": {
+          "hsCode": "HS code classification assistance",
+          "invoice": "Commercial invoice preparation",
+          "duty": "Duty & tax calculation",
+          "certificate": "Origin certificate handling",
+          "preClearance": "Pre-clearance consultation",
+          "agent": "Dedicated customs agent"
+        },
+        "pricing": "💡 Customs brokerage: Flat €20 fee for most shipments. Complex cases quoted individually.",
+        "cta": "Contact Customs Team",
+        "howItWorks": {
+          "title": "How It Works",
+          "step1": {
+            "title": "Item Declaration",
+            "desc": "You declare your items during booking"
+          },
+          "step2": {
+            "title": "Document Review",
+            "desc": "Our team reviews and prepares required documentation"
+          },
+          "step3": {
+            "title": "Pre-Clearance",
+            "desc": "We submit paperwork before parcel arrives"
+          },
+          "step4": {
+            "title": "Smooth Delivery",
+            "desc": "Your parcel clears customs without delays"
+          }
+        }
+      },
+      "guidelines": {
+        "title": "Shipping Guidelines",
+        "subtitle": "What you can and cannot ship to Morocco",
+        "prohibited": {
+          "title": "Prohibited Items",
+          "subtitle": "These items cannot be shipped under any circumstances:"
+        },
+        "restricted": {
+          "title": "Restricted Items",
+          "subtitle": "These items require special documentation or have limitations:"
+        },
+        "help": "Not sure if your item can be shipped?",
+        "helpLink": "Contact our support team"
+      },
+      "prohibited": {
+        "weapons": "Weapons, ammunition, or explosives",
+        "drugs": "Illegal drugs or narcotics",
+        "hazardous": "Hazardous materials or chemicals",
+        "counterfeit": "Counterfeit goods or pirated media",
+        "animals": "Live animals or animal products",
+        "perishable": "Highly perishable food items"
+      },
+      "restricted": {
+        "alcohol": {
+          "item": "Alcohol & Spirits",
+          "note": "Limited to 1L per person, requires ID verification"
+        },
+        "tobacco": {
+          "item": "Tobacco Products",
+          "note": "Limited to 200 cigarettes or equivalent"
+        },
+        "cosmetics": {
+          "item": "Cosmetics & Perfumes",
+          "note": "Commercial quantities require special permits"
+        },
+        "medications": {
+          "item": "Prescription Medications",
+          "note": "Require prescription copy and limited to 3-month supply"
+        }
+      },
+      "cta": {
+        "title": "Need a Custom Solution?",
+        "subtitle": "Our team can create specialized shipping plans for unique requirements",
+        "contact": "Contact Specialist",
+        "bookStandard": "Book Standard Service"
+      }
+    }
+  }
+}

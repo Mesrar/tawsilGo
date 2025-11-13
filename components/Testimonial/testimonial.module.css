@@ -1,0 +1,57 @@
+/* Custom styles for the testimonial section with a focus on mobile UX */
+
+.testimonial-swiper {
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bullet-inactive-color: #cbd5e1;
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
+  --swiper-pagination-bullet-horizontal-gap: 6px;
+  --swiper-pagination-color: var(--color-primary-500, #3b82f6);
+  --swiper-pagination-bullet-width: 10px;
+  --swiper-pagination-bullet-height: 10px;
+  
+  width: 100%;
+  padding-bottom: 48px;
+}
+
+/* Ensuring pagination bullets have appropriate touch targets */
+:global(.swiper-pagination) {
+  bottom: 0 !important;
+  padding: 16px 0;
+}
+
+:global(.swiper-pagination-bullet) {
+  position: relative;
+}
+
+/* Create a larger touch target while keeping visual size the same */
+:global(.swiper-pagination-bullet::after) {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+}
+
+/* Smooth transitions for interactive elements */
+:global(.testimonial-card) {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+:global(.testimonial-card:hover) {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+  :global(.testimonial-card:hover) {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  .testimonial-swiper {
+    --swiper-pagination-bullet-inactive-color: #475569;
+    --swiper-pagination-color: var(--color-primary-400, #60a5fa);
+  }
+}
