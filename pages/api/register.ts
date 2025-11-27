@@ -1,5 +1,4 @@
 import { withApiErrorHandling } from "@/lib/api/error-handling";
-import { cors } from "@/lib/api/middleware";
 import { sanitizeRequest } from "@/lib/api/sanitize";
 import { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
@@ -72,6 +71,13 @@ async function registerHandler(
       detail: "This endpoint only supports POST requests"
     });
   }
+
+  // 2. Log registration attempts for monitoring
+  console.log('[REGISTER_API]', {
+    method: req.method,
+    timestamp: new Date().toISOString(),
+    origin: req.headers.origin || 'same-origin'
+  });
 
   try {
     // 2. Validate request body with Zod
@@ -158,7 +164,11 @@ async function registerHandler(
     });
 
   } catch (error) {
-    console.error('[REGISTER_API_ERROR]', error);
+    console.error('[REGISTER_API_ERROR]', {
+      error: error instanceof Error ? error.message : error,
+      stack: error instanceof Error ? error.stack : undefined,
+      timestamp: new Date().toISOString()
+    });
     
     // Differentiate between network errors and other exceptions
     if (error instanceof TypeError && error.message.includes('fetch')) {
@@ -181,12 +191,7 @@ async function registerHandler(
   }
 }
 
-// Create middleware chain with CORS and error handling
-export default cors({
-  methods: ['POST', 'OPTIONS'],
-  maxAge: 86400, // 24 hours
-})(
-  sanitizeRequest(
-    withApiErrorHandling(registerHandler)
-  )
+// Create middleware chain with sanitization and error handling
+export default sanitizeRequest(
+  withApiErrorHandling(registerHandler)
 );
