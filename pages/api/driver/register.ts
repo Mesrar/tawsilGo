@@ -1,5 +1,4 @@
 import { withApiErrorHandling } from "@/lib/api/error-handling";
-import { sanitizeRequest } from "@/lib/api/sanitize";
 import { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
 
@@ -177,7 +176,7 @@ async function driverRegisterHandler(
   }
 }
 
-// Create middleware chain with sanitization and error handling
-export default sanitizeRequest(
-  withApiErrorHandling(driverRegisterHandler)
-);
+// Create middleware chain with error handling
+// Note: Removed sanitizeRequest as it uses isomorphic-dompurify/jsdom which doesn't work in Vercel serverless
+// Zod validation provides sufficient input validation
+export default withApiErrorHandling(driverRegisterHandler);
