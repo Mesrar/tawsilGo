@@ -111,7 +111,7 @@ async function registerHandler(
       throw new Error("VERIFY_API_URL environment variable is not set");
     }
     
-    const response = await fetch(`${verifyApiUrl}/api/v2/auth/register`, {
+    const response = await fetch(`${verifyApiUrl}/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
