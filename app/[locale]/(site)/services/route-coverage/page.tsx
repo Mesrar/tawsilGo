@@ -23,8 +23,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useTranslations, useLocale } from "next-intl";
-import ServiceHero from "@/components/Services/ServiceHero";
-import TrustMarquee from "@/components/TrustMarquee";
+import { ServiceHero } from "@/components/Services/ServiceHero";
+import { TrustMarquee } from "@/components/TrustMarquee";
 
 export default function RouteCoveragePage() {
   const t = useTranslations('services.routeCoverage');
