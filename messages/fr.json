@@ -575,12 +575,13 @@
         "vat": "TVA (19%)",
         "subtotal": "Sous-total",
         "total": "Total :",
-        "details": "Détails",
-        "hide": "Masquer"
+        "details": "Détails"
       }
     },
     "review": {
       "title": "Révision et paiement",
+      "reset": "Réinitialiser la démo",
+      "demoWarning": "Ceci est un environnement de démonstration montrant les différences entre les flux de réservation. Aucune réservation réelle ne sera créée.",
       "stepLabel": "Étape 4 sur 4",
       "bookingId": "Réservation n°{id}",
       "description": "Veuillez vérifier les détails de votre réservation avant de procéder au paiement",
@@ -1006,6 +1007,7 @@
       "apiIntegration": "Intégration API"
     },
     "newsletter": {
+      "title": "Restez informé",
       "description": "Recevez les optimisations d'itinéraires et les informations de livraison",
       "placeholder": "Entrez votre email",
       "subscribe": "S'abonner"
@@ -2172,5 +2174,102 @@
   },
   "organization": {
     "register": "Enregistrer l'Organisation"
+  },
+  "driverOnboarding": {
+    "steps": {
+      "basicInfo": "Infos de base",
+      "vehicle": "Véhicule",
+      "documents": "Documents",
+      "review": "Vérification",
+      "progress": "Étape {current} sur {total}"
+    },
+    "step1": {
+      "title": "Commençons par les bases",
+      "subtitle": "Parlez-nous un peu de vous.",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "phone": "Numéro de téléphone",
+      "city": "Ville",
+      "licenseNumber": "Numéro de permis",
+      "next": "Étape suivante",
+      "errors": {
+        "firstName": "Le prénom est requis",
+        "lastName": "Le nom est requis",
+        "email": "L'email est requis",
+        "phone": "Le numéro de téléphone est requis",
+        "city": "La ville est requise",
+        "licenseNumber": "Le numéro de permis est requis"
+      },
+      "placeholders": {
+        "firstName": "Jean",
+        "lastName": "Dupont",
+        "email": "jean@exemple.com",
+        "phone": "+212 6...",
+        "city": "Casablanca",
+        "licenseNumber": "A123456"
+      }
+    },
+    "step2": {
+      "title": "Votre Véhicule",
+      "subtitle": "Que conduirez-vous ?",
+      "vehicleType": "Type de véhicule",
+      "model": "Modèle",
+      "year": "Année",
+      "plateNumber": "Plaque d'immatriculation",
+      "back": "Retour",
+      "next": "Étape suivante",
+      "types": {
+        "car": "Voiture",
+        "van": "Fourgon",
+        "truck": "Camion",
+        "bus": "Autocar"
+      },
+      "errors": {
+        "vehicleType": "Veuillez sélectionner un type de véhicule",
+        "model": "Le modèle est requis",
+        "year": "L'année est requise",
+        "plateNumber": "La plaque est requise"
+      },
+      "placeholders": {
+        "model": "Toyota Hilux",
+        "year": "2020",
+        "plateNumber": "12345-A-6"
+      }
+    },
+    "step3": {
+      "title": "Documents",
+      "subtitle": "Nous avons besoin de quelques documents pour vérifier votre identité.",
+      "licenseFront": "Permis de conduire (Recto)",
+      "licenseBack": "Permis de conduire (Verso)",
+      "insurance": "Assurance véhicule",
+      "nationalId": "CIN / Passeport",
+      "upload": "Appuyez pour télécharger",
+      "back": "Retour",
+      "review": "Vérifier",
+      "errors": {
+        "required": "Requis"
+      }
+    },
+    "step4": {
+      "title": "Vérifier la candidature",
+      "subtitle": "Veuillez vérifier vos informations avant de soumettre.",
+      "personalDetails": "Détails personnels",
+      "vehicleInfo": "Informations sur le véhicule",
+      "documents": "Documents",
+      "documentsAttached": "{count} Documents joints",
+      "back": "Retour",
+      "submit": "Soumettre la candidature",
+      "submitting": "Envoi en cours...",
+      "labels": {
+        "name": "Nom :",
+        "email": "Email :",
+        "phone": "Tél :",
+        "city": "Ville :",
+        "type": "Type :",
+        "model": "Modèle :",
+        "plate": "Plaque :"
+      }
+    }
   }
 }

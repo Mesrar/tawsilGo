@@ -73,31 +73,36 @@ const Features = () => {
   ];
 
   const getFeatureColorClasses = (color: string) => {
-    const colorMap: Record<string, { bg: string; icon: string; stat: string }> = {
+    const colorMap: Record<string, { bg: string; icon: string; stat: string; border: string }> = {
       "moroccan-mint": {
-        bg: "bg-moroccan-mint-50 dark:bg-moroccan-mint-900/20",
+        bg: "bg-moroccan-mint/10 dark:bg-moroccan-mint/20",
         icon: "text-moroccan-mint-600 dark:text-moroccan-mint-400",
-        stat: "text-moroccan-mint-700 dark:text-moroccan-mint-300"
+        stat: "text-moroccan-mint-700 dark:text-moroccan-mint-300",
+        border: "group-hover:border-moroccan-mint/30"
       },
       "moroccan-blue-chefchaouen": {
-        bg: "bg-blue-50 dark:bg-moroccan-blue-chefchaouen/20",
+        bg: "bg-moroccan-blue-chefchaouen/10 dark:bg-moroccan-blue-chefchaouen/20",
         icon: "text-moroccan-blue-chefchaouen dark:text-moroccan-blue-chefchaouen-400",
-        stat: "text-moroccan-blue-chefchaouen-700 dark:text-moroccan-blue-chefchaouen-300"
+        stat: "text-moroccan-blue-chefchaouen-700 dark:text-moroccan-blue-chefchaouen-300",
+        border: "group-hover:border-moroccan-blue-chefchaouen/30"
       },
       "moroccan-gold": {
-        bg: "bg-yellow-50 dark:bg-moroccan-gold/20",
+        bg: "bg-moroccan-gold/10 dark:bg-moroccan-gold/20",
         icon: "text-moroccan-gold dark:text-moroccan-gold-400",
-        stat: "text-moroccan-gold-700 dark:text-moroccan-gold-300"
+        stat: "text-moroccan-gold-700 dark:text-moroccan-gold-300",
+        border: "group-hover:border-moroccan-gold/30"
       },
       "moroccan-saffron": {
-        bg: "bg-orange-50 dark:bg-moroccan-saffron/20",
+        bg: "bg-moroccan-saffron/10 dark:bg-moroccan-saffron/20",
         icon: "text-moroccan-saffron dark:text-moroccan-saffron-400",
-        stat: "text-moroccan-saffron-700 dark:text-moroccan-saffron-300"
+        stat: "text-moroccan-saffron-700 dark:text-moroccan-saffron-300",
+        border: "group-hover:border-moroccan-saffron/30"
       },
       "moroccan-blue-indigo": {
-        bg: "bg-indigo-50 dark:bg-moroccan-blue-indigo/20",
+        bg: "bg-moroccan-blue-indigo/10 dark:bg-moroccan-blue-indigo/20",
         icon: "text-moroccan-blue-indigo dark:text-moroccan-blue-indigo-400",
-        stat: "text-moroccan-blue-indigo-700 dark:text-moroccan-blue-indigo-300"
+        stat: "text-moroccan-blue-indigo-700 dark:text-moroccan-blue-indigo-300",
+        border: "group-hover:border-moroccan-blue-indigo/30"
       }
     };
     return colorMap[color] || colorMap["moroccan-mint"];
@@ -111,34 +116,23 @@ const Features = () => {
     <section
       id="features"
       ref={sectionRef}
-      className="relative py-20 lg:py-32 overflow-hidden bg-white dark:bg-blacksection"
+      className="relative py-20 lg:py-32 overflow-hidden bg-white dark:bg-slate-950"
     >
       {/* Background pattern */}
       <GridPattern
-        className="absolute inset-0 -z-10 opacity-30 dark:opacity-20"
+        className="absolute inset-0 -z-10 opacity-30 dark:opacity-10 text-moroccan-mint/20"
         width={40}
         height={40}
         x={-1}
         y={-1}
         squares={[
-          [2, 3],
-          [5, 5],
-          [8, 2],
-          [11, 6],
-          [14, 4],
-          [17, 7],
-          [20, 5],
-          [23, 3],
-          [26, 6],
-          [29, 4],
-          [32, 2],
-          [35, 5],
-          [38, 3]
+          [2, 3], [5, 5], [8, 2], [11, 6], [14, 4], [17, 7],
+          [20, 5], [23, 3], [26, 6], [29, 4], [32, 2], [35, 5], [38, 3]
         ]}
       />
 
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-moroccan-mint to-transparent opacity-20"></div>
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-moroccan-mint/50 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header section */}
@@ -150,9 +144,9 @@ const Features = () => {
           >
             <Badge
               variant="secondary"
-              className="mb-4 px-4 py-2 bg-moroccan-mint-100 text-moroccan-mint-800 dark:bg-moroccan-mint-900/30 dark:text-moroccan-mint-200 border-0 text-sm font-medium"
+              className="mb-4 px-4 py-1.5 bg-moroccan-mint/10 text-moroccan-mint-700 dark:text-moroccan-mint-300 border border-moroccan-mint/20 text-sm font-bold uppercase tracking-wider rounded-full"
             >
-              <Star className="h-3 w-3 mr-1" />
+              <Star className="h-3.5 w-3.5 mr-1.5" />
               {t('badge')}
             </Badge>
           </motion.div>
@@ -194,13 +188,13 @@ const Features = () => {
                 }}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <Card className="group relative h-full border-0 shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-xl hover:shadow-moroccan-mint/20 dark:hover:shadow-moroccan-mint/10 transition-all duration-300 bg-white dark:bg-blackho overflow-hidden">
+                <Card className={`group relative h-full border border-slate-100 dark:border-slate-800 shadow-lg shadow-slate-200/50 dark:shadow-black/20 hover:shadow-xl transition-all duration-300 bg-white dark:bg-slate-900 overflow-hidden ${colors.border}`}>
                   {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-moroccan-mint/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent dark:from-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                  <CardContent className="relative p-6 lg:p-8">
+                  <CardContent className="relative p-8">
                     {/* Icon container */}
-                    <div className={`inline-flex h-14 w-14 items-center justify-center rounded-xl ${colors.bg} mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl ${colors.bg} mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
                       <div className={colors.icon}>
                         {feature.icon}
                       </div>
@@ -208,21 +202,21 @@ const Features = () => {
 
                     {/* Feature content */}
                     <div className="space-y-3">
-                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white group-hover:text-moroccan-mint-700 dark:group-hover:text-moroccan-mint-300 transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-moroccan-mint-700 dark:group-hover:text-moroccan-mint-300 transition-colors duration-300">
                         {feature.title}
                       </h3>
 
-                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
                         {feature.description}
                       </p>
 
                       {/* Stat badge */}
-                      <div className="flex items-center justify-between pt-2">
-                        <span className={`text-sm font-medium ${colors.stat}`}>
+                      <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
+                        <span className={`text-xs font-bold uppercase tracking-wider ${colors.stat}`}>
                           {feature.stat}
                         </span>
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <ArrowRight className="h-4 w-4 text-moroccan-mint" />
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-2 group-hover:translate-x-0 rtl:translate-x-2 rtl:group-hover:translate-x-0 transform">
+                          <ArrowRight className="h-4 w-4 text-moroccan-mint rtl:rotate-180" />
                         </div>
                       </div>
                     </div>
@@ -240,15 +234,15 @@ const Features = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-moroccan-mint to-moroccan-blue-chefchaouen p-[1px] rounded-full inline-block">
+          <div className="bg-gradient-to-r from-moroccan-mint to-moroccan-blue-chefchaouen p-[2px] rounded-full inline-block shadow-lg shadow-moroccan-mint/20">
             <Button
               onClick={handleBookNow}
               size="lg"
-              className="bg-white dark:bg-blackho text-moroccan-mint hover:bg-slate-50 dark:hover:bg-slate-800 border-0 rounded-full px-8 py-4 text-base font-semibold transition-all duration-300 hover:scale-105 group"
+              className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 border-0 rounded-full px-8 py-6 text-lg font-bold transition-all duration-300 hover:scale-[1.02] group h-auto"
             >
               <span className="flex items-center">
                 {t('cta')}
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 rtl:ml-0 rtl:mr-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 text-moroccan-mint rtl:rotate-180" />
               </span>
             </Button>
           </div>
@@ -257,10 +251,10 @@ const Features = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 1 }}
-            className="mt-4 text-sm text-slate-500 dark:text-slate-400"
+            className="mt-6 text-sm text-slate-500 dark:text-slate-400 font-medium"
           >
             <span className="flex items-center justify-center gap-2">
-              <Heart className="h-4 w-4 text-moroccan-saffron" />
+              <Heart className="h-4 w-4 text-moroccan-saffron fill-moroccan-saffron" />
               {t('guarantee')}
             </span>
           </motion.p>

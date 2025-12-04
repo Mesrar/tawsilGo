@@ -73,7 +73,7 @@ export async function middleware(request: NextRequest) {
 
     // Allow organization verification and invitation pages
     if (pathnameWithoutLocale === "/organizations/verification-pending" ||
-        pathnameWithoutLocale === "/organizations/verify-invitation") {
+      pathnameWithoutLocale === "/organizations/verify-invitation") {
       if (!session) {
         const signInUrl = new URL("/auth/signin", request.url);
         signInUrl.searchParams.set("callbackUrl", pathnameWithoutLocale);
@@ -98,8 +98,8 @@ export async function middleware(request: NextRequest) {
     }
     console.log("✅ User authenticated as organization member, allowing access");
   } else if (pathnameWithoutLocale.startsWith("/drivers")) {
-    // Allow public access to driver landing page
-    if (pathnameWithoutLocale === "/drivers/join") {
+    // Allow public access to driver landing page and onboarding
+    if (pathnameWithoutLocale === "/drivers/join" || pathnameWithoutLocale === "/drivers/onboarding") {
       return response;
     }
 

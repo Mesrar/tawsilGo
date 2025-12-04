@@ -191,78 +191,17 @@ export default function RouteCoveragePage() {
 
   return (
     <main className="min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
-      {/* Hero Section */}
-      <section className="relative min-h-[100svh] flex flex-col justify-center py-20 px-4 overflow-hidden">
-        {/* Enhanced background with animations */}
-        <div className="absolute inset-0 bg-gradient-to-br from-moroccan-blue-midnight via-slate-900 to-moroccan-mint-900 z-0" />
+      <ServiceHero
+        badge={t('hero.badge')}
+        title={t('hero.title')}
+        titleHighlight={t('hero.titleHighlight')}
+        subtitle={t('hero.subtitle')}
+        imageSrc="/images/services/route-coverage.png"
+        ctaText={t('hero.cta')}
+        ctaLink="/booking"
+      />
 
-        {/* Animated gradient shimmer overlay - matching other service pages */}
-        <div className="absolute inset-0 opacity-30 motion-reduce:hidden z-5">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-moroccan-mint/20 to-transparent animate-bounce-x" />
-        </div>
-
-        {/* Floating Moroccan geometric particles - matching other service pages */}
-        <div className="absolute inset-0 pointer-events-none motion-reduce:hidden z-5">
-          <div className="absolute top-20 left-10 w-8 h-8 border-2 border-moroccan-mint/30 rotate-45 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }} />
-          <div className="absolute top-40 right-20 w-12 h-12 border-2 border-moroccan-blue-chefchaouen/20 rotate-12 animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }} />
-          <div className="absolute bottom-32 left-1/4 w-6 h-6 border-2 border-moroccan-mint/25 rotate-45 animate-bounce" style={{ animationDelay: '2s', animationDuration: '3.5s' }} />
-          <div className="absolute top-1/3 right-1/3 w-10 h-10 border-2 border-moroccan-blue-chefchaouen/15 rotate-45 animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '5s' }} />
-          <div className="absolute bottom-20 right-1/4 w-8 h-8 border-2 border-moroccan-mint/20 rotate-12 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '4.5s' }} />
-        </div>
-
-        {/* Moroccan pattern overlay - matching other service pages */}
-        <div
-          className="absolute inset-0 opacity-10 z-5"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300D4AA' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
-
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Badge className="mb-4 bg-moroccan-mint text-white border-none">
-                {t('hero.badge')}
-              </Badge>
-            </motion.div>
-
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-            >
-              {t('hero.title')}
-              <motion.span
-                className="block text-moroccan-mint mt-2"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                {t('hero.titleHighlight')}
-              </motion.span>
-            </motion.h1>
-
-            <motion.p
-              className="text-xl md:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              {t('hero.subtitle')}
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      <TrustMarquee />
 
       {/* Route Finder */}
       <section className="py-12 px-4 bg-white dark:bg-slate-900 border-b">

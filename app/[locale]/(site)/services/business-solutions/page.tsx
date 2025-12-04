@@ -19,6 +19,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { ServiceHero } from "@/components/Services/ServiceHero";
+import { TrustMarquee } from "@/components/TrustMarquee";
 
 export default function BusinessSolutionsPage() {
   const businessFeatures = [
@@ -141,139 +143,19 @@ export default function BusinessSolutionsPage() {
 
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-[100svh] flex flex-col justify-center py-20 px-4 overflow-hidden">
-        {/* Enhanced background with animations */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-moroccan-blue-midnight to-slate-900 z-0" />
+      <ServiceHero
+        badge="For Businesses"
+        title="Scale Your Logistics"
+        titleHighlight="Between Europe & Morocco"
+        subtitle="Purpose-built shipping solutions for e-commerce brands, wholesalers, and enterprises. Save up to 40% with volume pricing."
+        imageSrc="/images/services/business-solutions.png"
+        ctaText="Request a Quote"
+        ctaLink="#contact"
+        secondaryCtaText="View API Docs"
+        secondaryCtaLink="#api-docs"
+      />
 
-        {/* Animated gradient shimmer overlay - matching other service pages */}
-        <div className="absolute inset-0 opacity-30 motion-reduce:hidden z-5">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-moroccan-mint/20 to-transparent animate-bounce-x" />
-        </div>
-
-        {/* Floating Moroccan geometric particles - matching other service pages */}
-        <div className="absolute inset-0 pointer-events-none motion-reduce:hidden z-5">
-          <div className="absolute top-20 left-10 w-8 h-8 border-2 border-moroccan-mint/30 rotate-45 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }} />
-          <div className="absolute top-40 right-20 w-12 h-12 border-2 border-moroccan-blue-chefchaouen/20 rotate-12 animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }} />
-          <div className="absolute bottom-32 left-1/4 w-6 h-6 border-2 border-moroccan-mint/25 rotate-45 animate-bounce" style={{ animationDelay: '2s', animationDuration: '3.5s' }} />
-          <div className="absolute top-1/3 right-1/3 w-10 h-10 border-2 border-moroccan-blue-chefchaouen/15 rotate-45 animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '5s' }} />
-          <div className="absolute bottom-20 right-1/4 w-8 h-8 border-2 border-moroccan-mint/20 rotate-12 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '4.5s' }} />
-        </div>
-
-        {/* Moroccan pattern overlay - matching other service pages */}
-        <div
-          className="absolute inset-0 opacity-10 z-5"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300D4AA' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
-
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Badge className="mb-4 bg-moroccan-mint text-white border-none">
-                For Businesses
-              </Badge>
-            </motion.div>
-
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-            >
-              Scale Your Logistics
-              <motion.span
-                className="block text-moroccan-mint mt-2"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                Between Europe & Morocco
-              </motion.span>
-            </motion.h1>
-
-            <motion.p
-              className="text-xl md:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              Purpose-built shipping solutions for e-commerce brands, wholesalers,
-              and enterprises. Save up to 40% with volume pricing.
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            >
-              <Button
-                size="lg"
-                className="bg-moroccan-mint hover:bg-moroccan-mint-600 text-white h-14 px-8 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                asChild
-              >
-                <Link href="#contact">
-                  Request a Quote
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-moroccan-mint text-moroccan-mint hover:bg-moroccan-mint/10 h-14 px-8 text-lg"
-                asChild
-              >
-                <Link href="#api-docs">View API Docs</Link>
-              </Button>
-            </motion.div>
-
-            {/* Quick Stats with staggered animation */}
-            <motion.div
-              className="grid grid-cols-3 gap-4 mt-12 max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              {[
-                { value: "500+", label: "Business Clients" },
-                { value: "50k+", label: "Monthly Shipments" },
-                { value: "40%", label: "Average Savings" }
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.9 + (index * 0.1)
-                  }}
-                >
-                  <motion.div
-                    className="text-3xl font-bold text-moroccan-mint"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {stat.value}
-                  </motion.div>
-                  <div className="text-sm text-slate-300">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      <TrustMarquee />
 
       {/* Features Grid */}
       <section className="py-16 px-4 bg-slate-50 dark:bg-slate-900">
@@ -418,11 +300,10 @@ export default function BusinessSolutionsPage() {
                 whileHover={{ y: -5, scale: 1.02 }}
               >
                 <Card
-                  className={`h-full transition-all duration-300 ${
-                    tier.popular
-                      ? "border-moroccan-mint border-2 shadow-lg hover:shadow-xl bg-gradient-to-br from-moroccan-mint/5 to-transparent"
-                      : "hover:shadow-lg border-0 shadow-md"
-                  }`}
+                  className={`h-full transition-all duration-300 ${tier.popular
+                    ? "border-moroccan-mint border-2 shadow-lg hover:shadow-xl bg-gradient-to-br from-moroccan-mint/5 to-transparent"
+                    : "hover:shadow-lg border-0 shadow-md"
+                    }`}
                 >
                   <CardContent className="p-6">
                     {tier.popular && (
@@ -469,11 +350,10 @@ export default function BusinessSolutionsPage() {
                       transition={{ delay: 0.5 + index * 0.1 }}
                     >
                       <Button
-                        className={`w-full ${
-                          tier.popular
-                            ? "bg-moroccan-mint hover:bg-moroccan-mint-600"
-                            : ""
-                        }`}
+                        className={`w-full ${tier.popular
+                          ? "bg-moroccan-mint hover:bg-moroccan-mint-600"
+                          : ""
+                          }`}
                         variant={tier.popular ? "default" : "outline"}
                       >
                         {tier.cta}

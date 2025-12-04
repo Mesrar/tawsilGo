@@ -7,6 +7,7 @@
 .testimonial-01 .swiper-pagination-bullet {
   @apply h-2.5 w-2.5 bg-stroke opacity-100;
 }
+
 .testimonial-01 .swiper-pagination-bullet-active {
   @apply w-5 rounded-full bg-primary;
 }
@@ -15,12 +16,13 @@
   @apply relative pt-[50px];
 }
 
-#supportCheckbox:checked ~ div span {
+#supportCheckbox:checked~div span {
   @apply opacity-100;
 }
 
 /* Consolidated CSS Variables - Light & Dark Mode */
 @layer base {
+
   /* CSS Variables - Using Moroccan Mint Palette */
   :root {
     --background: 0 0% 100%;
@@ -29,20 +31,25 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 168 100% 42%; /* Moroccan Mint */
+    --primary: 168 100% 42%;
+    /* Moroccan Mint #00D4AA */
     --primary-foreground: 0 0% 98%;
-    --secondary: 199 49% 34%; /* Moroccan Blue */
+    --secondary: 199 49% 34%;
+    /* Moroccan Blue */
     --secondary-foreground: 0 0% 98%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
-    --accent: 45 59% 52%; /* Gold */
+    --accent: 45 59% 52%;
+    /* Gold */
     --accent-foreground: 202 39% 23%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --radius: 0.5rem;
+    --ring: 168 100% 42%;
+    /* Ring matches primary */
+    --radius: 0.75rem;
+    /* More rounded corners for mobile friendliness */
 
     /* Chart colors */
     --chart-1: 12 76% 61%;
@@ -70,7 +77,8 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 168 81% 95%; /* Light Moroccan Mint for dark mode */
+    --primary: 168 81% 95%;
+    /* Light Moroccan Mint for dark mode */
     --primary-foreground: 202 39% 23%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -108,7 +116,8 @@
   }
 
   html {
-    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
+    /* Remove tap highlight on mobile */
   }
 
   body {
@@ -117,8 +126,8 @@
     line-height: 1.6;
     /* System fonts priority */
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-                 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   /* Optimize headings for mobile */
@@ -139,8 +148,15 @@
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  /* Moroccan Geometric Pattern Overlay */
+  .bg-moroccan-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300D4AA' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 }
 
@@ -151,39 +167,41 @@
 }
 
 @layer utilities {
+
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
   .img-white {
-    filter: invert(0%) sepia(96%) saturate(15%) hue-rotate(249deg)
-      brightness(100%) contrast(105%);
+    filter: invert(0%) sepia(96%) saturate(15%) hue-rotate(249deg) brightness(100%) contrast(105%);
   }
-  
+
   /* Touch target sizes */
   .touch-target {
     @apply min-h-[48px] min-w-[48px];
   }
-  
+
   /* Safe area insets - respects device notches and home indicators */
   .safe-top {
     padding-top: env(safe-area-inset-top, 0px);
   }
-  
+
   .safe-bottom {
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
-  
+
   .safe-left {
     padding-left: env(safe-area-inset-left, 0px);
   }
-  
+
   .safe-right {
     padding-right: env(safe-area-inset-right, 0px);
   }
@@ -202,7 +220,7 @@
   padding: 1rem;
   margin: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   max-width: 300px;
   max-height: 60vh;
   overflow-y: auto;
@@ -237,7 +255,7 @@
   font-size: 0.9rem;
 }
 
-.step-metrics > span {
+.step-metrics>span {
   background: #f0f0f0;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
@@ -262,7 +280,10 @@
   background: #888;
   border-radius: 4px;
 }
-.warehouse-popup, .step-popup, .route-popup {
+
+.warehouse-popup,
+.step-popup,
+.route-popup {
   min-width: 180px;
   text-align: center;
   padding: 8px;
@@ -283,7 +304,9 @@
   margin: 0 0 6px 0;
 }
 
-.warehouse-popup, .route-popup, .delivery-popup {
+.warehouse-popup,
+.route-popup,
+.delivery-popup {
   min-width: 200px;
   padding: 10px;
 }
@@ -302,11 +325,13 @@
   color: #27ae60;
   margin: 0 0 8px 0;
 }
+
 /* Active step styling */
 .step-item.active {
   background: #f0f8ff;
   border-left: 4px solid #4A90E2;
 }
+
 /* Ensure click events work in the control panel */
 .leaflet-control {
   pointer-events: auto !important;
@@ -327,6 +352,7 @@
 .step-item:hover {
   background: #f8f9fa;
 }
+
 .step-item {
   cursor: pointer;
   transition: all 0.2s ease;
@@ -346,6 +372,7 @@
 .leaflet-control {
   max-height: 70vh;
 }
+
 .stop-popup {
   text-align: center;
   min-width: 120px;
@@ -362,6 +389,7 @@
   font-size: 0.9rem;
   color: #666;
 }
+
 .leaflet-container {
   height: 500px;
   width: 100%;
@@ -380,17 +408,18 @@
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-     display: none;
-  }
-  .hide-scrollbar {
-     -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 
 
 .blog-details-docs {
-  @apply rounded-lg border border-white p-7.5 shadow-solid-3 transition-all dark:border-strokedark  dark:bg-blacksection xl:p-12.5;
+  @apply rounded-lg border border-white p-7.5 shadow-solid-3 transition-all dark:border-strokedark dark:bg-blacksection xl:p-12.5;
 }
 
 .blog-details p {
@@ -400,6 +429,7 @@
 .blog-details p strong {
   @apply text-primary dark:text-waterloo;
 }
+
 .blog-details h3 strong,
 .blog-details h3 {
   @apply mb-10 text-xl !font-semibold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight;
@@ -418,6 +448,7 @@
 .blog-details h1 {
   @apply mb-4 text-3xl !font-bold !leading-tight text-black dark:text-white sm:text-4xl md:text-[45px] lg:text-4xl xl:text-[45px];
 }
+
 .blog-details h2 strong,
 .blog-details h2 {
   @apply mb-4 text-[26px] !font-bold !leading-tight text-black dark:text-white sm:text-3xl md:text-4xl;
@@ -450,6 +481,7 @@
 pre {
   @apply relative mb-2 rounded-lg bg-strokedark px-4 py-2;
 }
+
 .prism-copy-button {
   @apply absolute right-2 top-2 h-[26px] rounded bg-white px-4 text-primary;
 }
@@ -460,36 +492,40 @@ pre {
 
 
 @layer components {
-  .stepper{
+  .stepper {
     @apply flex relative flex-col justify-center items-center w-full
   }
-  .stepper:not(:first-child):before{
+
+  .stepper:not(:first-child):before {
     @apply bg-slate-200 absolute right-2/4 top-1/3 translate-y-2/4 w-full h-[3px] content-['']
   }
-  .step{
+
+  .step {
     @apply rounded-full w-10 h-10 items-center flex justify-center z-10 relative bg-slate-700 text-white font-semibold
   }
-  .complete .step{
+
+  .complete .step {
     @apply bg-green-400
   }
-  .active .step{
-   @apply bg-sky-600
+
+  .active .step {
+    @apply bg-sky-600
   }
- 
+
   /* Mobile navigation */
   .mobile-nav {
     @apply fixed bottom-0 left-0 right-0 flex h-16 items-center justify-around bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 safe-bottom z-50;
   }
-  
+
   .mobile-nav-item {
     @apply flex flex-col items-center justify-center w-full h-full touch-target;
   }
-  
+
   /* Form elements optimized for touch */
   .touch-input {
     @apply h-12 px-4 rounded-lg text-base;
   }
-  
+
   .touch-button {
     @apply h-12 px-6 rounded-lg text-base font-medium;
   }
@@ -499,6 +535,7 @@ pre {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -604,7 +641,8 @@ pre {
 }
 
 /* RTL positioning */
-[dir="rtl"] .left-0 {
+/* RTL positioning - Commented out to prevent conflict with full-width elements */
+/* [dir="rtl"] .left-0 {
   left: auto;
   right: 0;
 }
@@ -612,7 +650,7 @@ pre {
 [dir="rtl"] .right-0 {
   right: auto;
   left: 0;
-}
+} */
 
 /* RTL float */
 [dir="rtl"] .float-left {
@@ -626,7 +664,7 @@ pre {
 /* Arabic font optimization */
 [dir="rtl"] body {
   font-family: 'Noto Naskh Arabic', 'Traditional Arabic', 'Arabic Typesetting',
-               ui-sans-serif, system-ui, -apple-system, sans-serif;
+    ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
 /* Additional RTL fixes for better Arabic experience */
@@ -708,7 +746,8 @@ pre {
 }
 
 /* RTL list items */
-[dir="rtl"] ul, [dir="rtl"] ol {
+[dir="rtl"] ul,
+[dir="rtl"] ol {
   padding-right: 1.5rem;
   padding-left: 0;
 }
@@ -719,7 +758,7 @@ pre {
 }
 
 /* RTL Avatar group */
-[dir="rtl"] .avatar-group > * {
+[dir="rtl"] .avatar-group>* {
   margin-right: 0;
   margin-left: -0.5rem;
 }

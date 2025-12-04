@@ -20,6 +20,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
+import { ServiceHero } from "@/components/Services/ServiceHero";
+import { TrustMarquee } from "@/components/TrustMarquee";
 
 export default function HowItWorksPage() {
   const t = useTranslations("howItWorksPage");
@@ -113,62 +115,17 @@ export default function HowItWorksPage() {
 
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-[100vh] bg-gradient-to-br from-moroccan-blue-midnight via-moroccan-blue-indigo to-slate-900 dark:from-moroccan-blue-midnight dark:via-moroccan-blue-indigo/95 dark:to-slate-950 text-white py-20 px-4 overflow-hidden">
-        {/* Animated gradient shimmer overlay */}
-        <div className="absolute inset-0 opacity-30 motion-reduce:hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-moroccan-mint/20 to-transparent animate-bounce-x" />
-        </div>
+      <ServiceHero
+        badge={t("hero.badge")}
+        title={t("hero.title")}
+        titleHighlight={t("hero.subtitle")}
+        subtitle={t("hero.description")}
+        imageSrc="/images/services/how-it-works.png"
+        ctaText={t("hero.cta")}
+        ctaLink="/booking"
+      />
 
-        {/* Floating Moroccan geometric particles */}
-        <div className="absolute inset-0 pointer-events-none motion-reduce:hidden">
-          <div className="absolute top-20 left-10 w-8 h-8 border-2 border-moroccan-mint/30 rotate-45 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }} />
-          <div className="absolute top-40 right-20 w-12 h-12 border-2 border-moroccan-blue-chefchaouen/20 rotate-12 animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }} />
-          <div className="absolute bottom-32 left-1/4 w-6 h-6 border-2 border-moroccan-mint/25 rotate-45 animate-bounce" style={{ animationDelay: '2s', animationDuration: '3.5s' }} />
-          <div className="absolute top-1/3 right-1/3 w-10 h-10 border-2 border-moroccan-blue-chefchaouen/15 rotate-45 animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '5s' }} />
-          <div className="absolute bottom-20 right-1/4 w-8 h-8 border-2 border-moroccan-mint/20 rotate-12 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '4.5s' }} />
-        </div>
-
-        {/* Moroccan pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300D4AA' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
-
-        <div className="container mx-auto max-w-6xl relative z-10 px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center pt-safe-top pb-safe-bottom"
-          >
-            <Badge className="mb-6 bg-moroccan-mint text-white border-none text-sm sm:text-base px-4 py-2 touch-manipulation">
-              {t("hero.badge")}
-            </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 leading-tight">
-              {t("hero.title")}
-              <span className="block text-moroccan-mint mt-2 md:mt-4">
-                {t("hero.subtitle")}
-              </span>
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-slate-200 mb-8 md:mb-12 max-w-3xl mx-auto px-4 sm:px-0 leading-relaxed">
-              {t("hero.description")}
-            </p>
-            <Button
-              size="lg"
-              className="bg-moroccan-mint hover:bg-moroccan-mint-600 text-white h-14 sm:h-16 px-6 sm:px-8 text-base sm:text-lg font-medium touch-manipulation min-w-[48px] min-h-[48px] shadow-lg hover:shadow-xl transition-all duration-300"
-              asChild
-            >
-              <Link href="/booking">
-                {t("hero.cta")}
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+      <TrustMarquee />
 
       {/* Steps Process */}
       <section className="py-16 px-4">
@@ -381,11 +338,10 @@ export default function HowItWorksPage() {
                       ].map((event, i) => (
                         <div key={i} className="flex items-start gap-3">
                           <div
-                            className={`h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                              event.completed
-                                ? "bg-moroccan-mint text-white"
-                                : "bg-slate-200 dark:bg-slate-700"
-                            }`}
+                            className={`h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 ${event.completed
+                              ? "bg-moroccan-mint text-white"
+                              : "bg-slate-200 dark:bg-slate-700"
+                              }`}
                           >
                             {event.completed ? (
                               <CheckCircle className="h-5 w-5" />

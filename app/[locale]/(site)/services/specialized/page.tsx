@@ -19,6 +19,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { ServiceHero } from "@/components/Services/ServiceHero";
+import { TrustMarquee } from "@/components/TrustMarquee";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useTranslations, useLocale } from "next-intl";
 
@@ -180,38 +182,17 @@ export default function SpecializedServicesPage() {
 
   return (
     <main className="min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-moroccan-blue-midnight via-slate-900 to-moroccan-mint-900 text-white py-20 px-4 overflow-hidden">
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <Badge className="mb-4 bg-moroccan-mint text-white border-none">
-              {t('hero.badge')}
-            </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              {t('hero.title')}
-              <span className="block text-moroccan-mint mt-2">{t('hero.titleHighlight')}</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto">
-              {t('hero.subtitle')}
-            </p>
-            <Button
-              size="lg"
-              className="bg-moroccan-mint hover:bg-moroccan-mint-600 text-white h-14 px-8 text-lg"
-              asChild
-            >
-              <Link href="/support">
-                {t('hero.cta')}
-                <ChevronRight className={`h-5 w-5 ${isRTL ? 'mr-2' : 'ml-2'}`} />
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+      <ServiceHero
+        badge={t('hero.badge')}
+        title={t('hero.title')}
+        titleHighlight={t('hero.titleHighlight')}
+        subtitle={t('hero.subtitle')}
+        imageSrc="/images/services/specialized.png"
+        ctaText={t('hero.cta')}
+        ctaLink="/booking"
+      />
+
+      <TrustMarquee />
 
       {/* Services Grid */}
       <section className="py-16 px-4">

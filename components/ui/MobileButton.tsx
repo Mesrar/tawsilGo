@@ -43,7 +43,7 @@ export default function MobileButton({
 
   // Variant styling with Tailwind
   const variantClasses = {
-    primary: 'bg-primary text-white hover:bg-primary/90 active:bg-primary/90 focus:ring-primary/20',
+    primary: 'bg-gradient-to-r from-moroccan-mint to-moroccan-teal text-white hover:from-moroccan-teal hover:to-moroccan-mint shadow-lg hover:shadow-xl active:opacity-90 focus:ring-moroccan-mint/20',
     secondary: 'bg-slate-800 text-white hover:bg-slate-700 active:bg-slate-700 focus:ring-slate-400/20',
     outline: 'bg-transparent border border-slate-300 text-slate-700 hover:bg-slate-50 active:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800/70',
     ghost: 'bg-transparent text-slate-700 hover:bg-slate-100 active:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-800/70',

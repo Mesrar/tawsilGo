@@ -977,6 +977,7 @@
       "apiIntegration": "تكامل API"
     },
     "newsletter": {
+      "title": "ابق على اطلاع",
       "description": "احصل على تحسينات المسار ورؤى التسليم",
       "placeholder": "أدخل بريدك الإلكتروني",
       "subscribe": "اشترك"
@@ -2207,5 +2208,102 @@
   },
   "organization": {
     "register": "تسجيل المنظمة"
+  },
+  "driverOnboarding": {
+    "steps": {
+      "basicInfo": "المعلومات الأساسية",
+      "vehicle": "المركبة",
+      "documents": "الوثائق",
+      "review": "مراجعة",
+      "progress": "الخطوة {current} من {total}"
+    },
+    "step1": {
+      "title": "لنبدأ بالأساسيات",
+      "subtitle": "أخبرنا قليلاً عن نفسك.",
+      "firstName": "الاسم الأول",
+      "lastName": "الاسم العائلي",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "city": "المدينة",
+      "licenseNumber": "رقم رخصة القيادة",
+      "next": "الخطوة التالية",
+      "errors": {
+        "firstName": "الاسم الأول مطلوب",
+        "lastName": "الاسم العائلي مطلوب",
+        "email": "البريد الإلكتروني مطلوب",
+        "phone": "رقم الهاتف مطلوب",
+        "city": "المدينة مطلوبة",
+        "licenseNumber": "رقم الرخصة مطلوب"
+      },
+      "placeholders": {
+        "firstName": "محمد",
+        "lastName": "العلوي",
+        "email": "mohammed@example.com",
+        "phone": "+212 6...",
+        "city": "الدار البيضاء",
+        "licenseNumber": "A123456"
+      }
+    },
+    "step2": {
+      "title": "مركبتك",
+      "subtitle": "ماذا ستقود؟",
+      "vehicleType": "نوع المركبة",
+      "model": "الموديل",
+      "year": "السنة",
+      "plateNumber": "رقم اللوحة",
+      "back": "رجوع",
+      "next": "الخطوة التالية",
+      "types": {
+        "car": "سيارة",
+        "van": "شاحنة صغيرة",
+        "truck": "شاحنة",
+        "bus": "حافلة"
+      },
+      "errors": {
+        "vehicleType": "يرجى اختيار نوع المركبة",
+        "model": "الموديل مطلوب",
+        "year": "السنة مطلوبة",
+        "plateNumber": "رقم اللوحة مطلوب"
+      },
+      "placeholders": {
+        "model": "تويوتا هايلكس",
+        "year": "2020",
+        "plateNumber": "12345-أ-6"
+      }
+    },
+    "step3": {
+      "title": "الوثائق",
+      "subtitle": "نحتاج إلى بعض الوثائق للتحقق من هويتك.",
+      "licenseFront": "رخصة القيادة (الوجه)",
+      "licenseBack": "رخصة القيادة (الظهر)",
+      "insurance": "تأمين المركبة",
+      "nationalId": "بطاقة التعريف الوطنية / جواز السفر",
+      "upload": "اضغط للتحميل",
+      "back": "رجوع",
+      "review": "مراجعة",
+      "errors": {
+        "required": "مطلوب"
+      }
+    },
+    "step4": {
+      "title": "مراجعة الطلب",
+      "subtitle": "يرجى مراجعة معلوماتك قبل الإرسال.",
+      "personalDetails": "التفاصيل الشخصية",
+      "vehicleInfo": "معلومات المركبة",
+      "documents": "الوثائق",
+      "documentsAttached": "{count} وثائق مرفقة",
+      "back": "رجوع",
+      "submit": "إرسال الطلب",
+      "submitting": "جاري الإرسال...",
+      "labels": {
+        "name": "الاسم:",
+        "email": "البريد:",
+        "phone": "الهاتف:",
+        "city": "المدينة:",
+        "type": "النوع:",
+        "model": "الموديل:",
+        "plate": "اللوحة:"
+      }
+    }
   }
 }

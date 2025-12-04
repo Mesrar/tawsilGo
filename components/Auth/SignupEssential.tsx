@@ -295,8 +295,11 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
   };
 
   return (
-    <div className="min-h-[calc(100vh-200px)] flex items-center justify-center px-4 pt-24 pb-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-6">
+    <div className="min-h-[calc(100vh-200px)] flex items-center justify-center px-4 pt-24 pb-12 sm:px-6 lg:px-8 bg-moroccan-pattern bg-cover bg-center bg-no-repeat relative">
+      {/* Overlay for better readability */}
+      <div className="absolute inset-0 bg-white/40 dark:bg-slate-900/40 backdrop-blur-[2px]" />
+
+      <div className="w-full max-w-md space-y-6 relative z-10">
         {/* Header */}
         {!verificationComplete && (
           <motion.div
@@ -317,9 +320,9 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
               className="inline-flex"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-green-500/20 blur-xl rounded-full" />
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-green-600 shadow-lg">
-                  <Package className="h-8 w-8 text-white" />
+                <div className="absolute inset-0 bg-moroccan-mint/20 blur-xl rounded-full" />
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-moroccan-mint to-moroccan-teal shadow-lg">
+                  <Package className="h-8 w-8 text-white rtl:flip-x" />
                 </div>
               </div>
             </motion.div>
@@ -329,10 +332,10 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-moroccan-mint to-moroccan-gold bg-clip-text text-transparent">
                 {t("title")}
               </h1>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 font-medium">
                 {t("subtitle")}
               </p>
             </motion.div>
@@ -357,7 +360,7 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                       className="text-sm font-semibold text-white hover:underline inline-flex items-center"
                     >
                       Sign in instead
-                      <ChevronRight className="ml-1 h-4 w-4" />
+                      <ChevronRight className="ml-1 h-4 w-4 rtl:rotate-180" />
                     </Link>
                     <Link
                       href="/auth/reset-password"
@@ -385,17 +388,17 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="shadow-xl border-slate-200/60 dark:border-slate-700/60 overflow-hidden">
+                  <Card className="shadow-2xl border-white/20 dark:border-slate-700/60 overflow-hidden backdrop-blur-xl bg-white/80 dark:bg-slate-900/80">
                     <CardHeader className="pb-6">
                       <div className="flex items-center gap-3">
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-10 w-10 rounded-full"
+                          className="h-10 w-10 rounded-full hover:bg-moroccan-mint/10 hover:text-moroccan-mint"
                           onClick={() => router.push("/")}
                           disabled={isLoading}
                         >
-                          <ArrowLeft className="h-5 w-5" />
+                          <ArrowLeft className="h-5 w-5 rtl:rotate-180" />
                         </Button>
                         <div>
                           <CardTitle className="text-2xl">{t("cardTitle")}</CardTitle>
@@ -432,12 +435,12 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                     </FormLabel>
                                     <FormControl>
                                       <div className="relative group">
-                                        <Building2 className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-blue-500" />
+                                        <Building2 className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-moroccan-mint rtl:left-auto rtl:right-3.5" />
                                         <Input
                                           placeholder="Your company name"
                                           className={cn(
-                                            "pl-10 h-12 border-slate-200 dark:border-slate-700",
-                                            "focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500",
+                                            "pl-10 rtl:pl-3 rtl:pr-10 h-12 border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50",
+                                            "focus:ring-2 focus:ring-moroccan-mint/20 focus:border-moroccan-mint",
                                             "transition-all duration-200 text-base"
                                           )}
                                           disabled={isLoading}
@@ -462,8 +465,8 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                       <Input
                                         placeholder="EU VAT or Company Tax ID"
                                         className={cn(
-                                          "h-12 border-slate-200 dark:border-slate-700",
-                                          "focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500",
+                                          "h-12 border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50",
+                                          "focus:ring-2 focus:ring-moroccan-mint/20 focus:border-moroccan-mint",
                                           "transition-all duration-200 text-base"
                                         )}
                                         disabled={isLoading}
@@ -491,15 +494,15 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                 </FormLabel>
                                 <FormControl>
                                   <div className="relative group">
-                                    <UserIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-green-500" />
+                                    <UserIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-moroccan-mint rtl:left-auto rtl:right-3.5" />
                                     <Input
                                       placeholder={t("firstNamePlaceholder")}
                                       className={cn(
-                                        "pl-10 h-12 border-slate-200 dark:border-slate-700",
-                                        "focus:ring-2 focus:ring-green-500/20 focus:border-green-500",
+                                        "pl-10 rtl:pl-3 rtl:pr-10 h-12 border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50",
+                                        "focus:ring-2 focus:ring-moroccan-mint/20 focus:border-moroccan-mint",
                                         "transition-all duration-200 text-base",
                                         form.formState.errors.firstName &&
-                                          "border-red-300 focus:ring-red-400/20"
+                                        "border-red-300 focus:ring-red-400/20"
                                       )}
                                       disabled={isLoading}
                                       autoComplete="given-name"
@@ -523,15 +526,15 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                 </FormLabel>
                                 <FormControl>
                                   <div className="relative group">
-                                    <UserIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-green-500" />
+                                    <UserIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-moroccan-mint rtl:left-auto rtl:right-3.5" />
                                     <Input
                                       placeholder={t("lastNamePlaceholder")}
                                       className={cn(
-                                        "pl-10 h-12 border-slate-200 dark:border-slate-700",
-                                        "focus:ring-2 focus:ring-green-500/20 focus:border-green-500",
+                                        "pl-10 rtl:pl-3 rtl:pr-10 h-12 border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50",
+                                        "focus:ring-2 focus:ring-moroccan-mint/20 focus:border-moroccan-mint",
                                         "transition-all duration-200 text-base",
                                         form.formState.errors.lastName &&
-                                          "border-red-300 focus:ring-red-400/20"
+                                        "border-red-300 focus:ring-red-400/20"
                                       )}
                                       disabled={isLoading}
                                       autoComplete="family-name"
@@ -555,16 +558,16 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                 </FormLabel>
                                 <FormControl>
                                   <div className="relative group">
-                                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-green-500" />
+                                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-moroccan-mint rtl:left-auto rtl:right-3.5" />
                                     <Input
                                       placeholder={t("emailPlaceholder")}
                                       type="email"
                                       className={cn(
-                                        "pl-10 h-12 border-slate-200 dark:border-slate-700",
-                                        "focus:ring-2 focus:ring-green-500/20 focus:border-green-500",
+                                        "pl-10 rtl:pl-3 rtl:pr-10 h-12 border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50",
+                                        "focus:ring-2 focus:ring-moroccan-mint/20 focus:border-moroccan-mint",
                                         "transition-all duration-200 text-base",
                                         form.formState.errors.email &&
-                                          "border-red-300 focus:ring-red-400/20"
+                                        "border-red-300 focus:ring-red-400/20"
                                       )}
                                       disabled={isLoading}
                                       autoComplete="email"
@@ -588,16 +591,16 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                 </FormLabel>
                                 <FormControl>
                                   <div className="relative group">
-                                    <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-green-500" />
+                                    <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-moroccan-mint rtl:left-auto rtl:right-3.5" />
                                     <Input
                                       placeholder={t("phonePlaceholder")}
                                       type="tel"
                                       className={cn(
-                                        "pl-10 h-12 border-slate-200 dark:border-slate-700",
-                                        "focus:ring-2 focus:ring-green-500/20 focus:border-green-500",
+                                        "pl-10 rtl:pl-3 rtl:pr-10 h-12 border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50",
+                                        "focus:ring-2 focus:ring-moroccan-mint/20 focus:border-moroccan-mint",
                                         "transition-all duration-200 text-base",
                                         form.formState.errors.phone &&
-                                          "border-red-300 focus:ring-red-400/20"
+                                        "border-red-300 focus:ring-red-400/20"
                                       )}
                                       disabled={isLoading}
                                       autoComplete="tel"
@@ -624,15 +627,15 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                 </FormLabel>
                                 <FormControl>
                                   <div className="relative group">
-                                    <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-green-500" />
+                                    <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-moroccan-mint rtl:left-auto rtl:right-3.5" />
                                     <Input
                                       placeholder={t("addressPlaceholder")}
                                       className={cn(
-                                        "pl-10 h-12 border-slate-200 dark:border-slate-700",
-                                        "focus:ring-2 focus:ring-green-500/20 focus:border-green-500",
+                                        "pl-10 rtl:pl-3 rtl:pr-10 h-12 border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50",
+                                        "focus:ring-2 focus:ring-moroccan-mint/20 focus:border-moroccan-mint",
                                         "transition-all duration-200 text-base",
                                         form.formState.errors.address &&
-                                          "border-red-300 focus:ring-red-400/20"
+                                        "border-red-300 focus:ring-red-400/20"
                                       )}
                                       disabled={isLoading}
                                       autoComplete="street-address"
@@ -659,16 +662,16 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                 </FormLabel>
                                 <FormControl>
                                   <div className="relative group">
-                                    <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-green-500" />
+                                    <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-moroccan-mint rtl:left-auto rtl:right-3.5" />
                                     <Input
                                       placeholder={t("passwordPlaceholder")}
                                       type={showPassword ? "text" : "password"}
                                       className={cn(
-                                        "pl-10 pr-11 h-12 border-slate-200 dark:border-slate-700",
-                                        "focus:ring-2 focus:ring-green-500/20 focus:border-green-500",
+                                        "pl-10 pr-11 rtl:pl-11 rtl:pr-10 h-12 border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50",
+                                        "focus:ring-2 focus:ring-moroccan-mint/20 focus:border-moroccan-mint",
                                         "transition-all duration-200 text-base",
                                         form.formState.errors.password &&
-                                          "border-red-300 focus:ring-red-400/20"
+                                        "border-red-300 focus:ring-red-400/20"
                                       )}
                                       disabled={isLoading}
                                       autoComplete="new-password"
@@ -677,7 +680,7 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                     <button
                                       type="button"
                                       onClick={() => setShowPassword(!showPassword)}
-                                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+                                      className="absolute right-3.5 rtl:right-auto rtl:left-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
                                       disabled={isLoading}
                                     >
                                       {showPassword ? (
@@ -703,7 +706,7 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                     className={cn(
                                       "ml-1 font-semibold",
                                       passwordStrength.meetsAllRequirements
-                                        ? "text-green-600"
+                                        ? "text-moroccan-mint"
                                         : "text-amber-600"
                                     )}
                                   >
@@ -713,7 +716,7 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                 <button
                                   type="button"
                                   onClick={() => setShowPasswordRequirements(!showPasswordRequirements)}
-                                  className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                                  className="text-moroccan-mint hover:underline flex items-center gap-1"
                                 >
                                   <Info className="h-3 w-3" />
                                   {showPasswordRequirements ? "Hide" : "View"} requirements
@@ -725,12 +728,13 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                 <div
                                   className={cn(
                                     "h-full transition-all duration-300",
-                                    getPasswordStrengthLabel().color
+                                    getPasswordStrengthLabel().color === "bg-green-500" || getPasswordStrengthLabel().color === "bg-green-600"
+                                      ? "bg-moroccan-mint"
+                                      : getPasswordStrengthLabel().color
                                   )}
                                   style={{
-                                    width: `${
-                                      (passwordStrength.score / PASSWORD_REQUIREMENTS.length) * 100
-                                    }%`,
+                                    width: `${(passwordStrength.score / PASSWORD_REQUIREMENTS.length) * 100
+                                      }%`,
                                   }}
                                 />
                               </div>
@@ -749,7 +753,7 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                       className="flex items-center gap-2 text-xs"
                                     >
                                       {req.regex.test(password) ? (
-                                        <Check className="h-3.5 w-3.5 text-green-600 flex-shrink-0" />
+                                        <Check className="h-3.5 w-3.5 text-moroccan-mint flex-shrink-0" />
                                       ) : (
                                         <div className="h-3.5 w-3.5 rounded-full border-2 border-slate-300 dark:border-slate-600 flex-shrink-0" />
                                       )}
@@ -757,7 +761,7 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                         className={cn(
                                           "transition-colors",
                                           req.regex.test(password)
-                                            ? "text-green-600 font-medium"
+                                            ? "text-moroccan-mint font-medium"
                                             : "text-slate-500 dark:text-slate-400"
                                         )}
                                       >
@@ -775,12 +779,12 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                             control={form.control}
                             name="acceptTerms"
                             render={({ field }) => (
-                              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-lg border border-slate-200 dark:border-slate-700 p-4 bg-slate-50 dark:bg-slate-800/50">
+                              <FormItem className="flex flex-row items-start space-x-3 rtl:space-x-reverse space-y-0 rounded-lg border border-slate-200 dark:border-slate-700 p-4 bg-slate-50/50 dark:bg-slate-800/30">
                                 <FormControl>
                                   <Checkbox
                                     checked={field.value}
                                     onCheckedChange={field.onChange}
-                                    className="mt-0.5"
+                                    className="mt-0.5 data-[state=checked]:bg-moroccan-mint data-[state=checked]:border-moroccan-mint"
                                   />
                                 </FormControl>
                                 <div className="space-y-1 leading-none">
@@ -788,7 +792,7 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                     {t("agreeToTerms")}{" "}
                                     <Link
                                       href="/terms"
-                                      className="text-green-600 dark:text-green-400 hover:underline font-medium"
+                                      className="text-moroccan-mint hover:underline font-medium"
                                       target="_blank"
                                     >
                                       {t("termsOfService")}
@@ -796,7 +800,7 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                                     {t("and")}{" "}
                                     <Link
                                       href="/privacy"
-                                      className="text-green-600 dark:text-green-400 hover:underline font-medium"
+                                      className="text-moroccan-mint hover:underline font-medium"
                                       target="_blank"
                                     >
                                       {t("privacyPolicy")}
@@ -811,7 +815,7 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                           {/* Submit Button */}
                           <Button
                             type="submit"
-                            className="w-full h-12 mt-6 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 shadow-lg hover:shadow-xl transition-all duration-200 text-base font-semibold"
+                            className="w-full h-12 mt-6 bg-gradient-to-r from-moroccan-mint to-moroccan-teal hover:from-moroccan-teal hover:to-moroccan-mint shadow-lg hover:shadow-xl transition-all duration-200 text-base font-semibold"
                             disabled={isLoading}
                           >
                             {isLoading ? (
@@ -822,7 +826,7 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                             ) : (
                               <span className="flex items-center justify-center group">
                                 {t("nextStep")}
-                                <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform rtl:rotate-180 rtl:ml-0 rtl:mr-2" />
                               </span>
                             )}
                           </Button>
@@ -830,12 +834,12 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                       </Form>
                     </CardContent>
 
-                    <CardFooter className="flex flex-col space-y-4 border-t bg-slate-50 dark:bg-slate-800/50 border-slate-200/60 dark:border-slate-700/60 py-5">
+                    <CardFooter className="flex flex-col space-y-4 border-t bg-slate-50/50 dark:bg-slate-800/30 border-slate-200/60 dark:border-slate-700/60 py-5 backdrop-blur-sm">
                       <p className="text-center text-sm text-slate-600 dark:text-slate-400">
                         {t("alreadyHaveAccount")}{" "}
                         <Link
                           href="/auth/signin"
-                          className="font-semibold text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 hover:underline transition-colors"
+                          className="font-semibold text-moroccan-mint hover:text-moroccan-teal hover:underline transition-colors"
                         >
                           {t("signIn")}
                         </Link>
@@ -854,17 +858,17 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="shadow-xl border-slate-200/60 dark:border-slate-700/60">
+                  <Card className="shadow-2xl border-white/20 dark:border-slate-700/60 overflow-hidden backdrop-blur-xl bg-white/80 dark:bg-slate-900/80">
                     <CardHeader className="pb-6">
                       <div className="flex items-center gap-3">
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-10 w-10 rounded-full"
+                          className="h-10 w-10 rounded-full hover:bg-moroccan-mint/10 hover:text-moroccan-mint"
                           onClick={() => setStep(1)}
                           disabled={isLoading}
                         >
-                          <ArrowLeft className="h-5 w-5" />
+                          <ArrowLeft className="h-5 w-5 rtl:rotate-180" />
                         </Button>
                         <div>
                           <CardTitle className="text-2xl">Verify Your Email</CardTitle>
@@ -875,8 +879,8 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                       </div>
                     </CardHeader>
                     <CardContent className="pb-6">
-                      <div className="mb-6 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 p-4 rounded-lg flex items-start gap-3">
-                        <Mail className="h-5 w-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                      <div className="mb-6 bg-moroccan-mint/10 border border-moroccan-mint/20 text-moroccan-teal dark:text-moroccan-mint p-4 rounded-lg flex items-start gap-3">
+                        <Mail className="h-5 w-5 text-moroccan-mint flex-shrink-0 mt-0.5" />
                         <div className="space-y-1">
                           <p className="text-sm font-semibold">
                             Verification email sent
@@ -921,9 +925,9 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                   stiffness: 200,
                   damping: 15,
                 }}
-                className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/20 mb-6"
+                className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-moroccan-mint/20 mb-6"
               >
-                <CheckCircle className="h-12 w-12 text-green-600 dark:text-green-400" />
+                <CheckCircle className="h-12 w-12 text-moroccan-mint" />
               </motion.div>
 
               <motion.div
@@ -946,25 +950,25 @@ const SignupEssential = ({ accountType: initialAccountType = 'personal' }: Signu
                   <Button
                     onClick={() => router.push("/auth/signin")}
                     variant="outline"
-                    className="h-12 px-6"
+                    className="h-12 px-6 border-moroccan-mint text-moroccan-mint hover:bg-moroccan-mint hover:text-white"
                   >
                     Sign In Now
                   </Button>
                   <Button
                     onClick={() => router.push("/booking")}
-                    className="h-12 px-6 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                    className="h-12 px-6 bg-gradient-to-r from-moroccan-mint to-moroccan-teal hover:from-moroccan-teal hover:to-moroccan-mint"
                   >
                     <Sparkles className="mr-2 h-5 w-5" />
                     Book Your First Shipment
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-5 w-5 rtl:rotate-180 rtl:ml-0 rtl:mr-2" />
                   </Button>
                 </div>
 
-                <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
-                  <p className="text-sm font-semibold text-green-900 dark:text-green-100">
+                <div className="mt-6 p-4 bg-moroccan-mint/10 rounded-lg border border-moroccan-mint/20">
+                  <p className="text-sm font-semibold text-moroccan-teal dark:text-moroccan-mint">
                     🎉 Your 15% discount code: WELCOME15
                   </p>
-                  <p className="text-xs text-green-700 dark:text-green-300 mt-1">
+                  <p className="text-xs text-moroccan-teal/80 dark:text-moroccan-mint/80 mt-1">
                     Valid for 7 days on your first shipment
                   </p>
                 </div>

@@ -93,8 +93,11 @@ const Signin = () => {
   }
 
   return (
-    <div className="min-h-[calc(100vh-200px)] flex items-center justify-center px-4 pt-24 pb-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-6">
+    <div className="min-h-[calc(100vh-200px)] flex items-center justify-center px-4 pt-24 pb-12 sm:px-6 lg:px-8 bg-moroccan-pattern bg-cover bg-center bg-no-repeat relative">
+      {/* Overlay for better readability */}
+      <div className="absolute inset-0 bg-white/40 dark:bg-slate-900/40 backdrop-blur-[2px]" />
+
+      <div className="w-full max-w-md space-y-6 relative z-10">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -109,9 +112,9 @@ const Signin = () => {
             className="inline-flex"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full" />
-              <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg">
-                <Truck className="h-8 w-8 text-white" />
+              <div className="absolute inset-0 bg-moroccan-mint/20 blur-xl rounded-full" />
+              <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-moroccan-mint to-moroccan-teal shadow-lg">
+                <Truck className="h-8 w-8 text-white rtl:flip-x" />
               </div>
             </div>
           </motion.div>
@@ -121,10 +124,10 @@ const Signin = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-moroccan-mint to-moroccan-gold bg-clip-text text-transparent">
               {t("title")}
             </h1>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 font-medium">
               {t("subtitle")}
             </p>
           </motion.div>
@@ -136,12 +139,12 @@ const Signin = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
         >
-          <Card className="shadow-xl border-slate-200/60 dark:border-slate-700/60 overflow-hidden backdrop-blur-sm">
+          <Card className="shadow-2xl border-white/20 dark:border-slate-700/60 overflow-hidden backdrop-blur-xl bg-white/80 dark:bg-slate-900/80">
             {/* Progress indicator */}
             <div className="h-1 w-full bg-slate-100 dark:bg-slate-800">
               {formStatus === "submitting" && (
                 <motion.div
-                  className="h-full bg-gradient-to-r from-blue-500 to-blue-600"
+                  className="h-full bg-gradient-to-r from-moroccan-mint to-moroccan-teal"
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -191,12 +194,12 @@ const Signin = () => {
                         </FormLabel>
                         <FormControl>
                           <div className="relative group">
-                            <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-blue-500" />
+                            <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-moroccan-mint rtl:left-auto rtl:right-3.5" />
                             <Input
                               placeholder={t("usernamePlaceholder")}
                               className={cn(
-                                "pl-10 h-12 border-slate-200 dark:border-slate-700",
-                                "focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-blue-400",
+                                "pl-10 rtl:pl-3 rtl:pr-10 h-12 border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50",
+                                "focus:ring-2 focus:ring-moroccan-mint/20 focus:border-moroccan-mint dark:focus:border-moroccan-mint",
                                 "transition-all duration-200",
                                 "text-base",
                                 form.formState.errors.username && "border-red-300 focus:ring-red-400/20 focus:border-red-400"
@@ -222,13 +225,13 @@ const Signin = () => {
                         </FormLabel>
                         <FormControl>
                           <div className="relative group">
-                            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-blue-500" />
+                            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 transition-colors group-focus-within:text-moroccan-mint rtl:left-auto rtl:right-3.5" />
                             <Input
                               type={showPassword ? "text" : "password"}
                               placeholder={t("passwordPlaceholder")}
                               className={cn(
-                                "pl-10 pr-11 h-12 border-slate-200 dark:border-slate-700",
-                                "focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-blue-400",
+                                "pl-10 pr-11 rtl:pl-11 rtl:pr-10 h-12 border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50",
+                                "focus:ring-2 focus:ring-moroccan-mint/20 focus:border-moroccan-mint dark:focus:border-moroccan-mint",
                                 "transition-all duration-200",
                                 "text-base",
                                 form.formState.errors.password && "border-red-300 focus:ring-red-400/20 focus:border-red-400"
@@ -240,7 +243,7 @@ const Signin = () => {
                             <button
                               type="button"
                               onClick={togglePasswordVisibility}
-                              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 focus:outline-none transition-colors"
+                              className="absolute right-3.5 rtl:right-auto rtl:left-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 focus:outline-none transition-colors"
                               aria-label={showPassword ? t("hidePassword") : t("showPassword")}
                               disabled={isLoading}
                             >
@@ -262,12 +265,12 @@ const Signin = () => {
                       control={form.control}
                       name="keepSignedIn"
                       render={({ field }) => (
-                        <FormItem className="flex items-center space-x-2.5 space-y-0">
+                        <FormItem className="flex items-center space-x-2.5 rtl:space-x-reverse space-y-0">
                           <Checkbox
                             id="keepSignedIn"
                             checked={field.value}
                             onCheckedChange={field.onChange}
-                            className="h-4 w-4 rounded border-slate-300 dark:border-slate-600"
+                            className="h-4 w-4 rounded border-slate-300 dark:border-slate-600 data-[state=checked]:bg-moroccan-mint data-[state=checked]:border-moroccan-mint"
                             disabled={isLoading}
                           />
                           <FormLabel
@@ -281,7 +284,7 @@ const Signin = () => {
                     />
                     <Link
                       href="/auth/reset-password"
-                      className="text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 hover:underline transition-colors"
+                      className="text-sm font-medium text-moroccan-mint hover:text-moroccan-teal dark:text-moroccan-mint dark:hover:text-moroccan-teal hover:underline transition-colors"
                     >
                       {t("forgotPassword")}
                     </Link>
@@ -289,7 +292,7 @@ const Signin = () => {
 
                   <Button
                     type="submit"
-                    className="w-full h-12 mt-6 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-200 text-base font-semibold"
+                    className="w-full h-12 mt-6 bg-gradient-to-r from-moroccan-mint to-moroccan-teal hover:from-moroccan-teal hover:to-moroccan-mint shadow-lg hover:shadow-xl transition-all duration-200 text-base font-semibold"
                     disabled={isLoading}
                   >
                     {isLoading ? (
@@ -313,7 +316,7 @@ const Signin = () => {
                     ) : (
                       <span className="flex items-center justify-center">
                         {t("signInButton")}
-                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform rtl:rotate-180 rtl:ml-0 rtl:mr-2" />
                       </span>
                     )}
                   </Button>
@@ -323,22 +326,22 @@ const Signin = () => {
               {/* Terms and Privacy */}
               <p className="mt-6 text-center text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                 {t("agreeTerms")}{" "}
-                <Link href="/terms" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                <Link href="/terms" className="text-moroccan-mint hover:underline font-medium">
                   {t("termsOfService")}
                 </Link>{" "}
                 {t("and")}{" "}
-                <Link href="/privacy" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                <Link href="/privacy" className="text-moroccan-mint hover:underline font-medium">
                   {t("privacyPolicy")}
                 </Link>
               </p>
             </CardContent>
 
-            <CardFooter className="bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200/60 dark:border-slate-700/60 py-5 px-6 sm:px-8">
+            <CardFooter className="bg-slate-50/50 dark:bg-slate-800/30 border-t border-slate-200/60 dark:border-slate-700/60 py-5 px-6 sm:px-8 backdrop-blur-sm">
               <p className="text-center text-sm text-slate-600 dark:text-slate-400 w-full">
                 {t("noAccount")}{" "}
                 <Link
                   href="/auth/signup"
-                  className="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition-colors"
+                  className="font-semibold text-moroccan-mint hover:text-moroccan-teal hover:underline transition-colors"
                 >
                   {t("createAccount")}
                 </Link>
@@ -354,23 +357,23 @@ const Signin = () => {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2"
         >
-          <div className="flex items-center justify-center sm:justify-start space-x-2.5 group">
-            <div className="flex-shrink-0 rounded-lg bg-blue-50 dark:bg-blue-900/20 p-2 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
-              <Package className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+          <div className="flex items-center justify-center sm:justify-start space-x-2.5 rtl:space-x-reverse group">
+            <div className="flex-shrink-0 rounded-lg bg-moroccan-mint/10 p-2 group-hover:bg-moroccan-mint/20 transition-colors">
+              <Package className="h-4 w-4 text-moroccan-mint" />
             </div>
             <span className="text-xs font-medium text-slate-600 dark:text-slate-400">{t("features.fastShipping")}</span>
           </div>
 
-          <div className="flex items-center justify-center sm:justify-start space-x-2.5 group">
-            <div className="flex-shrink-0 rounded-lg bg-blue-50 dark:bg-blue-900/20 p-2 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
-              <MapPin className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+          <div className="flex items-center justify-center sm:justify-start space-x-2.5 rtl:space-x-reverse group">
+            <div className="flex-shrink-0 rounded-lg bg-moroccan-mint/10 p-2 group-hover:bg-moroccan-mint/20 transition-colors">
+              <MapPin className="h-4 w-4 text-moroccan-mint" />
             </div>
             <span className="text-xs font-medium text-slate-600 dark:text-slate-400">{t("features.globalCoverage")}</span>
           </div>
 
-          <div className="flex items-center justify-center sm:justify-start space-x-2.5 group">
-            <div className="flex-shrink-0 rounded-lg bg-blue-50 dark:bg-blue-900/20 p-2 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
-              <Shield className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+          <div className="flex items-center justify-center sm:justify-start space-x-2.5 rtl:space-x-reverse group">
+            <div className="flex-shrink-0 rounded-lg bg-moroccan-mint/10 p-2 group-hover:bg-moroccan-mint/20 transition-colors">
+              <Shield className="h-4 w-4 text-moroccan-mint" />
             </div>
             <span className="text-xs font-medium text-slate-600 dark:text-slate-400">{t("features.securePlatform")}</span>
           </div>

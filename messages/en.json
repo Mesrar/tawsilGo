@@ -792,18 +792,6 @@
       "searchPlaceholder": "Search {label}..."
     },
     "demo": {
-      "title": "Booking Flow Demo",
-      "subtitle": "Compare the original 4-step flow with the new 2-step smart booking experience",
-      "phase2Active": "Phase 2 Active",
-      "phase1Only": "Phase 1 Only",
-      "reset": "Reset Demo",
-      "demoWarning": "This is a demonstration environment showing the differences between booking flows. No actual bookings will be created.",
-      "tabs": {
-        "comparison": "A/B Test Results",
-        "smartFlow": "Smart Flow (New)",
-        "originalFlow": "Original Flow (4-Step)",
-        "controls": "Feature Controls"
-      },
       "performance": {
         "title": "Performance Metrics",
         "conversionRate": "Conversion Rate",
@@ -1334,6 +1322,7 @@
       "apiIntegration": "API Integration"
     },
     "newsletter": {
+      "title": "Stay Updated",
       "description": "Get route optimizations and delivery insights",
       "placeholder": "Enter your email",
       "subscribe": "Subscribe"
@@ -2492,6 +2481,103 @@
     "quote": {
       "title": "Your Quote",
       "baseShipping": "Base Shipping"
+    }
+  },
+  "driverOnboarding": {
+    "steps": {
+      "basicInfo": "Basic Info",
+      "vehicle": "Vehicle",
+      "documents": "Documents",
+      "review": "Review",
+      "progress": "Step {current} of {total}"
+    },
+    "step1": {
+      "title": "Let's start with the basics",
+      "subtitle": "Tell us a bit about yourself.",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "city": "City",
+      "licenseNumber": "License Number",
+      "next": "Next Step",
+      "errors": {
+        "firstName": "First name is required",
+        "lastName": "Last name is required",
+        "email": "Email is required",
+        "phone": "Phone number is required",
+        "city": "City is required",
+        "licenseNumber": "License number is required"
+      },
+      "placeholders": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john@example.com",
+        "phone": "+212 6...",
+        "city": "Casablanca",
+        "licenseNumber": "A123456"
+      }
+    },
+    "step2": {
+      "title": "Your Vehicle",
+      "subtitle": "What will you be driving?",
+      "vehicleType": "Vehicle Type",
+      "model": "Model",
+      "year": "Year",
+      "plateNumber": "License Plate",
+      "back": "Back",
+      "next": "Next Step",
+      "types": {
+        "car": "Car",
+        "van": "Van",
+        "truck": "Truck",
+        "bus": "Bus"
+      },
+      "errors": {
+        "vehicleType": "Please select a vehicle type",
+        "model": "Model is required",
+        "year": "Year is required",
+        "plateNumber": "License plate is required"
+      },
+      "placeholders": {
+        "model": "Toyota Hilux",
+        "year": "2020",
+        "plateNumber": "12345-A-6"
+      }
+    },
+    "step3": {
+      "title": "Documents",
+      "subtitle": "We need a few documents to verify your identity.",
+      "licenseFront": "Driver's License (Front)",
+      "licenseBack": "Driver's License (Back)",
+      "insurance": "Vehicle Insurance",
+      "nationalId": "National ID / Passport",
+      "upload": "Tap to upload",
+      "back": "Back",
+      "review": "Review",
+      "errors": {
+        "required": "Required"
+      }
+    },
+    "step4": {
+      "title": "Review Application",
+      "subtitle": "Please review your information before submitting.",
+      "personalDetails": "Personal Details",
+      "vehicleInfo": "Vehicle Information",
+      "documents": "Documents",
+      "documentsAttached": "{count} Documents attached",
+      "back": "Back",
+      "submit": "Submit Application",
+      "submitting": "Submitting...",
+      "labels": {
+        "name": "Name:",
+        "email": "Email:",
+        "phone": "Phone:",
+        "city": "City:",
+        "type": "Type:",
+        "model": "Model:",
+        "plate": "Plate:"
+      }
     }
   }
 }

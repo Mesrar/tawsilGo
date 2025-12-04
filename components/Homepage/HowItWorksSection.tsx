@@ -17,6 +17,8 @@ export function HowItWorksSection() {
       title: t("steps.bookOnline.title"),
       description: t("steps.bookOnline.description"),
       color: "bg-blue-500",
+      textColor: "text-blue-500",
+      bgColor: "bg-blue-500/10",
     },
     {
       number: 2,
@@ -24,6 +26,8 @@ export function HowItWorksSection() {
       title: t("steps.wePickUp.title"),
       description: t("steps.wePickUp.description"),
       color: "bg-moroccan-mint",
+      textColor: "text-moroccan-mint",
+      bgColor: "bg-moroccan-mint/10",
     },
     {
       number: 3,
@@ -31,6 +35,8 @@ export function HowItWorksSection() {
       title: t("steps.busTransit.title"),
       description: t("steps.busTransit.description"),
       color: "bg-amber-500",
+      textColor: "text-amber-500",
+      bgColor: "bg-amber-500/10",
     },
     {
       number: 4,
@@ -38,31 +44,36 @@ export function HowItWorksSection() {
       title: t("steps.delivered.title"),
       description: t("steps.delivered.description"),
       color: "bg-green-500",
+      textColor: "text-green-500",
+      bgColor: "bg-green-500/10",
     },
   ];
 
   return (
-    <section className="py-16 px-4 bg-slate-50 dark:bg-slate-900">
-      <div className="container mx-auto max-w-6xl">
+    <section className="relative py-20 px-4 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+      {/* Moroccan Pattern Overlay */}
+      <div className="absolute inset-0 bg-moroccan-pattern opacity-5 pointer-events-none" />
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <span className="text-sm font-medium inline-block px-3 py-1 rounded-full bg-moroccan-mint-50 text-moroccan-mint-700 dark:bg-moroccan-mint-900/30 dark:text-moroccan-mint-300 mb-3">
+          <span className="text-xs font-bold inline-block px-4 py-1.5 rounded-full bg-moroccan-mint/10 text-moroccan-mint-700 dark:text-moroccan-mint-300 uppercase tracking-wider mb-4 border border-moroccan-mint/20">
             {t("badge")}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-white">
             {t("heading")}
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
             {t("description")}
           </p>
         </motion.div>
 
         {/* Desktop: 4-column grid */}
-        <div className="hidden md:grid md:grid-cols-4 gap-6 mb-12">
+        <div className="hidden md:grid md:grid-cols-4 gap-8 mb-16">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -70,24 +81,25 @@ export function HowItWorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="relative"
+              className="relative group"
             >
-              <Card className="h-full hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 text-center">
+              <Card className="h-full border-0 shadow-lg shadow-slate-200/50 dark:shadow-black/20 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                <div className={`absolute top-0 left-0 w-full h-1 ${step.color}`} />
+                <CardContent className="p-8 text-center">
                   <div
-                    className={`h-12 w-12 rounded-full ${step.color} text-white flex items-center justify-center text-xl font-bold mx-auto mb-4`}
+                    className={`h-12 w-12 rounded-full ${step.color} text-white flex items-center justify-center text-lg font-bold mx-auto mb-6 shadow-md group-hover:scale-110 transition-transform duration-300`}
                   >
                     {step.number}
                   </div>
                   <div
-                    className={`h-14 w-14 rounded-lg ${step.color}/10 flex items-center justify-center mx-auto mb-4`}
+                    className={`h-16 w-16 rounded-2xl ${step.bgColor} flex items-center justify-center mx-auto mb-6 transition-colors duration-300`}
                   >
-                    <div className={`${step.color.replace("bg-", "text-")}`}>
+                    <div className={`${step.textColor}`}>
                       {step.icon}
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                  <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">{step.title}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                     {step.description}
                   </p>
                 </CardContent>
@@ -95,16 +107,19 @@ export function HowItWorksSection() {
 
               {/* Arrow connector (except for last item) */}
               {index < steps.length - 1 && (
-                <div className="absolute top-1/2 -right-3 transform -translate-y-1/2 z-10 hidden lg:block">
-                  <ChevronRight className="h-6 w-6 text-moroccan-mint" />
+                <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 hidden lg:block text-slate-300 dark:text-slate-600">
+                  <ChevronRight className="h-8 w-8" strokeWidth={1.5} />
                 </div>
               )}
             </motion.div>
           ))}
         </div>
 
-        {/* Mobile: Vertical stack */}
-        <div className="md:hidden space-y-4 mb-8">
+        {/* Mobile: Vertical Timeline */}
+        <div className="md:hidden relative pl-8 rtl:pl-0 rtl:pr-8 space-y-8 mb-12">
+          {/* Vertical Line */}
+          <div className="absolute left-4 rtl:left-auto rtl:right-4 top-4 bottom-4 w-0.5 bg-slate-200 dark:bg-slate-800" />
+
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -112,18 +127,26 @@ export function HowItWorksSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
+              className="relative"
             >
-              <Card>
-                <CardContent className="p-6">
+              {/* Timeline Dot */}
+              <div className={`absolute -left-[2.25rem] rtl:-left-auto rtl:-right-[2.25rem] top-0 h-8 w-8 rounded-full ${step.color} text-white flex items-center justify-center text-sm font-bold shadow-md z-10`}>
+                {step.number}
+              </div>
+
+              <Card className="border-0 shadow-md bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm ml-2 rtl:ml-0 rtl:mr-2">
+                <CardContent className="p-5">
                   <div className="flex items-start gap-4">
                     <div
-                      className={`h-12 w-12 rounded-full ${step.color} text-white flex items-center justify-center text-xl font-bold flex-shrink-0`}
+                      className={`h-12 w-12 rounded-xl ${step.bgColor} flex items-center justify-center flex-shrink-0`}
                     >
-                      {step.number}
+                      <div className={`${step.textColor}`}>
+                        {step.icon}
+                      </div>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                      <p className="text-sm text-slate-600 dark:text-slate-400">
+                      <h3 className="text-lg font-bold mb-1 text-slate-900 dark:text-white">{step.title}</h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -143,12 +166,12 @@ export function HowItWorksSection() {
         >
           <Button
             size="lg"
-            className="bg-moroccan-mint hover:bg-moroccan-mint-600 h-12"
+            className="bg-moroccan-mint hover:bg-moroccan-mint-600 h-14 px-8 rounded-full text-lg shadow-lg shadow-moroccan-mint/25 transition-all duration-300 hover:scale-105"
             asChild
           >
             <Link href="/services/how-it-works">
               {t("cta")}
-              <ChevronRight className="ml-2 h-4 w-4" />
+              <ChevronRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </motion.div>
