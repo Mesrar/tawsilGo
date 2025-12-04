@@ -1518,7 +1518,7 @@
         "title": "Nous Servons",
         "titleHighlight": "16+ Villes",
         "subtitle": "Des grandes villes européennes aux principales destinations du Maroc. Départs quotidiens sur les routes populaires.",
-        "findRoute": "Trouvez Votre Route"
+        "cta": "Trouvez Votre Route"
       },
       "routeFinder": {
         "title": "Trouvez Votre Route",

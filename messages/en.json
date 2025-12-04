@@ -2176,7 +2176,7 @@
         "title": "We Serve",
         "titleHighlight": "16+ Cities",
         "subtitle": "From major European cities to Morocco's top destinations. Daily departures on popular routes.",
-        "findRoute": "Find Your Route"
+        "cta": "Find Your Route"
       },
       "routeFinder": {
         "title": "Find Your Route",
