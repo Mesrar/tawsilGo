@@ -172,8 +172,24 @@ export default async function handler(
       const userId = decoded.sub || decoded.userId;
       const userName = decoded.name || decoded.username;
 
+      // Debug logging
+      console.log('Token validation - decoded claims:', {
+        sub: decoded.sub,
+        userId: decoded.userId,
+        name: decoded.name,
+        username: decoded.username,
+        role: decoded.role,
+        extractedUserId: userId,
+        extractedUserName: userName
+      });
+
       // Required fields check with flexible claim names
       if (!userId || !userName || !decoded.role) {
+        console.error('Token validation failed - missing claims:', {
+          userId,
+          userName,
+          role: decoded.role
+        });
         return res.status(401).json({
           success: false,
           error: 'Invalid token',
