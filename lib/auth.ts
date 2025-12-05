@@ -105,7 +105,7 @@ export const authOptions: NextAuthOptions = {
           const controller = new AbortController();
           const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-          const res = await fetch(`${baseApiUrl}/api/v1/auth/validate-token`, {
+          const res = await fetch(`${baseApiUrl}/validate-token`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${credentials.token}`,
