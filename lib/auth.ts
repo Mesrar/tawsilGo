@@ -98,15 +98,14 @@ export const authOptions: NextAuthOptions = {
           const tokenPreview = credentials.token.substring(0, 10) + "...";
           console.log(`Processing token: ${tokenPreview}`);
 
-          // Validate token with backend (root level endpoint, not under /api/v1/auth)
-          // Use NEXT_PUBLIC_API_BASE_URL which points to https://api.tawsilgo.com
+          // Validate token with backend
           const baseApiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.tawsilgo.com';
 
           // Add request timeout
           const controller = new AbortController();
           const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-          const res = await fetch(`${baseApiUrl}/validate-token`, {
+          const res = await fetch(`${baseApiUrl}/api/v1/auth/validate-token`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${credentials.token}`,
@@ -226,17 +225,6 @@ export const authOptions: NextAuthOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV !== "production",
-  cookies: {
-    sessionToken: {
-      name: "next-auth.session-token",
-      options: {
-        httpOnly: true,
-        sameSite: "lax",
-        path: "/",
-        secure: process.env.NODE_ENV === "production",
-      },
-    },
-  },
   logger: {
     error(code, metadata) {
       console.error(`[Auth Error] ${code}:`, metadata);
