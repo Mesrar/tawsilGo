@@ -363,7 +363,7 @@ export function OrdersTab({
       )}
 
       {/* Order cards list */}
-      { bookingsData.length > 0 && (
+      {bookingsData.length > 0 && (
         <div className="space-y-4">
           <AnimatePresence mode="popLayout">
             {bookingsData.map((booking) => (
@@ -828,13 +828,13 @@ function BookingsList({
                       className={cn(
                         "h-1 w-full",
                         booking.status.toLowerCase() === "confirmed" &&
-                          "bg-green-500",
+                        "bg-green-500",
                         booking.status.toLowerCase() === "pending" &&
-                          "bg-amber-500",
+                        "bg-amber-500",
                         booking.status.toLowerCase() === "completed" &&
-                          "bg-blue-500",
+                        "bg-blue-500",
                         booking.status.toLowerCase() === "cancelled" &&
-                          "bg-red-500"
+                        "bg-red-500"
                       )}
                     />
 
@@ -1070,9 +1070,9 @@ export function CustomerProfile({ defaultTab = "personal" }: CustomerProfileProp
         if (!response.ok) {
           throw new Error("Failed to fetch user data");
         }
-        
+
         const responseData = await response.json();
-        
+
         // Check if the data is in the expected format with nested 'data' property
         if (!responseData.success || !responseData.data) {
           throw new Error("Invalid response format from API");
@@ -1134,7 +1134,7 @@ export function CustomerProfile({ defaultTab = "personal" }: CustomerProfileProp
 
   // Handle tab change
   const handleTabChange = (value: string) => {
-    setActiveTab(value);
+    setActiveTab(value as "personal" | "orders" | "settings");
   };
 
   // Handle logout
@@ -1148,161 +1148,251 @@ export function CustomerProfile({ defaultTab = "personal" }: CustomerProfileProp
   };
 
   return (
-    <div className="container mx-auto px-4 pb-16">
-      {error && (
-        <Alert variant="destructive" className="mb-4">
-          <AlertCircle className="h-4 w-4" />
-          <AlertTitle>Error</AlertTitle>
-          <AlertDescription>{error}</AlertDescription>
-        </Alert>
-      )}
-
-      {/* Mobile-optimized header */}
-      <div className="mb-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="flex flex-col md:flex-row md:items-center gap-4"
-        >
-          <Avatar className="h-16 w-16 md:h-20 md:w-20 border-2 border-primary/20">
-            <AvatarImage src="/placeholder-avatar.jpg" alt="Customer" />
-            <AvatarFallback className="bg-primary/10 text-primary">
-              {customerData?.firstName?.charAt(0) || "C"}
-              {customerData?.lastName?.charAt(0) || "U"}
-            </AvatarFallback>
-          </Avatar>
-
-          <div className="flex-1">
-            <h1 className="text-2xl font-bold md:text-3xl">
-              {customerData?.firstName || ""} {customerData?.lastName || ""}
-            </h1>
-            <p className="text-muted-foreground mt-1">
-              {customerData?.email || ""}
-            </p>
-          </div>
-
-          {/* Quick actions menu - mobile friendly */}
-          <div className="mt-2 md:mt-0">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="h-10 border-slate-200 px-4"
-                >
-                  {t('accountActions')}
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuItem onClick={() => setActiveTab("settings")}>
-                  <Bell className="mr-2 h-4 w-4" />
-                  {t('settings.emailNotifications')}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setActiveTab("settings")}>
-                  <CreditCard className="mr-2 h-4 w-4" />
-                  {t('settings.accountSettings')}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setActiveTab("settings")}>
-                  <Shield className="mr-2 h-4 w-4" />
-                  {t('settings.privacySettings')}
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem
-                  className="text-red-600"
-                  onClick={handleLogout}
-                >
-                  <LogOut className="mr-2 h-4 w-4" />
-                  {t('logOut')}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        </motion.div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+      {/* Decorative background elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-100/40 dark:bg-blue-900/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-screen animate-blob" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-teal-100/40 dark:bg-teal-900/10 rounded-full blur-3xl opacity-50 mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-2000" />
       </div>
 
-      {/* Mobile-first navigation tabs */}
-      {isMobile ? (
-        <SegmentedTabs
-          options={[
-            {
-              value: "personal",
-              label: t('tabs.personal'),
-              icon: <User className="h-4 w-4" />,
-            },
-            {
-              value: "orders",
-              label: t('tabs.orders'),
-              icon: <Package className="h-4 w-4" />,
-            },
-            {
-              value: "settings",
-              label: t('tabs.settings'),
-              icon: <Settings className="h-4 w-4" />,
-            },
-          ]}
-          value={activeTab}
-          onValueChange={setActiveTab}
-          className="mb-6 sticky top-0 z-10 bg-background pt-2 pb-2"
-        />
-      ) : (
-        <Tabs
-          value={activeTab}
-          onValueChange={handleTabChange}
-          className="w-full mb-6"
-        >
-          <TabsList className="w-full grid grid-cols-3 h-11">
-            <TabsTrigger value="personal" className="flex items-center">
-              <User className="mr-2 h-4 w-4" />
-              {t('tabs.personal')}
-            </TabsTrigger>
-            <TabsTrigger value="orders" className="flex items-center">
-              <Package className="mr-2 h-4 w-4" />
-              {t('tabs.orders')}
-            </TabsTrigger>
-            <TabsTrigger value="settings" className="flex items-center">
-              <Settings className="mr-2 h-4 w-4" />
-              {t('tabs.settings')}
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
-      )}
+      <div className="relative container mx-auto px-4 py-8 md:py-12 max-w-6xl">
+        {error && (
+          <Alert variant="destructive" className="mb-6 animate-in slide-in-from-top-2">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>Error</AlertTitle>
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        )}
 
-      {/* Tab contents with AnimatePresence for smooth transitions */}
-      <AnimatePresence mode="wait">
-        {activeTab === "personal" && (
+        {/* Header Section */}
+        <div className="mb-8 md:mb-12">
           <motion.div
-            key="personal"
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-col md:flex-row md:items-center justify-between gap-6"
           >
-            <Card className="border-slate-200">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-xl">{t('personalInfo')}</CardTitle>
-                <CardDescription>
-                  {t('personalInfoDescription')}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <Form {...form}>
-                  <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-6"
+            <div className="flex items-center gap-5">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-teal-400 rounded-full blur-md opacity-20" />
+                <Avatar className="h-20 w-20 md:h-24 md:w-24 border-4 border-white dark:border-slate-900 shadow-xl">
+                  <AvatarImage src="/placeholder-avatar.jpg" alt="Customer" />
+                  <AvatarFallback className="bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 text-2xl font-bold text-slate-700 dark:text-slate-200">
+                    {customerData?.firstName?.charAt(0) || "C"}
+                    {customerData?.lastName?.charAt(0) || "U"}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="absolute bottom-1 right-1 h-5 w-5 bg-green-500 border-4 border-white dark:border-slate-900 rounded-full" />
+              </div>
+
+              <div>
+                <h1 className="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
+                  {customerData?.firstName || ""} {customerData?.lastName || ""}
+                </h1>
+                <p className="text-slate-500 dark:text-slate-400 font-medium mt-1 flex items-center gap-2">
+                  <span className="inline-block w-2 h-2 rounded-full bg-blue-500" />
+                  {customerData?.email || ""}
+                </p>
+              </div>
+            </div>
+
+            {/* Quick Actions */}
+            <div className="flex gap-3 mt-2 md:mt-0">
+              <Button
+                variant="outline"
+                className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border-slate-200/60 dark:border-slate-700/60 shadow-sm hover:bg-white dark:hover:bg-slate-800 transition-all duration-300"
+                onClick={handleLogout}
+              >
+                <LogOut className="mr-2 h-4 w-4 text-slate-500" />
+                {t('logOut')}
+              </Button>
+              <Button
+                className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 shadow-lg shadow-slate-200 dark:shadow-none transition-all duration-300"
+              >
+                {t('editProfile')}
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Navigation Tabs */}
+        <div className="sticky top-4 z-30 mb-8">
+          <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-1.5 shadow-lg shadow-slate-200/50 dark:shadow-none border border-white/20 dark:border-slate-800 ring-1 ring-black/5">
+            {isMobile ? (
+              <SegmentedTabs
+                options={[
+                  {
+                    value: "personal",
+                    label: t('tabs.personal'),
+                    icon: <User className="h-4 w-4" />,
+                  },
+                  {
+                    value: "orders",
+                    label: t('tabs.orders'),
+                    icon: <Package className="h-4 w-4" />,
+                  },
+                  {
+                    value: "settings",
+                    label: t('tabs.settings'),
+                    icon: <Settings className="h-4 w-4" />,
+                  },
+                ]}
+                value={activeTab}
+                onValueChange={(value) => setActiveTab(value as "personal" | "orders" | "settings")}
+                className="w-full"
+              />
+            ) : (
+              <Tabs
+                value={activeTab}
+                onValueChange={handleTabChange}
+                className="w-full"
+              >
+                <TabsList className="w-full grid grid-cols-3 h-12 bg-transparent p-0 gap-2">
+                  <TabsTrigger
+                    value="personal"
+                    className="h-full rounded-xl data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:text-blue-600 dark:data-[state=active]:text-blue-400 data-[state=active]:shadow-sm transition-all duration-300"
                   >
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <User className="mr-2 h-4 w-4" />
+                    {t('tabs.personal')}
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="orders"
+                    className="h-full rounded-xl data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:text-blue-600 dark:data-[state=active]:text-blue-400 data-[state=active]:shadow-sm transition-all duration-300"
+                  >
+                    <Package className="mr-2 h-4 w-4" />
+                    {t('tabs.orders')}
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="settings"
+                    className="h-full rounded-xl data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:text-blue-600 dark:data-[state=active]:text-blue-400 data-[state=active]:shadow-sm transition-all duration-300"
+                  >
+                    <Settings className="mr-2 h-4 w-4" />
+                    {t('tabs.settings')}
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
+            )}
+          </div>
+        </div>
+
+        {/* Content Area */}
+        <AnimatePresence mode="wait">
+          {activeTab === "personal" && (
+            <motion.div
+              key="personal"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Card className="border-none shadow-xl shadow-slate-200/40 dark:shadow-none bg-white/70 dark:bg-slate-900/50 backdrop-blur-md overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-teal-400 to-blue-500" />
+                <CardHeader className="pb-8 pt-8 px-6 md:px-10">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                      <User className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <CardTitle className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">
+                      {t('personalInfo')}
+                    </CardTitle>
+                  </div>
+                  <CardDescription className="text-base text-slate-500 dark:text-slate-400 ml-12">
+                    {t('personalInfoDescription')}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="px-6 md:px-10 pb-10">
+                  <Form {...form}>
+                    <form
+                      onSubmit={form.handleSubmit(onSubmit)}
+                      className="space-y-8"
+                    >
+                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        <FormField
+                          control={form.control}
+                          name="firstName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">{t('firstName')}</FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder={t('firstName')}
+                                  {...field}
+                                  className="h-12 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 rounded-xl"
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="lastName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">{t('lastName')}</FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder={t('lastName')}
+                                  {...field}
+                                  className="h-12 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 rounded-xl"
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">{t('email')}</FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder={t('email')}
+                                  {...field}
+                                  className="h-12 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 rounded-xl"
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">{t('phone')}</FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder={t('phone')}
+                                  {...field}
+                                  className="h-12 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 rounded-xl"
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+
                       <FormField
                         control={form.control}
-                        name="firstName"
+                        name="address"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>{t('firstName')}</FormLabel>
+                            <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">{t('address')}</FormLabel>
                             <FormControl>
-                              <Input
-                                placeholder={t('firstName')}
+                              <Textarea
+                                placeholder={t('address')}
                                 {...field}
-                                className="h-11"
+                                className="min-h-32 resize-none bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 rounded-xl"
                               />
                             </FormControl>
                             <FormMessage />
@@ -1310,247 +1400,163 @@ export function CustomerProfile({ defaultTab = "personal" }: CustomerProfileProp
                         )}
                       />
 
-                      <FormField
-                        control={form.control}
-                        name="lastName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>{t('lastName')}</FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder={t('lastName')}
-                                {...field}
-                                className="h-11"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
+                      <div className="flex justify-end pt-4">
+                        <Button
+                          type="submit"
+                          disabled={isLoading}
+                          className="h-12 px-8 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white shadow-lg shadow-blue-500/25 transition-all duration-300"
+                        >
+                          {isLoading ? (
+                            <>
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                              {t('updating')}
+                            </>
+                          ) : (
+                            <>{t('saveChanges')}</>
+                          )}
+                        </Button>
+                      </div>
+                    </form>
+                  </Form>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
 
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>{t('email')}</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder={t('email')}
-                              {...field}
-                              className="h-11"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>{t('phone')}</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder={t('phone')}
-                              {...field}
-                              className="h-11"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="address"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>{t('address')}</FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder={t('address')}
-                              {...field}
-                              className="min-h-32 resize-none"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <div className="flex justify-end">
-                      <Button
-                        type="submit"
-                        disabled={isLoading}
-                        className="h-11 px-6"
-                      >
-                        {isLoading ? (
-                          <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            {t('updating')}
-                          </>
-                        ) : (
-                          <>{t('saveChanges')}</>
-                        )}
-                      </Button>
-                    </div>
-                  </form>
-                </Form>
-              </CardContent>
-            </Card>
-          </motion.div>
-        )}
-
-        {activeTab === "orders" && (
-          <motion.div
-            key="orders"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-          >
-         
-            <OrdersTab
-              bookings={bookingsData}
-              isLoading={isLoadingBookings}
-              error={bookingsError as Error | null}
-              totalPages={bookingsData?.pages || 0}
-              currentPage={bookingsPage}
-              setPage={setBookingsPage}
-              activeFilter={bookingsFilter}
-              setFilter={setBookingsFilter}
-            />
-          </motion.div>
-        )}
-
-        {activeTab === "settings" && (
-          <motion.div
-            key="settings"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="space-y-6"
-          >
-            {/* Account settings - better for mobile with grouped cards */}
-            <InfoCard
-              title={t('settings.accountSettings')}
-              icon={<Settings className="h-5 w-5 text-primary" />}
+          {activeTab === "orders" && (
+            <motion.div
+              key="orders"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="space-y-4">
-                {/* Email notifications settings */}
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="font-medium">{t('settings.emailNotifications')}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {t('settings.emailNotificationsDescription')}
-                    </p>
-                  </div>
-                  <Switch defaultChecked />
-                </div>
+              <OrdersTab
+                bookings={bookingsData}
+                isLoading={isLoadingBookings}
+                error={bookingsError as Error | null}
+                totalPages={bookingsData?.pages || 0}
+                currentPage={bookingsPage}
+                setPage={setBookingsPage}
+                activeFilter={bookingsFilter}
+                setFilter={setBookingsFilter}
+              />
+            </motion.div>
+          )}
 
-                <Separator />
-
-                {/* Marketing preferences */}
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="font-medium">{t('settings.marketingEmails')}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {t('settings.marketingEmailsDescription')}
-                    </p>
-                  </div>
-                  <Switch />
-                </div>
-
-                <Separator />
-
-                {/* SMS notifications */}
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="font-medium">{t('settings.smsNotifications')}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {t('settings.smsNotificationsDescription')}
-                    </p>
-                  </div>
-                  <Switch defaultChecked />
-                </div>
-              </div>
-            </InfoCard>
-
-            {/* Privacy Settings */}
-            <InfoCard
-              title={t('settings.privacySettings')}
-              icon={<Shield className="h-5 w-5 text-purple-600" />}
+          {activeTab === "settings" && (
+            <motion.div
+              key="settings"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="grid gap-6 md:grid-cols-2"
             >
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="font-medium">{t('settings.dataSharing')}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {t('settings.dataSharingDescription')}
-                    </p>
-                  </div>
-                  <Switch defaultChecked />
-                </div>
-
-                <Separator />
-
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="font-medium">{t('settings.locationTracking')}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {t('settings.locationTrackingDescription')}
-                    </p>
-                  </div>
-                  <Switch defaultChecked />
-                </div>
-              </div>
-            </InfoCard>
-
-            {/* Account Actions - danger zone */}
-            <InfoCard
-              title={t('settings.accountActions')}
-              icon={<AlertCircle className="h-5 w-5 text-red-600" />}
-            >
-              <div className="space-y-4">
-                <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-950/20">
-                  <Shield className="h-4 w-4 text-amber-600" />
-                  <AlertTitle className="text-amber-900 dark:text-amber-400">
-                    {t('settings.passwordManagement')}
-                  </AlertTitle>
-                  <AlertDescription className="text-amber-800 dark:text-amber-500">
-                    {t('settings.passwordManagementDescription')}
-                  </AlertDescription>
-                </Alert>
-
-                <Alert className="border-blue-200 bg-blue-50 dark:bg-blue-950/20">
-                  <ArrowRight className="h-4 w-4 text-blue-600" />
-                  <AlertTitle className="text-blue-900 dark:text-blue-400">
-                    {t('settings.dataExport')}
-                  </AlertTitle>
-                  <AlertDescription className="text-blue-800 dark:text-blue-500">
-                    {t('settings.dataExportDescription')}
-                  </AlertDescription>
-                </Alert>
-
-                <Button
-                  variant="destructive"
-                  className="w-full justify-start h-11 text-left"
-                  onClick={handleLogout}
+              {/* Account Settings */}
+              <div className="space-y-6">
+                <InfoCard
+                  title={t('settings.accountSettings')}
+                  icon={<Settings className="h-5 w-5 text-blue-600" />}
                 >
-                  <LogOut className="h-4 w-4 mr-2" />
-                  {t('logOut')}
-                </Button>
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between group">
+                      <div className="space-y-0.5">
+                        <p className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">{t('settings.emailNotifications')}</p>
+                        <p className="text-sm text-slate-500">{t('settings.emailNotificationsDescription')}</p>
+                      </div>
+                      <Switch defaultChecked className="data-[state=checked]:bg-blue-600" />
+                    </div>
+                    <Separator className="bg-slate-100 dark:bg-slate-800" />
+                    <div className="flex items-center justify-between group">
+                      <div className="space-y-0.5">
+                        <p className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">{t('settings.marketingEmails')}</p>
+                        <p className="text-sm text-slate-500">{t('settings.marketingEmailsDescription')}</p>
+                      </div>
+                      <Switch className="data-[state=checked]:bg-blue-600" />
+                    </div>
+                    <Separator className="bg-slate-100 dark:bg-slate-800" />
+                    <div className="flex items-center justify-between group">
+                      <div className="space-y-0.5">
+                        <p className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">{t('settings.smsNotifications')}</p>
+                        <p className="text-sm text-slate-500">{t('settings.smsNotificationsDescription')}</p>
+                      </div>
+                      <Switch defaultChecked className="data-[state=checked]:bg-blue-600" />
+                    </div>
+                  </div>
+                </InfoCard>
+
+                <InfoCard
+                  title={t('settings.privacySettings')}
+                  icon={<Shield className="h-5 w-5 text-teal-600" />}
+                >
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between group">
+                      <div className="space-y-0.5">
+                        <p className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-teal-600 transition-colors">{t('settings.dataSharing')}</p>
+                        <p className="text-sm text-slate-500">{t('settings.dataSharingDescription')}</p>
+                      </div>
+                      <Switch defaultChecked className="data-[state=checked]:bg-teal-600" />
+                    </div>
+                    <Separator className="bg-slate-100 dark:bg-slate-800" />
+                    <div className="flex items-center justify-between group">
+                      <div className="space-y-0.5">
+                        <p className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-teal-600 transition-colors">{t('settings.locationTracking')}</p>
+                        <p className="text-sm text-slate-500">{t('settings.locationTrackingDescription')}</p>
+                      </div>
+                      <Switch defaultChecked className="data-[state=checked]:bg-teal-600" />
+                    </div>
+                  </div>
+                </InfoCard>
               </div>
-            </InfoCard>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+              {/* Danger Zone */}
+              <div className="space-y-6">
+                <InfoCard
+                  title={t('settings.accountActions')}
+                  icon={<AlertCircle className="h-5 w-5 text-amber-600" />}
+                >
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-100 dark:border-amber-900/50 transition-colors hover:bg-amber-100/50">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="p-1.5 bg-amber-100 dark:bg-amber-900/50 rounded-md">
+                          <Shield className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                        </div>
+                        <h4 className="font-semibold text-amber-900 dark:text-amber-400">{t('settings.passwordManagement')}</h4>
+                      </div>
+                      <p className="text-sm text-amber-800 dark:text-amber-500 ml-10">
+                        {t('settings.passwordManagementDescription')}
+                      </p>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 transition-colors hover:bg-blue-100/50">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="p-1.5 bg-blue-100 dark:bg-blue-900/50 rounded-md">
+                          <ArrowRight className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <h4 className="font-semibold text-blue-900 dark:text-blue-400">{t('settings.dataExport')}</h4>
+                      </div>
+                      <p className="text-sm text-blue-800 dark:text-blue-500 ml-10">
+                        {t('settings.dataExportDescription')}
+                      </p>
+                    </div>
+
+                    <Button
+                      variant="destructive"
+                      className="w-full h-12 rounded-xl mt-4 shadow-lg shadow-red-500/20 hover:shadow-red-500/30 transition-all duration-300"
+                      onClick={handleLogout}
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      {t('logOut')}
+                    </Button>
+                  </div>
+                </InfoCard>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
+
