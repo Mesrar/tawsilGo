@@ -1,11 +1,11 @@
 // lib/api/user-service.ts - User API service
-import { 
-  ApiError, 
-  AuthenticationError, 
-  AuthorizationError, 
-  NotFoundError, 
-  RateLimitError, 
-  ValidationError 
+import {
+  ApiError,
+  AuthenticationError,
+  AuthorizationError,
+  NotFoundError,
+  RateLimitError,
+  ValidationError
 } from './errors';
 
 /**
@@ -15,11 +15,8 @@ export class UserService {
   private apiUrl: string;
 
   constructor() {
-    const verifyApiUrl = process.env.VERIFY_API_URL;
-    if (!verifyApiUrl) {
-      throw new Error('VERIFY_API_URL environment variable is not configured');
-    }
-    this.apiUrl = verifyApiUrl;
+    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.tawsilgo.com';
+    this.apiUrl = apiUrl;
   }
 
   /**
