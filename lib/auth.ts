@@ -131,9 +131,10 @@ export const authOptions: NextAuthOptions = {
           // Extract token expiration if available
           const expiration = getTokenExpiration(credentials.token);
 
+          // Handle both standard JWT claims (sub, name) and custom backend claims (userId, username)
           return {
-            id: response.claims.sub,
-            name: response.claims.name,
+            id: response.claims.sub || response.claims.userId,
+            name: response.claims.name || response.claims.username,
             role: response.claims.role,
             email: response.claims.email,
             token: credentials.token,

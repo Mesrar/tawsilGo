@@ -13,9 +13,12 @@ type ApiResponse<T = unknown> = {
 };
 
 // Define types for token claims/payload
+// Support both standard JWT claims (sub, name) and custom backend claims (userId, username)
 type TokenClaims = {
-  sub: string;
-  name: string;
+  sub?: string;          // Standard JWT claim for user ID
+  userId?: string;       // Custom backend claim for user ID
+  name?: string;         // Standard JWT claim for user name
+  username?: string;     // Custom backend claim for user name
   role: string;
   email?: string;
   exp?: number;
@@ -164,13 +167,17 @@ export default async function handler(
           message: 'Authentication token has expired'
         });
       }
-      
-      // Required fields check
-      if (!decoded.sub || !decoded.name || !decoded.role) {
+
+      // Extract user ID and name from either standard or custom claims
+      const userId = decoded.sub || decoded.userId;
+      const userName = decoded.name || decoded.username;
+
+      // Required fields check with flexible claim names
+      if (!userId || !userName || !decoded.role) {
         return res.status(401).json({
           success: false,
           error: 'Invalid token',
-          message: 'Token is missing required claims'
+          message: 'Token is missing required claims (userId/sub, username/name, role)'
         });
       }
       
@@ -180,12 +187,13 @@ export default async function handler(
       }
       
       // Return success with token claims
+      // Always return as 'sub' and 'name' for NextAuth compatibility
       return res.status(200).json({
         success: true,
         message: 'Token is valid',
         claims: {
-          sub: decoded.sub,
-          name: decoded.name,
+          sub: userId,           // Normalized user ID (from sub or userId)
+          name: userName,        // Normalized user name (from name or username)
           role: decoded.role,
           email: decoded.email,
           exp: decoded.exp,

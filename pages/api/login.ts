@@ -13,9 +13,13 @@ type ApiResponse<T = unknown> = {
 };
 
 // Define a type for the decoded JWT token
+// Support both standard JWT claims and custom backend claims
 type DecodedToken = {
-  id: string;
-  name: string;
+  id?: string;           // Standard claim
+  userId?: string;       // Custom backend claim
+  sub?: string;          // Standard JWT subject claim
+  name?: string;         // Standard claim
+  username?: string;     // Custom backend claim
   role: string;
   email?: string;
   exp?: number;
@@ -205,12 +209,13 @@ export default async function handler(
       );
       
       // Return success response with user information (excluding sensitive data)
+      // Handle both standard JWT claims (id, sub, name) and custom backend claims (userId, username)
       return res.status(200).json({
         success: true,
         message: 'Login successful',
         user: {
-          id: decoded.id,
-          name: decoded.name,
+          id: decoded.id || decoded.userId || decoded.sub || '',
+          name: decoded.name || decoded.username || '',
           role: decoded.role,
           token // Include token for NextAuth.js to use
         }
