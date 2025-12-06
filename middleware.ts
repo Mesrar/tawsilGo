@@ -123,6 +123,16 @@ export async function middleware(request: NextRequest) {
       signInUrl.searchParams.set("callbackUrl", pathnameWithoutLocale);
       return NextResponse.redirect(signInUrl);
     }
+  } else if (pathnameWithoutLocale.startsWith("/admin")) {
+    // Admin routes protection
+    const userRole = session?.role?.toLowerCase();
+    if (!session || userRole !== "admin") {
+      console.log("❌ Redirecting to signin - No session or not admin");
+      const signInUrl = new URL("/auth/signin", request.url);
+      signInUrl.searchParams.set("callbackUrl", pathnameWithoutLocale);
+      return NextResponse.redirect(signInUrl);
+    }
+    console.log("✅ User authenticated as admin, allowing access");
   }
 
   // For API routes
