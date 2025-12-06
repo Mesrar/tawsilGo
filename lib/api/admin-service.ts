@@ -35,7 +35,7 @@ class AdminService {
      * List all drivers
      */
     async getDrivers(): Promise<Driver[]> {
-        const response = await apiClient.get<Driver[]>("/api/v1/admin/drivers");
+        const response = await apiClient.get<Driver[]>(`${this.baseUrl}/api/v1/admin/drivers`);
         return response.data || [];
     }
 
@@ -43,7 +43,7 @@ class AdminService {
      * Get specific driver profile
      */
     async getDriver(id: string): Promise<Driver> {
-        const response = await apiClient.get<Driver>(`/api/v1/admin/drivers/${id}`);
+        const response = await apiClient.get<Driver>(`${this.baseUrl}/api/v1/admin/drivers/${id}`);
         if (!response.data) throw new Error("Driver not found");
         return response.data;
     }
@@ -52,21 +52,21 @@ class AdminService {
      * Verify a driver's profile and documents
      */
     async verifyDriver(id: string, data: VerifyDriverRequest): Promise<void> {
-        await apiClient.put<void>(`/api/v1/admin/drivers/${id}/verify`, data);
+        await apiClient.put<void>(`${this.baseUrl}/api/v1/admin/drivers/${id}/verify`, data);
     }
 
     /**
      * Enable/disable a driver (set active status)
      */
     async setDriverStatus(id: string, data: SetDriverStatusRequest): Promise<void> {
-        await apiClient.put<void>(`/api/v1/admin/drivers/${id}/status`, data);
+        await apiClient.put<void>(`${this.baseUrl}/api/v1/admin/drivers/${id}/status`, data);
     }
 
     /**
      * Verify an organization
      */
     async verifyOrganization(id: string): Promise<void> {
-        await apiClient.post<void>(`/api/v1/admin/organizations/${id}/verify`, {});
+        await apiClient.post<void>(`${this.baseUrl}/api/v1/admin/organizations/${id}/verify`, {});
     }
 }
 
