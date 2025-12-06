@@ -1,4 +1,4 @@
-import { signOut } from 'next-auth/react';
+import { signOut, getSession } from 'next-auth/react';
 import { showLoginModal } from '../auth-context';
 
 // Define comprehensive API response types
@@ -82,17 +82,17 @@ export async function refreshToken(): Promise<boolean> {
  * @returns Promise resolving to a new fetch response or rejection
  */
 async function handleUnauthorized(
-  originalUrl: string, 
+  originalUrl: string,
   originalOptions?: RequestInit
 ): Promise<Response> {
   // Try token refresh only once to prevent infinite loops
   if (!isRefreshing) {
     isRefreshing = true;
-    
+
     try {
       // Attempt to refresh the token
       const refreshed = await refreshToken();
-      
+
       if (refreshed) {
         // Token refreshed successfully, retry queued requests
         failedRequestsQueue.forEach(request => {
@@ -102,7 +102,7 @@ async function handleUnauthorized(
           }).then(request.resolve).catch(request.reject);
         });
         failedRequestsQueue = [];
-        
+
         // Retry the original request with new token
         return fetch(originalUrl, {
           ...originalOptions,
@@ -114,7 +114,7 @@ async function handleUnauthorized(
           message: "Your session has expired. Please sign in again to continue.",
           returnUrl: window.location.pathname + window.location.search,
         });
-        
+
         throw new Error("Authentication required");
       }
     } catch (error) {
@@ -123,7 +123,7 @@ async function handleUnauthorized(
         message: "Your session has expired. Please sign in again to continue.",
         returnUrl: window.location.pathname + window.location.search,
       });
-      
+
       throw error;
     } finally {
       isRefreshing = false;
@@ -149,13 +149,13 @@ async function handleUnauthorized(
 async function processApiResponse<T>(response: Response): Promise<ApiResponse<T>> {
   const status = response.status;
   const ok = response.ok;
-  
+
   try {
     // Try to parse JSON response
     const contentType = response.headers.get('content-type');
     if (contentType && contentType.includes('application/json')) {
       const data = await response.json();
-      
+
       // Format response consistently
       if (ok) {
         return {
@@ -184,7 +184,7 @@ async function processApiResponse<T>(response: Response): Promise<ApiResponse<T>
     } else {
       // Handle non-JSON responses
       const text = await response.text();
-      
+
       if (ok) {
         return {
           success: true,
@@ -232,20 +232,29 @@ export const apiClient = {
    * @returns Promise resolving to typed API response
    */
   async fetch<T = any>(
-    url: string, 
+    url: string,
     options?: RequestInit & {
       handleAuthError?: (error: ApiError) => void;
       requireAuth?: boolean;
     }
   ): Promise<ApiResponse<T>> {
     const { handleAuthError, requireAuth = true, ...fetchOptions } = options || {};
-    
+
     try {
+      // Get session to retrieve access token
+      const session = await getSession();
+      const headers = new Headers(fetchOptions.headers);
+
+      if (session && (session as any).accessToken) {
+        headers.set('Authorization', `Bearer ${(session as any).accessToken}`);
+      }
+
       let response = await fetch(url, {
         ...fetchOptions,
+        headers,
         credentials: 'include',
       });
-      
+
       // Handle 401/403 errors globally
       if ((response.status === 401 || response.status === 403) && requireAuth) {
         try {
@@ -259,7 +268,7 @@ export const apiClient = {
               status: response.status
             });
           }
-          
+
           return {
             success: false,
             error: {
@@ -272,10 +281,10 @@ export const apiClient = {
           };
         }
       }
-      
+
       // Process response to consistent format
       return await processApiResponse<T>(response);
-      
+
     } catch (error) {
       // Handle network errors
       return {
@@ -290,27 +299,27 @@ export const apiClient = {
       };
     }
   },
-  
+
   /**
    * Simplified GET request
    */
   async get<T = any>(
-    url: string, 
-    options?: Omit<RequestInit, 'method'> & { 
+    url: string,
+    options?: Omit<RequestInit, 'method'> & {
       handleAuthError?: (error: ApiError) => void;
       requireAuth?: boolean;
     }
   ): Promise<ApiResponse<T>> {
     return this.fetch<T>(url, { ...options, method: 'GET' });
   },
-  
+
   /**
    * Simplified POST request
    */
   async post<T = any>(
-    url: string, 
+    url: string,
     data: any,
-    options?: Omit<RequestInit, 'method' | 'body'> & { 
+    options?: Omit<RequestInit, 'method' | 'body'> & {
       handleAuthError?: (error: ApiError) => void;
       requireAuth?: boolean;
     }
@@ -325,14 +334,14 @@ export const apiClient = {
       body: JSON.stringify(data)
     });
   },
-  
+
   /**
    * Simplified PUT request
    */
   async put<T = any>(
-    url: string, 
+    url: string,
     data: any,
-    options?: Omit<RequestInit, 'method' | 'body'> & { 
+    options?: Omit<RequestInit, 'method' | 'body'> & {
       handleAuthError?: (error: ApiError) => void;
       requireAuth?: boolean;
     }
@@ -347,13 +356,13 @@ export const apiClient = {
       body: JSON.stringify(data)
     });
   },
-  
+
   /**
    * Simplified DELETE request
    */
   async delete<T = any>(
-    url: string, 
-    options?: Omit<RequestInit, 'method'> & { 
+    url: string,
+    options?: Omit<RequestInit, 'method'> & {
       handleAuthError?: (error: ApiError) => void;
       requireAuth?: boolean;
     }
