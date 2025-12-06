@@ -43,12 +43,12 @@ export default function DriversPage() {
         }
     };
 
-    const filteredDrivers = drivers.filter(driver =>
+    const filteredDrivers = Array.isArray(drivers) ? drivers.filter(driver =>
         driver.firstName?.toLowerCase().includes(searchQuery.toLowerCase()) ||
         driver.lastName?.toLowerCase().includes(searchQuery.toLowerCase()) ||
         driver.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
         driver.phone?.includes(searchQuery)
-    );
+    ) : [];
 
     const getStatusBadge = (status: string, isVerified: boolean) => {
         if (!isVerified) {

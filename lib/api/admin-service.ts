@@ -35,8 +35,23 @@ class AdminService {
      * List all drivers
      */
     async getDrivers(): Promise<Driver[]> {
-        const response = await apiClient.get<Driver[]>(`${this.baseUrl}/api/v1/admin/drivers`);
-        return response.data || [];
+        const response = await apiClient.get<any>(`${this.baseUrl}/api/v1/admin/drivers`);
+
+        // Handle various response formats
+        if (Array.isArray(response.data)) {
+            return response.data;
+        }
+        // Handle { drivers: [...] }
+        if (response.data && Array.isArray(response.data.drivers)) {
+            return response.data.drivers;
+        }
+        // Handle { data: [...] } nested inside response.data
+        if (response.data && Array.isArray(response.data.data)) {
+            return response.data.data;
+        }
+
+        console.warn("Unexpected drivers API response format:", response.data);
+        return [];
     }
 
     /**
