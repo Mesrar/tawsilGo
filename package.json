@@ -87,6 +87,7 @@
     "react-leaflet": "^5.0.0",
     "react-leaflet-draw": "0.20.0",
     "react-swipeable": "^7.0.2",
+    "recharts": "^3.5.1",
     "swiper": "^11.2.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",

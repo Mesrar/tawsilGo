@@ -1,204 +1,164 @@
 "use client";
 
-import { AvailabilityToggle } from "@/components/Driver/availability-toggle";
-import { TodayStats } from "@/components/Driver/today-stats";
-import { QuickActions } from "@/components/Driver/quick-actions";
-import { EarningsChart } from "@/components/Driver/earnings-chart-simple";
-import { PerformanceCard } from "@/components/Driver/performance-card";
-import { ActiveOrdersList } from "@/components/Driver/active-orders-list";
-import { EarningsOptimizer } from "@/components/Driver/EarningsOptimizer";
-import { ActiveTripCommandCenter } from "@/components/Driver/ActiveTripCommandCenter";
-import { QuickScanFAB } from "@/components/Driver/QuickScanFAB";
-import { MultiCurrencyDashboard } from "@/components/Driver/MultiCurrencyDashboard";
-import { BorderIntelligence } from "@/components/Driver/BorderIntelligence";
-import { Separator } from "@/components/ui/separator";
-import { Card, CardContent } from "@/components/ui/card";
-import { useQuery } from "@tanstack/react-query";
-import { Trip } from "@/types/trip";
+import { useTranslations } from "next-intl";
+import { StatWidget } from "@/components/dashboard/StatWidget";
+import { DashboardCard } from "@/components/dashboard/DashboardCard";
+import {
+  Clock,
+  MapPin,
+  Calendar as CalendarIcon,
+  Radio,
+  Fuel,
+  Ruler,
+  FileCheck,
+  Key,
+  Truck
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-async function getDriverTrips(): Promise<Trip[]> {
-  const response = await fetch("/api/driver/trips", {
-    credentials: "include",
-  });
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch trips");
-  }
-
-  const data = await response.json();
-
-  // Defensive check: ensure we always return an array
-  if (Array.isArray(data)) {
-    return data;
-  }
-
-  if (data && Array.isArray(data.trips)) {
-    return data.trips;
-  }
-
-  console.warn("Unexpected trips data structure:", data);
-  return [];
-}
-
-export default function Dashboard() {
-  const handleAvailabilityToggle = (available: boolean) => {
-    // TODO: Connect to driver service API to update availability
-    console.log("Availability changed:", available);
-  };
-
-  // Fetch driver trips
-  const { data: trips = [], isLoading } = useQuery<Trip[]>({
-    queryKey: ["driver-trips"],
-    queryFn: getDriverTrips,
-    staleTime: 30000, // 30 seconds
-  });
-
-  // Ensure trips is always an array (defensive programming)
-  const safeTrips = Array.isArray(trips) ? trips : [];
-
-  // Find active trip (IN_PROGRESS or ACTIVE status)
-  const activeTrip = safeTrips.find(
-    (trip) => trip.status === "IN_PROGRESS" || trip.status === "ACTIVE"
-  );
-
-  // Get upcoming trips (SCHEDULED status)
-  const upcomingTrips = safeTrips.filter((trip) => trip.status === "SCHEDULED");
+export default function DriverDashboardPage() {
+  const t = useTranslations("driver");
 
   return (
-    <>
-      <div className="space-y-8">
-        {/* Active Trip Command Center - Priority Display */}
-        {activeTrip && (
-          <ActiveTripCommandCenter
-            trip={activeTrip}
-            onNavigate={() => {
-              const url = `https://www.google.com/maps/dir/?api=1&origin=${activeTrip.dapartPoint.lat},${activeTrip.dapartPoint.lng}&destination=${activeTrip.arrivalPoint.lat},${activeTrip.arrivalPoint.lng}&travelmode=driving`;
-              window.open(url, "_blank");
-            }}
-            onScanParcel={() => {
-              window.location.href = "/drivers/dashboard/check-parcel?tab=qr";
-            }}
-            onContactSupport={() => {
-              // TODO: Implement support contact
-              console.log("Contact support");
-            }}
-            onReportIssue={() => {
-              // TODO: Implement issue reporting
-              console.log("Report issue");
-            }}
-          />
-        )}
+    <div className="space-y-6">
+      {/* Page Header */}
+      <div>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Dashboard</h1>
+        <p className="text-slate-500">Good morning, ready for your first trip?</p>
+      </div>
 
-        {/* Hero Section with Availability */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Left Column: Calendar & Rating */}
         <div className="space-y-6">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
-              Welcome back, Driver!
-            </h1>
-            <p className="text-sm md:text-base text-muted-foreground">
-              Here's your dashboard overview for today
-            </p>
-          </div>
+          <DashboardCard title="Calendar">
+            <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 flex items-center justify-center h-48">
+              <div className="text-center">
+                <CalendarIcon className="w-8 h-8 text-slate-300 mx-auto mb-2" />
+                <p className="text-slate-500 text-sm">Today, Dec 7</p>
+              </div>
+            </div>
+          </DashboardCard>
 
-          {/* Availability Toggle - More Prominent */}
-          <Card className="border-2">
-            <CardContent className="pt-6">
-              <AvailabilityToggle
-                isAvailable={false}
-                onToggle={handleAvailabilityToggle}
-              />
-            </CardContent>
-          </Card>
+          <DashboardCard title="Rating">
+            <div className="flex items-end gap-2">
+              <span className="text-4xl font-bold text-slate-900 dark:text-white">4.8</span>
+              <div className="mb-1 text-yellow-400">★★★★★</div>
+            </div>
+            <p className="text-sm text-slate-500 mt-1">Based on 68 reviews</p>
+          </DashboardCard>
         </div>
 
-        <Separator className="my-6" />
-
-        {/* Earnings Optimizer - Revenue Focus */}
-        {upcomingTrips.length > 0 && (
-          <>
-            <EarningsOptimizer trips={upcomingTrips} />
-            <Separator className="my-6" />
-          </>
-        )}
-
-        {/* Cross-Border Intelligence - Phase 3 */}
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-xl font-semibold tracking-tight">
-              Cross-Border Intelligence
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              Real-time border and currency information for Europe-Morocco routes
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:gap-6 md:grid-cols-2">
-            {/* Multi-Currency Dashboard */}
-            <div className="md:col-span-1">
-              <MultiCurrencyDashboard eurBalance={1250.50} madBalance={8500.00} />
+        {/* Middle Column: Current Trip */}
+        <DashboardCard title="Current Trip" className="lg:col-span-1">
+          <div className="relative pl-6 border-l-2 border-slate-100 dark:border-slate-800 space-y-8 py-2">
+            {/* Departure */}
+            <div className="relative">
+              <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full border-2 border-blue-500 bg-white"></div>
+              <p className="text-xs text-slate-400 mb-1">Departure</p>
+              <h4 className="font-semibold text-slate-900 dark:text-white">Casablanca, Port Station</h4>
+              <p className="text-sm text-slate-500">10:45 AM</p>
             </div>
 
-            {/* Border Intelligence */}
-            <div className="md:col-span-1">
-              <BorderIntelligence />
-            </div>
-          </div>
-        </div>
-
-        <Separator className="my-6" />
-
-        {/* Performance Section */}
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-xl font-semibold tracking-tight">
-              Today's Performance
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              Track your earnings and activity
-            </p>
-          </div>
-
-          {/* Today's Stats */}
-          <TodayStats />
-
-          {/* Detailed Analytics Grid */}
-          <div className="grid gap-4 md:gap-6 md:grid-cols-2">
-            {/* Earnings Chart - Emphasized */}
-            <div className="md:col-span-1">
-              <EarningsChart />
+            {/* Stop */}
+            <div className="relative">
+              <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full border-2 border-slate-300 bg-white"></div>
+              <p className="text-xs text-slate-400 mb-1">Stop</p>
+              <h4 className="font-semibold text-slate-900 dark:text-white">Rabat, Agdal</h4>
+              <p className="text-sm text-slate-500">12:15 PM</p>
             </div>
 
-            {/* Performance Card */}
-            <div className="md:col-span-1">
-              <PerformanceCard />
+            {/* Arrival */}
+            <div className="relative">
+              <div className="absolute -left-[30px] top-1 w-4 h-4 rounded-full bg-slate-900 dark:bg-white"></div>
+              <p className="text-xs text-slate-400 mb-1">Arrival</p>
+              <h4 className="font-semibold text-slate-900 dark:text-white">Tangier, City Center</h4>
+              <p className="text-sm text-slate-500">2:30 PM</p>
             </div>
           </div>
-        </div>
 
-        <Separator className="my-6" />
-
-        {/* Actions & Orders Section */}
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-xl font-semibold tracking-tight">Quick Actions</h2>
-            <p className="text-sm text-muted-foreground">
-              Manage your trips and deliveries
-            </p>
+          <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 flex items-center justify-center gap-2 text-blue-600 dark:text-blue-400">
+            <Clock className="w-5 h-5" />
+            <span className="font-medium">Duration: 3 hours 45 min</span>
           </div>
+        </DashboardCard>
 
-          {/* Quick Actions */}
-          <QuickActions />
-
-          {/* Active Orders - Full Width */}
-          <div className="mt-6">
-            <ActiveOrdersList />
+        {/* Right Column: Map */}
+        <div className="lg:col-span-1 h-full min-h-[300px] bg-slate-200 rounded-3xl overflow-hidden relative">
+          <div className="absolute inset-0 bg-[url('/map-pattern.png')] opacity-20"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Button className="bg-white text-slate-900 hover:bg-slate-50 shadow-lg gap-2 rounded-full px-6">
+              <Radio className="w-4 h-4 text-blue-600" />
+              Live Navigation
+            </Button>
           </div>
         </div>
       </div>
 
-      {/* Quick Scan FAB - Always Available */}
-      <QuickScanFAB />
-    </>
+      {/* Bottom Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Schedule of Trips */}
+        <DashboardCard title="Schedule of trips">
+          <div className="space-y-4">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                <div className="flex items-center gap-4">
+                  <div className="flex flex-col">
+                    <span className="font-medium text-slate-900">Casablanca</span>
+                  </div>
+                  <div className="text-xs text-slate-400">3hr 45m</div>
+                  <div className="flex flex-col">
+                    <span className="font-medium text-slate-900">Tangier</span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-end gap-1">
+                  <span className="text-xs text-slate-500">04/15/2025 • 8:51 AM</span>
+                  <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-700">Planned</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </DashboardCard>
+
+        {/* Current Vehicle */}
+        <DashboardCard title="Current vehicle">
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex-1 space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-blue-50 text-blue-600 rounded-lg"><Fuel className="w-5 h-5" /></div>
+                <div>
+                  <p className="text-xs text-slate-500">Fuel Type</p>
+                  <p className="font-medium text-slate-900">Diesel (8 km/liter)</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-purple-50 text-purple-600 rounded-lg"><Ruler className="w-5 h-5" /></div>
+                <div>
+                  <p className="text-xs text-slate-500">Length</p>
+                  <p className="font-medium text-slate-900">12.5 meters</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg"><FileCheck className="w-5 h-5" /></div>
+                <div>
+                  <p className="text-xs text-slate-500">License Plate</p>
+                  <p className="font-medium text-slate-900">WA-12345-AB</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-orange-50 text-orange-600 rounded-lg"><Key className="w-5 h-5" /></div>
+                <div>
+                  <p className="text-xs text-slate-500">Service Due</p>
+                  <p className="font-medium text-slate-900">09/15/2025</p>
+                </div>
+              </div>
+            </div>
+            {/* Vehicle Image Placeholder */}
+            <div className="flex-1 bg-slate-100 rounded-xl h-40 md:h-auto flex items-center justify-center">
+              <Truck className="w-16 h-16 text-slate-300" />
+            </div>
+          </div>
+        </DashboardCard>
+      </div>
+    </div>
   );
 }
-
