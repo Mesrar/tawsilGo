@@ -7,13 +7,14 @@ interface StatWidgetProps {
     value: string | number;
     icon?: React.ReactNode;
     trend?: {
-        value: number;
+        value: number | string;
         label?: string;
         direction: "up" | "down" | "neutral";
     };
     chart?: React.ReactNode;
     className?: string;
-    color?: "blue" | "green" | "indigo" | "violet" | "orange" | "red" | "slate" | "emerald";
+    color?: "blue" | "green" | "indigo" | "violet" | "orange" | "red" | "slate" | "emerald" | "yellow";
+    description?: string;
 }
 
 const colorStyles = {
@@ -25,9 +26,10 @@ const colorStyles = {
     red: "text-red-600 bg-red-50 dark:bg-red-900/20 dark:text-red-400",
     slate: "text-slate-600 bg-slate-50 dark:bg-slate-800 dark:text-slate-400",
     emerald: "text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 dark:text-emerald-400",
+    yellow: "text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 dark:text-yellow-400",
 };
 
-export function StatWidget({ title, value, icon, trend, chart, className, color = "blue" }: StatWidgetProps) {
+export function StatWidget({ title, value, icon, trend, chart, className, color = "blue", description }: StatWidgetProps) {
     return (
         <DashboardCard className={cn("relative overflow-hidden", className)}>
             <div className="flex items-start justify-between">
@@ -52,11 +54,15 @@ export function StatWidget({ title, value, icon, trend, chart, className, color 
                                 {trend.direction === "up" && <ArrowUpRight className="w-3 h-3 mr-1" />}
                                 {trend.direction === "down" && <ArrowDownRight className="w-3 h-3 mr-1" />}
                                 {trend.direction === "neutral" && <Minus className="w-3 h-3 mr-1" />}
-                                {trend.value}%
+                                {trend.value}
+                                {typeof trend.value === 'number' && "%"}
                                 {trend.label && <span className="ml-1 opacity-70 hidden sm:inline">{trend.label}</span>}
                             </div>
                         )}
                     </div>
+                    {description && (
+                        <p className="text-xs text-slate-500 mt-2">{description}</p>
+                    )}
                 </div>
                 {chart && <div className="h-12 w-24">{chart}</div>}
             </div>

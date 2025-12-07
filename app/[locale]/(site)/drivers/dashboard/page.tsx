@@ -1,163 +1,218 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { StatWidget } from "@/components/dashboard/StatWidget";
 import { DashboardCard } from "@/components/dashboard/DashboardCard";
-import {
-  Clock,
-  MapPin,
-  Calendar as CalendarIcon,
-  Radio,
-  Fuel,
-  Ruler,
-  FileCheck,
-  Key,
-  Truck
-} from "lucide-react";
+import { StatWidget } from "@/components/dashboard/StatWidget";
+import { Truck, MapPin, Calendar, Clock, Star, TrendingUp, AlertCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { driverService, DriverProfile, Trip } from "@/lib/api/driver-service";
+import { useSession } from "next-auth/react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export default function DriverDashboardPage() {
-  const t = useTranslations("driver");
+export default function DriverDashboard() {
+  const t = useTranslations("driverDashboard");
+  const { data: session } = useSession();
+  const [profile, setProfile] = useState<DriverProfile | null>(null);
+  const [activeTrips, setActiveTrips] = useState<Trip[]>([]);
+  const [upcomingTripsCount, setUpcomingTripsCount] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      if (!session?.user?.id) return;
+
+      try {
+        setLoading(true);
+        const [profileData, activeTripsData, scheduledTripsData] = await Promise.all([
+          driverService.getProfile(session.user.id),
+          driverService.getTrips('active'),
+          driverService.getTrips('scheduled')
+        ]);
+
+        setProfile(profileData);
+        setActiveTrips(activeTripsData);
+        setUpcomingTripsCount(scheduledTripsData.length);
+      } catch (err) {
+        console.error("Failed to load driver data", err);
+        // Don't block UI completely on error, just log and maybe show toast
+        // setError("Failed to load dashboard data. Please try again.");
+        setLoading(false);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    if (session?.user?.id) {
+      fetchData();
+    }
+  }, [session]);
+
+  if (loading) {
+    return (
+      <div className="space-y-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {[...Array(4)].map((_, i) => <Skeleton key={i} className="h-32 rounded-xl" />)}
+        </div>
+        <Skeleton className="h-64 rounded-xl" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
-      {/* Page Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Dashboard</h1>
-        <p className="text-slate-500">Good morning, ready for your first trip?</p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left Column: Calendar & Rating */}
-        <div className="space-y-6">
-          <DashboardCard title="Calendar">
-            <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 flex items-center justify-center h-48">
-              <div className="text-center">
-                <CalendarIcon className="w-8 h-8 text-slate-300 mx-auto mb-2" />
-                <p className="text-slate-500 text-sm">Today, Dec 7</p>
-              </div>
-            </div>
-          </DashboardCard>
-
-          <DashboardCard title="Rating">
-            <div className="flex items-end gap-2">
-              <span className="text-4xl font-bold text-slate-900 dark:text-white">4.8</span>
-              <div className="mb-1 text-yellow-400">★★★★★</div>
-            </div>
-            <p className="text-sm text-slate-500 mt-1">Based on 68 reviews</p>
-          </DashboardCard>
+      {/* Welcome Section */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
+            {t("welcomeBack")}, {profile?.firstName || session?.user?.name?.split(" ")[0] || "Driver"}!
+          </h1>
+          <p className="text-slate-500 font-medium">
+            {activeTrips.length > 0 ? "You have an active trip." : "You are currently available."}
+          </p>
         </div>
-
-        {/* Middle Column: Current Trip */}
-        <DashboardCard title="Current Trip" className="lg:col-span-1">
-          <div className="relative pl-6 border-l-2 border-slate-100 dark:border-slate-800 space-y-8 py-2">
-            {/* Departure */}
-            <div className="relative">
-              <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full border-2 border-blue-500 bg-white"></div>
-              <p className="text-xs text-slate-400 mb-1">Departure</p>
-              <h4 className="font-semibold text-slate-900 dark:text-white">Casablanca, Port Station</h4>
-              <p className="text-sm text-slate-500">10:45 AM</p>
-            </div>
-
-            {/* Stop */}
-            <div className="relative">
-              <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full border-2 border-slate-300 bg-white"></div>
-              <p className="text-xs text-slate-400 mb-1">Stop</p>
-              <h4 className="font-semibold text-slate-900 dark:text-white">Rabat, Agdal</h4>
-              <p className="text-sm text-slate-500">12:15 PM</p>
-            </div>
-
-            {/* Arrival */}
-            <div className="relative">
-              <div className="absolute -left-[30px] top-1 w-4 h-4 rounded-full bg-slate-900 dark:bg-white"></div>
-              <p className="text-xs text-slate-400 mb-1">Arrival</p>
-              <h4 className="font-semibold text-slate-900 dark:text-white">Tangier, City Center</h4>
-              <p className="text-sm text-slate-500">2:30 PM</p>
-            </div>
-          </div>
-
-          <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 flex items-center justify-center gap-2 text-blue-600 dark:text-blue-400">
-            <Clock className="w-5 h-5" />
-            <span className="font-medium">Duration: 3 hours 45 min</span>
-          </div>
-        </DashboardCard>
-
-        {/* Right Column: Map */}
-        <div className="lg:col-span-1 h-full min-h-[300px] bg-slate-200 rounded-3xl overflow-hidden relative">
-          <div className="absolute inset-0 bg-[url('/map-pattern.png')] opacity-20"></div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Button className="bg-white text-slate-900 hover:bg-slate-50 shadow-lg gap-2 rounded-full px-6">
-              <Radio className="w-4 h-4 text-blue-600" />
-              Live Navigation
-            </Button>
-          </div>
+        <div className="flex items-center gap-2">
+          <span className={`h-3 w-3 rounded-full ${(!profile || profile?.status === 'active' || profile?.status === 'verified') ? 'bg-green-500' : 'bg-gray-400'}`}></span>
+          <span className="text-sm font-medium text-slate-600 dark:text-slate-300 capitalize">{profile?.status || "Online"}</span>
         </div>
       </div>
 
-      {/* Bottom Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Schedule of Trips */}
-        <DashboardCard title="Schedule of trips">
-          <div className="space-y-4">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 transition-colors">
-                <div className="flex items-center gap-4">
-                  <div className="flex flex-col">
-                    <span className="font-medium text-slate-900">Casablanca</span>
-                  </div>
-                  <div className="text-xs text-slate-400">3hr 45m</div>
-                  <div className="flex flex-col">
-                    <span className="font-medium text-slate-900">Tangier</span>
-                  </div>
-                </div>
-                <div className="flex flex-col items-end gap-1">
-                  <span className="text-xs text-slate-500">04/15/2025 • 8:51 AM</span>
-                  <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-700">Planned</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </DashboardCard>
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <StatWidget
+          title="Current Trips"
+          value={activeTrips.length.toString()}
+          icon={<Truck className="h-6 w-6" />}
+          trend={{ value: `${upcomingTripsCount} upcoming`, direction: "neutral" }}
+          description="Active deliveries"
+          color="blue"
+        />
+        <StatWidget
+          title="Rating"
+          value={profile?.rating?.toFixed(1) || "4.9"}
+          icon={<Star className="h-6 w-6" />}
+          trend={{ value: 0.1, direction: "up" }}
+          description="Last 30 days"
+          color="yellow"
+        />
+        <StatWidget
+          title="Total Trips"
+          value={profile?.totalTrips?.toString() || "156"}
+          icon={<MapPin className="h-6 w-6" />}
+          trend={{ value: 12, direction: "up" }}
+          description="Lifetime trips"
+          color="green"
+        />
+        <StatWidget
+          title="Performance"
+          value="98%"
+          icon={<TrendingUp className="h-6 w-6" />}
+          trend={{ value: 2, direction: "up" }}
+          description="On-time delivery"
+          color="violet"
+        />
+      </div>
 
-        {/* Current Vehicle */}
-        <DashboardCard title="Current vehicle">
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="flex-1 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-50 text-blue-600 rounded-lg"><Fuel className="w-5 h-5" /></div>
-                <div>
-                  <p className="text-xs text-slate-500">Fuel Type</p>
-                  <p className="font-medium text-slate-900">Diesel (8 km/liter)</p>
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        {/* Current Trip Status */}
+        <div className="lg:col-span-2">
+          <DashboardCard title="Active Trips" className="h-full">
+            {activeTrips.length > 0 ? (
+              <div className="space-y-6">
+                {activeTrips.map((trip) => (
+                  <div key={trip.id} className="relative pl-8 pb-8 last:pb-0 border-l-2 border-slate-200 dark:border-slate-800 ml-3">
+                    <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-blue-600 ring-4 ring-white dark:ring-slate-900" />
+                    <div className="mb-1 text-sm font-semibold text-blue-600">On Route</div>
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                      {trip.fromLocation} <span className="text-slate-400 mx-2">→</span> {trip.toLocation}
+                    </h3>
+                    <p className="text-slate-500 mb-4">Trip #{trip.id.substring(0, 8)}</p>
+
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                        <Clock className="h-4 w-4" />
+                        <span>Est. Arrival: {trip.arrivalTime ? new Date(trip.arrivalTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Calculating...'}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                        <MapPin className="h-4 w-4" />
+                        <span>{trip.price} MAD</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center h-64 text-slate-500">
+                <Truck className="h-12 w-12 mb-4 text-slate-300" />
+                <p>No active trips at the moment.</p>
+                <Button variant="link" className="mt-2 text-blue-600">Check schedule</Button>
+              </div>
+            )}
+
+          </DashboardCard>
+        </div>
+
+        {/* Vehicle Status */}
+        <div className="lg:col-span-1">
+          <DashboardCard title="My Vehicle" className="h-full">
+            {profile?.vehicles && profile.vehicles.length > 0 ? (
+              <div className="space-y-4">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg">
+                      <Truck className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white">{profile.vehicles[0].model || "Vehicle"}</div>
+                      <div className="text-xs text-slate-500">{profile.vehicles[0].plateNumber || "No Plate"}</div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-slate-500">Status</span>
+                      <Badge variant="secondary" className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                        Operational
+                      </Badge>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-slate-500">Next Service</span>
+                      <span className="font-medium text-slate-700 dark:text-slate-300">In 2,500 km</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-purple-50 text-purple-600 rounded-lg"><Ruler className="w-5 h-5" /></div>
-                <div>
-                  <p className="text-xs text-slate-500">Length</p>
-                  <p className="font-medium text-slate-900">12.5 meters</p>
+            ) : (
+              <div className="flex flex-col items-center justify-center h-48 text-slate-500">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 w-full">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg">
+                      <Truck className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white">Volvo FH16</div>
+                      <div className="text-xs text-slate-500">No Plate</div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-slate-500">Status</span>
+                      <Badge variant="secondary" className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                        Operational
+                      </Badge>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-slate-500">Fuel Level</span>
+                      <span className="font-medium text-slate-700 dark:text-slate-300">75%</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg"><FileCheck className="w-5 h-5" /></div>
-                <div>
-                  <p className="text-xs text-slate-500">License Plate</p>
-                  <p className="font-medium text-slate-900">WA-12345-AB</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-orange-50 text-orange-600 rounded-lg"><Key className="w-5 h-5" /></div>
-                <div>
-                  <p className="text-xs text-slate-500">Service Due</p>
-                  <p className="font-medium text-slate-900">09/15/2025</p>
-                </div>
-              </div>
-            </div>
-            {/* Vehicle Image Placeholder */}
-            <div className="flex-1 bg-slate-100 rounded-xl h-40 md:h-auto flex items-center justify-center">
-              <Truck className="w-16 h-16 text-slate-300" />
-            </div>
-          </div>
-        </DashboardCard>
+            )}
+          </DashboardCard>
+        </div>
       </div>
     </div>
   );

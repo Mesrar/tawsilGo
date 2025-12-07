@@ -8,19 +8,73 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Calendar as CalendarIcon, MapPin, Truck, Plus } from "lucide-react";
+import { Calendar as CalendarIcon, MapPin, Truck, Plus, Loader2 } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { driverService, CreateTripRequest } from "@/lib/api/driver-service";
+import { useToast } from "@/components/ui/use-toast";
 
-export function CreateTripDialog() {
+interface CreateTripDialogProps {
+    onTripCreated?: () => void;
+}
+
+export function CreateTripDialog({ onTripCreated }: CreateTripDialogProps) {
     const [open, setOpen] = useState(false);
     const [date, setDate] = useState<Date>();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const { toast } = useToast();
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle trip creation logic here
-        console.log("Trip created!");
-        setOpen(false);
+
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
+
+        if (!date) {
+            toast({
+                title: "Date required",
+                description: "Please select a departure date.",
+                variant: "destructive"
+            });
+            return;
+        }
+
+        try {
+            setIsSubmitting(true);
+            const time = formData.get("time") as string;
+            // Combine date and time to ISO string
+            const departureDateTime = new Date(date);
+            const [hours, minutes] = time.split(":").map(Number);
+            departureDateTime.setHours(hours, minutes);
+
+            const tripData: CreateTripRequest = {
+                from_location: formData.get("from") as string,
+                to_location: formData.get("to") as string,
+                departure_time: departureDateTime.toISOString(),
+                vehicle_id: formData.get("vehicle") as string,
+                suggested_price: Number(formData.get("price")),
+            };
+
+            await driverService.createTrip(tripData);
+
+            toast({
+                title: "Trip created",
+                description: "Your trip has been successfully scheduled."
+            });
+
+            setOpen(false);
+            if (onTripCreated) onTripCreated();
+
+        } catch (error) {
+            console.error(error);
+            toast({
+                title: "Error",
+                description: "Failed to create trip. Please try again.",
+                variant: "destructive"
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -44,14 +98,14 @@ export function CreateTripDialog() {
                             <Label htmlFor="from">From</Label>
                             <div className="relative">
                                 <MapPin className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-500" />
-                                <Input id="from" placeholder="City" className="pl-9" required />
+                                <Input id="from" name="from" placeholder="City" className="pl-9" required />
                             </div>
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="to">To</Label>
                             <div className="relative">
                                 <MapPin className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-500" />
-                                <Input id="to" placeholder="City" className="pl-9" required />
+                                <Input id="to" name="to" placeholder="City" className="pl-9" required />
                             </div>
                         </div>
                     </div>
@@ -84,13 +138,13 @@ export function CreateTripDialog() {
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="time">Time</Label>
-                            <Input id="time" type="time" required />
+                            <Input id="time" name="time" type="time" required />
                         </div>
                     </div>
 
                     <div className="space-y-2">
                         <Label htmlFor="vehicle">Vehicle</Label>
-                        <Select>
+                        <Select name="vehicle">
                             <SelectTrigger>
                                 <SelectValue placeholder="Select vehicle" />
                             </SelectTrigger>
@@ -104,12 +158,19 @@ export function CreateTripDialog() {
 
                     <div className="space-y-2">
                         <Label htmlFor="price">Suggested Price (MAD)</Label>
-                        <Input id="price" type="number" placeholder="e.g. 500" />
+                        <Input id="price" name="price" type="number" placeholder="e.g. 500" />
                     </div>
 
                     <DialogFooter className="mt-4">
-                        <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                            Create Trip
+                        <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white" disabled={isSubmitting}>
+                            {isSubmitting ? (
+                                <>
+                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                    Creating...
+                                </>
+                            ) : (
+                                "Create Trip"
+                            )}
                         </Button>
                     </DialogFooter>
                 </form>
