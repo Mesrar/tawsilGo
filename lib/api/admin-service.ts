@@ -24,6 +24,31 @@ export interface SetDriverStatusRequest {
     reason: string;
 }
 
+// Raw API response shape
+interface ApiDriver {
+    id: string;
+    user: {
+        id: string;
+        name: string;
+        email: string;
+        phone: string;
+        username: string;
+    };
+    license_number: string;
+    operator_type: string;
+    status: string;
+    created_at: string;
+    // Add other fields if needed
+}
+
+interface DriversListResponse {
+    drivers: ApiDriver[];
+    page: number;
+    size: number;
+    total_items: number;
+    total_pages: number;
+}
+
 class AdminService {
     private baseUrl: string;
 
@@ -31,23 +56,38 @@ class AdminService {
         this.baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.tawsilgo.com";
     }
 
+    private mapApiDriverToDriver(apiDriver: ApiDriver): Driver {
+        const nameParts = (apiDriver.user.name || "").split(" ");
+        const firstName = nameParts[0] || apiDriver.user.username || "Unknown";
+        const lastName = nameParts.slice(1).join(" ") || "";
+
+        return {
+            id: apiDriver.id,
+            firstName,
+            lastName,
+            email: apiDriver.user.email,
+            phone: apiDriver.user.phone,
+            status: apiDriver.status, // e.g. "verified", "pending"
+            isVerified: apiDriver.status === "verified",
+            vehicleType: apiDriver.operator_type,
+            licenseNumber: apiDriver.license_number,
+            createdAt: apiDriver.created_at
+        };
+    }
+
     /**
      * List all drivers
      */
     async getDrivers(): Promise<Driver[]> {
-        const response = await apiClient.get<any>(`${this.baseUrl}/api/v1/admin/drivers`);
+        const response = await apiClient.get<DriversListResponse>(`${this.baseUrl}/api/v1/admin/drivers`);
 
-        // Handle various response formats
-        if (Array.isArray(response.data)) {
-            return response.data;
+        if (!response.success) {
+            console.error("Failed to fetch drivers:", response.error);
+            throw new Error(response.error?.message || "Failed to fetch drivers");
         }
-        // Handle { drivers: [...] }
+
         if (response.data && Array.isArray(response.data.drivers)) {
-            return response.data.drivers;
-        }
-        // Handle { data: [...] } nested inside response.data
-        if (response.data && Array.isArray(response.data.data)) {
-            return response.data.data;
+            return response.data.drivers.map((d) => this.mapApiDriverToDriver(d));
         }
 
         console.warn("Unexpected drivers API response format:", response.data);
@@ -58,9 +98,16 @@ class AdminService {
      * Get specific driver profile
      */
     async getDriver(id: string): Promise<Driver> {
-        const response = await apiClient.get<Driver>(`${this.baseUrl}/api/v1/admin/drivers/${id}`);
+        // Assuming getDriver returns the single ApiDriver object directly or wrapped
+        const response = await apiClient.get<ApiDriver>(`${this.baseUrl}/api/v1/admin/drivers/${id}`);
+
         if (!response.data) throw new Error("Driver not found");
-        return response.data;
+
+        // Handle potential wrapping (e.g. if it returns { driver: ... } or just the driver)
+        const data = response.data as any;
+        const apiDriver = data.driver || data;
+
+        return this.mapApiDriverToDriver(apiDriver);
     }
 
     /**
