@@ -1,5 +1,7 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+
 import Footer from "@/components/Footer";
 import Lines from "@/components/Lines";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -16,6 +18,9 @@ export default function SiteLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isDashboard = pathname?.includes("/admin") || pathname?.includes("/drivers/dashboard") || pathname?.includes("/organizations");
+
   return (
     <SessionProvider>
       <Providers>
@@ -31,7 +36,7 @@ export default function SiteLayout({
           <AuthProvider>
             <SessionMonitor>{children}</SessionMonitor>
           </AuthProvider>
-          <Footer />
+          {!isDashboard && <Footer />}
           <ScrollToTop />
         </ThemeProvider>
       </Providers>

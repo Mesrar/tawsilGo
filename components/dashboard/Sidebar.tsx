@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { LogOut, LayoutDashboard, Truck, Building2, Calendar, MessageSquare, BarChart3, Settings, HelpCircle, FileText, Package, Users } from "lucide-react";
+import { LogOut, LayoutDashboard, Truck, Building2, Calendar, MessageSquare, BarChart3, Settings, HelpCircle, FileText, Package, Users, MapPin } from "lucide-react";
 import { signOut } from "next-auth/react";
 
 interface SidebarItem {
@@ -107,7 +107,7 @@ export const adminNavItems: SidebarItem[] = [
 
 export const driverNavItems: SidebarItem[] = [
     { icon: LayoutDashboard, label: "Dashboard", href: "/drivers/dashboard" },
-    { icon: Calendar, label: "My Schedule", href: "/drivers/dashboard/schedule" },
+    { icon: MapPin, label: "My Trips", href: "/drivers/dashboard/trips" },
     { icon: Package, label: "My Orders", href: "/drivers/dashboard/my-orders" },
     { icon: MessageSquare, label: "Messages", href: "/drivers/dashboard/messages", badge: 1 },
     { icon: Truck, label: "My Vehicle", href: "/drivers/dashboard/vehicle" },

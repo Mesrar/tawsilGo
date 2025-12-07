@@ -1,6 +1,7 @@
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { DashboardSidebar, organizationNavItems } from "@/components/dashboard/Sidebar";
+import { MobileSidebar } from "@/components/dashboard/MobileSidebar";
 import { UserDropdown } from "@/components/Header/user-dropdown";
 import ThemeToggler from "@/components/Header/ThemeToggler";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -30,6 +31,10 @@ export default async function OrganizationLayout({
         <div className="flex-1 flex flex-col lg:pl-72 transition-all duration-300">
           {/* Top Header */}
           <header className="h-16 px-6 lg:px-8 border-b border-slate-100 bg-white/50 backdrop-blur-sm sticky top-0 z-30 flex items-center justify-between lg:justify-end">
+            <div className="lg:hidden flex items-center gap-4 mr-auto">
+              <MobileSidebar items={organizationNavItems} />
+              <div className="font-bold text-xl text-blue-600">TawsilGo</div>
+            </div>
             <div className="flex items-center gap-4">
               <button className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors relative">
                 <Bell className="w-5 h-5" />

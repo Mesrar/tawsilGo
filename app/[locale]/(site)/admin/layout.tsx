@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { DashboardSidebar, adminNavItems } from "@/components/dashboard/Sidebar";
+import { MobileSidebar } from "@/components/dashboard/MobileSidebar";
 import Image from "next/image";
 
 export default async function AdminLayout({
@@ -21,8 +22,11 @@ export default async function AdminLayout({
                 {/* Main Content */}
                 <div className="flex-1 flex flex-col lg:pl-72 transition-all duration-300">
                     {/* Top Header for Mobile/Tablet or just User Profile */}
-                    <header className="h-16 px-6 lg:px-8 border-b border-slate-100 bg-white/50 backdrop-blur-sm sticky top-0 z-30 flex items-center justify-between lg:justify-end">
-                        <div className="lg:hidden font-bold text-xl text-blue-600">TawsilGo</div>
+                    <header className="h-16 px-6 lg:px-8 border-b border-slate-100 bg-white/50 backdrop-blur-sm sticky top-0 z-30 flex items-center justify-between lg:justify-end gap-4">
+                        <div className="lg:hidden flex items-center gap-4">
+                            <MobileSidebar items={adminNavItems} />
+                            <div className="font-bold text-xl text-blue-600">TawsilGo</div>
+                        </div>
 
                         <div className="flex items-center gap-4">
                             <div className="flex items-center gap-2">
