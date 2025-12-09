@@ -13,12 +13,25 @@ import { format } from "date-fns";
 
 export default function EarningsPage() {
     const { data: session } = useSession();
-    const driverId = (session?.user as any)?.id || "current";
+    const userId = (session?.user as any)?.id;
 
-    const { data: earnings, isLoading, error } = useQuery({
-        queryKey: ['driver-earnings', driverId],
-        queryFn: () => driverService.getEarnings(driverId)
+    // 1. Fetch Profile to get real Driver ID
+    const { data: profile, isLoading: isProfileLoading } = useQuery({
+        queryKey: ['driver-profile', userId],
+        queryFn: () => driverService.getProfile(userId!),
+        enabled: !!userId,
+        retry: false
     });
+
+    const driverId = profile?.id;
+
+    const { data: earnings, isLoading: isEarningsLoading, error } = useQuery({
+        queryKey: ['driver-earnings', driverId],
+        queryFn: () => driverService.getEarnings(driverId!),
+        enabled: !!driverId
+    });
+
+    const isLoading = isProfileLoading || isEarningsLoading;
 
     if (isLoading) {
         return <div className="p-8 text-center">Loading financial data...</div>;

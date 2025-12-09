@@ -17,10 +17,11 @@ export default function DriverDashboard() {
   const { data: session } = useSession();
 
   // React Query Hooks
-  const { data: profile, isLoading: isProfileLoading } = useQuery({
+  const { data: profile, isLoading: isProfileLoading, error: profileError } = useQuery({
     queryKey: ['driver-profile', session?.user?.id],
     queryFn: () => driverService.getProfile(session?.user?.id!),
     enabled: !!session?.user?.id,
+    retry: false
   });
 
   const { data: activeTrips = [], isLoading: isActiveTripsLoading } = useQuery({
@@ -37,6 +38,26 @@ export default function DriverDashboard() {
 
   const loading = isProfileLoading || isActiveTripsLoading || isScheduledTripsLoading;
   const upcomingTripsCount = scheduledTrips.length;
+
+  // Handle case where driver profile doesn't exist
+  if (profileError && (profileError as Error).message === "Driver profile not found") {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] text-center space-y-6">
+        <div className="p-4 bg-blue-50 rounded-full dark:bg-blue-900/20">
+          <Truck className="h-12 w-12 text-blue-600" />
+        </div>
+        <div className="space-y-2 max-w-md">
+          <h1 className="text-2xl font-bold">Become a Driver</h1>
+          <p className="text-muted-foreground">
+            You haven't completed your driver registration yet. Complete your profile to start accepting delivery jobs.
+          </p>
+        </div>
+        <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={() => window.location.href = '/become-driver'}>
+          Complete Registration
+        </Button>
+      </div>
+    );
+  }
 
   if (loading) {
     return (

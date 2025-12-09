@@ -12,12 +12,23 @@ import { Button } from "@/components/ui/button";
 
 export default function PerformancePage() {
     const { data: session } = useSession();
-    // Use session user ID or fallback (ideally from session)
-    const driverId = (session?.user as any)?.id || "current";
+    const userId = (session?.user as any)?.id;
 
-    const { data: stats, isLoading, error } = useQuery({
+    // 1. Fetch Profile to get real Driver ID
+    const { data: profile, isLoading: isProfileLoading } = useQuery({
+        queryKey: ['driver-profile', userId],
+        queryFn: () => driverService.getProfile(userId!),
+        enabled: !!userId,
+        retry: false
+    });
+
+    const driverId = profile?.id;
+
+    // 2. Fetch Stats using real Driver ID
+    const { data: stats, isLoading: isStatsLoading, error } = useQuery({
         queryKey: ['driver-stats', driverId],
-        queryFn: () => driverService.getStatistics(driverId),
+        queryFn: () => driverService.getStatistics(driverId!),
+        enabled: !!driverId,
         // Fallback data for demo if API fails or not implemented
         initialData: {
             this_month_trips: 45,
@@ -35,6 +46,8 @@ export default function PerformancePage() {
             ]
         }
     });
+
+    const isLoading = isProfileLoading || isStatsLoading;
 
     if (isLoading) {
         return <div className="p-8 text-center">Loading performance data...</div>;

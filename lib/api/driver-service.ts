@@ -131,16 +131,23 @@ class DriverService {
     }
 
     /**
-     * Get Driver Profile
+     * Get Driver Profile by User ID
      */
-    async getProfile(driverId: string): Promise<DriverProfile> {
-        const response = await apiClient.get<any>(`${this.baseUrl}/api/v1/drivers/${driverId}`);
+    async getProfile(userId: string): Promise<DriverProfile> {
+        // Use the new endpoint that resolves driver by user ID
+        const response = await apiClient.get<any>(`${this.baseUrl}/api/v1/drivers/user/${userId}`);
+
         if (!response.success) {
+            // Check specifically for "Driver not found" to potentially handle registration flow
+            if (response.error?.message === "Driver not found" || response.status === 404) {
+                // For now, we propagate the error, but the UI should handle this
+                throw new Error("Driver profile not found");
+            }
             throw new Error(response.error?.message || "Failed to fetch profile");
         }
 
         const data = response.data;
-        // Assuming response structure, adjust mapping as needed based on actual API return
+
         return {
             id: data.id,
             firstName: data.user?.name?.split(" ")[0] || "",
