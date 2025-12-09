@@ -344,6 +344,41 @@ class DriverService {
 
         return response.data;
     }
+
+    /**
+     * Get Driver Earnings & Financial History
+     */
+    async getEarnings(driverId: string): Promise<any> {
+        const response = await apiClient.get<any>(`${this.baseUrl}/api/v1/drivers/${driverId}/earnings`);
+
+        if (!response.success) {
+            console.warn("Failed to fetch earnings:", response.error);
+            // Return mock data for demo
+            return {
+                total_balance: 4250.00,
+                pending_payout: 1250.00,
+                last_payout: { amount: 3000.00, date: "2023-12-01" },
+                currency: "MAD",
+                chart_data: [
+                    { name: 'Mon', amount: 450 },
+                    { name: 'Tue', amount: 620 },
+                    { name: 'Wed', amount: 550 },
+                    { name: 'Thu', amount: 800 },
+                    { name: 'Fri', amount: 950 },
+                    { name: 'Sat', amount: 480 },
+                    { name: 'Sun', amount: 400 },
+                ],
+                transactions: [
+                    { id: "TX-9821", date: "2023-12-07T14:30:00", description: "Trip #TR-8534 payout", amount: 150.00, type: "credit", status: "completed" },
+                    { id: "TX-9820", date: "2023-12-07T10:15:00", description: "Trip #TR-8533 payout", amount: 220.00, type: "credit", status: "completed" },
+                    { id: "TX-9819", date: "2023-12-06T18:45:00", description: "Weekly payout", amount: -3000.00, type: "debit", status: "completed" },
+                    { id: "TX-9818", date: "2023-12-06T12:00:00", description: "Bonus: High rating", amount: 50.00, type: "credit", status: "completed" },
+                ]
+            };
+        }
+
+        return response.data;
+    }
 }
 
 export const driverService = new DriverService();

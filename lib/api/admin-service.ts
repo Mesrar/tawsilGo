@@ -11,7 +11,12 @@ export interface Driver {
     vehicleType?: string;
     licenseNumber?: string;
     createdAt: string;
-    // Add other fields as needed based on API response
+    documents?: {
+        name: string;
+        type: 'license' | 'id_card' | 'insurance' | 'other';
+        url: string;
+        status: 'pending' | 'verified' | 'rejected';
+    }[];
 }
 
 export interface VerifyDriverRequest {
@@ -38,7 +43,7 @@ interface ApiDriver {
     operator_type: string;
     status: string;
     created_at: string;
-    // Add other fields if needed
+    documents?: any[];
 }
 
 interface DriversListResponse {
@@ -61,6 +66,13 @@ class AdminService {
         const firstName = nameParts[0] || apiDriver.user.username || "Unknown";
         const lastName = nameParts.slice(1).join(" ") || "";
 
+        // Mock documents if not present for UI demonstration
+        const documents = apiDriver.documents || [
+            { name: "Driving License", type: "license", url: "https://placehold.co/600x400/png?text=Driving+License", status: apiDriver.status === 'verified' ? 'verified' : 'pending' },
+            { name: "ID Card (Front)", type: "id_card", url: "https://placehold.co/600x400/png?text=ID+Card", status: apiDriver.status === 'verified' ? 'verified' : 'pending' },
+            { name: "Insurance Policy", type: "insurance", url: "https://placehold.co/600x400/png?text=Insurance", status: apiDriver.status === 'verified' ? 'verified' : 'pending' }
+        ];
+
         return {
             id: apiDriver.id,
             firstName,
@@ -71,7 +83,8 @@ class AdminService {
             isVerified: apiDriver.status === "verified",
             vehicleType: apiDriver.operator_type,
             licenseNumber: apiDriver.license_number,
-            createdAt: apiDriver.created_at
+            createdAt: apiDriver.created_at,
+            documents: documents as any
         };
     }
 

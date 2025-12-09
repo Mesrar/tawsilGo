@@ -19,7 +19,8 @@ import {
     User,
     Car,
     FileText,
-    AlertTriangle
+    AlertTriangle,
+    Eye
 } from "lucide-react";
 import { format } from "date-fns";
 import {
@@ -46,7 +47,7 @@ export default function DriverDetailsPage() {
     const [isVerifyDialogOpen, setIsVerifyDialogOpen] = useState(false);
     const [isStatusDialogOpen, setIsStatusDialogOpen] = useState(false);
 
-    const driverId = params.id as string;
+    const driverId = params?.id as string;
 
     useEffect(() => {
         if (driverId) {
@@ -223,6 +224,62 @@ export default function DriverDetailsPage() {
                                     <Label className="text-slate-500">License Number</Label>
                                     <p className="font-medium">{driver.licenseNumber || "Not provided"}</p>
                                 </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                                <FileText className="h-5 w-5 text-orange-500" />
+                                Documents
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="grid grid-cols-1 gap-4">
+                                {driver.documents && driver.documents.length > 0 ? (
+                                    driver.documents.map((doc, index) => (
+                                        <div key={index} className="flex items-center justify-between p-3 border rounded-lg bg-slate-50 dark:bg-slate-900/50">
+                                            <div className="flex items-center gap-3">
+                                                <div className="p-2 bg-white dark:bg-slate-800 rounded shadow-sm">
+                                                    <FileText className="h-5 w-5 text-slate-500" />
+                                                </div>
+                                                <div>
+                                                    <p className="font-medium text-sm">{doc.name}</p>
+                                                    <div className="flex items-center gap-2 mt-1">
+                                                        <Badge variant={doc.status === 'verified' ? 'default' : 'secondary'} className={doc.status === 'verified' ? "bg-green-100 text-green-700" : ""}>
+                                                            {doc.status}
+                                                        </Badge>
+                                                        <span className="text-xs text-slate-500 uppercase">{doc.type}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <Dialog>
+                                                <DialogTrigger asChild>
+                                                    <Button variant="outline" size="sm">
+                                                        <Eye className="h-4 w-4 mr-2" />
+                                                        View
+                                                    </Button>
+                                                </DialogTrigger>
+                                                <DialogContent className="max-w-3xl h-[80vh] flex flex-col">
+                                                    <DialogHeader>
+                                                        <DialogTitle>{doc.name}</DialogTitle>
+                                                    </DialogHeader>
+                                                    <div className="flex-1 w-full bg-slate-100 flex items-center justify-center rounded-md overflow-hidden relative">
+                                                        {/* In a real app, use Next.js Image or an object tag for PDFs */}
+                                                        <img
+                                                            src={doc.url}
+                                                            alt={doc.name}
+                                                            className="max-w-full max-h-full object-contain"
+                                                        />
+                                                    </div>
+                                                </DialogContent>
+                                            </Dialog>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <p className="text-sm text-slate-500 text-center py-4">No documents uploaded.</p>
+                                )}
                             </div>
                         </CardContent>
                     </Card>
