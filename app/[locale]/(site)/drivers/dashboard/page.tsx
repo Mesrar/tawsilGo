@@ -6,50 +6,37 @@ import { StatWidget } from "@/components/dashboard/StatWidget";
 import { Truck, MapPin, Calendar, Clock, Star, TrendingUp, AlertCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
 import { driverService, DriverProfile, Trip } from "@/lib/api/driver-service";
 import { useSession } from "next-auth/react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useQuery } from "@tanstack/react-query";
 
 export default function DriverDashboard() {
   const t = useTranslations("driverDashboard");
   const { data: session } = useSession();
-  const [profile, setProfile] = useState<DriverProfile | null>(null);
-  const [activeTrips, setActiveTrips] = useState<Trip[]>([]);
-  const [upcomingTripsCount, setUpcomingTripsCount] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    async function fetchData() {
-      if (!session?.user?.id) return;
+  // React Query Hooks
+  const { data: profile, isLoading: isProfileLoading } = useQuery({
+    queryKey: ['driver-profile', session?.user?.id],
+    queryFn: () => driverService.getProfile(session?.user?.id!),
+    enabled: !!session?.user?.id,
+  });
 
-      try {
-        setLoading(true);
-        const [profileData, activeTripsData, scheduledTripsData] = await Promise.all([
-          driverService.getProfile(session.user.id),
-          driverService.getTrips('active'),
-          driverService.getTrips('scheduled')
-        ]);
+  const { data: activeTrips = [], isLoading: isActiveTripsLoading } = useQuery({
+    queryKey: ['driver-trips', 'active'],
+    queryFn: () => driverService.getTrips('active'),
+    enabled: !!session?.user?.id,
+  });
 
-        setProfile(profileData);
-        setActiveTrips(activeTripsData);
-        setUpcomingTripsCount(scheduledTripsData.length);
-      } catch (err) {
-        console.error("Failed to load driver data", err);
-        // Don't block UI completely on error, just log and maybe show toast
-        // setError("Failed to load dashboard data. Please try again.");
-        setLoading(false);
-      } finally {
-        setLoading(false);
-      }
-    }
+  const { data: scheduledTrips = [], isLoading: isScheduledTripsLoading } = useQuery({
+    queryKey: ['driver-trips', 'scheduled'],
+    queryFn: () => driverService.getTrips('scheduled'),
+    enabled: !!session?.user?.id,
+  });
 
-    if (session?.user?.id) {
-      fetchData();
-    }
-  }, [session]);
+  const loading = isProfileLoading || isActiveTripsLoading || isScheduledTripsLoading;
+  const upcomingTripsCount = scheduledTrips.length;
 
   if (loading) {
     return (
@@ -122,7 +109,7 @@ export default function DriverDashboard() {
           <DashboardCard title="Active Trips" className="h-full">
             {activeTrips.length > 0 ? (
               <div className="space-y-6">
-                {activeTrips.map((trip) => (
+                {activeTrips.map((trip: Trip) => (
                   <div key={trip.id} className="relative pl-8 pb-8 last:pb-0 border-l-2 border-slate-200 dark:border-slate-800 ml-3">
                     <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-blue-600 ring-4 ring-white dark:ring-slate-900" />
                     <div className="mb-1 text-sm font-semibold text-blue-600">On Route</div>

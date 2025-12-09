@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AlertTriangle, MapPin, Route, Package as PackageIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { decodePolyline, formatSafeDate } from "@/lib/utils";
 import DynamicTripMap from "@/components/Map/DynamicTripMap";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -23,79 +23,7 @@ import { CustomsStatusTracker } from "@/components/Driver/CustomsStatusTracker";
 import { CustomsDocumentLibrary } from "@/components/Driver/CustomsDocumentLibrary";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-
-interface TripStatistics {
-  totalBookings: number;
-  capacityUtilized: number;
-  totalParcelWeight: number;
-  pendingBookings: number;
-  completedBookings: number;
-  totalDistanceKm: number;
-  totalDuration: number;
-  averageSpeed: number;
-}
-
-interface GeoPoint {
-  lat: number;
-  lng: number;
-}
-
-interface Price {
-  basePrice: number;
-  pricePerKg: number;
-  pricePerKm: number;
-  minimumPrice: number;
-  currency: string;
-  weightThreshold: number;
-  premiumFactor: number;
-}
-
-interface TripDetails {
-  id: string;
-  departureCountry: string;
-  destinationCountry: string;
-  departureCity: string;
-  destinationCity: string;
-  departureAddress: string;
-  destinationAddress: string;
-  departureTime: string;
-  arrivalTime: string;
-  price: Price;
-  dapartPoint: GeoPoint;
-  arrivalPoint: GeoPoint;
-  totalCapacity: number;
-  remainingCapacity: number;
-  status: string;
-  estimatedDistance: number;
-  estimatedDuration: number;
-  statistics: TripStatistics;
-  route: {
-    totalDistanceKm: number;
-    totalDurationMins: number;
-    routePolyline: string;
-    directionSteps: any;
-    hasStops: boolean;
-  };
-  ownerType: string;
-  createdByUserId: string;
-}
-
-async function getTripDetails(id: string): Promise<TripDetails> {
-  const response = await fetch(`/api/driver/trips/${id}`, {
-    credentials: "include",
-  });
-
-  if (!response.ok) throw new Error("Failed to fetch trip details");
-
-  const data = await response.json();
-
-  // Extract the trip from the nested structure
-  if (data.trip) {
-    return data.trip;
-  }
-
-  return data;
-}
+import { driverService, TripDetails } from "@/lib/api/driver-service";
 
 function TripDetailsPageContent() {
   const params = useParams();
@@ -104,6 +32,7 @@ function TripDetailsPageContent() {
   const { toast } = useToast();
   const router = useRouter();
   const isMobile = useIsMobile();
+  const queryClient = useQueryClient();
 
   // Get query parameters
   const actionParam = searchParams?.get("action");
@@ -117,7 +46,7 @@ function TripDetailsPageContent() {
     isRefetching,
   } = useQuery<TripDetails, Error>({
     queryKey: ["trip-details", id],
-    queryFn: () => getTripDetails(id),
+    queryFn: () => driverService.getTripDetails(id),
     staleTime: 60_000,
     retry: 2,
   });
@@ -134,10 +63,47 @@ function TripDetailsPageContent() {
 
   // Handle action parameter (e.g., ?action=start)
   useEffect(() => {
-    if (actionParam === "start" && trip && trip.status === "SCHEDULED") {
+    if (actionParam === "start" && trip && trip.status === "scheduled") {
       // Could trigger start trip dialog automatically
     }
   }, [actionParam, trip]);
+
+  const handleStartTrip = async () => {
+    try {
+      await driverService.startTrip(id);
+      toast({
+        title: "Trip Started",
+        description: "Your trip has been started successfully.",
+      });
+      queryClient.invalidateQueries({ queryKey: ["trip-details", id] });
+      queryClient.invalidateQueries({ queryKey: ["driver-trips"] });
+    } catch (err: any) {
+      toast({
+        title: "Error",
+        description: err.message || "Failed to start trip",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleCompleteTrip = async () => {
+    try {
+      await driverService.completeTrip(id);
+      toast({
+        title: "Trip Completed",
+        description: "Your trip has been completed successfully.",
+      });
+      queryClient.invalidateQueries({ queryKey: ["trip-details", id] });
+      queryClient.invalidateQueries({ queryKey: ["driver-trips"] });
+      queryClient.invalidateQueries({ queryKey: ["driver-statistics"] });
+    } catch (err: any) {
+      toast({
+        title: "Error",
+        description: err.message || "Failed to complete trip",
+        variant: "destructive",
+      });
+    }
+  };
 
   // Decode polyline for map
   const decodedPolylinePoints = trip?.route?.routePolyline
@@ -217,7 +183,7 @@ function TripDetailsPageContent() {
         destinationCity={trip.destinationCity}
         destinationCountry={trip.destinationCountry}
         departureTime={trip.departureTime}
-        arrivalTime={trip.arrivalTime}
+        arrivalTime={trip.arrivalTime || ""}
         isMobile={isMobile}
       />
 
@@ -233,8 +199,8 @@ function TripDetailsPageContent() {
               totalDistanceKm={trip.route.totalDistanceKm}
               totalDurationMins={trip.route.totalDurationMins}
               totalParcelWeight={trip.statistics.totalParcelWeight}
-              currency={trip.price.currency}
-              basePrice={trip.price.basePrice}
+              currency={trip.priceDetails.currency}
+              basePrice={trip.priceDetails.basePrice}
               isMobile={isMobile}
             />
           </div>
@@ -260,8 +226,8 @@ function TripDetailsPageContent() {
                 totalDistanceKm={trip.route.totalDistanceKm}
                 totalDurationMins={trip.route.totalDurationMins}
                 totalParcelWeight={trip.statistics.totalParcelWeight}
-                currency={trip.price.currency}
-                basePrice={trip.price.basePrice}
+                currency={trip.priceDetails.currency}
+                basePrice={trip.priceDetails.basePrice}
                 isMobile={isMobile}
               />
             </TabsContent>
@@ -281,21 +247,21 @@ function TripDetailsPageContent() {
                       departurePoint={
                         hasValidDeparturePoint
                           ? {
-                              id: "departure",
-                              point: trip.dapartPoint,
-                              label: trip.departureAddress,
-                              type: "departure" as const,
-                            }
+                            id: "departure",
+                            point: trip.dapartPoint,
+                            label: trip.departureAddress,
+                            type: "departure" as const,
+                          }
                           : undefined
                       }
                       arrivalPoint={
                         hasValidArrivalPoint
                           ? {
-                              id: "arrival",
-                              point: trip.arrivalPoint,
-                              label: trip.destinationAddress,
-                              type: "arrival" as const,
-                            }
+                            id: "arrival",
+                            point: trip.arrivalPoint,
+                            label: trip.destinationAddress,
+                            type: "arrival" as const,
+                          }
                           : undefined
                       }
                       height="400px"
@@ -355,21 +321,21 @@ function TripDetailsPageContent() {
                     departurePoint={
                       hasValidDeparturePoint
                         ? {
-                            id: "departure",
-                            point: trip.dapartPoint,
-                            label: trip.departureAddress,
-                            type: "departure" as const,
-                          }
+                          id: "departure",
+                          point: trip.dapartPoint,
+                          label: trip.departureAddress,
+                          type: "departure" as const,
+                        }
                         : undefined
                     }
                     arrivalPoint={
                       hasValidArrivalPoint
                         ? {
-                            id: "arrival",
-                            point: trip.arrivalPoint,
-                            label: trip.destinationAddress,
-                            type: "arrival" as const,
-                          }
+                          id: "arrival",
+                          point: trip.arrivalPoint,
+                          label: trip.destinationAddress,
+                          type: "arrival" as const,
+                        }
                         : undefined
                     }
                     height="500px"
@@ -442,13 +408,8 @@ function TripDetailsPageContent() {
             arrivalPoint={trip.arrivalPoint}
             isMobile={isMobile}
             isSticky={isMobile}
-            onStartTrip={() => {
-              toast({
-                title: "Trip Started",
-                description: "Your trip has been started successfully.",
-              });
-              // In real implementation, call API to update status
-            }}
+            onStartTrip={handleStartTrip}
+            onCompleteTrip={handleCompleteTrip}
           />
         </div>
       </div>

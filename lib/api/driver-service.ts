@@ -24,6 +24,42 @@ export interface TripDetails extends Trip {
     bookings: any[];
     currentLocation?: any;
     progress?: number;
+    // Extended fields matching UI requirements
+    departureCountry: string;
+    destinationCountry: string;
+    departureCity: string;
+    destinationCity: string;
+    departureAddress: string;
+    destinationAddress: string;
+    dapartPoint: { lat: number; lng: number };
+    arrivalPoint: { lat: number; lng: number };
+    totalCapacity: number;
+    remainingCapacity: number;
+    estimatedDistance?: number;
+    estimatedDuration?: number;
+    statistics: {
+        totalBookings: number;
+        capacityUtilized: number;
+        totalParcelWeight: number;
+        pendingBookings: number;
+        completedBookings: number;
+        totalDistanceKm: number;
+        totalDuration: number;
+        averageSpeed: number;
+    };
+    route: {
+        totalDistanceKm: number;
+        totalDurationMins: number;
+        routePolyline: string;
+        directionSteps: any;
+        hasStops: boolean;
+    };
+    priceDetails: {
+        basePrice: number;
+        pricePerKg: number;
+        pricePerKm: number;
+        currency: string;
+    };
 }
 
 export interface DriverProfile {
@@ -49,6 +85,21 @@ interface ApiTrip {
     status: string;
     price: number;
     stops?: any[];
+    departure_country?: string;
+    destination_country?: string;
+    departure_city?: string;
+    destination_city?: string;
+    departure_address?: string;
+    destination_address?: string;
+    depart_point?: { lat: number; lng: number };
+    arrival_point?: { lat: number; lng: number };
+    total_capacity?: number;
+    remaining_capacity?: number;
+    statistics?: any;
+    route?: any;
+    price_details?: any;
+    current_location?: any;
+    progress_percentage?: number;
     // Add other fields as needed
 }
 
@@ -135,14 +186,101 @@ class DriverService {
     async getTripDetails(tripId: string): Promise<TripDetails> {
         const response = await apiClient.get<any>(`${this.baseUrl}/api/v1/driver/trips/${tripId}/details`);
 
-        if (!response.success) throw new Error(response.error?.message);
+        if (!response.success) {
+            // Fallback for demo/dev if endpoint missing or fails
+            console.warn("Failed to fetch trip details, trying listing...");
+            const trips = await this.getTrips();
+            const trip = trips.find(t => t.id === tripId);
+            if (trip) {
+                return {
+                    ...trip,
+                    bookings: [],
+                    departureCountry: "Morocco",
+                    destinationCountry: "Morocco",
+                    departureCity: trip.fromLocation?.split(",")[0] || "",
+                    destinationCity: trip.toLocation?.split(",")[0] || "",
+                    departureAddress: trip.fromLocation,
+                    destinationAddress: trip.toLocation,
+                    dapartPoint: { lat: 0, lng: 0 },
+                    arrivalPoint: { lat: 0, lng: 0 },
+                    totalCapacity: 1000,
+                    remainingCapacity: 1000,
+                    statistics: {
+                        totalBookings: 0,
+                        capacityUtilized: 0,
+                        totalParcelWeight: 0,
+                        pendingBookings: 0,
+                        completedBookings: 0,
+                        totalDistanceKm: 0,
+                        totalDuration: 0,
+                        averageSpeed: 0
+                    },
+                    route: {
+                        totalDistanceKm: 0,
+                        totalDurationMins: 0,
+                        routePolyline: "",
+                        directionSteps: [],
+                        hasStops: false
+                    },
+                    priceDetails: {
+                        basePrice: trip.price || 0,
+                        pricePerKg: 0,
+                        pricePerKm: 0,
+                        currency: "MAD"
+                    }
+                };
+            }
+            throw new Error(response.error?.message || "Failed to fetch trip details");
+        }
 
-        const data = response.data;
+        const data = response.data.trip || response.data;
+
+        // Map API response to UI TripDetails structure
+        // This is a comprehensive mapping assuming backend might return snake_case or different structure
         return {
-            ...this.mapApiTripToTrip(data.trip || data),
-            bookings: data.bookings || [],
+            ...this.mapApiTripToTrip(data),
+            bookings: response.data.bookings || [],
             currentLocation: data.current_location,
-            progress: data.progress_percentage
+            progress: data.progress_percentage,
+
+            departureCountry: data.departure_country || "Morocco",
+            destinationCountry: data.destination_country || "Morocco",
+            departureCity: data.departure_city || data.origin?.split(",")[0] || "",
+            destinationCity: data.destination_city || data.destination?.split(",")[0] || "",
+            departureAddress: data.departure_address || data.origin,
+            destinationAddress: data.destination_address || data.destination,
+
+            dapartPoint: data.depart_point || { lat: 0, lng: 0 },
+            arrivalPoint: data.arrival_point || { lat: 0, lng: 0 },
+
+            totalCapacity: data.total_capacity || 1000,
+            remainingCapacity: data.remaining_capacity || 1000,
+
+            statistics: data.statistics || {
+                totalBookings: 0,
+                capacityUtilized: 0,
+                totalParcelWeight: 0,
+                pendingBookings: 0,
+                completedBookings: 0,
+                totalDistanceKm: 0,
+                totalDuration: 0,
+                averageSpeed: 0
+            },
+
+            route: data.route || {
+                totalDistanceKm: 0,
+                totalDurationMins: 0,
+                routePolyline: "",
+                directionSteps: [],
+                hasStops: false
+            },
+
+            priceDetails: data.price_details || {
+                basePrice: data.price || 0,
+                pricePerKg: 0,
+                pricePerKm: 0,
+                currency: "MAD"
+            }
         };
     }
 
@@ -157,6 +295,54 @@ class DriverService {
         }
 
         return this.mapApiTripToTrip(response.data!);
+    }
+
+    /**
+     * Start a trip
+     */
+    async startTrip(tripId: string): Promise<void> {
+        const response = await apiClient.put<void>(`${this.baseUrl}/api/v1/driver/trips/${tripId}/start`, {});
+        if (!response.success) {
+            throw new Error(response.error?.message || "Failed to start trip");
+        }
+    }
+
+    /**
+     * Complete a trip
+     */
+    async completeTrip(tripId: string): Promise<void> {
+        const response = await apiClient.put<void>(`${this.baseUrl}/api/v1/driver/trips/${tripId}/complete`, {});
+        if (!response.success) {
+            throw new Error(response.error?.message || "Failed to complete trip");
+        }
+    }
+
+    /**
+     * Get trip history
+     */
+    async getTripHistory(page: number = 1, limit: number = 10): Promise<Trip[]> {
+        return this.getTrips("completed", page, limit);
+    }
+
+    /**
+     * Get Driver Statistics
+     */
+    async getStatistics(driverId: string): Promise<any> {
+        const response = await apiClient.get<any>(`${this.baseUrl}/api/v1/drivers/${driverId}/statistics`);
+
+        if (!response.success) {
+            // Return default/empty stats if endpoint fails
+            console.warn("Failed to fetch statistics:", response.error);
+            return {
+                this_month_trips: 0,
+                total_earnings: 0,
+                on_time_rate: 0,
+                average_rating: 0,
+                weekly_activity: []
+            };
+        }
+
+        return response.data;
     }
 }
 

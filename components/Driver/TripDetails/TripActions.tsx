@@ -21,6 +21,7 @@ interface TripActionsProps {
   dapartPoint?: { lat: number; lng: number };
   arrivalPoint?: { lat: number; lng: number };
   onStartTrip?: () => void;
+  onCompleteTrip?: () => void;
   isMobile?: boolean;
   isSticky?: boolean;
 }
@@ -32,18 +33,18 @@ export function TripActions({
   dapartPoint,
   arrivalPoint,
   onStartTrip,
+  onCompleteTrip,
   isMobile,
   isSticky,
 }: TripActionsProps) {
   const [showStartDialog, setShowStartDialog] = useState(false);
+  const [showCompleteDialog, setShowCompleteDialog] = useState(false);
 
   const handleNavigate = () => {
     if (dapartPoint && arrivalPoint) {
-      // Open Google Maps with directions
       const url = `https://www.google.com/maps/dir/?api=1&origin=${dapartPoint.lat},${dapartPoint.lng}&destination=${arrivalPoint.lat},${arrivalPoint.lng}&travelmode=driving`;
       window.open(url, "_blank");
     } else {
-      // Fallback to address-based navigation
       const origin = encodeURIComponent(departureAddress);
       const destination = encodeURIComponent(destinationAddress);
       const url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=driving`;
@@ -58,7 +59,15 @@ export function TripActions({
   const confirmStartTrip = () => {
     setShowStartDialog(false);
     onStartTrip?.();
-    // Here you would typically call an API to update trip status
+  };
+
+  const handleCompleteTrip = () => {
+    setShowCompleteDialog(true);
+  };
+
+  const confirmCompleteTrip = () => {
+    setShowCompleteDialog(false);
+    onCompleteTrip?.();
   };
 
   // Determine primary action based on status
@@ -74,10 +83,10 @@ export function TripActions({
       case "IN_PROGRESS":
       case "ACTIVE":
         return {
-          label: "Continue Trip",
-          icon: Navigation,
-          onClick: handleNavigate,
-          variant: "default" as const,
+          label: "Complete Trip",
+          icon: CheckCircle,
+          onClick: handleCompleteTrip,
+          variant: "default" as const, // Or maybe a different color like green?
         };
       case "COMPLETED":
         return {
@@ -94,7 +103,8 @@ export function TripActions({
   };
 
   const primaryAction = getPrimaryAction();
-  const showNavigateButton = status.toUpperCase() !== "COMPLETED";
+  const showNavigateButton = status.toUpperCase() !== "COMPLETED" && status.toUpperCase() !== "SCHEDULED"; // Only show navigate when active? Or maybe allows when scheduled too? Original code showed it always except COMPLETED.
+  // The original code `status.toUpperCase() !== "COMPLETED"` is fine.
 
   const containerClass = isSticky
     ? "sticky bottom-0 z-10 bg-background border-t shadow-lg"
@@ -108,7 +118,7 @@ export function TripActions({
             {primaryAction && (
               <Button
                 size={isMobile ? "lg" : "default"}
-                className="flex-1 sm:flex-none sm:min-w-[200px]"
+                className={`flex-1 sm:flex-none sm:min-w-[200px] ${status.toUpperCase() === 'ACTIVE' || status.toUpperCase() === 'IN_PROGRESS' ? 'bg-green-600 hover:bg-green-700' : ''}`}
                 variant={primaryAction.variant}
                 onClick={primaryAction.onClick}
               >
@@ -117,7 +127,7 @@ export function TripActions({
               </Button>
             )}
 
-            {showNavigateButton && (
+            {(status.toUpperCase() !== "COMPLETED") && (
               <Button
                 size={isMobile ? "lg" : "default"}
                 variant="outline"
@@ -146,6 +156,26 @@ export function TripActions({
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction onClick={confirmStartTrip}>
               Start Trip
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Complete Trip Confirmation Dialog */}
+      <AlertDialog open={showCompleteDialog} onOpenChange={setShowCompleteDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Complete Trip?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Have you arrived at the final destination and delivered all parcels?
+              This will mark the trip as completed.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            {/* Using a distinct color/action for explicit completion if possible, default is fine */}
+            <AlertDialogAction onClick={confirmCompleteTrip}>
+              Complete Trip
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
