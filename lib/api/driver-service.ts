@@ -1,11 +1,24 @@
 import { apiClient } from "./api-client";
 
 export interface CreateTripRequest {
-    from_location: string;
-    to_location: string;
-    departure_time: string; // ISO string
-    vehicle_id?: string;
-    suggested_price: number;
+    origin: string;
+    destination: string;
+    departureTime: string; // ISO string
+    capacity: number;
+    price: {
+        pricePerKg: number;
+        basePrice?: number;
+        pricePerKm?: number;
+        minimumPrice?: number;
+        currency?: string;
+    };
+    stops?: {
+        location: string;
+        arrivalTime: string;
+        stopType: 'pickup' | 'delivery' | 'both';
+        order: number;
+    }[];
+    vehicleId?: string;
 }
 
 export interface Trip {
@@ -73,6 +86,11 @@ export interface DriverProfile {
     vehicles?: any[];
     rating?: number;
     totalTrips?: number;
+    // New fields from API
+    licenseNumber?: string;
+    operatorType?: string;
+    ratingCount?: number;
+    documentCount?: number;
 }
 
 // Raw API responses
@@ -148,17 +166,27 @@ class DriverService {
 
         const data = response.data;
 
+        // Handle empty name by falling back to username or splitting username if name is missing
+        const displayName = data.user?.name || data.user?.username || "Driver";
+        const nameParts = displayName.split(" ");
+        const firstName = nameParts[0];
+        const lastName = nameParts.slice(1).join(" ") || "";
+
         return {
             id: data.id,
-            firstName: data.user?.name?.split(" ")[0] || "",
-            lastName: data.user?.name?.split(" ").slice(1).join(" ") || "",
+            firstName,
+            lastName,
             email: data.user?.email,
             phone: data.user?.phone,
             status: data.status,
             isVerified: data.status === "verified",
-            vehicles: data.vehicles,
+            vehicles: [], // API doesn't return vehicles in this endpoint yet
             rating: data.rating,
-            totalTrips: data.total_trips
+            ratingCount: data.rating_count,
+            totalTrips: 0, // API doesn't return total_trips in this endpoint yet
+            licenseNumber: data.license_number,
+            operatorType: data.operator_type,
+            documentCount: data.document_count
         };
     }
 

@@ -48,11 +48,15 @@ export function CreateTripDialog({ onTripCreated }: CreateTripDialogProps) {
             departureDateTime.setHours(hours, minutes);
 
             const tripData: CreateTripRequest = {
-                from_location: formData.get("from") as string,
-                to_location: formData.get("to") as string,
-                departure_time: departureDateTime.toISOString(),
-                vehicle_id: formData.get("vehicle") as string,
-                suggested_price: Number(formData.get("price")),
+                origin: formData.get("from") as string,
+                destination: formData.get("to") as string,
+                departureTime: departureDateTime.toISOString(),
+                capacity: Number(formData.get("capacity") || 500), // Default 500kg if not set
+                vehicleId: formData.get("vehicle") as string,
+                price: {
+                    pricePerKg: Number(formData.get("price") || 10), // Default 10 MAD/kg
+                    currency: "MAD"
+                }
             };
 
             await driverService.createTrip(tripData);
@@ -156,9 +160,15 @@ export function CreateTripDialog({ onTripCreated }: CreateTripDialogProps) {
                         </Select>
                     </div>
 
-                    <div className="space-y-2">
-                        <Label htmlFor="price">Suggested Price (MAD)</Label>
-                        <Input id="price" name="price" type="number" placeholder="e.g. 500" />
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                            <Label htmlFor="capacity">Capacity (Kg)</Label>
+                            <Input id="capacity" name="capacity" type="number" placeholder="500" required />
+                        </div>
+                        <div className="space-y-2">
+                            <Label htmlFor="price">Price per Kg (MAD)</Label>
+                            <Input id="price" name="price" type="number" placeholder="10" step="0.5" required />
+                        </div>
                     </div>
 
                     <DialogFooter className="mt-4">
