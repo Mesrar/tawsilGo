@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useQuery } from "@tanstack/react-query";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +14,8 @@ import { Calendar as CalendarIcon, MapPin, Truck, Plus, Loader2 } from "lucide-r
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { driverService, CreateTripRequest } from "@/lib/api/driver-service";
+import { vehicleService } from "@/app/services/vehicleService";
+import { Vehicle } from "@/types/vehicle";
 import { useToast } from "@/components/ui/use-toast";
 
 interface CreateTripDialogProps {
@@ -19,10 +23,22 @@ interface CreateTripDialogProps {
 }
 
 export function CreateTripDialog({ onTripCreated }: CreateTripDialogProps) {
+    const { data: session } = useSession();
     const [open, setOpen] = useState(false);
     const [date, setDate] = useState<Date>();
+    const [selectedVehicleId, setSelectedVehicleId] = useState<string>("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { toast } = useToast();
+
+    // Fetch driver vehicles using vehicle service
+    const { data: vehiclesData, isLoading: vehiclesLoading } = useQuery({
+        queryKey: ['driver-vehicles'],
+        queryFn: () => vehicleService.getCurrentUserVehicles(),
+        enabled: !!session?.user?.id,
+        retry: false
+    });
+
+    const vehicles: Vehicle[] = vehiclesData?.data?.vehicles || [];
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -34,6 +50,17 @@ export function CreateTripDialog({ onTripCreated }: CreateTripDialogProps) {
             toast({
                 title: "Date required",
                 description: "Please select a departure date.",
+                variant: "destructive"
+            });
+            return;
+        }
+
+        // Validate vehicle selection (required)
+        const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        if (!selectedVehicleId || !uuidPattern.test(selectedVehicleId)) {
+            toast({
+                title: "Vehicle required",
+                description: "Please select a vehicle for this trip.",
                 variant: "destructive"
             });
             return;
@@ -51,10 +78,10 @@ export function CreateTripDialog({ onTripCreated }: CreateTripDialogProps) {
                 origin: formData.get("from") as string,
                 destination: formData.get("to") as string,
                 departureTime: departureDateTime.toISOString(),
-                capacity: Number(formData.get("capacity") || 500), // Default 500kg if not set
-                vehicleId: formData.get("vehicle") as string,
+                capacity: Number(formData.get("capacity") || 500),
+                vehicleId: selectedVehicleId,
                 price: {
-                    pricePerKg: Number(formData.get("price") || 10), // Default 10 MAD/kg
+                    pricePerKg: Number(formData.get("price") || 10),
                     currency: "MAD"
                 }
             };
@@ -81,8 +108,17 @@ export function CreateTripDialog({ onTripCreated }: CreateTripDialogProps) {
         }
     };
 
+    const handleOpenChange = (isOpen: boolean) => {
+        setOpen(isOpen);
+        if (!isOpen) {
+            // Reset form state when dialog closes
+            setSelectedVehicleId("");
+            setDate(undefined);
+        }
+    };
+
     return (
-        <Dialog open={open} onOpenChange={setOpen}>
+        <Dialog open={open} onOpenChange={handleOpenChange}>
             <DialogTrigger asChild>
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
                     <Plus className="w-4 h-4" />
@@ -96,94 +132,122 @@ export function CreateTripDialog({ onTripCreated }: CreateTripDialogProps) {
                         Enter the details for your upcoming trip.
                     </DialogDescription>
                 </DialogHeader>
-                <form onSubmit={handleSubmit} className="grid gap-4 py-4">
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                            <Label htmlFor="from">From</Label>
-                            <div className="relative">
-                                <MapPin className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-500" />
-                                <Input id="from" name="from" placeholder="City" className="pl-9" required />
-                            </div>
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="to">To</Label>
-                            <div className="relative">
-                                <MapPin className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-500" />
-                                <Input id="to" name="to" placeholder="City" className="pl-9" required />
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                            <Label>Date</Label>
-                            <Popover>
-                                <PopoverTrigger asChild>
-                                    <Button
-                                        variant={"outline"}
-                                        className={cn(
-                                            "w-full justify-start text-left font-normal pl-3",
-                                            !date && "text-muted-foreground"
-                                        )}
-                                    >
-                                        <CalendarIcon className="mr-2 h-4 w-4" />
-                                        {date ? format(date, "PPP") : <span>Pick a date</span>}
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-auto p-0" align="start">
-                                    <Calendar
-                                        mode="single"
-                                        selected={date}
-                                        onSelect={setDate}
-                                        initialFocus
-                                    />
-                                </PopoverContent>
-                            </Popover>
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="time">Time</Label>
-                            <Input id="time" name="time" type="time" required />
-                        </div>
+                {vehiclesLoading ? (
+                    <div className="flex flex-col items-center justify-center py-6 space-y-4 text-center">
+                        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                        <p className="text-sm text-muted-foreground">Loading vehicles...</p>
                     </div>
-
-                    <div className="space-y-2">
-                        <Label htmlFor="vehicle">Vehicle</Label>
-                        <Select name="vehicle">
-                            <SelectTrigger>
-                                <SelectValue placeholder="Select vehicle" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="v1">Volvo FH16 (WA-12345-AB)</SelectItem>
-                                <SelectItem value="v2">Mercedes Actros (KA-98765-CB)</SelectItem>
-                                <SelectItem value="v3">Scania R450 (RA-55555-XY)</SelectItem>
-                            </SelectContent>
-                        </Select>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                            <Label htmlFor="capacity">Capacity (Kg)</Label>
-                            <Input id="capacity" name="capacity" type="number" placeholder="500" required />
+                ) : vehicles.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center py-6 space-y-4 text-center">
+                        <div className="p-3 bg-yellow-50 rounded-full text-yellow-600">
+                            <Truck className="w-8 h-8" />
                         </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="price">Price per Kg (MAD)</Label>
-                            <Input id="price" name="price" type="number" placeholder="10" step="0.5" required />
+                        <div className="space-y-1">
+                            <h3 className="font-semibold">No Vehicle Found</h3>
+                            <p className="text-sm text-muted-foreground">
+                                You need to register a vehicle before creating a trip.
+                            </p>
                         </div>
-                    </div>
-
-                    <DialogFooter className="mt-4">
-                        <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white" disabled={isSubmitting}>
-                            {isSubmitting ? (
-                                <>
-                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                    Creating...
-                                </>
-                            ) : (
-                                "Create Trip"
-                            )}
+                        <Button
+                            className="w-full bg-blue-600 hover:bg-blue-700"
+                            onClick={() => window.location.href = '/drivers/dashboard/vehicle'}
+                        >
+                            Add Vehicle
                         </Button>
-                    </DialogFooter>
-                </form>
+                    </div>
+                ) : (
+                    <form onSubmit={handleSubmit} className="grid gap-4 py-4">
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                                <Label htmlFor="from">From</Label>
+                                <div className="relative">
+                                    <MapPin className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-500" />
+                                    <Input id="from" name="from" placeholder="City" className="pl-9" required />
+                                </div>
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="to">To</Label>
+                                <div className="relative">
+                                    <MapPin className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-500" />
+                                    <Input id="to" name="to" placeholder="City" className="pl-9" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                                <Label>Date</Label>
+                                <Popover>
+                                    <PopoverTrigger asChild>
+                                        <Button
+                                            variant={"outline"}
+                                            className={cn(
+                                                "w-full justify-start text-left font-normal pl-3",
+                                                !date && "text-muted-foreground"
+                                            )}
+                                        >
+                                            <CalendarIcon className="mr-2 h-4 w-4" />
+                                            {date ? format(date, "PPP") : <span>Pick a date</span>}
+                                        </Button>
+                                    </PopoverTrigger>
+                                    <PopoverContent className="w-auto p-0" align="start">
+                                        <Calendar
+                                            mode="single"
+                                            selected={date}
+                                            onSelect={setDate}
+                                            initialFocus
+                                        />
+                                    </PopoverContent>
+                                </Popover>
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="time">Time</Label>
+                                <Input id="time" name="time" type="time" required />
+                            </div>
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label htmlFor="vehicle">Vehicle</Label>
+                            <Select value={selectedVehicleId} onValueChange={setSelectedVehicleId}>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Select vehicle" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {vehicles.map((v: Vehicle) => (
+                                        <SelectItem key={v.id} value={v.id}>
+                                            {v.brand} {v.model} ({v.licensePlate})
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                                <Label htmlFor="capacity">Capacity (Kg)</Label>
+                                <Input id="capacity" name="capacity" type="number" placeholder="500" required />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="price">Price per Kg (MAD)</Label>
+                                <Input id="price" name="price" type="number" placeholder="10" step="0.5" required />
+                            </div>
+                        </div>
+
+                        <DialogFooter className="mt-4">
+                            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white" disabled={isSubmitting}>
+                                {isSubmitting ? (
+                                    <>
+                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                        Creating...
+                                    </>
+                                ) : (
+                                    "Create Trip"
+                                )}
+                            </Button>
+                        </DialogFooter>
+                    </form>
+                )}
             </DialogContent>
         </Dialog>
     );
