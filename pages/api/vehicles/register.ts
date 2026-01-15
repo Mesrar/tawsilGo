@@ -3,6 +3,8 @@ import { getToken } from "next-auth/jwt";
 import formidable from "formidable";
 import fs from "fs";
 import FormData from "form-data";
+import https from "https";
+import http from "http";
 
 // Disable body parser to handle FormData
 export const config = {
@@ -46,6 +48,9 @@ export default async function handler(
 
     const [fields, files] = await form.parse(req);
 
+    console.log("[VEHICLE_REGISTER] Parsed fields:", Object.keys(fields));
+    console.log("[VEHICLE_REGISTER] Parsed files:", Object.keys(files));
+
     // Build FormData for backend
     const formData = new FormData();
 
@@ -75,23 +80,51 @@ export default async function handler(
       }
     });
 
-    // Use base API URL (VERIFY_API_URL or NEXT_PUBLIC_API_BASE_URL is the base without path)
+    // Use base API URL
     const backendUrl = process.env.VERIFY_API_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8084";
     const targetUrl = `${backendUrl}/api/v1/vehicles/register`;
 
     console.log("[VEHICLE_REGISTER] Forwarding to:", targetUrl);
 
-    // Forward request to backend vehicle service
-    const response = await fetch(targetUrl, {
-      method: "POST",
-      headers: {
-        ...formData.getHeaders(),
-        Authorization: `Bearer ${token.accessToken}`,
-      },
-      body: formData as unknown as BodyInit,
-    });
+    // Use form-data's submit method which properly handles streams
+    const result = await new Promise<{ statusCode: number; data: unknown }>((resolve, reject) => {
+      const url = new URL(targetUrl);
+      const isHttps = url.protocol === "https:";
+      const client = isHttps ? https : http;
 
-    const data = await response.json();
+      const requestOptions = {
+        method: "POST",
+        host: url.hostname,
+        port: url.port || (isHttps ? 443 : 80),
+        path: url.pathname,
+        headers: {
+          ...formData.getHeaders(),
+          Authorization: `Bearer ${token.accessToken}`,
+        },
+      };
+
+      const request = client.request(requestOptions, (response) => {
+        let body = "";
+        response.on("data", (chunk) => {
+          body += chunk;
+        });
+        response.on("end", () => {
+          try {
+            const data = JSON.parse(body);
+            resolve({ statusCode: response.statusCode || 500, data });
+          } catch {
+            resolve({ statusCode: response.statusCode || 500, data: { message: body } });
+          }
+        });
+      });
+
+      request.on("error", (error) => {
+        console.error("[VEHICLE_REGISTER] Request error:", error);
+        reject(error);
+      });
+
+      formData.pipe(request);
+    });
 
     // Cleanup temp files
     Object.values(files).forEach((fileArray) => {
@@ -102,24 +135,26 @@ export default async function handler(
       });
     });
 
-    if (!response.ok) {
-      console.error("[VEHICLE_REGISTER] Backend error:", response.status, data);
-      return res.status(response.status).json({
+    if (result.statusCode >= 400) {
+      console.error("[VEHICLE_REGISTER] Backend error:", result.statusCode, result.data);
+      return res.status(result.statusCode).json({
         success: false,
-        error: data.error || data.message || "Failed to register vehicle",
-        details: data,
+        error: (result.data as { error?: string; message?: string })?.error ||
+               (result.data as { error?: string; message?: string })?.message ||
+               "Failed to register vehicle",
+        details: result.data,
       });
     }
 
     return res.status(201).json({
       success: true,
-      data: data,
+      data: result.data,
     });
   } catch (error) {
-    console.error("Vehicle registration error:", error);
+    console.error("[VEHICLE_REGISTER] Error:", error);
     return res.status(500).json({
       success: false,
-      error: "Internal server error",
+      error: error instanceof Error ? error.message : "Internal server error",
     });
   }
 }
