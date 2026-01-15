@@ -20,44 +20,57 @@ import {
 export const vehicleService = {
   /**
    * Register a new vehicle (for individual drivers)
+   * Backend expects flat form-data fields, not nested JSON objects
    */
   async registerVehicle(
     data: VehicleRegistrationRequest
   ): Promise<ApiResponse<{ vehicle: Vehicle; message: string }>> {
     const formData = new FormData();
 
-    // Add all text fields
-    Object.entries(data).forEach(([key, value]) => {
-      if (value !== undefined && !(value instanceof File) && !Array.isArray(value)) {
-        if (typeof value === 'object') {
-          formData.append(key, JSON.stringify(value));
-        } else {
-          formData.append(key, value);
-        }
-      }
-    });
+    // Type must be UPPERCASE: CAR, VAN, TRUCK, BUS, MOTORCYCLE
+    formData.append('type', data.type.toUpperCase());
 
-    // Add features array
-    if (data.features) {
-      formData.append('features', JSON.stringify(data.features));
+    // Required text fields
+    formData.append('brand', data.brand);
+    formData.append('model', data.model);
+    formData.append('licensePlate', data.licensePlate);
+
+    // Optional text fields
+    if (data.year) {
+      formData.append('year', String(data.year));
+    }
+    if (data.color) {
+      formData.append('color', data.color);
     }
 
-    // Add document files
+    // Flatten capacity object to individual fields
+    if (data.capacity) {
+      if (data.capacity.weight?.max) {
+        formData.append('maxWeight', String(data.capacity.weight.max));
+      }
+      if (data.capacity.volume?.max) {
+        formData.append('maxVolume', String(data.capacity.volume.max));
+      }
+    }
+
+    // Required document files
     if (data.documents?.registration) {
       formData.append('registrationDocument', data.documents.registration);
     }
     if (data.documents?.insurance) {
       formData.append('insuranceDocument', data.documents.insurance);
     }
+
+    // Optional files
     if (data.documents?.inspection) {
       formData.append('inspectionDocument', data.documents.inspection);
     }
 
-    // Add photos
+    // Photos array
     if (data.documents?.photos) {
-      data.documents.photos.forEach((photo, index) => {
+      data.documents.photos.forEach((photo) => {
         if (photo instanceof File) {
-          formData.append(`photos`, photo);
+          formData.append('photos', photo);
         }
       });
     }
