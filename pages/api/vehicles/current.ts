@@ -4,7 +4,6 @@ import { getToken } from "next-auth/jwt";
 /**
  * GET /api/vehicles/current
  * Get current user's vehicles
- * Requires authentication
  */
 export default async function handler(
   req: NextApiRequest,
@@ -28,13 +27,8 @@ export default async function handler(
       });
     }
 
-    // Use base API URL
-    const backendUrl = process.env.VERIFY_API_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8084";
-
-    // Forward query params
-    const queryString = new URL(req.url || "", `http://${req.headers.host}`).search;
-    const targetUrl = `${backendUrl}/api/v1/vehicles/current${queryString}`;
-
+    // Backend URL - hardcoded to ensure correctness
+    const targetUrl = "https://api.tawsilgo.com/api/v1/vehicles/current";
     console.log("[VEHICLES_CURRENT] Fetching from:", targetUrl);
 
     const response = await fetch(targetUrl, {
@@ -45,20 +39,30 @@ export default async function handler(
       },
     });
 
-    const data = await response.json();
+    const text = await response.text();
+    console.log("[VEHICLES_CURRENT] Response status:", response.status);
+    console.log("[VEHICLES_CURRENT] Response body:", text.substring(0, 500));
+
+    let data: unknown;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      data = { message: text };
+    }
 
     if (!response.ok) {
-      console.error("[VEHICLES_CURRENT] Backend error:", response.status, data);
       return res.status(response.status).json({
         success: false,
-        error: data.error || data.message || "Failed to fetch vehicles",
+        error: (data as { error?: string; message?: string })?.error ||
+               (data as { error?: string; message?: string })?.message ||
+               "Failed to fetch vehicles",
         details: data,
       });
     }
 
     return res.status(200).json({
       success: true,
-      data: data,
+      data,
     });
   } catch (error) {
     console.error("[VEHICLES_CURRENT] Error:", error);
