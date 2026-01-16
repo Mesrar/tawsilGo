@@ -1,10 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { vehicleService } from "@/app/services/vehicleService";
 import { Vehicle } from "@/types/vehicle";
 import { RegisterVehicleDialog } from "@/components/drivers/RegisterVehicleDialog";
+import { ViewVehicleDialog } from "@/components/drivers/ViewVehicleDialog";
+import { EditVehicleDialog, EditVehicleData } from "@/components/drivers/EditVehicleDialog";
+import { DeleteVehicleDialog } from "@/components/drivers/DeleteVehicleDialog";
 import { VehicleCard } from "@/components/drivers/VehicleCard";
 import { DashboardCard } from "@/components/dashboard/DashboardCard";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -23,6 +27,12 @@ export default function DriverVehiclePage() {
     const { data: session } = useSession();
     const { toast } = useToast();
     const queryClient = useQueryClient();
+
+    // Dialog states
+    const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
+    const [viewDialogOpen, setViewDialogOpen] = useState(false);
+    const [editDialogOpen, setEditDialogOpen] = useState(false);
+    const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
     const {
         data: vehiclesData,
@@ -43,25 +53,23 @@ export default function DriverVehiclePage() {
     };
 
     const handleViewVehicle = (vehicle: Vehicle) => {
-        toast({
-            title: "View Vehicle",
-            description: `Viewing ${vehicle.brand} ${vehicle.model} details (coming soon)`,
-        });
+        setSelectedVehicle(vehicle);
+        setViewDialogOpen(true);
     };
 
     const handleEditVehicle = (vehicle: Vehicle) => {
-        toast({
-            title: "Edit Vehicle",
-            description: `Editing ${vehicle.brand} ${vehicle.model} (coming soon)`,
-        });
+        setSelectedVehicle(vehicle);
+        setEditDialogOpen(true);
     };
 
-    const handleDeleteVehicle = async (vehicle: Vehicle) => {
-        if (!confirm(`Are you sure you want to delete ${vehicle.brand} ${vehicle.model}?`)) {
-            return;
-        }
+    const handleDeleteVehicle = (vehicle: Vehicle) => {
+        setSelectedVehicle(vehicle);
+        setDeleteDialogOpen(true);
+    };
+
+    const handleConfirmDelete = async (vehicle: Vehicle, reason: string) => {
         try {
-            const response = await vehicleService.deleteVehicle(vehicle.id, "User requested deletion");
+            const response = await vehicleService.deleteVehicle(vehicle.id, reason);
             if (response.success) {
                 toast({
                     title: "Vehicle deleted",
@@ -78,6 +86,42 @@ export default function DriverVehiclePage() {
                 description: err instanceof Error ? err.message : "Failed to delete vehicle.",
                 variant: "destructive",
             });
+            throw err;
+        }
+    };
+
+    const handleSaveEdit = async (vehicle: Vehicle, data: EditVehicleData) => {
+        try {
+            const response = await vehicleService.updateVehicle(vehicle.id, {
+                type: data.type,
+                brand: data.brand,
+                model: data.model,
+                year: data.year,
+                color: data.color,
+                licensePlate: data.licensePlate,
+                capacity: {
+                    weight: { min: 0, max: data.maxWeight },
+                    volume: { min: 0, max: 10 },
+                    dimensions: { length: 200, width: 150, height: 150 },
+                },
+            });
+            if (response.success) {
+                toast({
+                    title: "Vehicle updated",
+                    description: `${data.brand} ${data.model} has been updated.`,
+                });
+                queryClient.invalidateQueries({ queryKey: ["driver-vehicles"] });
+            } else {
+                throw new Error(response.error?.message || "Failed to update vehicle");
+            }
+        } catch (err) {
+            console.error("Failed to update vehicle:", err);
+            toast({
+                title: "Update failed",
+                description: err instanceof Error ? err.message : "Failed to update vehicle.",
+                variant: "destructive",
+            });
+            throw err;
         }
     };
 
@@ -229,6 +273,27 @@ export default function DriverVehiclePage() {
                     </div>
                 </div>
             </DashboardCard>
+
+            {/* Dialogs */}
+            <ViewVehicleDialog
+                vehicle={selectedVehicle}
+                open={viewDialogOpen}
+                onOpenChange={setViewDialogOpen}
+            />
+
+            <EditVehicleDialog
+                vehicle={selectedVehicle}
+                open={editDialogOpen}
+                onOpenChange={setEditDialogOpen}
+                onSave={handleSaveEdit}
+            />
+
+            <DeleteVehicleDialog
+                vehicle={selectedVehicle}
+                open={deleteDialogOpen}
+                onOpenChange={setDeleteDialogOpen}
+                onConfirm={handleConfirmDelete}
+            />
         </div>
     );
 }
