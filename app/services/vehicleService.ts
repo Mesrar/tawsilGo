@@ -129,28 +129,33 @@ export const vehicleService = {
   ): Promise<ApiResponse<{ vehicle: Vehicle; message: string }>> {
     const formData = new FormData();
 
-    // Add all fields to FormData
-    Object.entries(data).forEach(([key, value]) => {
-      if (value !== undefined && !(value instanceof File) && !Array.isArray(value)) {
-        if (typeof value === 'object') {
-          formData.append(key, JSON.stringify(value));
-        } else {
-          formData.append(key, value);
-        }
-      }
-    });
-
-    // Handle arrays
-    if (data.features) {
-      formData.append('features', JSON.stringify(data.features));
+    // Type must be UPPERCASE: CAR, VAN, TRUCK, BUS, MOTORCYCLE
+    if (data.type) {
+      formData.append('type', data.type.toUpperCase());
     }
 
+    // Text fields
+    if (data.brand) formData.append('brand', data.brand);
+    if (data.model) formData.append('model', data.model);
+    if (data.licensePlate) formData.append('licensePlate', data.licensePlate);
+    if (data.year) formData.append('year', String(data.year));
+    if (data.color) formData.append('color', data.color);
+
+    // Flatten capacity object to individual fields
+    if (data.capacity) {
+      if (data.capacity.weight?.max) {
+        formData.append('maxWeight', String(data.capacity.weight.max));
+      }
+      if (data.capacity.volume?.max) {
+        formData.append('maxVolume', String(data.capacity.volume.max));
+      }
+    }
+
+    // Photos
     if (data.photos) {
-      data.photos.forEach((photo, index) => {
+      data.photos.forEach((photo) => {
         if (photo instanceof File) {
-          formData.append(`newPhotos`, photo);
-        } else if (typeof photo === 'string') {
-          formData.append(`existingPhotos`, photo);
+          formData.append('photos', photo);
         }
       });
     }
