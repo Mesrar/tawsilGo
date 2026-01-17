@@ -1,19 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
-import formidable from "formidable";
-import fs from "fs";
-import FormData from "form-data";
-
-// Disable body parser to handle FormData for PUT
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
 
 /**
  * GET /api/vehicles/[vehicleId] - Get vehicle details
- * PUT /api/vehicles/[vehicleId] - Update vehicle
+ * PUT /api/vehicles/[vehicleId] - Update vehicle (JSON)
  */
 export default async function handler(
   req: NextApiRequest,
@@ -41,7 +31,7 @@ export default async function handler(
   const backendUrl = `https://api.tawsilgo.com/api/v1/vehicles/${vehicleId}`;
 
   if (req.method === "GET") {
-    return handleGet(req, res, backendUrl, token.accessToken as string);
+    return handleGet(res, backendUrl, token.accessToken as string);
   } else if (req.method === "PUT") {
     return handlePut(req, res, backendUrl, token.accessToken as string);
   } else {
@@ -50,7 +40,6 @@ export default async function handler(
 }
 
 async function handleGet(
-  req: NextApiRequest,
   res: NextApiResponse,
   backendUrl: string,
   accessToken: string
@@ -101,93 +90,30 @@ async function handlePut(
   accessToken: string
 ) {
   try {
-    // Parse form data
-    const form = formidable({
-      maxFileSize: 10 * 1024 * 1024,
-      maxFiles: 10,
+    console.log("[VEHICLE_UPDATE] Updating:", backendUrl);
+    console.log("[VEHICLE_UPDATE] Body:", JSON.stringify(req.body));
+
+    const response = await fetch(backendUrl, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify(req.body),
     });
 
-    const [fields, files] = await form.parse(req);
+    const text = await response.text();
+    console.log("[VEHICLE_UPDATE] Response status:", response.status);
+    console.log("[VEHICLE_UPDATE] Response:", text.substring(0, 500));
 
-    console.log("[VEHICLE_UPDATE] Fields:", Object.keys(fields));
-    console.log("[VEHICLE_UPDATE] Files:", Object.keys(files));
-
-    // Build FormData for backend
-    const formData = new FormData();
-
-    // Add text fields
-    for (const [key, values] of Object.entries(fields)) {
-      if (values && values[0]) {
-        let value = values[0];
-        // Backend expects uppercase vehicle type
-        if (key === "type") {
-          value = value.toUpperCase();
-        }
-        formData.append(key, value);
-      }
-    }
-
-    // Add files
-    for (const [key, fileArray] of Object.entries(files)) {
-      if (fileArray && fileArray.length > 0) {
-        for (const file of fileArray) {
-          formData.append(key, fs.createReadStream(file.filepath), {
-            filename: file.originalFilename || "file",
-            contentType: file.mimetype || "application/octet-stream",
-          });
-        }
-      }
-    }
-
-    // Submit using form-data's built-in submit method
-    const response = await new Promise<{ status: number; body: string }>((resolve, reject) => {
-      formData.submit(
-        {
-          protocol: "https:",
-          host: "api.tawsilgo.com",
-          port: 443,
-          path: `/api/v1/vehicles/${req.query.vehicleId}`,
-          method: "PUT",
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        },
-        (err, response) => {
-          if (err) {
-            console.error("[VEHICLE_UPDATE] Submit error:", err);
-            reject(err);
-            return;
-          }
-
-          let body = "";
-          response.on("data", (chunk) => (body += chunk));
-          response.on("end", () => {
-            console.log("[VEHICLE_UPDATE] Response status:", response.statusCode);
-            resolve({ status: response.statusCode || 500, body });
-          });
-          response.on("error", reject);
-        }
-      );
-    });
-
-    // Cleanup temp files
-    for (const fileArray of Object.values(files)) {
-      for (const file of fileArray || []) {
-        if (file.filepath) {
-          fs.unlink(file.filepath, () => {});
-        }
-      }
-    }
-
-    // Parse response
     let data: unknown;
     try {
-      data = JSON.parse(response.body);
+      data = JSON.parse(text);
     } catch {
-      data = { message: response.body };
+      data = { message: text };
     }
 
-    if (response.status >= 400) {
+    if (!response.ok) {
       console.error("[VEHICLE_UPDATE] Backend error:", response.status, data);
       return res.status(response.status).json({
         success: false,

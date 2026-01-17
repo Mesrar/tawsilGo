@@ -127,45 +127,24 @@ export const vehicleService = {
     vehicleId: string,
     data: UpdateVehicleRequest
   ): Promise<ApiResponse<{ vehicle: Vehicle; message: string }>> {
-    const formData = new FormData();
+    // Build JSON payload - backend expects JSON, not FormData
+    const payload: Record<string, unknown> = {};
 
     // Type must be UPPERCASE: CAR, VAN, TRUCK, BUS, MOTORCYCLE
-    if (data.type) {
-      formData.append('type', data.type.toUpperCase());
-    }
+    if (data.type) payload.type = data.type.toUpperCase();
+    if (data.brand) payload.brand = data.brand;
+    if (data.model) payload.model = data.model;
+    if (data.licensePlate) payload.licensePlate = data.licensePlate;
+    if (data.year) payload.year = data.year;
+    if (data.color) payload.color = data.color;
 
-    // Text fields
-    if (data.brand) formData.append('brand', data.brand);
-    if (data.model) formData.append('model', data.model);
-    if (data.licensePlate) formData.append('licensePlate', data.licensePlate);
-    if (data.year) formData.append('year', String(data.year));
-    if (data.color) formData.append('color', data.color);
+    // Flatten capacity to individual fields
+    if (data.capacity?.weight?.max) payload.maxWeight = data.capacity.weight.max;
+    if (data.capacity?.volume?.max) payload.maxVolume = data.capacity.volume.max;
 
-    // Flatten capacity object to individual fields
-    if (data.capacity) {
-      if (data.capacity.weight?.max) {
-        formData.append('maxWeight', String(data.capacity.weight.max));
-      }
-      if (data.capacity.volume?.max) {
-        formData.append('maxVolume', String(data.capacity.volume.max));
-      }
-    }
-
-    // Photos
-    if (data.photos) {
-      data.photos.forEach((photo) => {
-        if (photo instanceof File) {
-          formData.append('photos', photo);
-        }
-      });
-    }
-
-    return apiClient.fetch<{ vehicle: Vehicle; message: string }>(
+    return apiClient.put<{ vehicle: Vehicle; message: string }>(
       `/api/vehicles/${vehicleId}`,
-      {
-        method: "PUT",
-        body: formData,
-      }
+      payload
     );
   },
 
