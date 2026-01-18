@@ -184,10 +184,11 @@ class AdminService {
      */
     async getDriverDocuments(driverId: string): Promise<DriverDocument[]> {
         try {
-            const response = await apiClient.get<{ documents: DriverDocument[] }>(
+            // Backend returns: {data: {documents: [], total: 0}, success: true}
+            const response = await apiClient.get<{ data: { documents: DriverDocument[] | null; total: number }; success: boolean }>(
                 `${this.baseUrl}/api/v1/admin/drivers/${driverId}/documents`
             );
-            return response.data?.documents || [];
+            return response.data?.data?.documents || [];
         } catch (error) {
             console.warn("Documents endpoint not available, using mock data");
             // Return mock documents for UI development
@@ -254,10 +255,11 @@ class AdminService {
      */
     async getDriverStatusHistory(driverId: string): Promise<StatusHistoryEntry[]> {
         try {
-            const response = await apiClient.get<{ history: StatusHistoryEntry[] }>(
+            // Backend returns: {data: {history: [], total: 0}, success: true}
+            const response = await apiClient.get<{ data: { history: StatusHistoryEntry[] | null; total: number }; success: boolean }>(
                 `${this.baseUrl}/api/v1/admin/drivers/${driverId}/status-history`
             );
-            return response.data?.history || [];
+            return response.data?.data?.history || [];
         } catch (error) {
             console.warn("Status history endpoint not available, using mock data");
             // Return mock history for UI development
