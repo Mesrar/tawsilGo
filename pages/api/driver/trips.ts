@@ -1,40 +1,69 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
 
-// Backend trip response type
+// Backend trip response type - matches actual API response
 interface BackendTrip {
   id: string;
   status: string;
   departureTime: string;
   arrivalTime?: string;
-  origin: string;
-  destination: string;
+  departureCity: string;
+  destinationCity: string;
   departureAddress?: string;
   destinationAddress?: string;
-  capacity: number;
+  departureCountry?: string;
+  destinationCountry?: string;
+  totalCapacity: number;
   remainingCapacity: number;
   vehicleId?: string;
   createdByUserId?: string;
-  price?: number;
+  price?: {
+    basePrice: number;
+    pricePerKg: number;
+    pricePerKm: number;
+    minimumPrice: number;
+    currency: string;
+  };
   stops?: unknown[];
+  dapartPoint?: { lat: number; lng: number };
+  arrivalPoint?: { lat: number; lng: number };
+  statistics?: {
+    totalBookings: number;
+    capacityUtilized: number;
+    totalParcelWeight: number;
+    pendingBookings: number;
+    completedBookings: number;
+  };
 }
 
 // Transform backend trip to frontend format
 function transformTrip(trip: BackendTrip) {
+  // Build display location strings
+  const fromLocation = trip.departureAddress ||
+    `${trip.departureCity}${trip.departureCountry ? ', ' + trip.departureCountry : ''}`;
+  const toLocation = trip.destinationAddress ||
+    `${trip.destinationCity}${trip.destinationCountry ? ', ' + trip.destinationCountry : ''}`;
+
   return {
     id: trip.id,
-    origin: trip.origin,
-    destination: trip.destination,
+    origin: fromLocation,
+    destination: toLocation,
     departure_time: trip.departureTime,
     arrival_time: trip.arrivalTime,
-    status: trip.status,
-    price: trip.price || 0,
+    status: trip.status.toLowerCase(), // Backend sends uppercase, frontend expects lowercase
+    price: trip.price?.basePrice || 0,
     stops: trip.stops || [],
-    departure_address: trip.departureAddress || trip.origin,
-    destination_address: trip.destinationAddress || trip.destination,
-    total_capacity: trip.capacity,
+    departure_address: trip.departureAddress || trip.departureCity,
+    destination_address: trip.destinationAddress || trip.destinationCity,
+    departure_city: trip.departureCity,
+    destination_city: trip.destinationCity,
+    departure_country: trip.departureCountry,
+    destination_country: trip.destinationCountry,
+    total_capacity: trip.totalCapacity,
     remaining_capacity: trip.remainingCapacity,
     vehicle_id: trip.vehicleId,
+    price_details: trip.price,
+    statistics: trip.statistics,
   };
 }
 
