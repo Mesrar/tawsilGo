@@ -1,27 +1,47 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
-import { z } from "zod";
 
-const stopSchema = z.object({
-  location: z.string().min(1, "Location is required"),
-  arrivalTime: z
-    .string()
-    .refine((val) => !isNaN(Date.parse(val)), "Invalid date format"),
-  stopType: z.enum(["pickup", "delivery", "both"]),
-  order: z.number().int().positive("Order must be a positive integer"),
-});
+// Backend trip response type
+interface BackendTrip {
+  id: string;
+  status: string;
+  departureTime: string;
+  arrivalTime?: string;
+  origin: string;
+  destination: string;
+  departureAddress?: string;
+  destinationAddress?: string;
+  capacity: number;
+  remainingCapacity: number;
+  vehicleId?: string;
+  createdByUserId?: string;
+  price?: number;
+  stops?: unknown[];
+}
 
-const tripSchema = z.object({
-  origin: z.string().min(1, "Origin is required"),
-  destination: z.string().min(1, "Destination is required"),
-  departureTime: z
-    .string()
-    .refine((val) => !isNaN(Date.parse(val)), "Invalid date format"),
-  capacity: z.number().min(0.1, "Capacity must be greater than 0"),
-  price: z.number().min(0.1, "Price must be greater than 0"),
-  stops: z.array(stopSchema).optional(),
-});
+// Transform backend trip to frontend format
+function transformTrip(trip: BackendTrip) {
+  return {
+    id: trip.id,
+    origin: trip.origin,
+    destination: trip.destination,
+    departure_time: trip.departureTime,
+    arrival_time: trip.arrivalTime,
+    status: trip.status,
+    price: trip.price || 0,
+    stops: trip.stops || [],
+    departure_address: trip.departureAddress || trip.origin,
+    destination_address: trip.destinationAddress || trip.destination,
+    total_capacity: trip.capacity,
+    remaining_capacity: trip.remainingCapacity,
+    vehicle_id: trip.vehicleId,
+  };
+}
 
+/**
+ * GET /api/driver/trips
+ * Fetch driver's trips from backend parcel service
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -34,18 +54,31 @@ export default async function handler(
     // Get JWT token from NextAuth session
     const token = await getToken({
       req,
-      secret: process.env.NEXTAUTH_SECRET
+      secret: process.env.NEXTAUTH_SECRET,
     });
 
     if (!token || !token.accessToken) {
       return res.status(401).json({
         success: false,
-        error: "Authentication required"
+        error: "Authentication required",
       });
     }
 
-    const parcelApiUrl = process.env.PARCEL_API_URL;
-    const response = await fetch(`${parcelApiUrl}/driver/trips`, {
+    // Build query params
+    const { status, page = "1", limit = "10" } = req.query;
+    const queryParams = new URLSearchParams({
+      page: String(page),
+      limit: String(limit),
+    });
+    if (status && typeof status === "string") {
+      queryParams.append("status", status);
+    }
+
+    // Backend URL - parcel service
+    const backendUrl = `https://api.tawsilgo.com/api/v1/parcels/driver/trips?${queryParams.toString()}`;
+    console.log("[DRIVER_TRIPS] Fetching from:", backendUrl);
+
+    const response = await fetch(backendUrl, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token.accessToken}`,
@@ -53,38 +86,53 @@ export default async function handler(
       },
     });
 
+    const text = await response.text();
+    console.log("[DRIVER_TRIPS] Response status:", response.status);
+
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error(
-        "Failed to fetch trips",
-        response.status,
-        errorText
-      );
+      console.error("[DRIVER_TRIPS] Backend error:", text);
       return res.status(response.status).json({
         success: false,
         error: "Failed to fetch trips from backend",
-        details: errorText
+        details: text,
       });
     }
 
-    // Assuming the backend returns a JSON array of trips
-    const tripsData = await response.json();
+    let data: unknown;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      return res.status(500).json({
+        success: false,
+        error: "Invalid response from backend",
+      });
+    }
+
+    // Backend returns { pagination: {...}, trips: [...] }
+    const backendData = data as {
+      pagination?: {
+        page?: number;
+        totalItems?: number;
+        totalPages?: number;
+      };
+      trips?: BackendTrip[];
+    };
+
+    const trips = backendData.trips || [];
+    const transformedTrips = trips.map(transformTrip);
 
     return res.status(200).json({
       success: true,
-      trips: tripsData
+      trips: transformedTrips,
+      page: backendData.pagination?.page || 1,
+      limit: parseInt(String(limit)),
+      total: backendData.pagination?.totalItems || trips.length,
     });
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return res.status(400).json({
-        success: false,
-        errors: error.errors
-      });
-    }
-    console.error("Driver trips API error:", error);
+    console.error("[DRIVER_TRIPS] Error:", error);
     return res.status(500).json({
       success: false,
-      message: "Internal server error"
+      error: error instanceof Error ? error.message : "Internal server error",
     });
   }
 }

@@ -1,47 +1,83 @@
-
 import { NextApiRequest, NextApiResponse } from "next";
-import { z } from "zod";
+import { getToken } from "next-auth/jwt";
 
-
-
+/**
+ * GET /api/driver/trips/[id]
+ * Fetch trip details from backend parcel service
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  try {
-    const token = req.cookies.token;
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
 
-    if (!token) {
-      return res.status(401).json({ error: "Unauthorized" });
+  try {
+    // Get JWT token from NextAuth session
+    const token = await getToken({
+      req,
+      secret: process.env.NEXTAUTH_SECRET,
+    });
+
+    if (!token || !token.accessToken) {
+      return res.status(401).json({
+        success: false,
+        error: "Authentication required",
+      });
     }
-     // Extract the trip ID from the request parameters
-     const { id } = req.query;
-    const parcelApiUrl = process.env.PARCEL_API_URL;
-    const response = await fetch(`${parcelApiUrl}/driver/trips/${id}/details`, {
+
+    const { id } = req.query;
+    if (!id || typeof id !== "string") {
+      return res.status(400).json({
+        success: false,
+        error: "Trip ID is required",
+      });
+    }
+
+    // Backend URL - parcel service
+    const backendUrl = `https://api.tawsilgo.com/api/v1/parcels/driver/trips/${id}`;
+    console.log("[TRIP_DETAILS] Fetching from:", backendUrl);
+
+    const response = await fetch(backendUrl, {
+      method: "GET",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token.accessToken}`,
+        "Content-Type": "application/json",
       },
     });
 
+    const text = await response.text();
+    console.log("[TRIP_DETAILS] Response status:", response.status);
+
     if (!response.ok) {
-      console.error(
-        "Falied to fetch trips",
-        response.status,
-        await response.text()
-      );
-      throw new Error("Failed to fetch trips");
+      console.error("[TRIP_DETAILS] Backend error:", text);
+      return res.status(response.status).json({
+        success: false,
+        error: "Failed to fetch trip details",
+        details: text,
+      });
     }
 
-    // Assuming the backend returns a JSON array of trips like the example provided.
-    const tripsData = await response.json();
+    let data: unknown;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      return res.status(500).json({
+        success: false,
+        error: "Invalid response from backend",
+      });
+    }
 
-    res
-      .status(201)
-      .json({ trip: tripsData });
+    return res.status(200).json({
+      success: true,
+      trip: data,
+    });
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return res.status(400).json({ errors: error.errors });
-    }
-    res.status(500).json({ message: "Internal server error" });
+    console.error("[TRIP_DETAILS] Error:", error);
+    return res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : "Internal server error",
+    });
   }
 }

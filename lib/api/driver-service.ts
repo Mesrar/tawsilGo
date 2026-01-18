@@ -191,7 +191,7 @@ class DriverService {
     }
 
     /**
-     * Get Driver Trips
+     * Get Driver Trips - uses API route that proxies to parcel service
      */
     async getTrips(status?: string, page: number = 1, limit: number = 10): Promise<Trip[]> {
         const queryParams = new URLSearchParams({
@@ -200,7 +200,8 @@ class DriverService {
         });
         if (status) queryParams.append("status", status);
 
-        const response = await apiClient.get<TripsListResponse>(`${this.baseUrl}/api/v1/driver/trips?${queryParams.toString()}`);
+        // Use the API route which proxies to the backend parcel service
+        const response = await apiClient.get<TripsListResponse>(`/api/driver/trips?${queryParams.toString()}`);
 
         if (!response.success) {
             console.error("Failed to fetch trips:", response.error);
@@ -219,7 +220,7 @@ class DriverService {
      * Get Trip Details
      */
     async getTripDetails(tripId: string): Promise<TripDetails> {
-        const response = await apiClient.get<any>(`${this.baseUrl}/api/v1/driver/trips/${tripId}/details`);
+        const response = await apiClient.get<any>(`/api/driver/trips/${tripId}`);
 
         if (!response.success) {
             // Fallback for demo/dev if endpoint missing or fails
@@ -320,10 +321,10 @@ class DriverService {
     }
 
     /**
-     * Create a new trip
+     * Create a new trip - uses API route that proxies to parcel service
      */
     async createTrip(data: CreateTripRequest): Promise<Trip> {
-        const response = await apiClient.post<ApiTrip>(`${this.baseUrl}/api/v1/driver/trips`, data);
+        const response = await apiClient.post<ApiTrip>(`/api/driver/trips/add`, data);
 
         if (!response.success) {
             throw new Error(response.error?.message || "Failed to create trip");
@@ -336,7 +337,7 @@ class DriverService {
      * Start a trip
      */
     async startTrip(tripId: string): Promise<void> {
-        const response = await apiClient.put<void>(`${this.baseUrl}/api/v1/driver/trips/${tripId}/start`, {});
+        const response = await apiClient.put<void>(`/api/driver/trips/${tripId}/start`, {});
         if (!response.success) {
             throw new Error(response.error?.message || "Failed to start trip");
         }
@@ -346,7 +347,7 @@ class DriverService {
      * Complete a trip
      */
     async completeTrip(tripId: string): Promise<void> {
-        const response = await apiClient.put<void>(`${this.baseUrl}/api/v1/driver/trips/${tripId}/complete`, {});
+        const response = await apiClient.put<void>(`/api/driver/trips/${tripId}/complete`, {});
         if (!response.success) {
             throw new Error(response.error?.message || "Failed to complete trip");
         }
