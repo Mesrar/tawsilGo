@@ -29,8 +29,8 @@ export default async function handler(
 
     console.log("[CREATE_TRIP] Request body:", JSON.stringify(req.body));
 
-    // Backend URL - parcel service
-    const backendUrl = "https://api.tawsilgo.com/api/v1/parcels/driver/trips";
+    // Backend URL - driver trips endpoint
+    const backendUrl = "https://api.tawsilgo.com/api/v1/driver/trips";
     console.log("[CREATE_TRIP] Posting to:", backendUrl);
 
     const response = await fetch(backendUrl, {

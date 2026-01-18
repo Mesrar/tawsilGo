@@ -74,8 +74,8 @@ export default async function handler(
       queryParams.append("status", status);
     }
 
-    // Backend URL - parcel service
-    const backendUrl = `https://api.tawsilgo.com/api/v1/parcels/driver/trips?${queryParams.toString()}`;
+    // Backend URL - driver trips endpoint
+    const backendUrl = `https://api.tawsilgo.com/api/v1/driver/trips?${queryParams.toString()}`;
     console.log("[DRIVER_TRIPS] Fetching from:", backendUrl);
 
     const response = await fetch(backendUrl, {

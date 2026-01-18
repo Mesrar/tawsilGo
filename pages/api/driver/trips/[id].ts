@@ -35,8 +35,8 @@ export default async function handler(
       });
     }
 
-    // Backend URL - parcel service
-    const backendUrl = `https://api.tawsilgo.com/api/v1/parcels/driver/trips/${id}`;
+    // Backend URL - driver trips endpoint
+    const backendUrl = `https://api.tawsilgo.com/api/v1/driver/trips/${id}`;
     console.log("[TRIP_DETAILS] Fetching from:", backendUrl);
 
     const response = await fetch(backendUrl, {
