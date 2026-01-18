@@ -20,7 +20,19 @@ import {
   AlertTriangle,
   Truck,
   Weight,
+  MoreVertical,
+  Pencil,
+  Trash2,
 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { EditTripDialog } from "@/components/drivers/EditTripDialog";
+import { DeleteTripDialog } from "@/components/drivers/DeleteTripDialog";
 import { useToast } from "@/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
@@ -146,6 +158,8 @@ export default function TripDetailsPage() {
   const [actionLoading, setActionLoading] = useState(false);
   const [showStartDialog, setShowStartDialog] = useState(false);
   const [showCompleteDialog, setShowCompleteDialog] = useState(false);
+  const [showEditDialog, setShowEditDialog] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
   // Fetch trip data
   useEffect(() => {
@@ -323,7 +337,34 @@ export default function TripDetailsPage() {
                 <p className="text-xs text-slate-500 font-mono">#{trip.id.substring(0, 8)}</p>
               </div>
             </div>
-            {getStatusBadge(trip.status)}
+            <div className="flex items-center gap-2">
+              {getStatusBadge(trip.status)}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <MoreVertical className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem
+                    onClick={() => setShowEditDialog(true)}
+                    disabled={!isScheduled}
+                  >
+                    <Pencil className="w-4 h-4 mr-2" />
+                    Edit Trip
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    onClick={() => setShowDeleteDialog(true)}
+                    className="text-red-600 focus:text-red-600"
+                    disabled={!isScheduled}
+                  >
+                    <Trash2 className="w-4 h-4 mr-2" />
+                    Delete Trip
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
       </div>
@@ -555,6 +596,46 @@ export default function TripDetailsPage() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      {/* Edit Trip Dialog */}
+      <EditTripDialog
+        trip={{
+          id: trip.id,
+          departureCity: trip.departureCity,
+          destinationCity: trip.destinationCity,
+          departureAddress: trip.departureAddress,
+          destinationAddress: trip.destinationAddress,
+          departureTime: trip.departureTime,
+          totalCapacity: trip.totalCapacity,
+          price: trip.price,
+          status: trip.status,
+        }}
+        open={showEditDialog}
+        onOpenChange={setShowEditDialog}
+        onTripUpdated={() => {
+          setShowEditDialog(false);
+          // Refresh trip data
+          window.location.reload();
+        }}
+      />
+
+      {/* Delete Trip Dialog */}
+      <DeleteTripDialog
+        trip={{
+          id: trip.id,
+          departureCity: trip.departureCity,
+          destinationCity: trip.destinationCity,
+          departureTime: trip.departureTime,
+          status: trip.status,
+          statistics: trip.statistics,
+        }}
+        open={showDeleteDialog}
+        onOpenChange={setShowDeleteDialog}
+        onTripDeleted={() => {
+          setShowDeleteDialog(false);
+          router.push(`/${locale}/drivers/dashboard/trips`);
+        }}
+      />
     </div>
   );
 }
