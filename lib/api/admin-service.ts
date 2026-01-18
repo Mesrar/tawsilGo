@@ -29,6 +29,41 @@ export interface SetDriverStatusRequest {
     reason: string;
 }
 
+// Document verification types
+export interface DriverDocument {
+    id: string;
+    name: string;
+    type: 'license' | 'id_card' | 'insurance' | 'vehicle_registration' | 'other';
+    url: string;
+    status: 'pending' | 'approved' | 'rejected';
+    uploaded_at: string;
+    verified_at?: string;
+    verified_by?: string;
+    rejection_reason?: string;
+}
+
+export interface DocumentVerificationRequest {
+    status: 'approved' | 'rejected';
+    notes?: string;
+}
+
+export interface BulkDocumentVerifyRequest {
+    document_ids: string[];
+    notes?: string;
+}
+
+// Status history types
+export interface StatusHistoryEntry {
+    id: string;
+    action_type: 'verified' | 'unverified' | 'activated' | 'deactivated' | 'document_approved' | 'document_rejected' | 'created';
+    admin_id?: string;
+    admin_name?: string;
+    previous_value?: string;
+    new_value: string;
+    notes?: string;
+    timestamp: string;
+}
+
 // Raw API response shape
 interface ApiDriver {
     id: string;
@@ -142,6 +177,116 @@ class AdminService {
      */
     async verifyOrganization(id: string): Promise<void> {
         await apiClient.post<void>(`${this.baseUrl}/api/v1/admin/organizations/${id}/verify`, {});
+    }
+
+    /**
+     * Get driver documents
+     */
+    async getDriverDocuments(driverId: string): Promise<DriverDocument[]> {
+        try {
+            const response = await apiClient.get<{ documents: DriverDocument[] }>(
+                `${this.baseUrl}/api/v1/admin/drivers/${driverId}/documents`
+            );
+            return response.data?.documents || [];
+        } catch (error) {
+            console.warn("Documents endpoint not available, using mock data");
+            // Return mock documents for UI development
+            return [
+                {
+                    id: "doc-1",
+                    name: "Driving License",
+                    type: "license",
+                    url: "https://placehold.co/600x400/png?text=Driving+License",
+                    status: "pending",
+                    uploaded_at: new Date().toISOString()
+                },
+                {
+                    id: "doc-2",
+                    name: "ID Card",
+                    type: "id_card",
+                    url: "https://placehold.co/600x400/png?text=ID+Card",
+                    status: "pending",
+                    uploaded_at: new Date().toISOString()
+                },
+                {
+                    id: "doc-3",
+                    name: "Insurance Policy",
+                    type: "insurance",
+                    url: "https://placehold.co/600x400/png?text=Insurance",
+                    status: "approved",
+                    uploaded_at: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+                    verified_at: new Date().toISOString(),
+                    verified_by: "Admin"
+                }
+            ];
+        }
+    }
+
+    /**
+     * Verify or reject a single document
+     */
+    async verifyDocument(
+        driverId: string,
+        documentId: string,
+        data: DocumentVerificationRequest
+    ): Promise<void> {
+        await apiClient.put<void>(
+            `${this.baseUrl}/api/v1/admin/drivers/${driverId}/documents/${documentId}/verify`,
+            data
+        );
+    }
+
+    /**
+     * Bulk verify all pending documents
+     */
+    async bulkVerifyDocuments(
+        driverId: string,
+        data: BulkDocumentVerifyRequest
+    ): Promise<void> {
+        await apiClient.put<void>(
+            `${this.baseUrl}/api/v1/admin/drivers/${driverId}/documents/bulk-verify`,
+            data
+        );
+    }
+
+    /**
+     * Get driver status change history
+     */
+    async getDriverStatusHistory(driverId: string): Promise<StatusHistoryEntry[]> {
+        try {
+            const response = await apiClient.get<{ history: StatusHistoryEntry[] }>(
+                `${this.baseUrl}/api/v1/admin/drivers/${driverId}/status-history`
+            );
+            return response.data?.history || [];
+        } catch (error) {
+            console.warn("Status history endpoint not available, using mock data");
+            // Return mock history for UI development
+            return [
+                {
+                    id: "hist-1",
+                    action_type: "created",
+                    new_value: "Driver account created",
+                    timestamp: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
+                },
+                {
+                    id: "hist-2",
+                    action_type: "document_approved",
+                    admin_name: "Admin User",
+                    new_value: "Insurance Policy approved",
+                    notes: "Document verified",
+                    timestamp: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
+                },
+                {
+                    id: "hist-3",
+                    action_type: "activated",
+                    admin_name: "Admin User",
+                    previous_value: "inactive",
+                    new_value: "active",
+                    notes: "Driver activated after document review",
+                    timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString()
+                }
+            ];
+        }
     }
 }
 
