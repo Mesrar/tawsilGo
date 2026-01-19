@@ -52,7 +52,7 @@ export default function DriverDashboard() {
             You haven't completed your driver registration yet. Complete your profile to start accepting delivery jobs.
           </p>
         </div>
-        <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={() => window.location.href = '/become-driver'}>
+        <Button size="lg" className="bg-blue-600 hover:bg-blue-700" onClick={() => window.location.href = '/drivers/register'}>
           Complete Registration
         </Button>
       </div>
