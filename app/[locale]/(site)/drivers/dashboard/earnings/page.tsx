@@ -16,7 +16,7 @@ export default function EarningsPage() {
     const userId = (session?.user as any)?.id;
 
     // 1. Fetch Profile to get real Driver ID
-    const { data: profile, isLoading: isProfileLoading } = useQuery({
+    const { data: profile, isLoading: isProfileLoading, error: profileError } = useQuery({
         queryKey: ['driver-profile', userId],
         queryFn: () => driverService.getProfile(userId!),
         enabled: !!userId,
@@ -25,7 +25,7 @@ export default function EarningsPage() {
 
     const driverId = profile?.id;
 
-    const { data: earnings, isLoading: isEarningsLoading, error } = useQuery({
+    const { data: earnings, isLoading: isEarningsLoading, error: earningsError } = useQuery({
         queryKey: ['driver-earnings', driverId],
         queryFn: () => driverService.getEarnings(driverId!),
         enabled: !!driverId
@@ -37,13 +37,30 @@ export default function EarningsPage() {
         return <div className="p-8 text-center">Loading financial data...</div>;
     }
 
-    if (error) {
+    // Handle missing profile
+    if (profileError || !profile) {
+        return (
+            <div className="p-8 text-center text-muted-foreground">
+                <p>Profile not found or complete. Please complete your driver registration.</p>
+                <Button className="mt-4" onClick={() => window.location.href = '/become-driver'}>
+                    Complete Registration
+                </Button>
+            </div>
+        );
+    }
+
+    if (earningsError) {
         return (
             <Alert variant="destructive">
                 <AlertTitle>Error</AlertTitle>
                 <AlertDescription>Failed to load earnings history.</AlertDescription>
             </Alert>
         );
+    }
+
+    // Safety check for undefined earnings data
+    if (!earnings) {
+        return <div className="p-8 text-center">No earnings data available.</div>;
     }
 
     return (

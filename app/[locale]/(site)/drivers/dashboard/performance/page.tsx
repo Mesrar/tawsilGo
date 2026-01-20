@@ -25,7 +25,7 @@ export default function PerformancePage() {
     const driverId = profile?.id;
 
     // 2. Fetch Stats using real Driver ID
-    const { data: stats, isLoading: isStatsLoading, error } = useQuery({
+    const { data: stats, isLoading: isStatsLoading, error: statsError } = useQuery({
         queryKey: ['driver-stats', driverId],
         queryFn: () => driverService.getStatistics(driverId!),
         enabled: !!driverId,
@@ -53,7 +53,19 @@ export default function PerformancePage() {
         return <div className="p-8 text-center">Loading performance data...</div>;
     }
 
-    if (error) {
+    // Handle missing profile
+    if (!profile) {
+        return (
+            <div className="p-8 text-center text-muted-foreground">
+                <p>Profile not found or complete. Please complete your driver registration.</p>
+                <Button className="mt-4" onClick={() => window.location.href = '/become-driver'}>
+                    Complete Registration
+                </Button>
+            </div>
+        );
+    }
+
+    if (statsError) {
         return (
             <Alert variant="destructive">
                 <AlertCircle className="h-4 w-4" />
