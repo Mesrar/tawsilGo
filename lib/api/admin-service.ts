@@ -64,6 +64,31 @@ export interface StatusHistoryEntry {
     timestamp: string;
 }
 
+// Vehicle types
+export interface Vehicle {
+    id: string;
+    make: string;
+    model: string;
+    year: number;
+    plateNumber: string;
+    type: string;
+    capacity: number;
+    status: 'pending' | 'verified' | 'rejected' | 'verification_pending';
+    driverId: string;
+    driverName: string;
+    documents?: {
+        name: string;
+        url: string;
+        status: string;
+    }[];
+    createdAt: string;
+}
+
+export interface VerifyVehicleRequest {
+    status: 'verified' | 'rejected';
+    notes?: string;
+}
+
 // Raw API response shape
 interface ApiDriver {
     id: string;
@@ -289,6 +314,57 @@ class AdminService {
                 }
             ];
         }
+    }
+
+    /**
+     * List all vehicles
+     */
+    async getVehicles(): Promise<Vehicle[]> {
+        // Expected endpoint: GET /api/v1/admin/vehicles
+        const response = await apiClient.get<{ vehicles: any[] }>(`${this.baseUrl}/api/v1/admin/vehicles`);
+
+        if (!response.success && !response.data) {
+            console.warn("Vehicles endpoint failed or empty, returning mock data");
+            return [
+                {
+                    id: "v1",
+                    make: "Volvo",
+                    model: "FH16",
+                    year: 2022,
+                    plateNumber: "WA-12345-AB",
+                    type: "Truck",
+                    capacity: 20000,
+                    status: "verification_pending",
+                    driverId: "d1",
+                    driverName: "Ahmed Benali",
+                    createdAt: new Date().toISOString()
+                }
+            ];
+        }
+
+        const vehicles = response.data?.vehicles || (response.data as any) || [];
+
+        return vehicles.map((v: any) => ({
+            id: v.id,
+            make: v.make || "Unknown",
+            model: v.model || "Unknown",
+            year: v.year || 2020,
+            plateNumber: v.plate_number || v.plateNumber || "Unknown",
+            type: v.type || "Unknown",
+            capacity: v.capacity || 0,
+            status: v.status || "pending",
+            driverId: v.driver_id || v.driverId || "",
+            driverName: v.driver_name || v.driverName || "Unknown Driver",
+            createdAt: v.created_at || v.createdAt || new Date().toISOString()
+        }));
+    }
+
+    /**
+     * Verify a vehicle
+     */
+    async verifyVehicle(id: string, data: VerifyVehicleRequest): Promise<void> {
+        // Expected endpoint: PUT /api/v1/admin/vehicles/:id/verify
+        await apiClient.put<void>(`${this.baseUrl}/api/v1/admin/vehicles/${id}/verify`, data);
     }
 }
 

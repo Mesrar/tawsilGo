@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { LogOut, LayoutDashboard, Truck, Building2, Calendar, MessageSquare, BarChart3, Settings, HelpCircle, FileText, Package, Users, MapPin, QrCode, Wallet } from "lucide-react";
+import { LogOut, LayoutDashboard, Truck, Building2, Calendar, MessageSquare, BarChart3, Settings, HelpCircle, FileText, Package, Users, MapPin, QrCode, Wallet, Car } from "lucide-react";
 import { signOut } from "next-auth/react";
 
 interface SidebarItem {
@@ -97,6 +97,7 @@ export function DashboardSidebar({ items, logoutUrl = "/api/auth/signout", class
 export const adminNavItems: SidebarItem[] = [
     { icon: LayoutDashboard, label: "Dashboard", href: "/admin" },
     { icon: Truck, label: "Drivers", href: "/admin/drivers" },
+    { icon: Car, label: "Vehicles", href: "/admin/vehicles" },
     { icon: Building2, label: "Organizations", href: "/admin/organizations" },
     { icon: Calendar, label: "Schedule", href: "/admin/schedule" },
     { icon: MessageSquare, label: "Messages", href: "/admin/messages", badge: 2 },
